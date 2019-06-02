@@ -1644,8 +1644,8 @@ td {
   text-align: right;
 }
 
-      .main {
-        max-width: 100px;
+      .post-detail .post .post-content p {
+        font-size: 20px;
       }
     
       body {
