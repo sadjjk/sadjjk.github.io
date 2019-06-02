@@ -1645,6 +1645,10 @@ td {
 }
 
       .main {
-        background: #66d9e8;
+        max-width: 100px;
+      }
+    
+      body {
+        background: #ced4da;
       }
     
