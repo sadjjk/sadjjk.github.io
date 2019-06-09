@@ -1375,7 +1375,7 @@ li.pingback:first-child {
 /* 600px */
 @media all and (min-width: 37.5em) {
   .comments {
-    padding: 0 5.55% 3em;
+    padding: 1 5.55% 3em;
     width: 88.88%;
     margin: 0 auto;
   }
