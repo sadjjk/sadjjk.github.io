@@ -2774,7 +2774,7 @@ li.pingback:first-child {
   content: "";
   width: 3px;
   height: 100%;
-  background: #e44d4d;
+  background: #f1f3f5;
   left: 50%;
   top: 0;
   position: absolute;
@@ -2791,7 +2791,7 @@ li.pingback:first-child {
   position: relative;
 }
 #timeline .timeline-item .timeline-icon {
-  background: #e44d4d;
+  background: #f1f3f5;
   width: 50px;
   height: 50px;
   position: absolute;
@@ -2840,7 +2840,7 @@ li.pingback:first-child {
 }
 #timeline .timeline-item .timeline-content h3.timeline-title {
   padding: 15px;
-  background: #e44d4d;
+  background: #f1f3f5;
   color: #fff;
   margin: -20px -20px 0 -20px;
   font-weight: 500;
@@ -2858,7 +2858,7 @@ li.pingback:first-child {
   height: 0;
   border-top: 7px solid transparent;
   border-bottom: 7px solid transparent;
-  border-left: 7px solid #e44d4d;
+  border-left: 7px solid #f1f3f5;
 }
 #timeline .timeline-item .timeline-content.right {
   float: right;
@@ -2868,7 +2868,7 @@ li.pingback:first-child {
   right: 45%;
   left: inherit;
   border-left: 0;
-  border-right: 7px solid #e44d4d;
+  border-right: 7px solid #f1f3f5;
 }
 .btn {
   padding: 5px 15px;
@@ -2913,7 +2913,7 @@ li.pingback:first-child {
   left: 10%;
   margin-left: -6px;
   border-left: 0;
-  border-right: 7px solid #e44d4d;
+  border-right: 7px solid #f1f3f5;
 }
 .tags-container {
   padding: 32px 32px;
