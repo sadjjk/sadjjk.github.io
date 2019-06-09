@@ -2820,7 +2820,7 @@ li.pingback:first-child {
 }
 #timeline .timeline-item .timeline-content {
   width: 45%;
-  background: #f1f3f5;
+  background: #222;
   padding: 10px;
   margin-bottom: 5px;
   -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
@@ -2840,8 +2840,8 @@ li.pingback:first-child {
 }
 #timeline .timeline-item .timeline-content h3.timeline-title {
   padding: 15px;
-  background: #f1f3f5;
-  color: #222;
+  background: #222;
+  color: #fff;
   margin: -10px;
   font-weight: 500;
   -webkit-border-radius: 3px 3px 0 0;
