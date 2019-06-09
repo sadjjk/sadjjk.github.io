@@ -2923,7 +2923,7 @@ li.pingback:first-child {
   display: inline-block;
   padding: 4px 8px;
   margin: 8px;
-  background: #e44d4d;
+  background: #222;
   color: #FFFFFF;
 }
 .current-tag-container .title {
