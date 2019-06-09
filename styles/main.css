@@ -607,7 +607,6 @@ a img {
     position: relative;
     z-index: 2;
     padding: 1.5em 5.55% 2.25em;
-    border-top: solid 0.75em #111;
   }
   .title-info {
     margin-top: -0.75em;
@@ -634,7 +633,7 @@ a img {
   .menu-primary-tracks .site-description {
     position: absolute;
     left: 0;
-    opacity: 0.6;
+    opacity: 1;
   }
   .menu-primary .site-description + div,
   .menu-primary-tracks .site-description + div {
@@ -665,7 +664,7 @@ a img {
   }
   .menu-unset > ul > li,
   .menu-primary-items > li {
-    font-size: 0.813em;
+    font-size: 0.9em;
     line-height: 1.85;
   }
   .menu-unset > ul > li:after,
@@ -1462,7 +1461,7 @@ li.pingback:first-child {
   }
 }
 .site-footer {
-  color: #8c8c8c;
+  color: #fff;
   text-align: center;
   padding-top: 3em;
   overflow: hidden;
@@ -1484,7 +1483,7 @@ li.pingback:first-child {
 }
 .site-footer p {
   margin: 0 0 1.5em;
-  opacity: 0.6;
+  opacity: 1;
 }
 .site-footer .social-media-icons {
   margin: 0.75em 0 1.5em;
