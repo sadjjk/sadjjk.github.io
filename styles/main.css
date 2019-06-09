@@ -2761,6 +2761,9 @@ li.pingback:first-child {
   max-width: 1050px;
   margin: 0 auto;
 }
+.timeline-container a a:hover {
+  color: blue;
+}
 #timeline {
   width: 90%;
   margin: 30px auto;
