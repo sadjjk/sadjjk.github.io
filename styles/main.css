@@ -2814,14 +2814,14 @@ li.pingback:first-child {
   position: relative;
   top: 12px;
   left: 0.2em;
-  color: #fff;
+  color: #222;
   font-size: 1.2em;
   font-weight: bold;
 }
 #timeline .timeline-item .timeline-content {
   width: 45%;
   background: #f1f3f5;
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 5px;
   -webkit-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
@@ -2842,7 +2842,7 @@ li.pingback:first-child {
   padding: 15px;
   background: #f1f3f5;
   color: #222;
-  margin: -20px -20px 0 -20px;
+  margin: -10px;
   font-weight: 500;
   -webkit-border-radius: 3px 3px 0 0;
   -moz-border-radius: 3px 3px 0 0;
