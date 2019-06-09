@@ -2908,7 +2908,7 @@ li.pingback:first-child {
     padding: 0;
   }
 }
-#timeline .timeline-item .timeline-content:before,
+#timeline .timeline-item,
 #timeline .timeline-item .timeline-content.right:before {
   left: 10%;
   margin-left: -6px;
