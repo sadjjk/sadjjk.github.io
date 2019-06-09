@@ -857,7 +857,6 @@ a img {
 .entry-header:after {
   content: '';
   position: absolute;
-  background: #4d4d4d;
   width: 4.5em;
   height: 0.375em;
   left: 0;
@@ -1011,7 +1010,7 @@ a img {
   }
 }
 .entry {
-  background: white;
+  background: #f1f3f5;
   padding-bottom: 1.5em;
 }
 .entry-meta {
