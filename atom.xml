@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://blog.wangjy.xyz</id>
+    <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-06-10T12:47:28.913Z</updated>
+    <updated>2019-06-10T13:28:21.152Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://blog.wangjy.xyz"/>
-    <link rel="self" href="https://blog.wangjy.xyz/atom.xml"/>
+    <link rel="alternate" href="https://blog.wangjy.xyz/"/>
+    <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
     <subtitle>真话、假话、胡话、骚话、一顿说</subtitle>
-    <logo>https://blog.wangjy.xyz/images/avatar.png</logo>
-    <icon>https://blog.wangjy.xyz/favicon.ico</icon>
+    <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
+    <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 鱼与语</rights>
     <entry>
         <title type="html"><![CDATA[各种距离(数学概念)及代码实现]]></title>
-        <id>https://blog.wangjy.xyz/post/math-distance</id>
-        <link href="https://blog.wangjy.xyz/post/math-distance">
+        <id>https://blog.wangjy.xyz//post/math-distance</id>
+        <link href="https://blog.wangjy.xyz//post/math-distance">
         </link>
         <updated>2019-06-06T07:43:21.000Z</updated>
         <content type="html"><![CDATA[<h1 id="各种距离数学概念及代码实现">各种距离(<strong>数学概念</strong>)及代码实现</h1>
@@ -77,11 +77,11 @@
 <li>
 <p>欧式距离定义</p>
 <p>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的欧氏距离：</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823205483.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823205483.png" alt="img"></p>
 </li>
 </ol>
 <p>也可以用表示成向量运算的形式：
-<img src="https://blog.wangjy.xyz/post-images/2011030823211360.png" alt="img"></p>
+<img src="https://blog.wangjy.xyz//post-images/2011030823211360.png" alt="img"></p>
 <ol start="2">
 <li>
 <p>Sklearn中的使用</p>
@@ -106,14 +106,14 @@ B(3,5,7,9) 到B(3,5,7,9)的距离是0
 <h4 id="曼哈顿距离">曼哈顿距离</h4>
 <p>曼哈顿距离也称为<strong>城市街区距离</strong>，即图中红线、黄线、蓝线的长度。</p>
 <p>相当于在棋盘上从一点走到另一点，每一步都可以任意选择上下左右四个方向，所需的最短步数
-<img src="https://blog.wangjy.xyz/post-images/e850352ac65c10387a2cd556b8119313b17e89d7.jpg" alt="img"></p>
+<img src="https://blog.wangjy.xyz//post-images/e850352ac65c10387a2cd556b8119313b17e89d7.jpg" alt="img"></p>
 <ol>
 <li>
 <p>曼哈顿距离的定义</p>
 <p>二维平面两点a(x1,y1)与b(x2,y2)间的曼哈顿距离</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823213652.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823213652.png" alt="img"></p>
 <p>两个n维向量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的曼哈顿距离</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823231354.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823231354.png" alt="img"></p>
 </li>
 <li>
 <p>Sklearn中的使用</p>
@@ -139,17 +139,17 @@ B(3,5) 到B(3,5)的距离是0
 <h4 id="切比雪夫距离">切比雪夫距离</h4>
 <p>切比雪夫距离与曼哈顿距离相似，即图中绿线。</p>
 <p>相当于在棋盘上从一点走到另一点，每一步都可以任意选择东、东南、南、西南、西、西北、北、东北八个方向，所需的最短步数。<strong>比曼哈顿距离走法多了四个方向，可以斜着走。</strong></p>
-<p><img src="https://blog.wangjy.xyz/post-images/e850352ac65c10387a2cd556b8119313b17e89d7.jpg" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/e850352ac65c10387a2cd556b8119313b17e89d7.jpg" alt="img"></p>
 <ol>
 <li>
 <p>二维平面两点a(x1,y1)与b(x2,y2)间的切比雪夫距离</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823234117.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823234117.png" alt="img"></p>
 <p>两个n维向量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的切比雪夫距离</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823235870.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823235870.png" alt="img"></p>
 </li>
 </ol>
 <p>这个公式的另一种等价形式是</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823242560.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823242560.png" alt="img"></p>
 <ol start="2">
 <li>
 <p>Sklearn中的使用</p>
@@ -170,7 +170,7 @@ dist.pairwise(X)
 <li>闵氏距离的定义</li>
 </ol>
 <p>​       两个n维变量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的闵可夫斯基距离定义为：</p>
-<p>​     <img src="https://blog.wangjy.xyz/post-images/2011030823244080.png" alt="img"></p>
+<p>​     <img src="https://blog.wangjy.xyz//post-images/2011030823244080.png" alt="img"></p>
 <p>​	其中p是一个变参数。</p>
 <p>​	当p=1时，就是曼哈顿距离</p>
 <p>​	当p=2时，就是欧氏距离</p>
@@ -192,9 +192,9 @@ DistanceMetric.get_metric('minkowski', p=3)
 <li>
 <p>标准欧氏距离的定义</p>
 <p>标准化欧氏距离是针对简单欧氏距离的缺点而作的一种改进方案。标准欧氏距离的思路：既然数据各维分量的分布不一样，那标准化到一样。因此样本集的标准化过程(standardization)用公式描述就是：</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823264688.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823264688.png" alt="img"></p>
 <p>标准化后的值 =  ( 标准化前的值  － 分量的均值 ) /分量的标准差</p>
-<p>经过简单的推导就可以得到两个n维向量a(https://blog.wangjy.xyz/post-images/2011030823272054.png)</p>
+<p>经过简单的推导就可以得到两个n维向量a(https://blog.wangjy.xyz//post-images/2011030823272054.png)</p>
 <p><strong>标准化欧式距离与量纲无关。这其实等价于先对X矩阵进行标准化，再进行欧式距离</strong></p>
 <p>实际使用过程，一般不使用标准化欧式</p>
 </li>
@@ -228,11 +228,11 @@ dist.pairwise(X)
 <li>马氏距离定义</li>
 </ol>
 <p>​       有M个样本向量X1~Xm，协方差矩阵记为S，均值记为向量μ，则其中样本向量X到u的马氏距离表示为：</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823274286.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823274286.png" alt="img"></p>
 <p>​       而其中向量Xi与Xj之间的马氏距离定义为：</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823280193.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823280193.png" alt="img"></p>
 <p>​       若协方差矩阵是单位矩阵（各个样本向量之间独立同分布）,则公式就成了：</p>
-<p><img src="https://blog.wangjy.xyz/post-images/2011030823281650.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823281650.png" alt="img"></p>
 <p>​       也就是欧氏距离了。</p>
 <p>若协方差矩阵是对角矩阵，公式变成了标准化欧氏距离。</p>
 <p>​       马氏距离同样与量纲无关，排除变量之间的相关性的干扰。</p>
@@ -384,7 +384,7 @@ Levenshtein.ratio(str1, str2)
 </code></pre>
 <h3 id="用于自定义的距离">用于自定义的距离</h3>
 <p>Sklearn中支持自定义距离</p>
-<p><img src="https://blog.wangjy.xyz/post-images/20190606153740106.png" alt="image-20190606153740106"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/20190606153740106.png" alt="image-20190606153740106"></p>
 <p>按这个格式定义距离，就可以在Sklearn的模型中直接调用</p>
 <p>Ps:大学泛函课本里第一课就有写距离定义,非负性、对称性、传递性</p>
 <h4 id="参考文献">参考文献：</h4>
@@ -396,8 +396,8 @@ Levenshtein.ratio(str1, str2)
     </entry>
     <entry>
         <title type="html"><![CDATA[Mac软件推荐]]></title>
-        <id>https://blog.wangjy.xyz/post/mac-app-recommend</id>
-        <link href="https://blog.wangjy.xyz/post/mac-app-recommend">
+        <id>https://blog.wangjy.xyz//post/mac-app-recommend</id>
+        <link href="https://blog.wangjy.xyz//post/mac-app-recommend">
         </link>
         <updated>2019-06-01T10:46:53.000Z</updated>
         <content type="html"><![CDATA[<p>介绍一些顺手App，常见的官网或者AppStore下载即可，剩余的安装包基本都放在网盘里了。</p>
@@ -405,27 +405,27 @@ Levenshtein.ratio(str1, str2)
 <h2 id="插件类">插件类</h2>
 <h3 id="touchbar增强pock">TouchBar增强：Pock</h3>
 <p>主要还是为了能快速打开Dock栏上的APP，鼠标点又太慢，Command+Tab切换还要找，体验了几款，就这款顺手。</p>
-<p><img src="https://blog.wangjy.xyz/post-images/1559384311948.png" alt=""></p>
+<p><img src="https://blog.wangjy.xyz//post-images/1559384311948.png" alt=""></p>
 <h3 id="快捷键提示cheatsheet">快捷键提示：CheatSheet</h3>
 <p>长按空格键，提示所在软件下的所有快捷键，多看多用多记，肌肉记忆，然后就可以删掉了它</p>
-<p><img src="https://blog.wangjy.xyz/post-images/50da81cb39dbb6fd4d6e68ef0d24ab18962b37c5.jpg" alt="50da81cb39dbb6fd4d6e68ef0d24ab18962b37c5"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/50da81cb39dbb6fd4d6e68ef0d24ab18962b37c5.jpg" alt="50da81cb39dbb6fd4d6e68ef0d24ab18962b37c5"></p>
 <h3 id="时间统计flow">时间统计：Flow</h3>
 <p>统计各应用下的使用时间
-<img src="https://blog.wangjy.xyz/post-images/image-20190525180359192.png" alt="image-20190525180359192"></p>
+<img src="https://blog.wangjy.xyz//post-images/image-20190525180359192.png" alt="image-20190525180359192"></p>
 <h3 id="剪切板工具paste">剪切板工具：Paste</h3>
 <p>保留最近有剪切过的记录，随时调用供粘贴，支持任何格式，图片，文本等。还支持常用钉起来分组</p>
-<p><img src="https://blog.wangjy.xyz/post-images/image-20190525180257422.png" alt="image-20190525180257422"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/image-20190525180257422.png" alt="image-20190525180257422"></p>
 <h3 id="日历插件itsycal">日历插件：Itsycal</h3>
 <p>完全可以取代Mac的日期与时间，点击显示日历，下面还有事件与节假日提示。时间格式支持自定义格式，想怎么显示就怎么显示。我的设置是MM-dd HH:mm eee，与自带的基本保持一致。</p>
-<p><img src="https://blog.wangjy.xyz/post-images/image-20190525175240974.png" alt="image-20190525175240974"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/image-20190525175240974.png" alt="image-20190525175240974"></p>
 <h3 id="新建文件newfilemenu">新建文件：NewFileMenu</h3>
 <p>弥补Mac无法新建文件的空白，操作和Win下相同，右键新建文件。内置常用模板，更牛逼的是支持自定义模板，就可以右键新建空白Markdwon文件</p>
-<p><img src="https://blog.wangjy.xyz/post-images/image-20190525174738705.png" alt="image-20190525174738705"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/image-20190525174738705.png" alt="image-20190525174738705"></p>
 <h3 id="解压工具the-unarchiver">解压工具：The Unarchiver</h3>
 <p>解压工具也不知哪个好，顺手就抄了一个，能解压就行</p>
 <h3 id="音乐播放器ieasemusic">音乐播放器：ieaseMusic</h3>
 <p>Mac下最酷最帅的音乐播放器，界面屋里花哨，眼花缭乱。刚上手的时候，会不知所错，当你熟悉满屏的快(尿)捷(性)键，你会爱上它。登录的是网易云音乐，自动同步收藏喜欢。相当于网易云换了华丽的皮肤。贴上开发者Github：https://github.com/trazyn/ieaseMusic</p>
-<p><img src="https://blog.wangjy.xyz/post-images/image-20190525173554039.png" alt="image-20190525173554039"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/image-20190525173554039.png" alt="image-20190525173554039"></p>
 <h2 id="开发工具">开发工具</h2>
 <h3 id="python开发pycharm">Python开发：Pycharm</h3>
 <p>它很牛，不解释</p>
@@ -438,7 +438,7 @@ Levenshtein.ratio(str1, str2)
 <h2 id="笔记类">笔记类</h2>
 <h3 id="便签类pendo">便签类：Pendo</h3>
 <p>便签笔记类，手机电脑端可同步，还有些细节与交互，Tips太多了。一个字：牛逼</p>
-<p><img src="https://blog.wangjy.xyz/post-images/943600626-577x1024.jpg!v.jpg" alt="943600626-577x1024.jpg!v"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/943600626-577x1024.jpg!v.jpg" alt="943600626-577x1024.jpg!v"></p>
 <h3 id="markdown书写typora">Markdown书写：Typora</h3>
 <p>Markdown书写工具，所见即所得</p>
 <h2 id="视频类">视频类</h2>
@@ -447,18 +447,18 @@ Levenshtein.ratio(str1, str2)
 <h2 id="下载类">下载类</h2>
 <h3 id="motirx">Motirx</h3>
 <p>下载App也很多，主要看脸，干净漂亮，就是你了</p>
-<p><img src="https://blog.wangjy.xyz/post-images/image-20190525182605650.png" alt="image-20190525182605650"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/image-20190525182605650.png" alt="image-20190525182605650"></p>
 <h2 id="性能类">性能类</h2>
 <h3 id="macbooster">MacBooster</h3>
 <p>常用的有CleanMyMac、 MacBooster 、 Dr.Cleaner Pro。他们功能都类似，该有的都有，随便挑，选择了MacBooster。</p>
-<p><img src="https://blog.wangjy.xyz/post-images/image-20190525182318424.png" alt="image-20190525182318424"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/image-20190525182318424.png" alt="image-20190525182318424"></p>
 <h2 id=""></h2>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Mac 下 iTerm2 远程连接]]></title>
-        <id>https://blog.wangjy.xyz/post/mac-iterm2</id>
-        <link href="https://blog.wangjy.xyz/post/mac-iterm2">
+        <id>https://blog.wangjy.xyz//post/mac-iterm2</id>
+        <link href="https://blog.wangjy.xyz//post/mac-iterm2">
         </link>
         <updated>2019-05-15T11:35:51.000Z</updated>
         <content type="html"><![CDATA[<p>Win下的Xshell+Xftp简直是远程连接服务器神器，点点点，拖拖拖，非常方便
@@ -522,7 +522,7 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
 <pre><code class="language-shell">ssh aliyun
 </code></pre>
 <p><strong>8，iTerm2设置自动连接，添加快捷键</strong></p>
-<p><img src="https://blog.wangjy.xyz/post-images/1559474712331.png" alt=""></p>
+<p><img src="https://blog.wangjy.xyz//post-images/1559474712331.png" alt=""></p>
 <p><strong>9，快捷键，走你！END</strong></p>
 <p>Tips</p>
 <p>服务器端 vi编辑器打开 语法不高亮</p>
