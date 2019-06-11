@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-06-11T13:07:23.069Z</updated>
+    <updated>2019-06-11T13:08:53.021Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -585,7 +585,10 @@ Levenshtein.ratio(str1, str2)
         <link href="https://blog.wangjy.xyz//post/mac-app-recommend">
         </link>
         <updated>2019-06-01T10:46:53.000Z</updated>
-        <content type="html"><![CDATA[<!--介绍Mac中好用的App，网盘自取-->
+        <summary type="html"><![CDATA[<p>介绍Mac中好用的App，网盘自取</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>介绍Mac中好用的App，网盘自取</p>
+<!-- more -->
 <p>其实可以搞个公众号，关注后才能从获得安装包之类，因为一个字：懒，懒得打理。要就自取。链接: https://pan.baidu.com/s/19F55s4Kf-dR-QIeADUp-TQ 提取码: yvaj</p>
 <h2 id="插件类">插件类</h2>
 <h3 id="touchbar增强pock">TouchBar增强：Pock</h3>
