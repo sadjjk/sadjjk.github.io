@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-06-10T13:38:13.537Z</updated>
+    <updated>2019-06-11T12:56:48.512Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -580,12 +580,13 @@ Levenshtein.ratio(str1, str2)
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Mac软件推荐]]></title>
+        <title type="html"><![CDATA[Mac常用软件推荐]]></title>
         <id>https://blog.wangjy.xyz//post/mac-app-recommend</id>
         <link href="https://blog.wangjy.xyz//post/mac-app-recommend">
         </link>
         <updated>2019-06-01T10:46:53.000Z</updated>
-        <content type="html"><![CDATA[<p>介绍一些顺手App，常见的官网或者AppStore下载即可，剩余的安装包基本都放在网盘里了。</p>
+        <content type="html"><![CDATA[<!--介绍Mac中好用的App，网盘自取-->
+<p>[TOC]</p>
 <p>其实可以搞个公众号，关注后才能从获得安装包之类，因为一个字：懒，懒得打理。要就自取。链接: https://pan.baidu.com/s/19F55s4Kf-dR-QIeADUp-TQ 提取码: yvaj</p>
 <h2 id="插件类">插件类</h2>
 <h3 id="touchbar增强pock">TouchBar增强：Pock</h3>
@@ -641,12 +642,13 @@ Levenshtein.ratio(str1, str2)
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Mac 下 iTerm2 远程连接]]></title>
+        <title type="html"><![CDATA[Mac下iTerm2远程连接]]></title>
         <id>https://blog.wangjy.xyz//post/mac-iterm2</id>
         <link href="https://blog.wangjy.xyz//post/mac-iterm2">
         </link>
         <updated>2019-05-15T11:35:51.000Z</updated>
-        <content type="html"><![CDATA[<p>Win下的Xshell+Xftp简直是远程连接服务器神器，点点点，拖拖拖，非常方便
+        <content type="html"><![CDATA[<!--SSH免密连接 本地端与服务端的配置-->
+<p>Win下的Xshell+Xftp简直是远程连接服务器神器，点点点，拖拖拖，非常方便
 Mac下使用终端iTerm2远程连接，过程比较麻烦，不够傻瓜式。
 其次想要实现Xftp的功能，还是乖乖<code>scp</code>命令吧</p>
 <p><strong>下面使用SSH免密连接服务器</strong></p>
