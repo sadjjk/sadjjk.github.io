@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-06-11T13:10:30.771Z</updated>
+    <updated>2019-06-11T13:20:42.576Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -11,12 +11,16 @@
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 鱼与语</rights>
     <entry>
-        <title type="html"><![CDATA[K-近邻算法]]></title>
+        <title type="html"><![CDATA[分类:最近邻算法KNN]]></title>
         <id>https://blog.wangjy.xyz//post/knn</id>
         <link href="https://blog.wangjy.xyz//post/knn">
         </link>
         <updated>2019-06-10T13:35:25.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="k-近邻算法">K-近邻算法</h1>
+        <summary type="html"><![CDATA[<p>最近邻算法除了KNN还有限定半径最近邻、最近质心分类算法</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近邻算法除了KNN还有限定半径最近邻、最近质心分类算法</p>
+<!-- more -->
+<h1 id="k-近邻算法">K-近邻算法</h1>
 <h3 id="knn概述">KNN概述</h3>
 <p>K-近邻（K-NearestNeighbor)：给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的 k 个实例，根据其 k 个最近邻的训练实例的类别，通过多数表决等方式进行预测。</p>
 <h3 id="knn原理以分类为例">KNN原理(以分类为例)</h3>
@@ -31,7 +35,7 @@
 </li>
 <li>求 k 个数据中出现次数最多的分类标签作为新数据的分类。</li>
 </ol>
-<h3 id="三要素">三要素</h3>
+<h3 id="三个要素">三个要素</h3>
 <p>k的取值、距离度量以及决策规则是k近邻算法的三个基本要素。从KNN原理就可以看出来最核心的也就是这三点。</p>
 <p>距离度量: 如何计算样本间数据的距离，即什么样的问题使用什么样的距离定义更合适？</p>
 <p>k的取值: k取多少合适？</p>
@@ -51,7 +55,7 @@
 <p>太大太小都不太好，可以用交叉验证（cross validation）来选取适合的k值</p>
 </blockquote>
 <h5 id="距离度量">距离度量</h5>
-<p>距离度量通常使用欧式距离,更多距离及使用见XXX</p>
+<p>距离度量通常使用欧式距离,更多距离及使用见<a href="https://blog.wangjy.xyz/post/math-distance/">各种距离(数学概念)及代码实现</a></p>
 <h5 id="决策规则">决策规则</h5>
 <p>在分类问题中，通常为少数服从多数，来选取票数最多的标签。也可设置各实例标签的权重。</p>
 <p>在回归问题中，通常为 K个最邻点的标签的平均值。同样可以设置实例标签权重，即加权平均。</p>
@@ -138,7 +142,7 @@ nn = NearestNeighbors(algorithm='brute',  #暴力计算
 
 </code></pre>
 <p><strong>KNN分类KNeighborsClassifier、KNN回归KNeighborsRegressor、限定半径最近邻分类树RadiusNeighborsClassifier、限定半径最近邻回归树RadiusNeighborsRegressor和最近质心分类算法NearestCentroid均是对NearestNeighbors进一步强化</strong>，增加了决策规则<em>weights</em>权重参数等</p>
-<p><strong>在这篇博客中已经介绍的非常详细了，这里不再重复</strong></p>
+<p><strong>在<a href="https://www.cnblogs.com/pinard/p/6065607.html">这篇博客</a>中已经介绍的非常详细了，这里不再重复</strong></p>
 <h3 id="补充">补充</h3>
 <p>KDTree或Ball Tree的VALID_METRICS部分映射表</p>
 <table>
