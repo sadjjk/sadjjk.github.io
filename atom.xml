@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-06-11T13:06:21.808Z</updated>
+    <updated>2019-06-11T13:07:23.069Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -646,8 +646,10 @@ Levenshtein.ratio(str1, str2)
         <link href="https://blog.wangjy.xyz//post/mac-iterm2">
         </link>
         <updated>2019-05-15T11:35:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>SSH免密连接 本地端与服务端的配置</p>
+]]></summary>
         <content type="html"><![CDATA[<p>SSH免密连接 本地端与服务端的配置</p>
-<!---->
+<!-- more -->
 <p>Win下的Xshell+Xftp简直是远程连接服务器神器，点点点，拖拖拖，非常方便
 Mac下使用终端iTerm2远程连接，过程比较麻烦，不够傻瓜式。
 其次想要实现Xftp的功能，还是乖乖<code>scp</code>命令吧</p>
