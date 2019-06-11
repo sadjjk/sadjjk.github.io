@@ -1,11 +1,11 @@
 <html>
 <head>
-  <meta charset="utf-8" />
+    <meta charset="utf-8" />
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>Mac下iTerm2远程连接 | 鱼与语</title>
+<title>Life | 鱼与语</title>
 <link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1560259670044">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
@@ -20,7 +20,7 @@
 </head>
 <body class="home blog ct-body standard">
 <div id="overflow-container" class="overflow-container">
-  <header id="site-header" class="site-header" role="banner">
+    <header id="site-header" class="site-header" role="banner">
 
 
     <div class="container">
@@ -70,141 +70,66 @@
 
 </header>
 
-
-  <div id="main" class="main" role="main">
-    <div id="loop-container" class="loop-container">
-      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
-        
-          <div class='featured-image lazy lazy-bg-image' data-background="https://www.iterm2.com/img/logo2x.jpg">
-          </div>
-        
-
-        <div class="entry-meta">
-          <span class="date">· 2019-05-15 Wed ·</span>
-
-          
-            <span class="category">
-                    <span> / </span>
-                    <a href="https://blog.wangjy.xyz//tag/work">Work</a>
-                </span>
-          
+        <div class="main-content">
+            <div class="current-tag-container">
+                <h2 class="title">
+                    标签：#Life
+                </h2>
+            </div>
         </div>
-        <div class='entry-header'>
-          <h1 class='entry-title'>Mac下iTerm2远程连接</h1>
-        </div>
-        <div class="entry-container">
-          <div class="entry-content">
-            <article>
-              <p>SSH免密连接 本地端与服务端的配置</p>
-<!-- more -->
-<p>Win下的Xshell+Xftp简直是远程连接服务器神器，点点点，拖拖拖，非常方便
-Mac下使用终端iTerm2远程连接，过程比较麻烦，不够傻瓜式。
-其次想要实现Xftp的功能，还是乖乖<code>scp</code>命令吧</p>
-<p><strong>下面使用SSH免密连接服务器</strong></p>
-<h3 id="本地端">本地端</h3>
-<p><strong>1，本机生成公钥和私钥（已生成跳过）</strong></p>
-<pre><code class="language-shell">ssh-keygen -t rsa
-</code></pre>
-<p>一路回车即可。默认在～/.ssh 目录生成两个文件：</p>
-<pre><code class="language-shell">id_rsa ：私钥 
-id_rsa.pub ：公钥
-</code></pre>
-<p><strong>2，将本地公钥复制到服务器</strong></p>
-<pre><code class="language-shell">scp ~/.ssh/id_rsa.pub root@你的公网IP:/home/id_rsa.pub
-</code></pre>
-<h3 id="服务器端">服务器端</h3>
-<p><strong>3，登录到服务器修改 sshd 的配置文件</strong></p>
-<pre><code class="language-shell">vi  /etc/ssh/sshd_config
-</code></pre>
-<pre><code>在最后一行增加以下内容	
-PS:在哪一行其实都没关系，个人习惯最后一行 
-vi编辑器进去后敲下`G` 快捷键自动到最后一行 `i` 进入编辑模式 
-其实是要找到相应内容，去掉注释，懒得找了，直接添加
-</code></pre>
-<pre><code class="language-shell">RSAAuthentication yes 
-PubkeyAuthentication yes 
-AuthorizedKeysFile .ssh/authorized_keys
-</code></pre>
-<p><strong>4，重启 sshd 服务</strong></p>
-<pre><code class="language-shell">service sshd restart
-</code></pre>
-<p><strong>5，在服务器端将公钥文件导入认证文件中</strong></p>
-<pre><code class="language-php">cat /home/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
-</code></pre>
-<p><strong>6，服务器修改权限</strong></p>
-<pre><code class="language-php">chmod 700 ~/.ssh 
-chmod 600 ~/.ssh/authorized_keys
-</code></pre>
-<h3 id="本地端-2">本地端</h3>
-<p><strong>7，修改配置文件  vi ～/.ssh/config （没有则创建）</strong></p>
-<pre><code class="language-php">Host aliyun  ### 别名
-Hostname XXX.XX.XX.XXX  ###公网 IP
-Port 22  ###端口
-User root  ###登录账号
-IdentityFile ~/.ssh/id_rsa ###本机私钥地址
+    <div id="main" class="main" role="main">
+  <h1 class="screen-reader-text">Posts</h1>
   
+  <div id="loop-container" class="loop-container">
+    <div class="post type-post status-publish format-standard   has-post-thumbnail hentry category-design tag-memories
+    tag-normal-post tag-standard-2 excerpt zoom full-without-featured
+      
+      even
+       excerpt">
+      
+      <a class="featured-image-link" href="https://blog.wangjy.xyz//post/GoldTalk">
+        <div class='featured-image lazy lazy-bg-image' data-background="https://cdn.pixabay.com/photo/2018/01/18/07/31/bitcoin-3089728_1280.jpg"></div>
+      </a>
+      
+      <div class="excerpt-container">
+        <div class="excerpt-meta">
+          <span class="date">  · 2019-06-11 Tue ·</span>
+            
+                <span> / </span>
+                <span class="category">
+                        <a href="https://blog.wangjy.xyz//tag/life">Life</a>
+                </span>
+            
 
-# 如果有多台服务器 继续往下添加  
-Host aliyun_2  ### 新别名
-Hostname XXX.XX.XX.XX  ###公网 IP
-Port 22  ###端口
-User root  ###登录账号
-IdentityFile ~/.ssh/id_rsa ###本机私钥地址  
-</code></pre>
-<pre><code>PS:如果报中文错误，就把中文注释删掉
-
-保存配置。iTerm2 终端执行
-</code></pre>
-<pre><code class="language-shell">ssh aliyun
-</code></pre>
-<p><strong>8，iTerm2设置自动连接，添加快捷键</strong></p>
-<p><img src="https://blog.wangjy.xyz//post-images/1559474712331.png" alt=""></p>
-<p><strong>9，快捷键，走你！END</strong></p>
-<p>Tips</p>
-<p>服务器端 vi编辑器打开 语法不高亮</p>
-<pre><code class="language-sh">vi ~/.bashrc
-</code></pre>
-<p>增加这句 将vi编辑器指向vim编辑器</p>
-<pre><code class="language-sh">alias vi='vim'
-</code></pre>
-
-            </article>
-          </div>
         </div>
-          
+        <div class='excerpt-header'>
+          <h2 class='excerpt-title'>
+            <a href="https://blog.wangjy.xyz//post/GoldTalk"> 钱 </a>
+          </h2>
+        </div>
+        <div class='excerpt-content'>
+          <article>
+              <p><em>当代年轻人</em></p>
+<p><em>比起深夜感慨秃头带来的恐慌</em></p>
+<p><em>贫穷才是他们真正的人生困境</em></p>
+
+          </article>
+        </div>
       </div>
-      <section id="comments" class="comments">
-        
-          
-            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-
-<div id="gitalk-container"></div>
-
-<script>
-
-  var gitalk = new Gitalk({
-    clientID: '2421a94b8610913da80f',
-    clientSecret: 'a325413d8fe5e7f388653bf2067f2c01db20323e',
-    repo: 'sadjjk.github.io',
-    owner: 'sadjjk',
-    admin: ['sadjjk'],
-    id: location.pathname,      // Ensure uniqueness and length less than 50
-    distractionFreeMode: false  // Facebook-like distraction free mode
-  })
-
-  gitalk.render('gitalk-container')
-
-</script>
-
-          
-
-          
-        
-      </section>
     </div>
   </div>
-  <footer id="site-footer" class="site-footer" role="contentinfo">
+  
+</div>
+
+    <nav class="navigation pagination" role="navigation">
+    <h2 class="screen-reader-text">Posts navigation</h2>
+    <div class="nav-links">
+        
+        
+    </div>
+</nav>
+
+    <footer id="site-footer" class="site-footer" role="contentinfo">
     <h1>
         <a href="https://blog.wangjy.xyz/"> 鱼与语 </a>
     </h1>
@@ -269,4 +194,3 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
 </div>
 </body>
 </html>
-
