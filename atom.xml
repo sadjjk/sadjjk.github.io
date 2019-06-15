@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-06-11T13:29:04.109Z</updated>
+    <updated>2019-06-15T12:48:07.907Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -10,6 +10,36 @@
     <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 鱼与语</rights>
+    <entry>
+        <title type="html"><![CDATA[春宵苦短,少女前进吧!]]></title>
+        <id>https://blog.wangjy.xyz//post/lets-go-forward</id>
+        <link href="https://blog.wangjy.xyz//post/lets-go-forward">
+        </link>
+        <updated>2019-06-15T12:35:36.000Z</updated>
+        <summary type="html"><![CDATA[<p>春梦了无痕</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>春梦了无痕</p>
+<!--more-->
+<pre><code>每周一部电影，有想说的就多bb几句，没有就放几张截图，记录一下
+简单的说 就是
+到此一游
+</code></pre>
+<h1 id="春宵苦短少女前进吧">春宵苦短,少女前进吧!</h1>
+<p>实在是太好看了，截了一万张图。</p>
+<p>尽管是个动画片</p>
+<p>里面的台词很有味道</p>
+<p>有各个方面的讨论</p>
+<p>简直就是满分作文</p>
+<p>努力·天赋</p>
+<p><img src="https://i.loli.net/2019/06/15/5d04e426bb1f460326.jpg" alt=""></p>
+<p>婚姻:女人应该不应该与自己喜欢的男人结婚</p>
+<p><img src="https://i.loli.net/2019/06/15/5d04e441ab83f64300.jpg" alt=""></p>
+<p>时间</p>
+<p><img src="https://i.loli.net/2019/06/15/5d04e55bb3e6d11418.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/06/15/5d04e83d009f737899.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/06/15/5d04e87e5d2cc75835.jpg" alt=""></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[钱]]></title>
         <id>https://blog.wangjy.xyz//post/GoldTalk</id>
