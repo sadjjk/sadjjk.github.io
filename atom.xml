@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-06-30T08:36:43.129Z</updated>
+    <updated>2019-06-30T08:37:59.124Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -16,9 +16,9 @@
         <link href="https://blog.wangjy.xyz//post/cluster-measure">
         </link>
         <updated>2019-06-29T12:06:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>聚类算法中常用的评估指标</p>
+        <summary type="html"><![CDATA[<p>聚类算法中常用的评估指标 确定最优k值</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>聚类算法中常用的评估指标</p>
+        <content type="html"><![CDATA[<p>聚类算法中常用的评估指标 确定最优k值</p>
 <!-- more -->
 <p>聚类效果指标分为无监督指标(实际类别信息未知)和有监督指标(实际类别信息已知)。</p>
 <p><strong>没有一个指标是一招鲜 通常结合多个指标 来判断最佳K值</strong></p>
