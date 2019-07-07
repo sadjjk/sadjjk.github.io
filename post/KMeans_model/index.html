@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>KMeans及其衍生聚类算法 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1562487523536">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1562488568930">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 
@@ -95,7 +95,9 @@
         <div class="entry-container">
           <div class="entry-content">
             <article>
-              <ul>
+              <p>这里主要讲述KMeans及基于KMeans缺点提出优化的衍生算法</p>
+<!-- more -->
+<ul>
 <li>基于划分
 <ul>
 <li>KMeans
@@ -130,19 +132,18 @@
 </ul>
 </li>
 </ul>
-<p>这里主要讲述KMeans及基于KMeans缺点提出优化的衍生算法</p>
-<h4 id="kmeans">KMeans</h4>
-<p>1.事先确定常数K(最终的聚类类别数)，一般来说，我们会根据对数据的先验经验选择一个合适的k值，如果没有什么先验知识，则给出几组K值，通过评价指标，确定最佳K值</p>
-<p>2.随机选定K个初始点为质心,计算每一个样本与质心之间的距离(相似度)，将样本点归到最相似的类中，即距离最短。</p>
-<p>3.对所有的样本点重新计算新的质心(取距离平均值 虚拟质心点)<img src="http://latex.codecogs.com/gif.latex?\mu_j = \frac{1}{|C_j|}\sum\limits_{x \in C_j}x" /></p>
-<p>4.重新计算每个样本点到新质心的距离，将样本点归到最相似的类中，更新质心</p>
-<p>5.重复以上步骤，直到质心不再改变,最终确定了每个样本所属的类别以及每个类的质心。</p>
+<h4 id="kmeans"><strong>KMeans</strong></h4>
+<p>1.事先确定常数K(最终的聚类类别数)，一般来说，我们会根据对数据的先验经验选择一个合适的k值，如果没有什么先验知识，则给出几组K值，通过评价指标，确定最佳K值<br>
+2.随机选定K个初始点为质心,计算每一个样本与质心之间的距离(相似度)，将样本点归到最相似的类中，即距离最短。<br>
+3.对所有的样本点重新计算新的质心(取距离平均值 虚拟质心点)<img src="http://latex.codecogs.com/gif.latex?\mu_j = \frac{1}{|C_j|}\sum\limits_{x \in C_j}x" /><br>
+4.重新计算每个样本点到新质心的距离，将样本点归到最相似的类中，更新质心<br>
+5.重复以上步骤，直到质心不再改变,最终确定了每个样本所属的类别以及每个类的质心。</p>
 <h4 id="三要点"><strong>三要点</strong></h4>
 <p><strong>K值、随机选取的初始质心点、距离度量方式 以上三点决定了K-Means整体的效果</strong></p>
-<h4 id="优点">优点</h4>
+<h4 id="优点"><strong>优点</strong></h4>
 <p>1.原理简单，实现容易</p>
 <p>2.N为样本点个数,K为中心点个数,L为迭代次数。空间复杂度o(N),o(L*K*N)</p>
-<h4 id="缺点">缺点</h4>
+<h4 id="缺点"><strong>缺点</strong></h4>
 <p>1.对噪声、离群点敏感 (噪声易造成质心偏移)</p>
 <ul>
 <li>
@@ -188,10 +189,10 @@ init: k-means++ 、random 、指定具体初始质心
 </ul>
 <p>​	这和自上而下(分裂)的层次聚类很像[或者两者说的就是一回事 个人意见]</p>
 <p>​	二分K均值算法可以加速K-means算法的执行速度，因为它的相似度计算少了（不用多次迭代）并且不受初始化问题的影响，因为这里不存在随机点的选取，且每一步都保证了误差最小</p>
-<p>​	1.所有点作为一个簇</p>
-<p>​	2.将该簇一分为二</p>
-<p>​	3.选择能最大限度降低聚类代价函数的簇划分为两个簇。</p>
-<p>​	4.以此进行下去，直到簇的数目等于用户给定的数目k为止。</p>
+<p>​	1.所有点作为一个簇<br>
+​	2.将该簇一分为二<br>
+​	3.选择能最大限度降低聚类代价函数的簇划分为两个簇。<br>
+​	4.以此进行下去，直到簇的数目等于用户给定的数目k为止。</p>
 <p>​	<img src="https://i.loli.net/2019/07/07/5d218e93015f563396.png" alt=""></p>
 <pre><code>skearn没有此模型
 目前也没找到已实现的三方模块
