@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-13T12:47:43.628Z</updated>
+    <updated>2019-07-13T12:51:26.533Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -116,7 +116,7 @@
         <summary type="html"><![CDATA[<p>这里主要讲述KMeans及基于KMeans缺点提出优化的衍生算法</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>这里主要讲述KMeans及基于KMeans缺点提出优化的衍生算法</p>
-<!-- more -->
+<!--more-->
 <ul>
 <li>基于划分
 <ul>
@@ -288,7 +288,7 @@ init: k-means++ 、random 、指定具体初始质心
         <summary type="html"><![CDATA[<p>聚类算法中常用的评估指标 确定最优k值</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>聚类算法中常用的评估指标 确定最优k值</p>
-<!-- more -->
+<!--more-->
 <p>聚类效果指标分为无监督指标(实际类别信息未知)和有监督指标(实际类别信息已知)。</p>
 <p><strong>没有一个指标是一招鲜 通常结合多个指标 来判断最佳K值</strong></p>
 <h2 id="无监督指标实际类别信息未知">无监督指标：实际类别信息未知</h2>
@@ -419,7 +419,7 @@ metrics.adjusted_rand_score(labels_true, labels_pred)
         <summary type="html"><![CDATA[<p>春梦了无痕</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>春梦了无痕</p>
-<!-- more -->
+<!--more-->
 <h1 id="春宵苦短少女前进吧">春宵苦短,少女前进吧!</h1>
 <p>实在是太好看了 截了一万张图</p>
 <p>里面的台词很有味道</p>
@@ -529,7 +529,7 @@ metrics.adjusted_rand_score(labels_true, labels_pred)
         <summary type="html"><![CDATA[<p>最近邻算法除了KNN还有限定半径最近邻、最近质心分类算法</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>最近邻算法除了KNN还有限定半径最近邻、最近质心分类算法</p>
-<!-- more -->
+<!--more-->
 <h1 id="k-近邻算法">K-近邻算法</h1>
 <h3 id="knn概述">KNN概述</h3>
 <p>K-近邻（K-NearestNeighbor)：给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的 k 个实例，根据其 k 个最近邻的训练实例的类别，通过多数表决等方式进行预测。</p>
@@ -718,7 +718,7 @@ nn = NearestNeighbors(algorithm='brute',  #暴力计算
         <summary type="html"><![CDATA[<p>常用的距离和在Sklearn中的调用</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>常用的距离和在Sklearn中的调用</p>
-<!-- more -->
+<!--more-->
 <h1 id="各种距离数学概念及代码实现">各种距离(<strong>数学概念</strong>)及代码实现</h1>
 <p>以前看到各种<strong>距离</strong>及公式</p>
 <p>现在花些时间整理一下</p>
@@ -1106,7 +1106,7 @@ Levenshtein.ratio(str1, str2)
         <summary type="html"><![CDATA[<p>全面武装你的MacBook，如若需要，网盘自取</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>全面武装你的MacBook，如若需要，网盘自取</p>
-<!-- more -->
+<!--more-->
 <p>===============UPDATE  2019年06月22日============</p>
 <p>链接: https://pan.baidu.com/s/19F55s4Kf-dR-QIeADUp-TQ 提取码: yvaj</p>
 <p>链接: https://pan.baidu.com/s/19F55s4Kf-dR-QIeADUp-TQ 提取码: yvaj</p>
@@ -1228,7 +1228,7 @@ Levenshtein.ratio(str1, str2)
         <summary type="html"><![CDATA[<p>SSH免密连接 本地端与服务端的配置</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>SSH免密连接 本地端与服务端的配置</p>
-<!-- more -->
+<!--more-->
 <p>Win下的Xshell+Xftp简直是远程连接服务器神器，点点点，拖拖拖，非常方便
 Mac下使用终端iTerm2远程连接，过程比较麻烦，不够傻瓜式。
 其次想要实现Xftp的功能，还是乖乖<code>scp</code>命令吧</p>
