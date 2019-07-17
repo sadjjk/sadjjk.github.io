@@ -172,6 +172,7 @@
     overflow: hidden;
     text-align: center;
     width: 40px;
+    padding-top: 10px;
 }
 
 .outline-outside-button:hover {
@@ -191,6 +192,7 @@
     margin: 0;
     text-decoration: none;
     width: 40px;
+    padding-top: 10px;
 }
 
 .outline-outside-overlay {
