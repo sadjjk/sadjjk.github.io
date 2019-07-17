@@ -100,7 +100,7 @@
     -webkit-box-shadow: 0 0 15px #ddd;
     box-shadow: 0 0 15px #ddd;
     height: 100%;
-    left: -250px;
+    right: -250px;
     overflow: visible;
     position: fixed;
     top: 0;
@@ -111,12 +111,12 @@
 }
 
 .outline-outside-modal-opened {
-    left: 0;
+    right: 0;
 }
 
 .outline-outside-header {
     height: 40px;
-    left: 0;
+    right: 0;
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -157,7 +157,7 @@
     margin: -40px 0 0;
     overflow: hidden;
     position: absolute;
-    right: -41px;
+    left: -41px;
     top: 50%;
     width: 40px;
     z-index: 2;
