@@ -192,8 +192,12 @@
     margin: 0;
     text-decoration: none;
     width: 40px;
+
+}
+.outline-outside-top{
     padding-top: 5px;
 }
+
 
 .outline-outside-overlay {
     background-color: #fff;
