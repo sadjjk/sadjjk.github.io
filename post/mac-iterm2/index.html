@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Mac下iTerm2远程连接 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563456684022">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563456813115">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -269,10 +269,7 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wangjy.xyz//media/scripts/lib/production.min.js"></script>
 
   <script>
-    <!-- var abstract = document.getElementById('MyAbstract');
-    if (abstract != null)
-        abstract.parentNode.removeChild(abstract);
-    -->
+
 
     var content = `<p>SSH免密连接 本地端与服务端的配置</p>
 <!--more-->
@@ -347,7 +344,9 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
 <pre><code class="language-sh">alias vi='vim'
 </code></pre>
 `
-    console.log(content)
+    console.log(content.split("<!--more-->")[1])
+
+
     let navigation = new AutocJs({
         title:'Mac下iTerm2远程连接'
     })
