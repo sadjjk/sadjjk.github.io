@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>相逢一场 让你失望了 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563457107805">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563457480476">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -192,9 +192,7 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wangjy.xyz//media/scripts/lib/production.min.js"></script>
 
   <script>
-
-
-    var content = `<p><strong>这是一场漫长的一个人的搏斗</strong><br>
+    var article = `<p><strong>这是一场漫长的一个人的搏斗</strong><br>
 <strong>没有人知道他是否会倒下</strong>，<br>
 <strong>一次懒惰都足以击垮他</strong></p>
 <p>柯达直到破产那天，<br>
@@ -204,13 +202,11 @@ hljs.initHighlightingOnLoad()
 有时候并不是做错了什么，<br>
 只是不再被需要了。</p>
 `
-
-
-    console.log(content.split("<!--more-->")[1])
-
-    document.getElementById('article').innerHTML = content.split("<!--more-->")[1];
-
-
+    if (content != null)
+        document.getElementById('article').innerHTML = article.split("<!--more-->")[1];
+    else
+        document.getElementById('article').innerHTML = article
+        
     let navigation = new AutocJs({
         title:'相逢一场 让你失望了'
     })
