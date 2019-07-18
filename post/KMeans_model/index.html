@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>KMeans及其衍生聚类算法 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563457480476">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563457653649">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -367,11 +367,12 @@ init: k-means++ 、random 、指定具体初始质心
 <p>https://www.cnblogs.com/huadongw/articles/4101306.html</p>
 <p>http://sklearn.apachecn.org/#/docs/22?id=spectral-clustering</p>
 `
+    var content = article.split("<!--more-->")[1]
     if (content != null)
-        document.getElementById('article').innerHTML = article.split("<!--more-->")[1];
+        document.getElementById('article').innerHTML = content;
     else
         document.getElementById('article').innerHTML = article
-        
+
     let navigation = new AutocJs({
         title:'KMeans及其衍生聚类算法'
     })

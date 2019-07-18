@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Mac软件推荐 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563457480476">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563457653649">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -317,11 +317,12 @@ hljs.initHighlightingOnLoad()
 <h3 id="代码段管理器snippetslab">代码段管理器：SnippetsLab</h3>
 <p>SnippetsLab的终极目的就是将你容易遗忘在电脑角落中的各种代码片段收集在一起，构建成你个人的巨大的代码片段库。随着你编写与收集的代码片段越来越多，你的私人片段代码库也就积累的越来越多，你的可用代码也就越来越多，结合它的快速搜索和资料库结构，将能够极大的帮助你的程序构建。</p>
 `
+    var content = article.split("<!--more-->")[1]
     if (content != null)
-        document.getElementById('article').innerHTML = article.split("<!--more-->")[1];
+        document.getElementById('article').innerHTML = content;
     else
         document.getElementById('article').innerHTML = article
-        
+
     let navigation = new AutocJs({
         title:'Mac软件推荐'
     })
