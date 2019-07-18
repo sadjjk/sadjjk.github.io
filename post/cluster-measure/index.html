@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>聚类算法效果衡量标准 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563456118586">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563456247315">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -280,78 +280,7 @@ hljs.initHighlightingOnLoad()
         abstract.parentNode.removeChild(abstract);
     -->
 
-    var content = '<p>聚类算法中常用的评估指标 确定最优k值</p>
-<!--more-->
-<p>聚类效果指标分为无监督指标(实际类别信息未知)和有监督指标(实际类别信息已知)。</p>
-<p><strong>没有一个指标是一招鲜 通常结合多个指标 来判断最佳K值</strong></p>
-<h2 id="无监督指标实际类别信息未知">无监督指标：实际类别信息未知</h2>
-<h3 id="肘部法">肘部法</h3>
-<p>SSE：误差平方和</p>
-<p><img src="https://i.loli.net/2019/06/30/5d185be4f3ee878463.png" alt="">
-每个样本点到其所属簇心的距离的平方和<br>
-因此如果每个点自成一簇，则SSE为0<br>
-理论上簇(K值)越多，SSE越小<br>
-在这个平方和变化过程中，会出现一个拐点，即“肘”点，下降率突然变缓	  时即认为是最佳的k值。</p>
-<pre><code class="language-PYTHON">import numpy as np
-from sklearn.cluster import KMeans
-from scipy.spatial.distance import cdist
-
-kmeans = KMeans(4)
-kmeans.fit(X)
-
-cdist(X, kmeans.cluster_centers_, 'euclidean') # 每个样本到各个簇心的距离
-np.min(cdist(X, kmeans.cluster_centers_, 'euclidean'),axis=1) # 每个样本点到所属簇心的距离，即距离最短
-SSE = sum(np.min(cdist(X, kmeans.cluster_centers_, 'euclidean'), axis=1)) # SSE值
-
-</code></pre>
-<h3 id="sc轮廓系数法">SC：轮廓系数法</h3>
-<p><strong>SC值越大越好 [-1,1]</strong></p>
-<p><img src="https://i.loli.net/2019/06/30/5d185c71984d356091.png" alt=""></p>
-<p>a是Xi与同簇的其他样本的平均距离，称为凝聚度；<br>
-b是Xi与最近簇中所有样本的平均距离，称为分离度。<br>
-求出所有样本的轮廓系数后再求平均值就得到了平均轮廓系数。<br>
-平均轮廓系数的取值范围为[-1,1]，系数越大，聚类效果越好。</p>
-<pre><code class="language-python">import numpy as np
-from sklearn.cluster import KMeans
-
-kmeans_model = KMeans(n_clusters=3, random_state=1).fit(X)
-labels = kmeans_model.labels_
-
-metrics.silhouette_score(X, labels, metric='euclidean')
-</code></pre>
-<h3 id="chcalinski-harabasz">CH：Calinski-Harabasz</h3>
-<p><strong>CH值越大越好</strong></p>
-<p><img src="https://i.loli.net/2019/06/30/5d186e8b2cb6477206.png" alt=""></p>
-<pre><code class="language-python">from sklearn import metrics
-metrics.calinski_harabaz_score(X, labels)  
-</code></pre>
-<h2 id="有监督指标实际类别信息已知">有监督指标：实际类别信息已知</h2>
-<h3 id="调整兰德系数-ari">调整兰德系数 ARI</h3>
-<p><img src="https://i.loli.net/2019/06/30/5d186ee86a64e31482.png" alt=""></p>
-<p><em>公式怎么算的没看懂</em></p>
-<p>&amp;&amp;&amp;&amp;&amp;UPDATE 2019年07月01日23:43:41&amp;&amp;&amp;&amp;&amp;</p>
-<p><strong>终于搞明白了 是怎么计算的</strong></p>
-<p><img src="https://i.loli.net/2019/07/01/5d1a29c4b2d6b67317.png" alt=""><img src="https://i.loli.net/2019/07/01/5d1a2aa5ade2149003.png" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/01/5d1a2ad1a46b720058.png" alt=""></p>
-<p>$ARI(A,B) = \frac{\sum\limits_{i = 1}^{K_A}\sum\limits_{j = 1}^{K_B}  \left(\begin{array}{c}2\ {N_{ij}}\end{array}\right) -t3 } {\frac{t_1+t_2}{2} - t3} $</p>
-<p>其中，A和B是数据集Z的真实值和预测值的划分，分别有K~A~和K~B~个簇；N~ij~表示在划分A的第i个簇中的数据同时也在划分B的第j个簇中数据的数量；N~i~、N~j~分别表示划分A中第i个簇与划分B的第j个簇中的数据质量</p>
-<p><strong>举例说明</strong></p>
-<p><img src="https://i.loli.net/2019/07/02/5d1a35c8d62a112761.png" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/02/5d1a37d10225741929.png" alt=""></p>
-<h6 id="代码调用">代码调用</h6>
-<pre><code class="language-python">from sklearn import metrics
-labels_true = [0, 0, 0, 1, 1, 1] 
-labels_pred = [0, 0, 1, 1, 2, 2] 
-metrics.adjusted_rand_score(labels_true, labels_pred) 
-&gt;&gt;0.2424242424242424
-</code></pre>
-<h3 id="调整互信息-ami">调整互信息 AMI</h3>
-<p><img src="https://i.loli.net/2019/06/30/5d186f2d8b5f420014.png" alt=""></p>
-<p><em>同样没看懂怎么算的</em></p>
-<pre><code class="language-python">metrics.adjusted_mutual_info_score(labels_true, labels_pred)
-</code></pre>
-<p>​</p>
-'
+    var content = post.content 
     console.log(content)
     let navigation = new AutocJs({
         title:'聚类算法效果衡量标准'
