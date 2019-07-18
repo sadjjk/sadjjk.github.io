@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-17T16:00:07.322Z</updated>
+    <updated>2019-07-18T13:12:05.686Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -16,11 +16,9 @@
         <link href="https://blog.wangjy.xyz//post/eatleek">
         </link>
         <updated>2019-07-13T12:32:09.000Z</updated>
-        <summary type="html"><![CDATA[<div id="my_navigation"> 侠之大者   </br>
-  为国接盘
+        <summary type="html"><![CDATA[<div id="MyAbstract"> 侠之大者 为国接盘
 </div>]]></summary>
-        <content type="html"><![CDATA[<div id="my_navigation"> 侠之大者   </br>
-  为国接盘
+        <content type="html"><![CDATA[<div id="MyAbstract"> 侠之大者 为国接盘
 </div>
 <!--more-->
 <center><h3>
@@ -1105,9 +1103,8 @@ Levenshtein.ratio(str1, str2)
         <link href="https://blog.wangjy.xyz//post/mac-app-recommend">
         </link>
         <updated>2019-06-01T10:46:53.000Z</updated>
-        <summary type="html"><![CDATA[<p>全面武装你的MacBook，如若需要，网盘自取</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>全面武装你的MacBook，如若需要，网盘自取</p>
+        <summary type="html"><![CDATA[<div id="MyAbstract">全面武装你的MacBook，如若需要，网盘自取 </div>]]></summary>
+        <content type="html"><![CDATA[<div id="MyAbstract">全面武装你的MacBook，如若需要，网盘自取 </div>
 <!--more-->
 <p>===============UPDATE  2019年06月22日============</p>
 <p>链接: https://pan.baidu.com/s/19F55s4Kf-dR-QIeADUp-TQ 提取码: yvaj</p>
@@ -1117,7 +1114,7 @@ Levenshtein.ratio(str1, str2)
 <h2 id="休闲娱乐">休闲娱乐</h2>
 <h3 id="音乐播放器ieasemusic">音乐播放器：ieaseMusic</h3>
 <p>Mac下最酷最帅的音乐播放器，界面屋里花哨，眼花缭乱。刚上手的时候，不知所错，当你熟悉满屏的快(尿)捷(性)键，你会爱上它。登录的是网易云音乐，自动同步收藏喜欢。相当于网易云换了华丽的皮肤。贴上开发者Github：https://github.com/trazyn/ieaseMusic</p>
-<p><img src="https://i.loli.net/2019/06/30/5d1875bdd2edd34840.png" alt=""></p>
+<p><img src="https://blog.wangjy.xyz//post-images/image-20190623120221936.png" alt=""></p>
 <h3 id="壁纸paper">壁纸：pap.er</h3>
 <p><a href="http://paper.meiyuan.in/?utm_source=zh">官网</a> 吹捧一波</p>
 <p>专为 Mac 设计的壁纸应用
