@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>各种距离(数学概念)及代码实现 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563456403828">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563456684022">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -582,10 +582,390 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wangjy.xyz//media/scripts/lib/production.min.js"></script>
 
   <script>
+    <!-- var abstract = document.getElementById('MyAbstract');
+    if (abstract != null)
+        abstract.parentNode.removeChild(abstract);
+    -->
+
+    var content = `<p>常用的距离和在Sklearn中的调用</p>
+<!--more-->
+<h1 id="各种距离数学概念及代码实现">各种距离(<strong>数学概念</strong>)及代码实现</h1>
+<p>以前看到各种<strong>距离</strong>及公式</p>
+<p>现在花些时间整理一下</p>
+<p>Sklearn里已经内置超多距离，以前都没有发现</p>
+<p>主要讲一下 距离的定义和如何代码调用</p>
+<p>(大多类似文章都是公式理论讲讲 就没了  简直 <strong>no code no bb</strong> )</p>
+<h3 id="用于向量空间的度量标准"><strong>用于向量空间的度量标准：</strong></h3>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>名称</th>
+<th>参数</th>
+<th>距离公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“euclidean”</td>
+<td>欧式距离</td>
+<td></td>
+<td><code>sqrt(sum((x - y)^2))</code></td>
+</tr>
+<tr>
+<td>“manhattan”</td>
+<td>曼哈顿距离</td>
+<td></td>
+<td><code>sum(|x - y|)</code></td>
+</tr>
+<tr>
+<td>“chebyshev”</td>
+<td>切比雪夫距离</td>
+<td></td>
+<td><code>max(|x - y|)</code></td>
+</tr>
+<tr>
+<td>“minkowski”</td>
+<td>闵氏距离</td>
+<td>p</td>
+<td><code>sum(|x - y|^p)^(1/p)</code></td>
+</tr>
+<tr>
+<td>“seuclidean”</td>
+<td>标准化欧氏距离</td>
+<td>V</td>
+<td><code>sqrt(sum((x - y)^2 / V))</code></td>
+</tr>
+<tr>
+<td>“mahalanobis”</td>
+<td>马氏距离</td>
+<td>V或VI</td>
+<td><code>sqrt((x - y)' V^-1 (x - y))</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="欧式距离">欧式距离</h4>
+<p>欧氏距离是最常用的一种距离计算方法</p>
+<ol>
+<li>
+<p>欧式距离定义</p>
+<p>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的欧氏距离：</p>
+<p><img src="https://i.loli.net/2019/06/30/5d18783098e5a62397.png" alt=""></p>
+</li>
+</ol>
+<p>也可以用表示成向量运算的形式：</p>
+<p><img src="https://i.loli.net/2019/06/30/5d18784f23a1256878.png" alt=""></p>
+<ol start="2">
+<li>
+<p>Sklearn中的使用</p>
+<pre><code class="language-python">from sklearn.neighbors import DistanceMetric
+X = [[1, 2, 4, 6],
+     [3, 5, 7, 9]]
+
+dist = DistanceMetric.get_metric('euclidean')
+dist.pairwise(X)
+&gt;&gt;&gt; [[0.         5.56776436]
+ 	 [5.56776436 0.        ]]
+'''
+矩阵含义
+A(1,2,4,6) 到A(1,2,4,6)的距离是0
+A(1,2,4,6) 到B(3,5,7,9)的距离是5.57
+B(3,5,7,9) 到A(1,2,4,6)的距离是5.57
+B(3,5,7,9) 到B(3,5,7,9)的距离是0
+'''
+</code></pre>
+</li>
+</ol>
+<h4 id="曼哈顿距离">曼哈顿距离</h4>
+<p>曼哈顿距离也称为<strong>城市街区距离</strong>，即图中红线、黄线、蓝线的长度。</p>
+<p>相当于在棋盘上从一点走到另一点，每一步都可以任意选择上下左右四个方向，所需的最短步数
+<img src="https://blog.wangjy.xyz//post-images/e850352ac65c10387a2cd556b8119313b17e89d7.jpg" alt="img"></p>
+<ol>
+<li>
+<p>曼哈顿距离的定义</p>
+<p>二维平面两点a(x1,y1)与b(x2,y2)间的曼哈顿距离</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823213652.png" alt="img"></p>
+<p>两个n维向量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的曼哈顿距离</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823231354.png" alt="img"></p>
+</li>
+<li>
+<p>Sklearn中的使用</p>
+<pre><code class="language-python">from sklearn.neighbors import DistanceMetric
+X = [[0, 0],
+     [3, 5]]
+
+dist = DistanceMetric.get_metric('manhattan')
+dist.pairwise(X)
+&gt;&gt;&gt; [[0. 8.]
+ 	   [8. 0.]]
+'''
+矩阵含义
+A(0,0) 到A(0,0)的距离是0
+A(0,0) 到B(3,5)的距离是8
+B(3,5) 到A(0,0)的距离是8
+B(3,5) 到B(3,5)的距离是0
+'''
+
+</code></pre>
+</li>
+</ol>
+<h4 id="切比雪夫距离">切比雪夫距离</h4>
+<p>切比雪夫距离与曼哈顿距离相似，即图中绿线。</p>
+<p>相当于在棋盘上从一点走到另一点，每一步都可以任意选择东、东南、南、西南、西、西北、北、东北八个方向，所需的最短步数。<strong>比曼哈顿距离走法多了四个方向，可以斜着走。</strong></p>
+<p><img src="https://blog.wangjy.xyz//post-images/e850352ac65c10387a2cd556b8119313b17e89d7.jpg" alt="img"></p>
+<ol>
+<li>
+<p>二维平面两点a(x1,y1)与b(x2,y2)间的切比雪夫距离</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823234117.png" alt="img"></p>
+<p>两个n维向量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的切比雪夫距离</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823235870.png" alt="img"></p>
+</li>
+</ol>
+<p>这个公式的另一种等价形式是</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823242560.png" alt="img"></p>
+<ol start="2">
+<li>
+<p>Sklearn中的使用</p>
+<pre><code>from sklearn.neighbors import DistanceMetric
+X = [[0, 0],
+     [3, 5]]
+
+dist = DistanceMetric.get_metric('chebyshev')
+dist.pairwise(X)
+&gt;&gt;&gt; [[0. 5.]
+ 	 [5. 0.]]
+</code></pre>
+</li>
+</ol>
+<h4 id="闵氏距离">闵氏距离</h4>
+<p><strong>闵氏距离不是一种距离，而是一组距离的定义</strong>。</p>
+<ol>
+<li>闵氏距离的定义</li>
+</ol>
+<p>​       两个n维变量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的闵可夫斯基距离定义为：</p>
+<p>​     <img src="https://blog.wangjy.xyz//post-images/2011030823244080.png" alt="img"></p>
+<p>​	其中p是一个变参数。</p>
+<p>​	当p=1时，就是曼哈顿距离</p>
+<p>​	当p=2时，就是欧氏距离</p>
+<p>​	当p→∞时，就是切比雪夫距离</p>
+<p>​        根据变参数的不同，闵氏距离可以表示一类的距离。</p>
+<ol start="2">
+<li>
+<p>Sklearn中的使用</p>
+<pre><code class="language-python">from sklearn.neighbors import DistanceMetric
+
+DistanceMetric.get_metric('minkowski', p=1) # 曼哈顿距离
+DistanceMetric.get_metric('minkowski', p=2) # 欧氏距离
+DistanceMetric.get_metric('minkowski', p=3)
+</code></pre>
+</li>
+</ol>
+<h4 id="标准化欧式距离">标准化欧式距离</h4>
+<ol>
+<li>
+<p>标准欧氏距离的定义</p>
+<p>标准化欧氏距离是针对简单欧氏距离的缺点而作的一种改进方案。标准欧氏距离的思路：既然数据各维分量的分布不一样，那标准化到一样。因此样本集的标准化过程(standardization)用公式描述就是：</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823264688.png" alt="img"></p>
+<p>标准化后的值 =  ( 标准化前的值  － 分量的均值 ) /分量的标准差</p>
+<p>经过简单的推导就可以得到两个n维向量a(https://blog.wangjy.xyz//post-images/2011030823272054.png)</p>
+<p><strong>标准化欧式距离与量纲无关。这其实等价于先对X矩阵进行标准化，再进行欧式距离</strong></p>
+<p>实际使用过程，一般不使用标准化欧式</p>
+</li>
+<li>
+<p>Sklearn中的使用</p>
+<p>之前的表格中有写到标准化欧式距离需要参数V ,这个V是什么，V指的是各个分量的标准差(列表)</p>
+<pre><code class="language-python">from sklearn.neighbors import DistanceMetric
+import numpy as np 
+
+&quot;&quot;&quot;
+假设所有样本中的两个分量的标准差分别为0.5和1
+计算其中三个样本(0,0)、(1,0)、(0,2)两两间的标准化欧氏距离
+&quot;&quot;&quot;
+X = [[0, 0],
+     [1, 0],
+     [0, 2]]
+
+# 需传入参数V 即各个分量的标准差
+dist = DistanceMetric.get_metric('seuclidean', V=[0.5,1])
+
+dist.pairwise(X) 
+&gt;&gt;&gt; [[0.         1.41421356 2.        ]
+     [1.41421356 0.         2.44948974]
+     [2.         2.44948974 0.        ]]
+
+</code></pre>
+</li>
+</ol>
+<h4 id="马氏距离">马氏距离</h4>
+<ol>
+<li>马氏距离定义</li>
+</ol>
+<p>​       有M个样本向量X1~Xm，协方差矩阵记为S，均值记为向量μ，则其中样本向量X到u的马氏距离表示为：</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823274286.png" alt="img"></p>
+<p>​       而其中向量Xi与Xj之间的马氏距离定义为：</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823280193.png" alt="img"></p>
+<p>​       若协方差矩阵是单位矩阵（各个样本向量之间独立同分布）,则公式就成了：</p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823281650.png" alt="img"></p>
+<p>​       也就是欧氏距离了。</p>
+<p>若协方差矩阵是对角矩阵，公式变成了标准化欧氏距离。</p>
+<p>​       马氏距离同样与量纲无关，排除变量之间的相关性的干扰。</p>
+<ol start="2">
+<li>
+<p>Sklearn中的使用</p>
+<ul>
+<li>
+<p>使用条件</p>
+<p>公式中有求矩阵的协方差，又求逆，又多矩阵相乘，最容易出问题的就是求逆，矩阵的求逆可能会失败</p>
+<p><strong>因此能不能正常求出马氏距离，由具体数据决定，需试验。</strong></p>
+</li>
+<li>
+<p>Code</p>
+<p>之前的表格中有写到马氏距离需要参数V或VI ,这两个到底是什么。</p>
+<p><strong>(这里的V和标准化欧氏距离的V，两个是完全不一样的，仅仅是参数名字相同)</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-python"># 源码部分
+class MahalanobisDistance(DistanceMetric):
+    &quot;&quot;&quot;
+    Mahalanobis Distance
     
+        .. math::
+           D(x, y) = \sqrt{ (x - y)^T V^{-1} (x - y) }
+    
+        Parameters
+        ----------
+        V : array_like
+            Symmetric positive-definite covariance matrix.
+            The inverse of this matrix will be explicitly computed.
+        VI : array_like
+            optionally specify the inverse directly.  If VI is passed,
+            then V is not referenced.
+    &quot;&quot;&quot;
+    &quot;&quot;&quot; 中文(说人话)
+    	V： 协方差矩阵
+    	VI：协方差矩阵的逆，如果指定VI，则不使用V
+    &quot;&quot;&quot;
+</code></pre>
+<pre><code class="language-python">from sklearn.neighbors import DistanceMetric
+from numpy.linalg import inv
+import numpy as np 
 
 
-    var content = post.content
+X = [[-1, 1, 2],
+     [ 3, 4, 5],
+     [ 5, 6, 8]]
+
+# 需传入参数V 即，协方差矩阵
+dist = DistanceMetric.get_metric('mahalanobis', V=np.cov(X))
+# 或者参数VI 即协方差矩阵的逆
+# dist = DistanceMetric.get_metric('mahalanobis', VI=inv(np.cov(X)))
+
+dist.pairwise(X) 
+&gt;&gt;&gt; [[0.00000000e+00 7.74906414e+07 1.16235962e+08]
+     [7.74906414e+07 0.00000000e+00 3.87453207e+07]
+     [1.16235962e+08 3.87453207e+07 0.00000000e+00]]
+
+</code></pre>
+<h3 id="用于地理空间的距离"><strong>用于地理空间的距离</strong></h3>
+<table>
+<thead>
+<tr>
+<th>metric</th>
+<th>名称</th>
+<th>公式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“haversine”</td>
+<td>HaversineDistance</td>
+<td><code>2 arcsin(sqrt(sin^2(0.5*dx) + cos(x1)cos(x2)sin^2(0.5*dy)))</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>计算纬度和经度指定的两点之间的距离</strong></p>
+<pre><code class="language-python"># sklean 内置
+from sklearn.neighbors import DistanceMetric
+# [latitude, longitude] 纬度 经度
+X = [[38.13,106.83],
+     [29.99,120.23]]
+
+dist = DistanceMetric.get_metric('haversine')
+dist.pairwise(X)
+&gt;&gt;&gt; [[0.         1.90194804]
+ 	 [1.90194804 0.        ]]
+
+
+# 手撸版
+from math import radians, cos, sin, asin, sqrt
+# 参数 经度1 纬度1 经度2 纬度2 
+def haversine(lon1, lat1, lon2, lat2):
+    &quot;&quot;&quot;
+    Calculate the great circle distance between two points 
+    on the earth (specified in decimal degrees)
+    &quot;&quot;&quot;
+    # convert decimal degrees to radians 
+    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+
+    # haversine formula 
+    dlon = lon2 - lon1 
+    dlat = lat2 - lat1 
+    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
+    c = 2 * asin(sqrt(a)) 
+    r = 6371 # Radius of earth in kilometers. Use 3956 for miles
+    return c * r
+
+
+# 后者乘了地球半径 但是不乘两者计算结果还是有些不同 
+</code></pre>
+<h3 id="用于字符串的距离">用于字符串的距离</h3>
+<table>
+<thead>
+<tr>
+<th>metric</th>
+<th>名称</th>
+<th>定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“hamming”</td>
+<td>汉明距离</td>
+<td>两个（相同长度）字对应位不同的数量，即将其中一个变为另外一个所需要作的最小替换次数</td>
+</tr>
+<tr>
+<td>&quot;Levenshtein&quot;</td>
+<td>编辑距离</td>
+<td>两个字串之间，由一个转成另一个所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-python">pip install python-Levenshtein
+
+import Levenshtein
+
+# 汉明距离
+Levenshtein.hamming(str1, str2)
+
+# 编辑距离
+Levenshtein.distance(str1, str2)
+
+# 计算莱文斯坦比_字符串相似度
+Levenshtein.ratio(str1, str2)
+</code></pre>
+<h3 id="用于自定义的距离">用于自定义的距离</h3>
+<p>Sklearn中支持自定义距离</p>
+<p><img src="https://blog.wangjy.xyz//post-images/20190606153740106.png" alt="image-20190606153740106"></p>
+<p>按这个格式定义距离，就可以在Sklearn的模型中直接调用</p>
+<p>Ps:大学泛函课本里第一课就有写距离定义,非负性、对称性、传递性</p>
+<h4 id="参考文献">参考文献：</h4>
+<p>sklearn.neighbors.DistanceMetric文档  <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric</a></p>
+<p>各种距离分析 <a href="https://www.cnblogs.com/sason/p/5590228.html">https://www.cnblogs.com/sason/p/5590228.html</a></p>
+<p>标准化欧式距离 <a href="https://blog.csdn.net/jinzhichaoshuiping/article/details/51019473">https://blog.csdn.net/jinzhichaoshuiping/article/details/51019473</a></p>
+<p>python-Levenshtein几个计算字串相似度的函数解析  <a href="https://blog.csdn.net/u010454729/article/details/46559845">https://blog.csdn.net/u010454729/article/details/46559845</a></p>
+`
     console.log(content)
     let navigation = new AutocJs({
         title:'各种距离(数学概念)及代码实现'
