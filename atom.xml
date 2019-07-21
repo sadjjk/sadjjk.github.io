@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-21T08:55:11.721Z</updated>
+    <updated>2019-07-21T08:57:04.624Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -474,7 +474,6 @@ metrics.adjusted_rand_score(labels_true, labels_pred)
 <p>哪怕明天孤独地死去 你也无所谓吗</p>
 </blockquote>
 <p><img src="https://i.loli.net/2019/07/21/5d3426d09358163343.jpg" alt=""></p>
-<p><img src="https://blog.wangjy.xyz//post-images/5d0e1b95450db72037.jpg" alt=""></p>
 <p><img src="https://i.loli.net/2019/07/21/5d3426eb805b425870.jpg" alt=""></p>
 <p><img src="https://i.loli.net/2019/07/21/5d34270b5c68347804.jpg" alt=""></p>
 <p><img src="https://i.loli.net/2019/07/21/5d3427542d46283928.jpg" alt=""></p>
