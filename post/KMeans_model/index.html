@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>KMeans及其衍生聚类算法 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563699422690">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563700208491">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -265,7 +265,7 @@ K-Medoids对于较多的样本量，速度就慢了(见下表的时间复杂度)
 # 在早已无人维护的三方模块pyclust中有KMedoids
 from pyclust import KMedoids
 </code></pre>
-<p><img src="https://blog.wangjy.xyz//post-images/5d2185d32b3d620088.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/07/21/5d342b7fdc18579814.png" alt=""></p>
 </li>
 </ul>
 <p>2.随机地确定初始质心，不同的初始质心可能导致完全不同的聚类结果。</p>
@@ -302,7 +302,7 @@ init: k-means++ 、random 、指定具体初始质心
 ​	2.将该簇一分为二<br>
 ​	3.选择能最大限度降低聚类代价函数的簇划分为两个簇。<br>
 ​	4.以此进行下去，直到簇的数目等于用户给定的数目k为止。</p>
-<p>​	<img src="https://blog.wangjy.xyz//post-images/5d218e93015f563396.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/07/21/5d342b95811f385134.png" alt=""></p>
 <pre><code>skearn没有此模型
 目前也没找到已实现的三方模块
 需自己手写
@@ -318,7 +318,7 @@ init: k-means++ 、random 、指定具体初始质心
 <p>4.线性不可分的样本效果不佳</p>
 <p>​	<strong>Kernel K-means</strong></p>
 <p>​	使用核函数，将每个样本进行一个投射到高维空间的处理，然后再将处理后的	数据使用普通的k-means算法思想进行聚类。其基本思路与SVM(支持向量机)一	致。</p>
-<p><img src="https://blog.wangjy.xyz//post-images/5d2191e5def1765739.png" alt=""></p>
+<p><img src="https://i.loli.net/2019/07/21/5d342badcd11317376.png" alt=""></p>
 <pre><code>skearn没有此模型
 目前也没找到已实现的三方模块
 需自己手写
