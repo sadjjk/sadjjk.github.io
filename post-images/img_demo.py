@@ -7,13 +7,13 @@ keys  = ['yKMpRXCWQrwssnkXv5HFrbRy1W5V2Q3N',
 
 tinify.key = choice(keys)
 
-imgpath = "5d187766ab05169304.png" # 图片存放的路径
+imgpath = "5d0e14880a6f446842.jpg" # 图片存放的路径
 
 
 
 print("图片压缩前大小: %.3f KB" % (os.path.getsize(imgpath) / 1024))
 print("开始压缩 ...")
-tinify.from_file(imgpath).resize(method = 'scale',width=500).to_file(imgpath)
+tinify.from_file(imgpath).resize(method = 'scale',width=800).to_file(imgpath)
 # tinify.from_file(imgpath).to_file(imgpath)
 print("... 压缩完成" )
 print("图片压缩后大小: %.3f KB" % (os.path.getsize(imgpath) / 1024))
