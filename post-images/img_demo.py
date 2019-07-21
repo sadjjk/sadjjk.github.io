@@ -1,10 +1,13 @@
+from random import choice
 import tinify
 import os
 
+keys  = ['yKMpRXCWQrwssnkXv5HFrbRy1W5V2Q3N',
+		'B9ywkSLNSjx9xmGgq1zPQYn3d90F6myN']
 
-tinify.key = 'B9ywkSLNSjx9xmGgq1zPQYn3d90F6myN'
+tinify.key = choice(keys)
 
-imgpath = "timg.jpeg" # 图片存放的路径
+imgpath = "5d187766ab05169304.png" # 图片存放的路径
 
 
 
