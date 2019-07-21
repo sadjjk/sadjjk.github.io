@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-21T06:38:45.614Z</updated>
+    <updated>2019-07-21T06:44:00.562Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -328,7 +328,7 @@ metrics.silhouette_score(X, labels, metric='euclidean')
 </code></pre>
 <h3 id="chcalinski-harabasz">CH：Calinski-Harabasz</h3>
 <p><strong>CH值越大越好</strong></p>
-<p><img src="https://blog.wangjy.xyz//post-images/b08e86063d664c73a1eed5030e15de24-3690570.png" alt="b08e86063d664c73a1eed5030e15de24"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/b08e86063d664c73a1eed5030e15de24-3690570.png" alt=""></p>
 <pre><code class="language-python">from sklearn import metrics
 metrics.calinski_harabaz_score(X, labels)  
 </code></pre>
