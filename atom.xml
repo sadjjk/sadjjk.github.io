@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-21T08:31:54.015Z</updated>
+    <updated>2019-07-21T08:41:01.350Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -435,8 +435,9 @@ metrics.adjusted_rand_score(labels_true, labels_pred)
 <p>被古书之神一连串的关系推理惊呆</p>
 <p><a href="https://www.allhistory.com/">全历史</a>的AB路径就有类似的功能 吹捧一波</p>
 <p><img src="https://blog.wangjy.xyz//post-images/5d0e1bb8b7cc852071.jpg" alt=""></p>
+<p><img src="https://i.loli.net/2019/07/21/5d342502a605918024.jpg" alt=""></p>
 <p><img src="https://blog.wangjy.xyz//post-images/5d04e87e5d2cc75835.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/06/22/5d0e1753a87cb10826.jpg" alt=""></p>
+<p><img src="https://blog.wangjy.xyz//post-images/5d0e1753a87cb10826.jpg" alt=""></p>
 <p><img src="https://blog.wangjy.xyz//post-images/5d0e20442dbaa65739.png" alt=""></p>
 <h3 id="人生态度">人生态度</h3>
 <p>一边空虚、消极、逃避、了无生趣 总之没意思</p>
