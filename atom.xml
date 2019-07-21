@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-21T06:50:10.615Z</updated>
+    <updated>2019-07-21T06:58:38.124Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -176,7 +176,7 @@ K-Medoids对于较多的样本量，速度就慢了(见下表的时间复杂度)
 # 在早已无人维护的三方模块pyclust中有KMedoids
 from pyclust import KMedoids
 </code></pre>
-<p><img src="https://i.loli.net/2019/07/07/5d2185d32b3d620088.png" alt=""></p>
+<p><img src="https://blog.wangjy.xyz//post-images/5d2185d32b3d620088.png" alt=""></p>
 </li>
 </ul>
 <p>2.随机地确定初始质心，不同的初始质心可能导致完全不同的聚类结果。</p>
@@ -213,7 +213,7 @@ init: k-means++ 、random 、指定具体初始质心
 ​	2.将该簇一分为二<br>
 ​	3.选择能最大限度降低聚类代价函数的簇划分为两个簇。<br>
 ​	4.以此进行下去，直到簇的数目等于用户给定的数目k为止。</p>
-<p>​	<img src="https://i.loli.net/2019/07/07/5d218e93015f563396.png" alt=""></p>
+<p>​	<img src="https://blog.wangjy.xyz//post-images/5d218e93015f563396.png" alt=""></p>
 <pre><code>skearn没有此模型
 目前也没找到已实现的三方模块
 需自己手写
@@ -229,7 +229,7 @@ init: k-means++ 、random 、指定具体初始质心
 <p>4.线性不可分的样本效果不佳</p>
 <p>​	<strong>Kernel K-means</strong></p>
 <p>​	使用核函数，将每个样本进行一个投射到高维空间的处理，然后再将处理后的	数据使用普通的k-means算法思想进行聚类。其基本思路与SVM(支持向量机)一	致。</p>
-<p><img src="https://i.loli.net/2019/07/07/5d2191e5def1765739.png" alt=""></p>
+<p><img src="https://blog.wangjy.xyz//post-images/5d2191e5def1765739.png" alt=""></p>
 <pre><code>skearn没有此模型
 目前也没找到已实现的三方模块
 需自己手写
@@ -366,12 +366,13 @@ metrics.adjusted_rand_score(labels_true, labels_pred)
         <link href="https://blog.wangjy.xyz//post/GoldTalk">
         </link>
         <updated>2019-06-22T12:20:56.000Z</updated>
-        <summary type="html"><![CDATA[<pre id="my_navigation">*当代年轻人*       
-*比起深夜感慨秃头带来的恐慌*   
-*贫穷才是他们真正的人生困境*</pre>]]></summary>
-        <content type="html"><![CDATA[<pre id="my_navigation">*当代年轻人*       
-*比起深夜感慨秃头带来的恐慌*   
-*贫穷才是他们真正的人生困境*</pre>
+        <summary type="html"><![CDATA[<p><em>当代年轻人</em><br>
+<em>比起深夜感慨秃头带来的恐慌</em><br>
+<em>贫穷才是他们真正的人生困境</em></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><em>当代年轻人</em><br>
+<em>比起深夜感慨秃头带来的恐慌</em><br>
+<em>贫穷才是他们真正的人生困境</em></p>
 <!--more-->
 <p>你想一夜暴富吗？你想来钱快吗？
 想啊 那还是赶紧去做你的梦吧</p>
@@ -779,11 +780,11 @@ nn = NearestNeighbors(algorithm='brute',  #暴力计算
 <li>
 <p>欧式距离定义</p>
 <p>两个n维向量a(x11,x12,…,x1n)与 b(x21,x22,…,x2n)间的欧氏距离：</p>
-<p><img src="https://i.loli.net/2019/06/30/5d18783098e5a62397.png" alt=""></p>
+<p><img src="https://blog.wangjy.xyz//post-images/5d18783098e5a62397.png" alt=""></p>
 </li>
 </ol>
 <p>也可以用表示成向量运算的形式：</p>
-<p><img src="https://i.loli.net/2019/06/30/5d18784f23a1256878.png" alt=""></p>
+<p><img src="https://blog.wangjy.xyz//post-images/5d18784f23a1256878.png" alt=""></p>
 <ol start="2">
 <li>
 <p>Sklearn中的使用</p>
@@ -851,7 +852,7 @@ B(3,5) 到B(3,5)的距离是0
 </li>
 </ol>
 <p>这个公式的另一种等价形式是</p>
-<p><img src="https://blog.wangjy.xyz//post-images/2011030823242560.png" alt="img"></p>
+<p><img src="https://blog.wangjy.xyz//post-images/2011030823242560-3692108.png" alt="img"></p>
 <ol start="2">
 <li>
 <p>Sklearn中的使用</p>
