@@ -4,13 +4,13 @@ import os
 
 tinify.key = 'B9ywkSLNSjx9xmGgq1zPQYn3d90F6myN'
 
-imgpath = "logo2x.jpg" # 图片存放的路径
+imgpath = "pexels-photo-413195.jpeg" # 图片存放的路径
 
 
 
 print("图片压缩前大小: %.3f KB" % (os.path.getsize(imgpath) / 1024))
 print("开始压缩 ...")
-tinify.from_file(imgpath).resize(method = 'scale',width=1000).to_file(imgpath)
+tinify.from_file(imgpath).resize(method = 'scale',width=500).to_file(imgpath)
 # tinify.from_file(imgpath).to_file(imgpath)
 print("... 压缩完成" )
 print("图片压缩后大小: %.3f KB" % (os.path.getsize(imgpath) / 1024))
