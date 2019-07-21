@@ -103,7 +103,7 @@
     right: -250px;
     overflow: visible;
     position: fixed;
-    top: 100;
+    top: 0;
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
     width: 250px;
