@@ -4,7 +4,7 @@ import os
 
 tinify.key = 'B9ywkSLNSjx9xmGgq1zPQYn3d90F6myN'
 
-imgpath = "pexels-photo-413195.jpeg" # 图片存放的路径
+imgpath = "timg.jpeg" # 图片存放的路径
 
 
 
