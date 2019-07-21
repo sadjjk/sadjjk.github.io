@@ -4,7 +4,7 @@ import os
 
 tinify.key = 'B9ywkSLNSjx9xmGgq1zPQYn3d90F6myN'
 
-imgpath = "5d186f2d8b5f420014.png" # 图片存放的路径
+imgpath = "b08e86063d664c73a1eed5030e15de24-3690570.png" # 图片存放的路径
 
 
 
