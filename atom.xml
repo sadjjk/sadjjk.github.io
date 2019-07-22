@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-22T05:17:55.001Z</updated>
+    <updated>2019-07-22T05:19:22.340Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -719,7 +719,7 @@ nn = NearestNeighbors(algorithm='brute',  #暴力计算
 ]]></summary>
         <content type="html"><![CDATA[<p>常用(数学概念)的距离和在Sklearn中的调用</p>
 <!--more-->
-<p>以前看到各种<strong>距离</strong>及公式</p>
+<p>以前看到各种距离及公式</p>
 <p>现在花些时间整理一下</p>
 <p>Sklearn里已经内置超多距离，以前都没有发现</p>
 <p>主要讲一下 距离的定义和如何代码调用</p>
