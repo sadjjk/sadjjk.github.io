@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-22T03:31:22.469Z</updated>
+    <updated>2019-07-22T05:14:24.533Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -346,7 +346,7 @@ metrics.calinski_harabaz_score(X, labels)
 <p><strong>举例说明</strong></p>
 <p><img src="https://i.loli.net/2019/07/21/5d342b01083be93873.png" alt=""></p>
 <p><img src="https://i.loli.net/2019/07/21/5d342b2a10e6239071.png" alt=""></p>
-<h6 id="代码调用">代码调用</h6>
+<h4 id="代码调用">代码调用</h4>
 <pre><code class="language-python">from sklearn import metrics
 labels_true = [0, 0, 0, 1, 1, 1] 
 labels_pred = [0, 0, 1, 1, 2, 2] 
@@ -530,7 +530,6 @@ metrics.adjusted_rand_score(labels_true, labels_pred)
 ]]></summary>
         <content type="html"><![CDATA[<p>最近邻算法除了KNN还有限定半径最近邻、最近质心分类算法</p>
 <!--more-->
-<h1 id="k-近邻算法">K-近邻算法</h1>
 <h3 id="knn概述">KNN概述</h3>
 <p>K-近邻（K-NearestNeighbor)：给定一个训练数据集，对新的输入实例，在训练数据集中找到与该实例最邻近的 k 个实例，根据其 k 个最近邻的训练实例的类别，通过多数表决等方式进行预测。</p>
 <h3 id="knn原理以分类为例">KNN原理(以分类为例)</h3>
@@ -710,16 +709,15 @@ nn = NearestNeighbors(algorithm='brute',  #暴力计算
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[各种距离(数学概念)及代码实现]]></title>
+        <title type="html"><![CDATA[各种常用距离及代码实现]]></title>
         <id>https://blog.wangjy.xyz//post/math-distance</id>
         <link href="https://blog.wangjy.xyz//post/math-distance">
         </link>
         <updated>2019-06-06T07:43:21.000Z</updated>
-        <summary type="html"><![CDATA[<p>常用的距离和在Sklearn中的调用</p>
+        <summary type="html"><![CDATA[<p>常用(数学概念)的距离和在Sklearn中的调用</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>常用的距离和在Sklearn中的调用</p>
+        <content type="html"><![CDATA[<p>常用(数学概念)的距离和在Sklearn中的调用</p>
 <!--more-->
-<h1 id="各种距离数学概念及代码实现">各种距离(<strong>数学概念</strong>)及代码实现</h1>
 <p>以前看到各种<strong>距离</strong>及公式</p>
 <p>现在花些时间整理一下</p>
 <p>Sklearn里已经内置超多距离，以前都没有发现</p>
@@ -1051,6 +1049,8 @@ def haversine(lon1, lat1, lon2, lat2):
 # 后者乘了地球半径 但是不乘两者计算结果还是有些不同 
 </code></pre>
 <h3 id="用于字符串的距离">用于字符串的距离</h3>
+<h4 id="汉明距离">汉明距离</h4>
+<h4 id="编辑距离">编辑距离</h4>
 <table>
 <thead>
 <tr>
@@ -1090,7 +1090,7 @@ Levenshtein.ratio(str1, str2)
 <p><img src="https://blog.wangjy.xyz//post-images/20190606153740106.png" alt="image-20190606153740106"></p>
 <p>按这个格式定义距离，就可以在Sklearn的模型中直接调用</p>
 <p>Ps:大学泛函课本里第一课就有写距离定义,非负性、对称性、传递性</p>
-<h4 id="参考文献">参考文献：</h4>
+<h3 id="参考文献">参考文献：</h3>
 <p>sklearn.neighbors.DistanceMetric文档  <a href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric">https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.DistanceMetric.html#sklearn.neighbors.DistanceMetric</a></p>
 <p>各种距离分析 <a href="https://www.cnblogs.com/sason/p/5590228.html">https://www.cnblogs.com/sason/p/5590228.html</a></p>
 <p>标准化欧式距离 <a href="https://blog.csdn.net/jinzhichaoshuiping/article/details/51019473">https://blog.csdn.net/jinzhichaoshuiping/article/details/51019473</a></p>
@@ -1265,7 +1265,8 @@ AuthorizedKeysFile .ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 </code></pre>
 <h2 id="step3本地端">Step3:本地端</h2>
-<h4 id="7-修改配置文件-vi-~sshconfig-没有则创建">7 修改配置文件  vi ～/.ssh/config （没有则创建）</h4>
+<h4 id="7-修改配置文件">7 修改配置文件</h4>
+<p>vi ～/.ssh/config （没有则创建）</p>
 <pre><code class="language-php">Host aliyun  ### 别名
 Hostname XXX.XX.XX.XXX  ###公网 IP
 Port 22  ###端口
@@ -1285,7 +1286,8 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
 </code></pre>
 <pre><code class="language-shell">ssh aliyun
 </code></pre>
-<h4 id="8-iterm2设置自动连接添加快捷键">8 iTerm2设置自动连接，添加快捷键</h4>
+<h4 id="8-iterm2设置自动连接">8 iTerm2设置自动连接</h4>
+<p>添加快捷键</p>
 <p><img src="https://i.loli.net/2019/07/21/5d342bdcc492784595.png" alt=""></p>
 <h4 id="9-快捷键走你end">9 快捷键，走你！END</h4>
 <p>Tips</p>

@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Mac下iTerm2远程连接 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563766262928">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563772462798">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -238,7 +238,8 @@ AuthorizedKeysFile .ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 </code></pre>
 <h2 id="step3本地端">Step3:本地端</h2>
-<h4 id="7-修改配置文件-vi-~sshconfig-没有则创建">7 修改配置文件  vi ～/.ssh/config （没有则创建）</h4>
+<h4 id="7-修改配置文件">7 修改配置文件</h4>
+<p>vi ～/.ssh/config （没有则创建）</p>
 <pre><code class="language-php">Host aliyun  ### 别名
 Hostname XXX.XX.XX.XXX  ###公网 IP
 Port 22  ###端口
@@ -258,7 +259,8 @@ IdentityFile ~/.ssh/id_rsa ###本机私钥地址
 </code></pre>
 <pre><code class="language-shell">ssh aliyun
 </code></pre>
-<h4 id="8-iterm2设置自动连接添加快捷键">8 iTerm2设置自动连接，添加快捷键</h4>
+<h4 id="8-iterm2设置自动连接">8 iTerm2设置自动连接</h4>
+<p>添加快捷键</p>
 <p><img src="https://i.loli.net/2019/07/21/5d342bdcc492784595.png" alt=""></p>
 <h4 id="9-快捷键走你end">9 快捷键，走你！END</h4>
 <p>Tips</p>
