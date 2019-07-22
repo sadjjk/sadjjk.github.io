@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-22T05:26:53.698Z</updated>
+    <updated>2019-07-22T05:31:55.228Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -724,7 +724,7 @@ nn = NearestNeighbors(algorithm='brute',  #暴力计算
 <p>Sklearn里已经内置超多距离，以前都没有发现</p>
 <p>主要讲一下 距离的定义和如何代码调用</p>
 <p>(大多类似文章都是公式理论讲讲 就没了  简直 no code no bb )</p>
-<h3 id="用于向量空间的度量标准">用于向量空间的度量标准：</h3>
+<h3 id="用于向量空间的度量标准">用于向量空间的度量标准</h3>
 <table>
 <thead>
 <tr>
