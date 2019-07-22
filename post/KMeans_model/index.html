@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>KMeans及其衍生聚类算法 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563772971327">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563773086458">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -292,7 +292,9 @@ init: k-means++ 、random 、指定具体初始质心
 <p>4.计算速度相对慢(还可以优化)</p>
 <p>​	<strong>改进</strong></p>
 <ul>
-<li><strong>Bisecting k-means(二分-K均值)</strong></li>
+<li>
+<h5 id="bisecting-k-means二分-k均值"><strong>Bisecting k-means(二分-K均值)</strong></h5>
+</li>
 </ul>
 <p>​	这和自上而下(分裂)的层次聚类很像[或者两者说的就是一回事 个人意见]</p>
 <p>​	二分K均值算法可以加速K-means算法的执行速度，因为它的相似度计算少了（不用多次迭代）并且不受初始化问题的影响，因为这里不存在随机点的选取，且每一步都保证了误差最小</p>
@@ -307,14 +309,14 @@ init: k-means++ 、random 、指定具体初始质心
 </code></pre>
 <ul>
 <li>
-<p><strong>Mini Batch K-Means</strong></p>
+<h5 id="mini-batch-k-means"><strong>Mini Batch K-Means</strong></h5>
 <p>适合样本非常多的情况下 Mini Batch的思想很常见 计算过程中不必使用所有的数据样本，而是从不同类别的样本中抽取一部分样本来代表各自类型进行计算。由于计算样本量少，所以会相应的减少运行时间。</p>
 <pre><code>from sklearn.cluster import MiniBatchKMeans
 </code></pre>
 </li>
 </ul>
 <p>4.线性不可分的样本效果不佳</p>
-<p>​	<strong>Kernel K-means</strong></p>
+<h5 id="kernel-k-means"><strong>Kernel K-means</strong></h5>
 <p>​	使用核函数，将每个样本进行一个投射到高维空间的处理，然后再将处理后的	数据使用普通的k-means算法思想进行聚类。其基本思路与SVM(支持向量机)一	致。</p>
 <p><img src="https://i.loli.net/2019/07/21/5d342badcd11317376.png" alt=""></p>
 <pre><code>skearn没有此模型
