@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-22T05:20:22.697Z</updated>
+    <updated>2019-07-22T05:22:53.439Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -166,9 +166,9 @@
 <h4 id="缺点"><strong>缺点</strong></h4>
 <p>1.对噪声、离群点敏感 (噪声易造成质心偏移)</p>
 <ul>
-<li>
-<p>改进</p>
-<p><strong>K-Medoids（K-中心聚类算法）</strong></p>
+<li>改进</li>
+</ul>
+<h5 id="k-medoidsk-中心聚类算法">K-Medoids（K-中心聚类算法）</h5>
 <p>K-Medoids不一样的地方在于中心点的选取。K-means中，将中心点取为当前cluster中所有数据点的平均值(大多为虚拟质心)，对异常点很敏感!K-Medoids中，将从当前cluster 中选取到其他所有（当前cluster中的）点的距离之和最小的点作为质点。</p>
 <p>K-Medoids对噪声鲁棒性好。例：当一个cluster样本点只有少数几个，如（1,1）（1,2）（2,1）（1000,1000）。其中（1000,1000）是噪声。如果按照k-means质心大致会处在（1,1）（1000,1000）中间，这显然不是我们想要的。这时K-Medoids就可以避免这种情况，他会在（1,1）（1,2）（2,1）（1000,1000）中选出一个样本点使cluster的绝对误差最小，计算可知一定会在前三个点中选取。
 K-Medoids对于较多的样本量，速度就慢了(见下表的时间复杂度)，当样本多的时候，少数几个噪音对k-means的质心影响也没有想象中的那么重，所以k-means的应用明显比K-Medoids多。</p>
@@ -177,13 +177,11 @@ K-Medoids对于较多的样本量，速度就慢了(见下表的时间复杂度)
 from pyclust import KMedoids
 </code></pre>
 <p><img src="https://i.loli.net/2019/07/21/5d342b7fdc18579814.png" alt=""></p>
-</li>
-</ul>
 <p>2.随机地确定初始质心，不同的初始质心可能导致完全不同的聚类结果。</p>
 <ul>
 <li>
 <p>改进</p>
-<p><strong>K-Means++</strong></p>
+<h5 id="k-means">K-Means++</h5>
 <p><strong>初始质心之间的相互距离要尽可能的远</strong></p>
 <p>1.从输入的数据点集合中随机选择一个点作为第一个聚类中心<br>
 2.对于数据集中的每一个点x，计算它与最近聚类中心(指已选择的聚类中心)的距离D(x)<br>
@@ -199,7 +197,7 @@ init: k-means++ 、random 、指定具体初始质心
 </ul>
 <p>3.类别K必须事先确定下来</p>
 <p>​	<strong>改进</strong></p>
-<p>​	<strong>ISODATA</strong></p>
+<h5 id="isodata"><strong>ISODATA</strong></h5>
 <p>​	类别数目随着聚类过程而变化:对类别数的“合并”（当聚类结果某一类中样本数太少，或两个类间的距离太近时）;“分裂”（当聚类结果中某一类的类内方差太大，将该类进行分裂）</p>
 <p>​	具体见<a href="https://www.cnblogs.com/huadongw/articles/4101306.html">ISODATA分类法</a></p>
 <p>4.计算速度相对慢(还可以优化)</p>
