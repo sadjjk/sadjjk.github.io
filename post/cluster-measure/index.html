@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>聚类算法效果衡量标准 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563772462798">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563772650985">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -260,7 +260,7 @@ metrics.calinski_harabaz_score(X, labels)
 <p><img src="https://i.loli.net/2019/07/21/5d342aea5534265266.png" alt=""></p>
 <p>$ARI(A,B) = \frac{\sum\limits_{i = 1}^{K_A}\sum\limits_{j = 1}^{K_B}  \left(\begin{array}{c}2\ {N_{ij}}\end{array}\right) -t3 } {\frac{t_1+t_2}{2} - t3} $</p>
 <p>其中，A和B是数据集Z的真实值和预测值的划分，分别有K~A~和K~B~个簇；N~ij~表示在划分A的第i个簇中的数据同时也在划分B的第j个簇中数据的数量；N~i~、N~j~分别表示划分A中第i个簇与划分B的第j个簇中的数据质量</p>
-<p><strong>举例说明</strong></p>
+<h4 id="举例说明">举例说明</h4>
 <p><img src="https://i.loli.net/2019/07/21/5d342b01083be93873.png" alt=""></p>
 <p><img src="https://i.loli.net/2019/07/21/5d342b2a10e6239071.png" alt=""></p>
 <h4 id="代码调用">代码调用</h4>
@@ -273,6 +273,7 @@ metrics.adjusted_rand_score(labels_true, labels_pred)
 <h3 id="调整互信息-ami">调整互信息 AMI</h3>
 <p><img src="https://i.loli.net/2019/07/21/5d342b3d94db676735.png" alt=""></p>
 <p><em>同样没看懂怎么算的</em></p>
+<h4 id="代码调用-2">代码调用</h4>
 <pre><code class="language-python">metrics.adjusted_mutual_info_score(labels_true, labels_pred)
 </code></pre>
 <p>​</p>
