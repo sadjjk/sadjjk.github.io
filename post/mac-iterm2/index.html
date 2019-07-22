@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Mac下iTerm2远程连接 | 鱼与语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563765662970">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1563766134333">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -202,8 +202,8 @@ hljs.initHighlightingOnLoad()
 <p>Win下的Xshell+Xftp简直是远程连接服务器神器，点点点，拖拖拖，非常方便
 Mac下使用终端iTerm2远程连接，过程比较麻烦，不够傻瓜式。
 其次想要实现Xftp的功能，还是乖乖<code>scp</code>命令吧</p>
-<p><strong>下面使用SSH免密连接服务器</strong></p>
-<h3 id="step1本地端">Step1:本地端</h3>
+<p>下面使用SSH免密连接服务器</p>
+<h2 id="step1本地端">Step1:本地端</h2>
 <h4 id="1-本机生成公钥和私钥已生成跳过">1 本机生成公钥和私钥（已生成跳过）</h4>
 <pre><code class="language-shell">ssh-keygen -t rsa
 </code></pre>
@@ -214,7 +214,7 @@ id_rsa.pub ：公钥
 <h4 id="2-将本地公钥复制到服务器">2 将本地公钥复制到服务器</h4>
 <pre><code class="language-shell">scp ~/.ssh/id_rsa.pub root@你的公网IP:/home/id_rsa.pub
 </code></pre>
-<h3 id="step2服务器端">Step2:服务器端</h3>
+<h2 id="step2服务器端">Step2:服务器端</h2>
 <h4 id="3-登录到服务器修改-sshd-的配置文件">3 登录到服务器修改 sshd 的配置文件</h4>
 <pre><code class="language-shell">vi  /etc/ssh/sshd_config
 </code></pre>
@@ -237,7 +237,7 @@ AuthorizedKeysFile .ssh/authorized_keys
 <pre><code class="language-php">chmod 700 ~/.ssh 
 chmod 600 ~/.ssh/authorized_keys
 </code></pre>
-<h3 id="step3本地端">Step3:本地端</h3>
+<h2 id="step3本地端">Step3:本地端</h2>
 <h4 id="7-修改配置文件-vi-~sshconfig-没有则创建">7 修改配置文件  vi ～/.ssh/config （没有则创建）</h4>
 <pre><code class="language-php">Host aliyun  ### 别名
 Hostname XXX.XX.XX.XXX  ###公网 IP
