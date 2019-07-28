@@ -7,7 +7,7 @@ keys  = ['yKMpRXCWQrwssnkXv5HFrbRy1W5V2Q3N',
 
 tinify.key = choice(keys)
 
-imgpath = "5d0e1753a87cb10826.jpg" # 图片存放的路径
+imgpath = "/Users/sadjjk/Desktop/5d3d4aa51d0dc93847.png" # 图片存放的路径
 
 
 

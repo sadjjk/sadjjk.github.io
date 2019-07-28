@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-22T05:31:55.228Z</updated>
+    <updated>2019-07-28T08:17:03.182Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -1137,9 +1137,9 @@ Levenshtein.ratio(str1, str2)
 <h3 id="智能抠图_破解版photoscissors">智能抠图_破解版：PhotoScissors</h3>
 <p>智能抠图 界面和上一款去水印差不多</p>
 <p>反正就是简单无脑易操作</p>
-<h3 id="图片压缩ppduck">图片压缩：ppduck</h3>
-<p><a href="http://ppduck.com/">官网</a></p>
-<p>PP鸭整合了业内最优秀的数种开源的图片压缩算法，会自动根据图片特征自动选择压缩参数。只需要将图片拖入PP鸭，就能自动批量压缩，省时省心。试用版每次只能压缩十张，重启App可重新使用，完全可以接受。缺点：图标太丑</p>
+<h3 id="图片压缩ppduck-python-api-代替-效果更佳"><s>图片压缩：ppduck</s> (Python-API 代替 效果更佳)</h3>
+<p><a href="http://ppduck.com/">~~官网</a>~~</p>
+<p><s>PP鸭整合了业内最优秀的数种开源的图片压缩算法，会自动根据图片特征自动选择压缩参数。只需要将图片拖入PP鸭，就能自动批量压缩，省时省心。试用版每次只能压缩十张，重启App可重新使用，完全可以接受。缺点：图标太丑</s></p>
 <h3 id="剪切板工具paste">剪切板工具：Paste</h3>
 <p>保留最近有剪切过的记录，随时调用供粘贴，支持任何格式，图片，文本等。还支持常用钉起来分组</p>
 <p><img src="https://blog.wangjy.xyz//post-images/5d18762b12fc296518.png" alt=""></p>
