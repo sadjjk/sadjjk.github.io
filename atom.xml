@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-28T08:23:37.691Z</updated>
+    <updated>2019-07-28T08:25:51.736Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -49,9 +49,9 @@ for dirpath, dirs, files in os.walk(path):
         print(&quot;当月已压缩%d次,剩余%d次&quot; % (compressions_this_month,500-compressions_this_month))
         
 </code></pre>
-<p>十余行代码完成整个文件夹压缩 没有图片数量限制 没有图片大小限制 压缩率也是非常的高  画质几乎无损
-支持反复压缩 不过再次压缩 大小就减少没有那么多
-可指定大小 可智能裁剪 更多功能见 <a href="https://tinypng.com/developers/reference/python">API文档</a>
+<p>十余行代码完成整个文件夹压缩 没有图片数量限制 没有图片大小限制     压缩率也是非常的高  画质几乎无损<br>
+支持反复压缩 不过再次压缩 大小就减少没有那么多<br>
+可指定大小 可智能裁剪 更多功能见 <a href="https://tinypng.com/developers/reference/python">API文档</a><br>
 每个账号每月可调用<strong>500</strong>次 这对个人使用而言足够了 实在不够就多注册几个</p>
 <h3 id="不敲代码utools">不敲代码:<a href="https://u.tools/">uTools</a></h3>
 <p>uTools是一个极简、插件化、跨平台的现代桌面软件。通过自由选配丰富的插件，打造你得心应手的工具集合。当你熟悉它后，能够为你节约大量时间，让你可以更加专注地改变世界。(强！无敌！)</p>
@@ -60,9 +60,9 @@ for dirpath, dirs, files in os.walk(path):
 <p><img src="https://i.loli.net/2019/07/28/5d3d574840acc70457.jpg" alt="Xnip2019-07-28_16-05-03.jpg"></p>
 <p>uTools还有非常丰富的插件 无处不惊喜 小小的遗憾是Mac端没有像Win端本地文件快速搜索的插件</p>
 <h3 id="后记">后记</h3>
-<p>图片的无损压缩需求来自个人网站(也就是这个网站)访问速度的优化这个网站有几个页面访问速度巨慢 加载不完  F12后 基本是图片的加载耗时</p>
-<p>搜了一下 压缩图片 目的基本也都是Web优化 提高页面加载速度</p>
-<p>找到很多工具类网站提供压缩图片的功能 但都不尽人意</p>
+<p>图片的无损压缩需求来自个人网站(也就是这个网站)访问速度的优化这个网站有几个页面访问速度巨慢 加载不完  F12后 基本是图片的加载耗时<br>
+搜了一下 压缩图片 目的基本也都是Web优化 提高页面加载速度<br>
+找到很多工具类网站提供压缩图片的功能 但都不尽人意</p>
 <ul>
 <li>图片过多 一张张上传下载很麻烦</li>
 <li>有上传图片大小限制  万一我就有高清大图 怎么办？</li>
