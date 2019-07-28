@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-28T08:19:29.445Z</updated>
+    <updated>2019-07-28T08:22:48.333Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -24,9 +24,9 @@
 <p><img src="https://i.loli.net/2019/07/28/5d3d53ce0cbf616047.png" alt="5d3d49b6f244d80875.png"></p>
 <p>当初搜到过这网站 但因“Up to 20 images, max 5 MB each” 被我直接PASS  后来在一篇文章中再次看着这个网址 定眼仔细一看 简单的网页是阉割版 API才是它的强大的地方</p>
 <p><img src="https://i.loli.net/2019/07/28/5d3d54297602e78475.png" alt="5d3d4aa51d0dc93847.png"></p>
-<p>邮箱就能注册
-提供Ruby，PHP，Node.js，Python，Java和.NET等各个语言的API
-以Python为例</p>
+<p>邮箱就能注册<br>
+提供Ruby，PHP，Node.js，Python，Java和.NET等各个语言的API <br>
+以Python为例 <br></p>
 <pre><code class="language-python"># 安装
 pip install tinify
 </code></pre>
