@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-28T08:18:36.521Z</updated>
+    <updated>2019-07-28T08:19:03.228Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -10,6 +10,72 @@
     <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 鱼与语</rights>
+    <entry>
+        <title type="html"><![CDATA[几行代码实现图片批量压缩]]></title>
+        <id>https://blog.wangjy.xyz//post/img_small_api</id>
+        <link href="https://blog.wangjy.xyz//post/img_small_api">
+        </link>
+        <updated>2019-07-28T07:00:42.000Z</updated>
+        <summary type="html"><![CDATA[<p>图片压缩API  可敲代码 也可不敲代码</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>图片压缩API  可敲代码 也可不敲代码</p>
+<!--more-->
+<h3 id="敲代码tinypng">敲代码:<a href="https://tinypng.com/">TinyPNG</a></h3>
+<p><img src="https://i.loli.net/2019/07/28/5d3d53ce0cbf616047.png" alt="5d3d49b6f244d80875.png"></p>
+<p>当初搜到过这网站 但因“Up to 20 images, max 5 MB each” 被我直接PASS  后来在一篇文章中再次看着这个网址 定眼仔细一看 简单的网页是阉割版 API才是它的强大的地方</p>
+<p><img src="https://i.loli.net/2019/07/28/5d3d54297602e78475.png" alt="5d3d4aa51d0dc93847.png"></p>
+<p>邮箱就能注册
+提供Ruby，PHP，Node.js，Python，Java和.NET等各个语言的API
+以Python为例</p>
+<pre><code class="language-python"># 安装
+pip install tinify
+</code></pre>
+<pre><code class="language-python">import tinify
+import os
+
+tinify.key = '注册后获得的key'
+path = &quot;imgs&quot; # 图片存放文件夹的路径
+
+for dirpath, dirs, files in os.walk(path):
+    for file in files:
+        imgpath = os.path.join(dirpath, file)
+        print(&quot;图片压缩前大小: %.3f KB&quot; % (os.path.getsize(imgpath) / 1024))
+        print(&quot;开始压缩 ...&quot;)
+        tinify.from_file(imgpath).resize(method = 'scale',width=800).to_file(imgpath)
+        # tinify.from_file(imgpath).to_file(imgpath)
+        print(&quot;... 压缩完成&quot; )
+        print(&quot;图片压缩后大小: %.3f KB&quot; % (os.path.getsize(imgpath) / 1024))
+        compressions_this_month = tinify.compression_count
+        print(&quot;当月已压缩%d次,剩余%d次&quot; % (compressions_this_month,500-compressions_this_month))
+        
+</code></pre>
+<p>十余行代码完成整个文件夹压缩 没有图片数量限制 没有图片大小限制 压缩率也是非常的高  画质几乎无损
+支持反复压缩 不过再次压缩 大小就减少没有那么多
+可指定大小 可智能裁剪 更多功能见 <a href="https://tinypng.com/developers/reference/python">API文档</a>
+每个账号每月可调用<strong>500</strong>次 这对个人使用而言足够了 实在不够就多注册几个</p>
+<h3 id="不敲代码utools">不敲代码:<a href="https://u.tools/">uTools</a></h3>
+<p>uTools是一个极简、插件化、跨平台的现代桌面软件。通过自由选配丰富的插件，打造你得心应手的工具集合。当你熟悉它后，能够为你节约大量时间，让你可以更加专注地改变世界。(强！无敌！)</p>
+<p>里面有压缩图片功能，调用的就是<strong>TinyPNG</strong>的接口 本质是一样的
+不足就是不能更改图片尺寸大小</p>
+<p><img src="https://i.loli.net/2019/07/28/5d3d574840acc70457.jpg" alt="Xnip2019-07-28_16-05-03.jpg"></p>
+<p>uTools还有非常丰富的插件 无处不惊喜 小小的遗憾是Mac端没有像Win端本地文件快速搜索的插件</p>
+<h3 id="后记">后记</h3>
+<p>图片的无损压缩需求来自个人网站(也就是这个网站)访问速度的优化这个网站有几个页面访问速度巨慢 加载不完  F12后 基本是图片的加载耗时</p>
+<p>搜了一下 压缩图片 目的基本也都是Web优化 提高页面加载速度</p>
+<p>找到很多工具类网站提供压缩图片的功能 但都不尽人意</p>
+<ul>
+<li>图片过多 一张张上传下载很麻烦</li>
+<li>有上传图片大小限制  万一我就有高清大图 怎么办？</li>
+</ul>
+<p>也找到几款软件处理压缩图片 但感觉还是差点意思</p>
+<ul>
+<li>有的软件比较大</li>
+<li>有的只能压缩数张 再压缩 右拐请购买VIP</li>
+</ul>
+<p>PPDuck3这款软件还是不错的 几乎无损 文件夹自动处理 原地覆盖 有个小缺点 每次仅10张 用完关闭重开即可</p>
+<p>后来有了图片压缩API  软件基本就不使用了</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[吃韭菜®]]></title>
         <id>https://blog.wangjy.xyz//post/eatleek</id>
