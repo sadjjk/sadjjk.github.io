@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-29T09:31:07.522Z</updated>
+    <updated>2019-07-29T09:35:56.250Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -23,8 +23,8 @@
 <p>人像抠图 国内外开放了不少API 不过大多收费 选择两个还阔以的免费API  足够个人开发使用</p>
 <h3 id=""><a href="https://www.remove.bg/"><strong>RemoveBg</strong></a></h3>
 <p>大名鼎鼎的国外人像抠图软件  效果极佳  堪比抠图师<br>
-<a href="https://www.remove.bg/">https://www.remove.bg/</a>  网站可直接上传 一键抠图 非常简单
-当然 要批量处理 还是Code更方便
+<a href="https://www.remove.bg/">https://www.remove.bg/</a>  网站可直接上传 一键抠图 非常简单<br>
+当然 要批量处理 还是Code更方便<br>
 依然Python为例</p>
 <pre><code class="language-python">from removebg import RemoveBg
 import os 
@@ -35,14 +35,14 @@ rmbg.remove_background_from_img_file(img)
 <p>5行代码 解决问题 如果批量 则遍历图片文件夹即可</p>
 <p>K邮箱注册可获取Key</p>
 <p>每月仅支持调用50次(<strong>有点小气</strong>)  支持抠图生成4k/HD画质 当然这是收费的</p>
-<p><em>PS:尽管代码非常简洁 但是API用起来并不怎么优雅</em>
-<em>1.初始化必须填error日志</em>
-<em>2.暂无抠图文件命名参数，默认自动后缀加_no_bg.png,</em>
-<em>而且是这样的“demo.jpg_no_bg.png” 文件类型都修改了</em>
+<p><em>PS:尽管代码非常简洁 但是API用起来并不怎么优雅</em><br>
+<em>1.初始化必须填error日志</em><br>
+<em>2.暂无抠图文件命名参数，默认自动后缀加_no_bg.png,</em><br>
+<em>而且是这样的“demo.jpg_no_bg.png” 文件类型都修改了</em><br>
 <em>3.无法直接查看已调用次数</em></p>
 <h3 id="baidu-ai-开放平台"><a href="https://ai.baidu.com/tech/body/seg">Baidu AI 开放平台</a></h3>
 <p>百度开放了人像分割的API 也就是人像抠图 非常得大方 每天5万次免费调用<br>
-效果要比RemoveBg要差一些 细节上不够细腻
+效果要比RemoveBg要差一些 细节上不够细腻<br>
 但也足以使用</p>
 <p><img src="https://i.loli.net/2019/07/29/5d3eb975cfbc228797.png" alt="微信截图_20190729171529.png"><code>pip install baidu-aip</code></p>
 <pre><code class="language-python">from aip import AipBodyAnalysis
@@ -73,9 +73,9 @@ def remove_bg(input_path,out_path = ''):
 
 remove_bg('imgs/demo.jpg')
 </code></pre>
-<p>登录百度 AI 开放平台 人体分析 创建应用
-获得APP_ID、API_KEY、SECRET_KEY
-百度封装得不够彻底 需要自己再写点
+<p>登录百度 AI 开放平台 人体分析 创建应用<br>
+获得APP_ID、API_KEY、SECRET_KEY<br>
+百度封装得不够彻底 需要自己再写点<br>
 默认返回的是base64编码 需要重新解码</p>
 <h3 id="总结">总结</h3>
 <p>总体上 这两个免费的API人像抠图的效果都非常不错 处理速度也是秒级</p>

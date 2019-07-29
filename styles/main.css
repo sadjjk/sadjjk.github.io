@@ -776,6 +776,7 @@ a img {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   margin-bottom: 1.5em;
+  border-radius: 15px;
 }
 .featured-image {
   position: relative;
