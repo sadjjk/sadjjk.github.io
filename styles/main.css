@@ -944,7 +944,7 @@ a img {
   }
   .excerpt-title,
   .entry-title {
-    font-size: 1.875em;
+    font-size: 1.6em;
     /* 30px */
     line-height: 1.6;
   }
@@ -1002,7 +1002,7 @@ a img {
     padding-top: 3.69004em;
   }
   .excerpt-content {
-    padding-bottom: 3em;
+    padding-bottom: 2em;
   }
   .full-without-featured:not(.has-post-thumbnail):not(.has-video):not(.has-featured-slider) .excerpt-container {
     width: 100%;
