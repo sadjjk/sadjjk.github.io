@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-07-29T07:44:21.291Z</updated>
+    <updated>2019-07-29T09:31:07.522Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -11,7 +11,80 @@
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 鱼与语</rights>
     <entry>
-        <title type="html"><![CDATA[几行代码实现图片批量压缩]]></title>
+        <title type="html"><![CDATA[几行代码系列:人像抠图(批量)]]></title>
+        <id>https://blog.wangjy.xyz//post/img_remove_bg_api</id>
+        <link href="https://blog.wangjy.xyz//post/img_remove_bg_api">
+        </link>
+        <updated>2019-07-29T08:51:48.000Z</updated>
+        <summary type="html"><![CDATA[<p>智能抠图 解放双手</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>智能抠图 解放双手</p>
+<!--more-->
+<p>人像抠图 国内外开放了不少API 不过大多收费 选择两个还阔以的免费API  足够个人开发使用</p>
+<h3 id=""><a href="https://www.remove.bg/"><strong>RemoveBg</strong></a></h3>
+<p>大名鼎鼎的国外人像抠图软件  效果极佳  堪比抠图师<br>
+<a href="https://www.remove.bg/">https://www.remove.bg/</a>  网站可直接上传 一键抠图 非常简单
+当然 要批量处理 还是Code更方便
+依然Python为例</p>
+<pre><code class="language-python">from removebg import RemoveBg
+import os 
+rmbg = RemoveBg('YOUR KET','error.log')
+img = 'demo.jpg'
+rmbg.remove_background_from_img_file(img)
+</code></pre>
+<p>5行代码 解决问题 如果批量 则遍历图片文件夹即可</p>
+<p>K邮箱注册可获取Key</p>
+<p>每月仅支持调用50次(<strong>有点小气</strong>)  支持抠图生成4k/HD画质 当然这是收费的</p>
+<p><em>PS:尽管代码非常简洁 但是API用起来并不怎么优雅</em>
+<em>1.初始化必须填error日志</em>
+<em>2.暂无抠图文件命名参数，默认自动后缀加_no_bg.png,</em>
+<em>而且是这样的“demo.jpg_no_bg.png” 文件类型都修改了</em>
+<em>3.无法直接查看已调用次数</em></p>
+<h3 id="baidu-ai-开放平台"><a href="https://ai.baidu.com/tech/body/seg">Baidu AI 开放平台</a></h3>
+<p>百度开放了人像分割的API 也就是人像抠图 非常得大方 每天5万次免费调用<br>
+效果要比RemoveBg要差一些 细节上不够细腻
+但也足以使用</p>
+<p><img src="https://i.loli.net/2019/07/29/5d3eb975cfbc228797.png" alt="微信截图_20190729171529.png"><code>pip install baidu-aip</code></p>
+<pre><code class="language-python">from aip import AipBodyAnalysis
+import base64
+
+APP_ID = 'XXXXXX'
+API_KEY = 'XXXXXXX'
+SECRET_KEY = 'XXXXXXXX'
+
+client = AipBodyAnalysis(APP_ID, API_KEY, SECRET_KEY)
+def remove_bg(input_path,out_path = ''):
+    &quot;&quot;&quot; 读取图片 &quot;&quot;&quot;
+    def get_file_content(filePath):
+        with open(filePath, 'rb') as fp:
+            return fp.read()
+        
+    image = get_file_content(input_path)
+
+    &quot;&quot;&quot; 调用人像分割 &quot;&quot;&quot;
+    client.bodySeg(image);
+    base64_str = client.bodySeg(image)['foreground']
+
+    if out_path == '':
+        out_path = input_path.split('.')[0] + '_no_bg_baidu.' + input_path.split('.')[1]
+
+    with open(out_path,'wb') as f:
+        f.write(base64.b64decode(base64_str))
+
+remove_bg('imgs/demo.jpg')
+</code></pre>
+<p>登录百度 AI 开放平台 人体分析 创建应用
+获得APP_ID、API_KEY、SECRET_KEY
+百度封装得不够彻底 需要自己再写点
+默认返回的是base64编码 需要重新解码</p>
+<h3 id="总结">总结</h3>
+<p>总体上 这两个免费的API人像抠图的效果都非常不错 处理速度也是秒级</p>
+<h3 id="参考资料">参考资料</h3>
+<p><a href="https://www.jiqizhixin.com/articles/2019-01-23-16">https://www.jiqizhixin.com/articles/2019-01-23-16</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[几行代码系列:图片压缩(批量)]]></title>
         <id>https://blog.wangjy.xyz//post/img_small_api</id>
         <link href="https://blog.wangjy.xyz//post/img_small_api">
         </link>
@@ -1281,89 +1354,6 @@ Levenshtein.ratio(str1, str2)
 <p>“好看”与“好用”的终端</p>
 <h3 id="代码段管理器snippetslab">代码段管理器：SnippetsLab</h3>
 <p>SnippetsLab的终极目的就是将你容易遗忘在电脑角落中的各种代码片段收集在一起，构建成你个人的巨大的代码片段库。随着你编写与收集的代码片段越来越多，你的私人片段代码库也就积累的越来越多，你的可用代码也就越来越多，结合它的快速搜索和资料库结构，将能够极大的帮助你的程序构建。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Mac下iTerm2远程连接]]></title>
-        <id>https://blog.wangjy.xyz//post/mac-iterm2</id>
-        <link href="https://blog.wangjy.xyz//post/mac-iterm2">
-        </link>
-        <updated>2019-05-15T11:35:51.000Z</updated>
-        <summary type="html"><![CDATA[<p>SSH免密连接 本地端与服务端的配置</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>SSH免密连接 本地端与服务端的配置</p>
-<!--more-->
-<p>Win下的Xshell+Xftp简直是远程连接服务器神器，点点点，拖拖拖，非常方便
-Mac下使用终端iTerm2远程连接，过程比较麻烦，不够傻瓜式。
-其次想要实现Xftp的功能，还是乖乖<code>scp</code>命令吧</p>
-<p>下面使用SSH免密连接服务器</p>
-<h2 id="step1本地端">Step1:本地端</h2>
-<h4 id="1-本机生成公钥和私钥已生成跳过">1 本机生成公钥和私钥（已生成跳过）</h4>
-<pre><code class="language-shell">ssh-keygen -t rsa
-</code></pre>
-<p>一路回车即可。默认在～/.ssh 目录生成两个文件：</p>
-<pre><code class="language-shell">id_rsa ：私钥 
-id_rsa.pub ：公钥
-</code></pre>
-<h4 id="2-将本地公钥复制到服务器">2 将本地公钥复制到服务器</h4>
-<pre><code class="language-shell">scp ~/.ssh/id_rsa.pub root@你的公网IP:/home/id_rsa.pub
-</code></pre>
-<h2 id="step2服务器端">Step2:服务器端</h2>
-<h4 id="3-登录到服务器修改-sshd-的配置文件">3 登录到服务器修改 sshd 的配置文件</h4>
-<pre><code class="language-shell">vi  /etc/ssh/sshd_config
-</code></pre>
-<pre><code>在最后一行增加以下内容	
-PS:在哪一行其实都没关系，个人习惯最后一行 
-vi编辑器进去后敲下 G 快捷键自动到最后一行 i  进入编辑模式 
-其实是要找到相应内容，去掉注释，懒得找了，直接添加
-</code></pre>
-<pre><code class="language-shell">RSAAuthentication yes 
-PubkeyAuthentication yes 
-AuthorizedKeysFile .ssh/authorized_keys
-</code></pre>
-<h4 id="4-重启-sshd-服务">4 重启 sshd 服务</h4>
-<pre><code class="language-shell">service sshd restart
-</code></pre>
-<h4 id="5-在服务器端将公钥文件导入认证文件中">5 在服务器端将公钥文件导入认证文件中</h4>
-<pre><code class="language-php">cat /home/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
-</code></pre>
-<h4 id="6-服务器修改权限">6 服务器修改权限</h4>
-<pre><code class="language-php">chmod 700 ~/.ssh 
-chmod 600 ~/.ssh/authorized_keys
-</code></pre>
-<h2 id="step3本地端">Step3:本地端</h2>
-<h4 id="7-修改配置文件">7 修改配置文件</h4>
-<p>vi ～/.ssh/config （没有则创建）</p>
-<pre><code class="language-php">Host aliyun  ### 别名
-Hostname XXX.XX.XX.XXX  ###公网 IP
-Port 22  ###端口
-User root  ###登录账号
-IdentityFile ~/.ssh/id_rsa ###本机私钥地址
-  
-
-# 如果有多台服务器 继续往下添加  
-Host aliyun_2  ### 新别名
-Hostname XXX.XX.XX.XX  ###公网 IP
-Port 22  ###端口
-User root  ###登录账号
-IdentityFile ~/.ssh/id_rsa ###本机私钥地址  
-</code></pre>
-<pre><code>PS:如果报中文错误，就把中文注释删掉
-保存配置。iTerm2 终端执行
-</code></pre>
-<pre><code class="language-shell">ssh aliyun
-</code></pre>
-<h4 id="8-iterm2设置自动连接">8 iTerm2设置自动连接</h4>
-<p>添加快捷键</p>
-<p><img src="https://i.loli.net/2019/07/21/5d342bdcc492784595.png" alt=""></p>
-<h4 id="9-快捷键走你end">9 快捷键，走你！END</h4>
-<p>Tips</p>
-<p>服务器端 vi编辑器打开 语法不高亮</p>
-<pre><code class="language-sh">vi ~/.bashrc
-</code></pre>
-<p>增加这句 将vi编辑器指向vim编辑器</p>
-<pre><code class="language-sh">alias vi='vim'
-</code></pre>
 ]]></content>
     </entry>
 </feed>

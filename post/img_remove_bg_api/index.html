@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>相逢一场 让你失望了 | 鱼与语</title>
+<title>几行代码系列:人像抠图(批量) | 鱼与语</title>
 <link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1564392658731">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
@@ -76,17 +76,22 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://source.unsplash.com/random/600x371">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/07/29/5d3ebcb04b4de25300.jpeg">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-01-25 ·</span>
+          <span class="date">· 2019-07-29 ·</span>
 
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://blog.wangjy.xyz//tag/life">Life</a>
+                </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>相逢一场 让你失望了</h1>
+          <h1 class='entry-title'>几行代码系列:人像抠图(批量)</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
@@ -95,6 +100,13 @@
             </article>
           </div>
         </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/img_small_api">下一篇->几行代码系列:图片压缩(批量)</a>
+              </div>
+            </nav>
           
       </div>
       <section id="comments" class="comments">
@@ -192,15 +204,69 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wangjy.xyz//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p><strong>这是一场漫长的一个人的搏斗</strong><br>
-<strong>没有人知道他是否会倒下</strong>，<br>
-<strong>一次懒惰都足以击垮他</strong></p>
-<p>柯达直到破产那天，<br>
-生产的胶卷质量都是很好的。<br>
-只是世界不再需要它了。<br>
-离开，<br>
-有时候并不是做错了什么，<br>
-只是不再被需要了。</p>
+    var article = `<p>智能抠图 解放双手</p>
+<!--more-->
+<p>人像抠图 国内外开放了不少API 不过大多收费 选择两个还阔以的免费API  足够个人开发使用</p>
+<h3 id=""><a href="https://www.remove.bg/"><strong>RemoveBg</strong></a></h3>
+<p>大名鼎鼎的国外人像抠图软件  效果极佳  堪比抠图师<br>
+<a href="https://www.remove.bg/">https://www.remove.bg/</a>  网站可直接上传 一键抠图 非常简单
+当然 要批量处理 还是Code更方便
+依然Python为例</p>
+<pre><code class="language-python">from removebg import RemoveBg
+import os 
+rmbg = RemoveBg('YOUR KET','error.log')
+img = 'demo.jpg'
+rmbg.remove_background_from_img_file(img)
+</code></pre>
+<p>5行代码 解决问题 如果批量 则遍历图片文件夹即可</p>
+<p>K邮箱注册可获取Key</p>
+<p>每月仅支持调用50次(<strong>有点小气</strong>)  支持抠图生成4k/HD画质 当然这是收费的</p>
+<p><em>PS:尽管代码非常简洁 但是API用起来并不怎么优雅</em>
+<em>1.初始化必须填error日志</em>
+<em>2.暂无抠图文件命名参数，默认自动后缀加_no_bg.png,</em>
+<em>而且是这样的“demo.jpg_no_bg.png” 文件类型都修改了</em>
+<em>3.无法直接查看已调用次数</em></p>
+<h3 id="baidu-ai-开放平台"><a href="https://ai.baidu.com/tech/body/seg">Baidu AI 开放平台</a></h3>
+<p>百度开放了人像分割的API 也就是人像抠图 非常得大方 每天5万次免费调用<br>
+效果要比RemoveBg要差一些 细节上不够细腻
+但也足以使用</p>
+<p><img src="https://i.loli.net/2019/07/29/5d3eb975cfbc228797.png" alt="微信截图_20190729171529.png"><code>pip install baidu-aip</code></p>
+<pre><code class="language-python">from aip import AipBodyAnalysis
+import base64
+
+APP_ID = 'XXXXXX'
+API_KEY = 'XXXXXXX'
+SECRET_KEY = 'XXXXXXXX'
+
+client = AipBodyAnalysis(APP_ID, API_KEY, SECRET_KEY)
+def remove_bg(input_path,out_path = ''):
+    &quot;&quot;&quot; 读取图片 &quot;&quot;&quot;
+    def get_file_content(filePath):
+        with open(filePath, 'rb') as fp:
+            return fp.read()
+        
+    image = get_file_content(input_path)
+
+    &quot;&quot;&quot; 调用人像分割 &quot;&quot;&quot;
+    client.bodySeg(image);
+    base64_str = client.bodySeg(image)['foreground']
+
+    if out_path == '':
+        out_path = input_path.split('.')[0] + '_no_bg_baidu.' + input_path.split('.')[1]
+
+    with open(out_path,'wb') as f:
+        f.write(base64.b64decode(base64_str))
+
+remove_bg('imgs/demo.jpg')
+</code></pre>
+<p>登录百度 AI 开放平台 人体分析 创建应用
+获得APP_ID、API_KEY、SECRET_KEY
+百度封装得不够彻底 需要自己再写点
+默认返回的是base64编码 需要重新解码</p>
+<h3 id="总结">总结</h3>
+<p>总体上 这两个免费的API人像抠图的效果都非常不错 处理速度也是秒级</p>
+<h3 id="参考资料">参考资料</h3>
+<p><a href="https://www.jiqizhixin.com/articles/2019-01-23-16">https://www.jiqizhixin.com/articles/2019-01-23-16</a></p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
@@ -209,7 +275,7 @@ hljs.initHighlightingOnLoad()
         document.getElementById('article').innerHTML = article
 
     let navigation = new AutocJs({
-        title:'相逢一场 让你失望了',
+        title:'几行代码系列:人像抠图(批量)',
         isGenerateOutlineChapterCode: false
     })
     </script>
