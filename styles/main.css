@@ -2900,3 +2900,6 @@ pre {
   font-size: 1em;
   /* 2 */
 }
+a.next.page-numbers {
+  font-size: 20px;
+}
