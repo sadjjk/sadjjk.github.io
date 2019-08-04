@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-08-04T08:55:10.627Z</updated>
+    <updated>2019-08-04T09:01:50.459Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2019, 鱼与语</rights>
     <entry>
         <title type="html"><![CDATA[其实我是演员]]></title>
-        <id>https://blog.wangjy.xyz//post/其实我是演员</id>
-        <link href="https://blog.wangjy.xyz//post/其实我是演员">
+        <id>https://blog.wangjy.xyz//post/actor</id>
+        <link href="https://blog.wangjy.xyz//post/actor">
         </link>
         <updated>2019-08-11T12:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>心有多大 舞台就有多大<br>
