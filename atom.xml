@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
-    <title>鱼与语</title>
-    <updated>2019-08-21T15:33:32.820Z</updated>
+    <title>今语</title>
+    <updated>2019-08-21T15:36:36.075Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
-    <subtitle>真话、假话、胡话、骚话、一顿说</subtitle>
+    <subtitle>真话、假话、胡话、骚话、全都说</subtitle>
     <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
-    <rights>All rights reserved 2019, 鱼与语</rights>
+    <rights>All rights reserved 2019, 今语</rights>
     <entry>
         <title type="html"><![CDATA[山月记]]></title>
         <id>https://blog.wangjy.xyz//post/Book_MonthlyRecords</id>
