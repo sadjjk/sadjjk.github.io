@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>鱼与语</title>
-    <updated>2019-08-12T13:15:48.793Z</updated>
+    <updated>2019-08-21T15:33:32.820Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -11,9 +11,9 @@
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 鱼与语</rights>
     <entry>
-        <title type="html"><![CDATA[无用之书————山月记]]></title>
-        <id>https://blog.wangjy.xyz//post/MonthlyRecords</id>
-        <link href="https://blog.wangjy.xyz//post/MonthlyRecords">
+        <title type="html"><![CDATA[山月记]]></title>
+        <id>https://blog.wangjy.xyz//post/Book_MonthlyRecords</id>
+        <link href="https://blog.wangjy.xyz//post/Book_MonthlyRecords">
         </link>
         <updated>2019-08-12T12:33:10.000Z</updated>
         <summary type="html"><![CDATA[<p>我深怕自己本非美玉，故而不敢加以刻苦琢磨<br>
@@ -41,7 +41,7 @@
 原型出自左传、西游记、孔子、史记<br>
 神箭手纪昌、沙僧悟净、孔子与子路、汉将李陵<br>
 在一个日本作家笔下 他们的故事熟悉又陌生<br>
-更多细节的撰写 更多思考的表达</p>
+更多细节的撰写 更多细节的思考</p>
 ]]></content>
     </entry>
     <entry>
