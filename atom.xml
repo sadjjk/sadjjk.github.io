@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-09-13T09:01:36.402Z</updated>
+    <updated>2019-09-13T09:05:32.502Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -32,8 +32,8 @@
 <h4 id="topbanner">TopBanner</h4>
 <p>选择当前价、成交量金额、振幅、换手率。之所以选择这四个，是因为这四个相比于涨幅Top、跌幅Top更能反应市场整体情绪。</p>
 <blockquote>
-<p>当前价Top:最高的当属<strong>贵州茅台</strong>  毫无疑问是市场的风向标 一锤定音
-成交量金额Top:成交最多的哪几只，基本是有业绩有实力的好公司  <em>纯属个人经验</em>
+<p>当前价Top:最高的当属<strong>贵州茅台</strong>  毫无疑问是市场的风向标 一锤定音<br>
+成交量金额Top:成交最多的哪几只，基本是有业绩有实力的好公司  <em>纯属个人经验</em><br>
 振幅Top、换手率Top:基本是当下市场最热门最冲动的股票 游资炒作居多</p>
 </blockquote>
 <h4 id="自选股">自选股</h4>
@@ -41,8 +41,8 @@
 <h4 id="沪深300">沪深300</h4>
 <p>沪深300几乎涵盖了各个行业 具有代表性</p>
 <h3 id="详情页">详情页</h3>
-<h4 id="分时图">分时图</h4>
-<h4 id="k线图">K线图</h4>
+<h4 id="分时图br">分时图</br></h4>
+<h4 id="k线图br">K线图</br></h4>
 <h2 id="交互">交互</h2>
 <h4 id="刷新">刷新</h4>
 <p>首页交易时间1分钟刷新一次，非交易时间不刷新。交易时间哪里来，你怎么知道某年某天是节假日？tushare-三方库，我依然不生产数据，只是数据的搬运工。最初设计2秒刷新一次，毕竟1秒就是几百万的买卖，数据当然要及时。红的绿的一闪一闪真好看，最后闪瞎了狗眼，倔强得改成了1分钟刷新一次。其次爬虫用的好，牢房进的早。爬得太频繁，怕律师函警告，尤其是东方财富的数据。</p>
@@ -60,11 +60,11 @@
 <h2 id="总结">总结</h2>
 <p>过程中 能抽象就抽象 减少重复代码 最大的感触就是 “<strong>这样子好像不够优雅！</strong>” 能力有限，尽管功能都基本实现了，但总觉得有更优雅更好实现方法。若干年后 我若再看到这份代码 一定会想重构。</p>
 <p>👇下面是感谢环节</p>
-<p>感谢Github
-感谢<a href="https://github.com/geeeeeeeek">geeeeeeeek</a> 他的项目给我了idea
-这是B站他项目的<a href="https://www.bilibili.com/video/av45168955">视频</a> 一键三连 投币点赞
-感谢<a href="https://github.com/2557606319">2557606319</a> 项目中使用到了他echarts封装的K线图
-感谢许多CSDN、Stack OverFlow、博客主等留下的教程与问题记录
+<p>感谢Github<br>
+感谢<a href="https://github.com/geeeeeeeek">geeeeeeeek</a> 他的项目给我了idea<br>
+这是B站他项目的<a href="https://www.bilibili.com/video/av45168955">视频</a> 一键三连 投币点赞<br>
+感谢<a href="https://github.com/2557606319">2557606319</a> 项目中使用到了他echarts封装的K线图<br>
+感谢许多CSDN、Stack OverFlow、博客主等留下的教程与问题记录<br>
 尽管他们与我都不认识 但他们间接的帮助了我很多 非常感谢！</p>
 ]]></content>
     </entry>
