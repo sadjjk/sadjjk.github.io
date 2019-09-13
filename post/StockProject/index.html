@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>股票行情面板Web | 今语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1568361245729">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1568365178829">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -60,6 +60,12 @@
                         
                             <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
                                 <a href="http://47.99.214.142">视频</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="http://47.105.166.237/index">股票</a>
                             </li>
                         
                     
@@ -243,7 +249,7 @@ hljs.initHighlightingOnLoad()
 <h4 id="自选股添加删除">自选股添加/删除</h4>
 <p>输入股票代码添加 ，同样不支持股票名称、缩写。添加时页面刷新会暂停</p>
 <h2 id="后端">后端</h2>
-<p>后端使用Python的微型Web框架Bottle，因为实在是非常的简单，没有必要使用Flask、Django，其实是我也不怎么会Flask、Django。后端鸡贼的地方就是没有数据库，<strong>我从不生产数据，只是数据的搬运工</strong>。使用腾讯、新浪、东财的股票接口，即用即爬。唯一要记录的就是自选股，用于查看、添加、删除。这里采用了保存为二级制隐藏文件，每次去读取、增删(不推荐 本人纯属偷懒省事)</p>
+<p>后端使用Python的微型Web框架Bottle，因为实在是非常的简单，没有必要使用Flask、Django，其实是我也不怎么会Flask、Django。后端鸡贼的地方就是没有数据库，<strong>我从不生产数据，只是数据的搬运工</strong>。使用腾讯、新浪、东财的股票接口，即用即爬。唯一要记录的就是自选股，用于查看、添加、删除。这里采用了保存为二级制隐藏文件，每次去读取、增删(不推荐 本人纯属偷懒省事)。第一次使用装饰器记录函数日志和异常</p>
 <h2 id="前端">前端</h2>
 <p>前端是最耗时的  想法很多 但都实现不出来 磕磕绊绊 现在这版终于比较满意的。搜索页、自选股增删、头部Header、底部Footer、BacktoTop、搜索或添加自选时暂停刷新等 一点一点 慢慢磨出来   教练！ 我真的很想学前端</p>
 <h2 id="部署">部署</h2>
