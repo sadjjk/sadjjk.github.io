@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-09-13T09:08:04.527Z</updated>
+    <updated>2019-09-29T08:57:55.063Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -10,6 +10,147 @@
     <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[豆瓣书单分享海报(仿电影海报)]]></title>
+        <id>https://blog.wangjy.xyz//post/DoubanPoster</id>
+        <link href="https://blog.wangjy.xyz//post/DoubanPoster">
+        </link>
+        <updated>2019-09-29T08:50:20.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="0x00前言">0x00前言</h3>
+<p>之前看到一张 豆瓣分享海报 感觉很不错</p>
+<p><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png"></p>
+<p>应该是豆瓣官方的设计的 但是没找到分享的地方<br>
+<em>PS:手机APP端分享的海报不是这样的</em><br>
+于是就想自己用Python画一个<br>
+<img src="https://i.loli.net/2019/08/25/F3vnwIjSNs6EKkM.png" alt="哪吒之魔童降世_poster.png"></p>
+<p>自己画的是这样的  没有阴影 没有半圆分割 字体略不同 其他基本是一样的 基本满意<br>
+等实现完所有细节 自我陶醉时<br>
+在豆瓣网页端找到这张官方分享海报的地方<br>
+评分右上角 点击 <strong>引用</strong> 即可导出官方分享海报图<br>
+当场吐血 功能白做了
+好在 豆瓣书单是没有引用导出海报功能<br>
+临时加需求 按照电影海报的亚子 绘制书单的分享海报
+<img src="https://i.loli.net/2019/09/29/fh3KVSa8TECBIkD.png" alt="房思琪的初恋乐园_poster.png"></p>
+<h3 id="0x01-豆瓣爬虫">0x01 豆瓣爬虫</h3>
+<p>豆瓣电影/书单提供了相应的官方接口 但好像不够满足海报所需的数据 比如星星数
+就写相应的爬虫获取相应的数据 这里不是详细阐述爬虫过程 具体见源码
+假设相应的数据都已获得</p>
+<h3 id="0x02-开始绘图">0x02 开始绘图</h3>
+<p>Python画图主要使用的是PIL
+二维码绘制使用 qrcode
+海报主要分为3部分：①区背景图、 ②区标题和描述、③区评分及详情</p>
+<h4 id="0加载模板素材"><strong>0.加载模板素材</strong></h4>
+<p>模板素材在imgs文件夹中
+一张豆瓣海报空白底版 三张不同状态的星星</p>
+<pre><code class="language-python">from PIL import Image
+
+class DouBanPoster:
+
+    def __init__(self):
+        self.template_image = Image.open('imgs/template.jpg')
+        self.star_yes_image = Image.open('imgs/star_yes.jpg')
+        self.star_no_image = Image.open('imgs/star_no.jpg')
+        self.star_mid_image = Image.open('imgs/star_mid.jpg')
+</code></pre>
+<p>之后所有信息都在template_image上进行绘制添加</p>
+<h4 id="1-1区背景图">1. ①区背景图</h4>
+<p>自定义函数backgroundImg
+参数 : bgImg (type:dict)
+bgImgPath：背景图路径
+postition：粘贴位置 默认(0,0)
+size: 重置尺寸 默认(450,684)</p>
+<p>把背景图放在在底版图上 <code>paste</code>即可</p>
+<pre><code class="language-python">def backgroudImg(self,bgImg):
+
+  bgImgPath = bgImg.get('bgImgPath')
+  postition = bgImg.get('postition')
+  postition = postition if postition else (0,0)
+  size = bgImg.get('size')
+  size = size if size else  (450,684)
+  if bgImgPath:
+    bg_image = Image.open(bgImgPath).resize((size[0],size[1])) #重置大小
+    self.template_image.paste(bg_image, postition)
+
+</code></pre>
+<h4 id="22区标题和描述">2.②区标题和描述</h4>
+<p>文本的绘制 使用<code>draw.text</code>
+唯一要注意的是长文本
+标题或描述可能会过长 超出绘制区域 无法自动换行
+因此需要定义一个自动换行的函数
+所有的可能过长的文本都调用此函数
+自动换行功能使用textwrap.wrap
+它会根据width自动换行
+将换好的行 逐行绘制即可
+PS:还有一个细节 一行一行绘制
+累计高度可能会超过模板图片的高度
+因此累计高度超出模板图片高度 break退出 不在绘制文本</p>
+<pre><code class="language-python"># 长文本换行
+    def draw_longtext(self,draw, item_describe, postition, pad_h,font_size,width,text_color = &quot;#000000&quot;,bd=False):
+        # 换行
+
+        para = textwrap.wrap(item_describe, width=width)
+
+        for line in para:
+            w, h = draw.textsize(line, font=self.getFontSize(font_size,bd=bd))
+
+            draw.text(postition, line, text_color, font=self.getFontSize(font_size,bd=bd))
+            postition[1] += h + pad_h # 增加行间距
+
+            # 超过模板高度 停止
+            if postition[1]+ h+pad_h &gt; self.template_image.size[1]:
+                break
+
+        return  postition[1]
+</code></pre>
+<h4 id="33区评分及详情">3.③区评分及详情</h4>
+<ul>
+<li>评分数值 及评分人数 指定大小指定位置绘制即可</li>
+<li>评分星星数 <code>star_rate</code> 35代表3.5颗星 40代表4颗星</li>
+</ul>
+<pre><code># 星星数
+star_rate = str(ratedescribe.get('star_rate'))
+if star_rate:
+    for i in range(5):
+        if i &lt; int(star_rate) // 10:
+            self.template_image.paste(self.star_yes_image, (rating_people_index + i * 30, 160))
+        elif str(star_rate)[1] == '5' and i == int(star_rate) // 10:
+            self.template_image.paste(self.star_mid_image, (rating_people_index + i * 30, 160))
+        else:
+            self.template_image.paste(self.star_no_image, (rating_people_index + i * 30, 160))
+</code></pre>
+<ul>
+<li>
+<p>好于XX% XX片 依然是文本 指定大小 指定位置 指定颜色 绘制即可</p>
+</li>
+<li>
+<p>二维码</p>
+<p>使用qrcode生成地址二维码
+因为模板非纯白色 所以在二维码边框增加模板颜色</p>
+<pre><code class="language-python"># 二维码
+def make_QR(self,content, sizeW, sizeH):  # 创建二维码
+
+  qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+  )
+
+  qr.add_data(data=content)
+  qr.make(fit=True)
+  img = qr.make_image(back_color=&quot;#fafbfc&quot;)
+  img = img.resize((sizeW, sizeH))
+  return img
+</code></pre>
+<p>将生成好的二维码 放在模板图片上
+处理逻辑和背景图一致</p>
+</li>
+</ul>
+<h3 id="0x03-总结">0x03 总结</h3>
+<p>run.py 传入豆瓣相应地址 即可一键生成海报</p>
+<p>PS:因数据是按照网页结构即时抓取的 若豆瓣html相应结构发生变化 则会失效 故不保证永远有效</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[股票行情面板Web]]></title>
         <id>https://blog.wangjy.xyz//post/StockProject</id>
@@ -68,6 +209,7 @@
 感谢<a href="https://github.com/2557606319">2557606319</a> 项目中使用到了他echarts封装的K线图<br>
 感谢许多CSDN、Stack OverFlow、博客主等留下的教程与问题记录<br>
 尽管他们与我都不认识 但他们间接的帮助了我很多 非常感谢！</p>
+<p>_——</p>
 ]]></content>
     </entry>
     <entry>
@@ -398,7 +540,7 @@ for file in os.listdir(imgs_path):
 <p>这次的路灯格外亮，</p>
 <p>亮得飞蛾也忍不住扑上去。</p>
 <center><h3>二 </h3></center>
-<p>次日 九点三十</p>
+次日 九点三十
 <p>&quot;咔嚓嚓&quot;</p>
 <p>杯子摔在地上，碎了一地</p>
 <p>&quot;给我使劲砸！&quot;</p>
@@ -752,114 +894,6 @@ metrics.adjusted_rand_score(labels_true, labels_pred)
 <p>(最后收尾也太鸡汤了吧 ，你说的都对，我也知道内心充实更重要，可你总要让我先把花呗还了吧 emmm)</p>
 <hr>
 <p>PS：你还能看到这，恭喜你成功地浪费了五分钟。不知道你爱不爱看，反正我就爱哔哔，还要写下来，怎么能不写呢，不写出来谁知道我内心戏这么丰富。如果想表达你那份喜欢，那就拿钱砸我吧，不要客气。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[春宵苦短,少女前进吧!]]></title>
-        <id>https://blog.wangjy.xyz//post/lets-go-forward</id>
-        <link href="https://blog.wangjy.xyz//post/lets-go-forward">
-        </link>
-        <updated>2019-06-15T12:35:36.000Z</updated>
-        <summary type="html"><![CDATA[<p>春梦了无痕</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>春梦了无痕</p>
-<!--more-->
-<p>实在是太好看了 截了一万张图</p>
-<p>里面的台词很有味道</p>
-<p>简直就是满分作文</p>
-<p>每一个问题 总有两种做法</p>
-<p>总是有那么多值得思考</p>
-<p>没有所谓的对错</p>
-<p>是选择的态度</p>
-<h3 id="读书">读书</h3>
-<p>一边是知识的海洋</p>
-<p>一边是最需要的不是知识而是女人</p>
-<p>以及读书的最高境界：所有的书都相互关联</p>
-<p>被古书之神一连串的关系推理惊呆</p>
-<p><a href="https://www.allhistory.com/">全历史</a>的AB路径就有类似的功能 吹捧一波</p>
-<p><img src="https://i.loli.net/2019/07/21/5d342502a605918024.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d3425e2bd2ba53459.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342609b1ebc74948.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342637e49e563239.png" alt=""></p>
-<h3 id="人生态度">人生态度</h3>
-<p>一边空虚、消极、逃避、了无生趣 总之没意思</p>
-<p>一边充实、温暖、快乐、相互给予 总之很有趣</p>
-<p>最后 胜利属于少女</p>
-<p>至少现在的我 会选择李白</p>
-<p><img src="https://i.loli.net/2019/07/21/5d34265564ab942553.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342671a1bfa41104.jpg" alt=""></p>
-<h3 id="做自己">做自己</h3>
-<p>对吃没有追求、对玩没有想法</p>
-<p>造成了了无生趣的我</p>
-<p>就是这样无趣的我</p>
-<p>同样也很难搞懂自己飘忽不定的心情</p>
-<p><img src="https://i.loli.net/2019/07/21/5d342691c0e1816774.jpg" alt=""></p>
-<h3 id="独自">独自</h3>
-<p>台词过于真实</p>
-<p>假装若无其事发个心情</p>
-<p>既期待有人分享 又怕被人打扰</p>
-<p>就这样 一次又一次 一天又一天的过去</p>
-<p><img src="https://i.loli.net/2019/07/21/5d3426b3c315536274.jpg" alt=""></p>
-<h3 id="爱情">爱情</h3>
-<p>(全剧主线最精彩部分)</p>
-<p>一边是浪漫主义的肆意妄为 哪怕对方是个男人 新的开始说来就来</p>
-<p>一边是懦弱挣扎的默默单恋</p>
-<p>究竟爱的是对方本人</p>
-<p>还是爱自己爱她的感觉(荷尔蒙)</p>
-<p>我也不知道</p>
-<p>我也不想孤独的死去</p>
-<p>但事实告诉我 是的</p>
-<blockquote>
-<p>哪怕等在前方的是失恋地狱</p>
-<p>纵身跳入黑暗的那一瞬间却是令人感动的</p>
-<p>如果我们现在不踏出那一步</p>
-<p>今后将永远徘徊在这幽暗的青春角落中</p>
-<p>哪怕明天孤独地死去 你也无所谓吗</p>
-</blockquote>
-<p><img src="https://i.loli.net/2019/07/21/5d3426d09358163343.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d3426eb805b425870.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d34270b5c68347804.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d3427542d46283928.jpg" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d34276dc302359193.jpg" alt=""></p>
-<h3 id="努力天赋">努力·天赋</h3>
-<p>努力努力再努力</p>
-<p>如果努力有用 还需要天才干嘛</p>
-<p>这世上聪明人太多 我想为笨蛋争口气</p>
-<p><img src="https://i.loli.net/2019/07/21/5d342784eebf542503.jpg" alt=""></p>
-<h3 id="时间">时间</h3>
-<p>每个人都有属于他自己的一块表</p>
-<p>年纪越大 时间越走越快</p>
-<p>这细节表达的太到位</p>
-<p>光阴似箭啊</p>
-<p><img src="https://i.loli.net/2019/07/21/5d34280291bc151529.jpg" alt=""></p>
-<h3 id="爱情婚姻">爱情·婚姻</h3>
-<p>婚姻应该是“非你不可”这种状态</p>
-<p>结果发现大多数人都是“是谁都行”</p>
-<p><img src="https://i.loli.net/2019/07/21/5d34281cb3d1249998.jpg" alt=""></p>
-<p><strong>婚姻绝对不是儿戏</strong></p>
-<p><strong>儿戏那可是真的单纯快乐啊</strong></p>
-<p>婚姻是你和另一个人的共同生活，也就是说，你投资的是一个人的人生，而人的一生是漫长的过程，不能在一个人顺境的时候和他一起享尽荣华富贵，当他逆境的时候就把他抛弃，然后当他再涨的时候，再把他买进。</p>
-<p>婚姻是有道德价值的，负载了许多的亲情和义务，因此，婚约是一份道德合约，要接受社会道德标尺的丈量。</p>
-<p>有时候，很多人在来不及领略玫瑰色的爱情之前，就被暴戾的生活逼进了洞房花烛夜，然后再慢慢地开始和枕边人学着相敬如宾。</p>
-<p>结婚以后，性像一块永远嚼在门里的口香糖，它的好处是随时有东西让你咬，不至于空虚，不至于闲得牙疼；缺点是越嚼越无味，到最后就成了一种纯粹的习惯。</p>
-<h3 id="end">End</h3>
-<p>电影是上周看的 看的时候 真的热血沸腾</p>
-<p>也感受到它所传达的态度</p>
-<p>这周还是老样子</p>
-<p>说什么积极、乐观、走出去</p>
-<p>到头来还是刷着一遍又一遍的微博</p>
-<p>看着一遍又一遍的朋友圈</p>
-<p>哪怕有时候它们并没有更新太多</p>
-<p>就是没有和人交流的欲望 难怪单身</p>
-<p>该怎么解这现象 我说不清道不明</p>
-<p>有一天 看到周国平的一句话 没错 他说的就是这个意思</p>
-<blockquote>
-<p>我天性不宜交际。在多数场合，我不是觉得对方乏味，就是害怕对方觉得我乏味。可是我既不愿忍受对方的乏味，也不愿费劲使自己显得有趣，那都太累了。我独处时最轻松，因为我不觉得自己乏味，即使乏味，也自己承受，不累及他人，无需感到不安。</p>
-</blockquote>
-<p>就这样 这句话成了万能的借口</p>
-<p>至少现在是的</p>
-<p>如果哪一天 我走出去了</p>
-<p>一定是看到了或听到了战胜这句话的话</p>
 ]]></content>
     </entry>
 </feed>

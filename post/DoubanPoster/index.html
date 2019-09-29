@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>KMeans及其衍生聚类算法 | 今语</title>
+<title>豆瓣书单分享海报(仿电影海报) | 今语</title>
 <link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1569747471761">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
@@ -88,22 +88,22 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/07/22/5d3520613966292714.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/09/29/fh3KVSa8TECBIkD.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-07-03 ·</span>
+          <span class="date">· 2019-09-29 ·</span>
 
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wangjy.xyz//tag/work">Work</a>
+                    <a href="https://blog.wangjy.xyz//tag/life">Life</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>KMeans及其衍生聚类算法</h1>
+          <h1 class='entry-title'>豆瓣书单分享海报(仿电影海报)</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/cluster-measure">下一篇->聚类算法效果衡量标准</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/StockProject">下一篇->股票行情面板Web</a>
               </div>
             </nav>
           
@@ -216,168 +216,139 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wangjy.xyz//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>这里主要讲述KMeans及基于KMeans缺点提出优化的衍生算法</p>
-<!--more-->
-<ul>
-<li>基于划分
-<ul>
-<li>KMeans
-<ul>
-<li>K-Medoids（K-中心聚类算法）</li>
-<li>K-Means++</li>
-<li>ISODATA</li>
-<li>Bisecting k-means(二分-K均值)</li>
-<li>MinBatchKMeans</li>
-<li>Kernel k-means</li>
-</ul>
-</li>
-<li>MeanShift</li>
-<li>AP (AffinityPropagation)</li>
-</ul>
-</li>
-<li>基于密度
-<ul>
-<li>DBSCAN</li>
-<li>OPTICS</li>
-</ul>
-</li>
-<li>基于层次
-<ul>
-<li>凝聚层次聚类AgglomerativeClustering</li>
-<li>BRICH</li>
-</ul>
-</li>
-<li>基于网络
-<ul>
-<li>谱聚类 SpectralClustering</li>
-</ul>
-</li>
-</ul>
-<h4 id="kmeans"><strong>KMeans</strong></h4>
-<p>1.事先确定常数K(最终的聚类类别数)，一般来说，我们会根据对数据的先验经验选择一个合适的k值，如果没有什么先验知识，则给出几组K值，通过评价指标，确定最佳K值<br>
-2.随机选定K个初始点为质心,计算每一个样本与质心之间的距离(相似度)，将样本点归到最相似的类中，即距离最短。<br>
-3.对所有的样本点重新计算新的质心(取距离平均值 虚拟质心点)<img src="http://latex.codecogs.com/gif.latex?\mu_j = \frac{1}{|C_j|}\sum\limits_{x \in C_j}x" /><br>
-4.重新计算每个样本点到新质心的距离，将样本点归到最相似的类中，更新质心<br>
-5.重复以上步骤，直到质心不再改变,最终确定了每个样本所属的类别以及每个类的质心。</p>
-<h4 id="三要点"><strong>三要点</strong></h4>
-<p><strong>K值、随机选取的初始质心点、距离度量方式 以上三点决定了K-Means整体的效果</strong></p>
-<h4 id="优点"><strong>优点</strong></h4>
-<p>1.原理简单，实现容易</p>
-<p>2.N为样本点个数,K为中心点个数,L为迭代次数。空间复杂度o(N),o(L*K*N)</p>
-<h4 id="缺点"><strong>缺点</strong></h4>
-<p>1.对噪声、离群点敏感 (噪声易造成质心偏移)</p>
-<ul>
-<li>改进</li>
-</ul>
-<h5 id="k-medoidsk-中心聚类算法">K-Medoids（K-中心聚类算法）</h5>
-<p>K-Medoids不一样的地方在于中心点的选取。K-means中，将中心点取为当前cluster中所有数据点的平均值(大多为虚拟质心)，对异常点很敏感!K-Medoids中，将从当前cluster 中选取到其他所有（当前cluster中的）点的距离之和最小的点作为质点。</p>
-<p>K-Medoids对噪声鲁棒性好。例：当一个cluster样本点只有少数几个，如（1,1）（1,2）（2,1）（1000,1000）。其中（1000,1000）是噪声。如果按照k-means质心大致会处在（1,1）（1000,1000）中间，这显然不是我们想要的。这时K-Medoids就可以避免这种情况，他会在（1,1）（1,2）（2,1）（1000,1000）中选出一个样本点使cluster的绝对误差最小，计算可知一定会在前三个点中选取。
-K-Medoids对于较多的样本量，速度就慢了(见下表的时间复杂度)，当样本多的时候，少数几个噪音对k-means的质心影响也没有想象中的那么重，所以k-means的应用明显比K-Medoids多。</p>
-<pre><code class="language-python"># sklearn中没有KMedoids 
-# 在早已无人维护的三方模块pyclust中有KMedoids
-from pyclust import KMedoids
-</code></pre>
-<p><img src="https://i.loli.net/2019/07/21/5d342b7fdc18579814.png" alt=""></p>
-<p>2.随机地确定初始质心，不同的初始质心可能导致完全不同的聚类结果。</p>
-<ul>
-<li>
-<p>改进</p>
-<h5 id="k-means">K-Means++</h5>
-<p><strong>初始质心之间的相互距离要尽可能的远</strong></p>
-<p>1.从输入的数据点集合中随机选择一个点作为第一个聚类中心<br>
-2.对于数据集中的每一个点x，计算它与最近聚类中心(指已选择的聚类中心)的距离D(x)<br>
-3.选择一个新的数据点作为新的聚类中心，选择的原则是：D(x)较大的点，被选取作为聚类中心的概率较大<br>
-4.重复2和3直到k个聚类中心被选出来<br>
-5.利用这k个初始的聚类中心来运行标准的k-means算法</p>
-<pre><code class="language-python">sklearn中KMeans默认使用K-Means++
-class sklearn.cluster.KMeans(n_clusters=8, init=’k-means++’, n_init=10, max_iter=300, tol=0.0001, precompute_distances=’auto’, verbose=0, random_state=None, copy_x=True, n_jobs=None, algorithm=’auto’)
+    var article = `<h3 id="0x00前言">0x00前言</h3>
+<p>之前看到一张 豆瓣分享海报 感觉很不错</p>
+<p><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png"></p>
+<p>应该是豆瓣官方的设计的 但是没找到分享的地方<br>
+<em>PS:手机APP端分享的海报不是这样的</em><br>
+于是就想自己用Python画一个<br>
+<img src="https://i.loli.net/2019/08/25/F3vnwIjSNs6EKkM.png" alt="哪吒之魔童降世_poster.png"></p>
+<p>自己画的是这样的  没有阴影 没有半圆分割 字体略不同 其他基本是一样的 基本满意<br>
+等实现完所有细节 自我陶醉时<br>
+在豆瓣网页端找到这张官方分享海报的地方<br>
+评分右上角 点击 <strong>引用</strong> 即可导出官方分享海报图<br>
+当场吐血 功能白做了
+好在 豆瓣书单是没有引用导出海报功能<br>
+临时加需求 按照电影海报的亚子 绘制书单的分享海报
+<img src="https://i.loli.net/2019/09/29/fh3KVSa8TECBIkD.png" alt="房思琪的初恋乐园_poster.png"></p>
+<h3 id="0x01-豆瓣爬虫">0x01 豆瓣爬虫</h3>
+<p>豆瓣电影/书单提供了相应的官方接口 但好像不够满足海报所需的数据 比如星星数
+就写相应的爬虫获取相应的数据 这里不是详细阐述爬虫过程 具体见源码
+假设相应的数据都已获得</p>
+<h3 id="0x02-开始绘图">0x02 开始绘图</h3>
+<p>Python画图主要使用的是PIL
+二维码绘制使用 qrcode
+海报主要分为3部分：①区背景图、 ②区标题和描述、③区评分及详情</p>
+<h4 id="0加载模板素材"><strong>0.加载模板素材</strong></h4>
+<p>模板素材在imgs文件夹中
+一张豆瓣海报空白底版 三张不同状态的星星</p>
+<pre><code class="language-python">from PIL import Image
 
-init: k-means++ 、random 、指定具体初始质心
+class DouBanPoster:
+
+    def __init__(self):
+        self.template_image = Image.open('imgs/template.jpg')
+        self.star_yes_image = Image.open('imgs/star_yes.jpg')
+        self.star_no_image = Image.open('imgs/star_no.jpg')
+        self.star_mid_image = Image.open('imgs/star_mid.jpg')
 </code></pre>
-</li>
+<p>之后所有信息都在template_image上进行绘制添加</p>
+<h4 id="1-1区背景图">1. ①区背景图</h4>
+<p>自定义函数backgroundImg
+参数 : bgImg (type:dict)
+bgImgPath：背景图路径
+postition：粘贴位置 默认(0,0)
+size: 重置尺寸 默认(450,684)</p>
+<p>把背景图放在在底版图上 <code>paste</code>即可</p>
+<pre><code class="language-python">def backgroudImg(self,bgImg):
+
+  bgImgPath = bgImg.get('bgImgPath')
+  postition = bgImg.get('postition')
+  postition = postition if postition else (0,0)
+  size = bgImg.get('size')
+  size = size if size else  (450,684)
+  if bgImgPath:
+    bg_image = Image.open(bgImgPath).resize((size[0],size[1])) #重置大小
+    self.template_image.paste(bg_image, postition)
+
+</code></pre>
+<h4 id="22区标题和描述">2.②区标题和描述</h4>
+<p>文本的绘制 使用<code>draw.text</code>
+唯一要注意的是长文本
+标题或描述可能会过长 超出绘制区域 无法自动换行
+因此需要定义一个自动换行的函数
+所有的可能过长的文本都调用此函数
+自动换行功能使用textwrap.wrap
+它会根据width自动换行
+将换好的行 逐行绘制即可
+PS:还有一个细节 一行一行绘制
+累计高度可能会超过模板图片的高度
+因此累计高度超出模板图片高度 break退出 不在绘制文本</p>
+<pre><code class="language-python"># 长文本换行
+    def draw_longtext(self,draw, item_describe, postition, pad_h,font_size,width,text_color = &quot;#000000&quot;,bd=False):
+        # 换行
+
+        para = textwrap.wrap(item_describe, width=width)
+
+        for line in para:
+            w, h = draw.textsize(line, font=self.getFontSize(font_size,bd=bd))
+
+            draw.text(postition, line, text_color, font=self.getFontSize(font_size,bd=bd))
+            postition[1] += h + pad_h # 增加行间距
+
+            # 超过模板高度 停止
+            if postition[1]+ h+pad_h &gt; self.template_image.size[1]:
+                break
+
+        return  postition[1]
+</code></pre>
+<h4 id="33区评分及详情">3.③区评分及详情</h4>
+<ul>
+<li>评分数值 及评分人数 指定大小指定位置绘制即可</li>
+<li>评分星星数 <code>star_rate</code> 35代表3.5颗星 40代表4颗星</li>
 </ul>
-<p>3.类别K必须事先确定下来</p>
-<p>​	<strong>改进</strong></p>
-<h5 id="isodata"><strong>ISODATA</strong></h5>
-<p>​	类别数目随着聚类过程而变化:对类别数的“合并”（当聚类结果某一类中样本数太少，或两个类间的距离太近时）;“分裂”（当聚类结果中某一类的类内方差太大，将该类进行分裂）</p>
-<p>​	具体见<a href="https://www.cnblogs.com/huadongw/articles/4101306.html">ISODATA分类法</a></p>
-<p>4.计算速度相对慢(还可以优化)</p>
-<p>​	<strong>改进</strong></p>
+<pre><code># 星星数
+star_rate = str(ratedescribe.get('star_rate'))
+if star_rate:
+    for i in range(5):
+        if i &lt; int(star_rate) // 10:
+            self.template_image.paste(self.star_yes_image, (rating_people_index + i * 30, 160))
+        elif str(star_rate)[1] == '5' and i == int(star_rate) // 10:
+            self.template_image.paste(self.star_mid_image, (rating_people_index + i * 30, 160))
+        else:
+            self.template_image.paste(self.star_no_image, (rating_people_index + i * 30, 160))
+</code></pre>
 <ul>
 <li>
-<h5 id="bisecting-k-means二分-k均值"><strong>Bisecting k-means(二分-K均值)</strong></h5>
+<p>好于XX% XX片 依然是文本 指定大小 指定位置 指定颜色 绘制即可</p>
 </li>
-</ul>
-<p>​	这和自上而下(分裂)的层次聚类很像[或者两者说的就是一回事 个人意见]</p>
-<p>​	二分K均值算法可以加速K-means算法的执行速度，因为它的相似度计算少了（不用多次迭代）并且不受初始化问题的影响，因为这里不存在随机点的选取，且每一步都保证了误差最小</p>
-<p>​	1.所有点作为一个簇<br>
-​	2.将该簇一分为二<br>
-​	3.选择能最大限度降低聚类代价函数的簇划分为两个簇。<br>
-​	4.以此进行下去，直到簇的数目等于用户给定的数目k为止。</p>
-<p><img src="https://i.loli.net/2019/07/21/5d342b95811f385134.png" alt=""></p>
-<pre><code>skearn没有此模型
-目前也没找到已实现的三方模块
-需自己手写
-</code></pre>
-<ul>
 <li>
-<h5 id="mini-batch-k-means"><strong>Mini Batch K-Means</strong></h5>
-<p>适合样本非常多的情况下 Mini Batch的思想很常见 计算过程中不必使用所有的数据样本，而是从不同类别的样本中抽取一部分样本来代表各自类型进行计算。由于计算样本量少，所以会相应的减少运行时间。</p>
-<pre><code>from sklearn.cluster import MiniBatchKMeans
+<p>二维码</p>
+<p>使用qrcode生成地址二维码
+因为模板非纯白色 所以在二维码边框增加模板颜色</p>
+<pre><code class="language-python"># 二维码
+def make_QR(self,content, sizeW, sizeH):  # 创建二维码
+
+  qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+  )
+
+  qr.add_data(data=content)
+  qr.make(fit=True)
+  img = qr.make_image(back_color=&quot;#fafbfc&quot;)
+  img = img.resize((sizeW, sizeH))
+  return img
 </code></pre>
+<p>将生成好的二维码 放在模板图片上
+处理逻辑和背景图一致</p>
 </li>
 </ul>
-<p>4.线性不可分的样本效果不佳</p>
-<h5 id="kernel-k-means"><strong>Kernel K-means</strong></h5>
-<p>​	使用核函数，将每个样本进行一个投射到高维空间的处理，然后再将处理后的	数据使用普通的k-means算法思想进行聚类。其基本思路与SVM(支持向量机)一	致。</p>
-<p><img src="https://i.loli.net/2019/07/21/5d342badcd11317376.png" alt=""></p>
-<pre><code>skearn没有此模型
-目前也没找到已实现的三方模块
-需自己手写
-</code></pre>
-<p><strong>总结</strong></p>
-<table>
-<thead>
-<tr>
-<th>模型</th>
-<th>优化思路</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>KMeans</td>
-<td>基于划分中最基本的方法</td>
-</tr>
-<tr>
-<td>K-Medoids</td>
-<td>样本中位数作为质心 降低噪声敏感度</td>
-</tr>
-<tr>
-<td>K-Means++</td>
-<td>初始质心之间的相互距离尽可能的远</td>
-</tr>
-<tr>
-<td>Kernel Kmeans</td>
-<td>映射到高维空间</td>
-</tr>
-<tr>
-<td>二分k-means</td>
-<td>拆除SSE最大的簇</td>
-</tr>
-<tr>
-<td>Mini-batch K-Means</td>
-<td>分批抽样聚类</td>
-</tr>
-<tr>
-<td>ISODATA</td>
-<td>动态聚类</td>
-</tr>
-</tbody>
-</table>
-<p><strong>参考资料</strong></p>
-<p>https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cluster</p>
-<p>https://www.cnblogs.com/huadongw/articles/4101306.html</p>
-<p>http://sklearn.apachecn.org/#/docs/22?id=spectral-clustering</p>
+<h3 id="0x03-总结">0x03 总结</h3>
+<p>run.py 传入豆瓣相应地址 即可一键生成海报</p>
+<p>PS:因数据是按照网页结构即时抓取的 若豆瓣html相应结构发生变化 则会失效 故不保证永远有效</p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
@@ -386,7 +357,7 @@ init: k-means++ 、random 、指定具体初始质心
         document.getElementById('article').innerHTML = article
 
     let navigation = new AutocJs({
-        title:'KMeans及其衍生聚类算法',
+        title:'豆瓣书单分享海报(仿电影海报)',
         isGenerateOutlineChapterCode: false
     })
     </script>
