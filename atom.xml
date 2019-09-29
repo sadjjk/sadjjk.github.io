@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-09-29T08:58:47.086Z</updated>
+    <updated>2019-09-29T09:01:29.065Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -11,12 +11,16 @@
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 今语</rights>
     <entry>
-        <title type="html"><![CDATA[豆瓣书单分享海报(仿电影海报)]]></title>
+        <title type="html"><![CDATA[Python制作豆瓣书单分享海报(仿电影海报)]]></title>
         <id>https://blog.wangjy.xyz//post/DoubanPoster</id>
         <link href="https://blog.wangjy.xyz//post/DoubanPoster">
         </link>
         <updated>2019-09-29T08:50:20.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="0x00前言">0x00前言</h3>
+        <summary type="html"><![CDATA[<p>Github:https://github.com/sadjjk/DoubanPoster</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Github:https://github.com/sadjjk/DoubanPoster</p>
+<!--more-->
+<h3 id="0x00前言">0x00前言</h3>
 <p>之前看到一张 豆瓣分享海报 感觉很不错</p>
 <p><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png"></p>
 <p>应该是豆瓣官方的设计的 但是没找到分享的地方<br>
