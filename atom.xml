@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-10-02T08:05:12.811Z</updated>
+    <updated>2019-10-02T08:06:08.467Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -16,9 +16,11 @@
         <link href="https://blog.wangjy.xyz//post/CrawerExam-heibanke">
         </link>
         <updated>2019-10-02T06:57:34.000Z</updated>
-        <summary type="html"><![CDATA[<p>爬虫学的好 牢房进的早</p>
+        <summary type="html"><![CDATA[<p>爬虫学的好 牢房进的早<br>
+Code:https://github.com/sadjjk/CrawerExam-heibanke</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>爬虫学的好 牢房进的早</p>
+        <content type="html"><![CDATA[<p>爬虫学的好 牢房进的早<br>
+Code:https://github.com/sadjjk/CrawerExam-heibanke</p>
 <!--more-->
 <h3 id="前言">前言</h3>
 <p>黑板客爬虫闯关共5关</p>
