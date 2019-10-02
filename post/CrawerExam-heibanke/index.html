@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>股票行情面板Web | 今语</title>
+<title>黑板客爬虫闯关通关 | 今语</title>
 <link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1570003462282">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
@@ -88,22 +88,22 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/10/02/jzHqKpdN8tyS6bM.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-09-13 ·</span>
+          <span class="date">· 2019-10-02 ·</span>
 
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wangjy.xyz//tag/work">Work</a>
+                    <a href="https://blog.wangjy.xyz//tag/life">Life</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>股票行情面板Web</h1>
+          <h1 class='entry-title'>黑板客爬虫闯关通关</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/Book_MonthlyRecords">下一篇->山月记</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/DoubanPoster">下一篇->Python制作豆瓣书单分享海报(仿电影海报)</a>
               </div>
             </nav>
           
@@ -216,57 +216,100 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wangjy.xyz//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>这一腔热血 只卖与那识货的</p>
+    var article = `<p>爬虫学的好 牢房进的早</p>
 <!--more-->
-<p><a href="http://47.105.166.237/index">演示地址</a>                            <a href="https://github.com/sadjjk/StockProject">Github</a></p>
-<p>股票行情看板，前前后后花了一个月，基本是周末闲(咸)余(鱼)时间写写改改，工作日实在没时间。</p>
-<p><img src="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg" alt="Xnip2019-09-13_15-23-45.jpg"></p>
-<p><img src="https://i.loli.net/2019/09/13/v7pPDuyLQA6of2G.jpg" alt="Xnip2019-09-13_15-24-39.jpg"></p>
-<p><img src="https://i.loli.net/2019/09/13/urC7GbWq9NpKeDh.jpg" alt="Xnip2019-09-13_15-31-42.jpg"></p>
-<h2 id="设计">设计</h2>
-<h3 id="首页">首页</h3>
-<h4 id="头部">头部</h4>
-<p>三大股指，增加了涨、平、跌各多少只。</p>
-<h4 id="topbanner">TopBanner</h4>
-<p>选择当前价、成交量金额、振幅、换手率。之所以选择这四个，是因为这四个相比于涨幅Top、跌幅Top更能反应市场整体情绪。</p>
-<blockquote>
-<p>当前价Top:最高的当属<strong>贵州茅台</strong>  毫无疑问是市场的风向标 一锤定音<br>
-成交量金额Top:成交最多的哪几只，基本是有业绩有实力的好公司  <em>纯属个人经验</em><br>
-振幅Top、换手率Top:基本是当下市场最热门最冲动的股票 游资炒作居多</p>
-</blockquote>
-<h4 id="自选股">自选股</h4>
-<p>自选股最重要的是可添加可删除，功能已实现，手机端无法删除，mouseout事件会失效。</p>
-<h4 id="沪深300">沪深300</h4>
-<p>沪深300几乎涵盖了各个行业 具有代表性</p>
-<h3 id="详情页">详情页</h3>
-<h4 id="分时图">分时图</h4>
-<br>
-<h4 id="k线图">K线图</h4>
-<br>
-<h2 id="交互">交互</h2>
-<h4 id="刷新">刷新</h4>
-<p>首页交易时间1分钟刷新一次，非交易时间不刷新。交易时间哪里来，你怎么知道某年某天是节假日？tushare-三方库，我依然不生产数据，只是数据的搬运工。最初设计2秒刷新一次，毕竟1秒就是几百万的买卖，数据当然要及时。红的绿的一闪一闪真好看，最后闪瞎了狗眼，倔强得改成了1分钟刷新一次。其次爬虫用的好，牢房进的早。爬得太频繁，怕律师函警告，尤其是东方财富的数据。</p>
-<h4 id="搜索">搜索</h4>
-<p>输入股票代码搜索股票详情 ，不支持股票名称、缩写，因为接口不支持，也没有精力是实现。搜索时页面刷新会暂停。搜索奇怪的东西有菜单，我真是天才！</p>
-<h4 id="自选股添加删除">自选股添加/删除</h4>
-<p>输入股票代码添加 ，同样不支持股票名称、缩写。添加时页面刷新会暂停</p>
-<h2 id="后端">后端</h2>
-<p>后端使用Python的微型Web框架Bottle，因为实在是非常的简单，没有必要使用Flask、Django，其实是我也不怎么会Flask、Django。后端鸡贼的地方就是没有数据库，<strong>我从不生产数据，只是数据的搬运工</strong>。使用腾讯、新浪、东财的股票接口，即用即爬。唯一要记录的就是自选股，用于查看、添加、删除。这里采用了保存为二级制隐藏文件，每次去读取、增删(不推荐 本人纯属偷懒省事)。第一次使用装饰器记录函数日志和异常</p>
-<h2 id="前端">前端</h2>
-<p>前端是最耗时的  想法很多 但都实现不出来 磕磕绊绊 现在这版终于比较满意的。搜索页、自选股增删、头部Header、底部Footer、BacktoTop、搜索或添加自选时暂停刷新等 一点一点 慢慢磨出来   教练！ 我真的很想学前端</p>
-<h2 id="部署">部署</h2>
-<p>uwsgi+nginx<br>
-备案实在有些麻烦 IP凑合用下</p>
-<h2 id="总结">总结</h2>
-<p>过程中 能抽象就抽象 减少重复代码 最大的感触就是 “<strong>这样子好像不够优雅！</strong>” 能力有限，尽管功能都基本实现了，但总觉得有更优雅更好实现方法。若干年后 我若再看到这份代码 一定会想重构。</p>
-<p>👇下面是感谢环节</p>
-<p>感谢Github<br>
-感谢<a href="https://github.com/geeeeeeeek">geeeeeeeek</a> 他的项目给我了idea<br>
-这是B站他项目的<a href="https://www.bilibili.com/video/av45168955">视频</a> 一键三连 投币点赞<br>
-感谢<a href="https://github.com/2557606319">2557606319</a> 项目中使用到了他echarts封装的K线图<br>
-感谢许多CSDN、Stack OverFlow、博客主等留下的教程与问题记录<br>
-尽管他们与我都不认识 但他们间接的帮助了我很多 非常感谢！</p>
-<p>_——</p>
+<h3 id="前言">前言</h3>
+<p>黑板客爬虫闯关共5关</p>
+<ul>
+<li>http://www.heibanke.com/lesson/crawler_ex00/</li>
+<li>http://www.heibanke.com/lesson/crawler_ex01/</li>
+<li>http://www.heibanke.com/lesson/crawler_ex02/</li>
+<li>http://www.heibanke.com/lesson/crawler_ex03/</li>
+<li>http://www.heibanke.com/lesson/crawler_ex04/</li>
+</ul>
+<p>网上关于这部分的代码实践也不少<br>
+绝知此事要躬行  自己code一遍</p>
+<h3 id="第一关">第一关</h3>
+<p><img src="https://i.loli.net/2019/10/02/hAwDifI4vkNtge9.png" alt="UTOOLS_COMPRESS_1569999755672.png"></p>
+<p><code>requests</code> GET 不断请求即可</p>
+<pre><code>下一个你需要输入的数字是25997. 老实告诉你吧, 这样的数字还有上百个
+第49次尝试 URL:http://www.heibanke.com/lesson/crawler_ex00/25997
+下一个你需要输入的数字是73222. 老实告诉你吧, 这样的数字还有上百个
+第50次尝试 URL:http://www.heibanke.com/lesson/crawler_ex00/73222
+下一个你需要输入的数字是93891. 老实告诉你吧, 这样的数字还有上百个
+第51次尝试 URL:http://www.heibanke.com/lesson/crawler_ex00/93891
+恭喜你,你找到了答案.继续你的爬虫之旅吧
+最终地址是：http://www.heibanke.com/lesson/crawler_ex00/93891
+END
+</code></pre>
+<h3 id="第二关">第二关</h3>
+<p><img src="https://i.loli.net/2019/10/02/Hx8YCN2kVrt9qcJ.png" alt="UTOOLS_COMPRESS_1569999938435.png"></p>
+<p>猜密码 这里从0~30的列表中 <code>random.choice</code>每次随机给出一个数<br>
+若此数密码不正确 则从该列表中remove</p>
+<pre><code>尝试密码:13
+您输入的密码错误, 请重新输入
+尝试密码:5
+您输入的密码错误, 请重新输入
+尝试密码:10
+您输入的密码错误, 请重新输入
+尝试密码:8
+恭喜! 用户spider成功闯关, 继续你的爬虫之旅吧
+</code></pre>
+<h3 id="第三关">第三关</h3>
+<p><img src="https://i.loli.net/2019/10/02/vtEu8UbP31Dgfy7.jpg" alt="Xnip2019-10-02_15-10-41.jpg"></p>
+<p>第三关先进去是这样的 没有谜题 一头雾水<br>
+需要先在这里注册账号 登陆后重新打开 出现谜题</p>
+<p><img src="https://i.loli.net/2019/10/02/scdnE5CUTq6l4WH.png" alt="UTOOLS_COMPRESS_1570000211937.png"></p>
+<p>还是猜密码 第一反应就是要先登陆 requests Session 模拟登陆即可<br>
+但是没有成功 谜题写着两层保护 也没看懂<br>
+百度后 明白了 还有一层token的加密</p>
+<p><img src="https://i.loli.net/2019/10/02/DmY3XNvFhueLkRJ.png" alt="UTOOLS_COMPRESS_1570000617203.png"></p>
+<p>首先是账号登陆时需要一个token<br>
+其次是谜题猜密码时也需要一个token<br>
+这里两个token均来自cookies</p>
+<pre><code class="language-python">session = requests.Session()
+session.get('http://www.heibanke.com/lesson/crawler_ex02/')
+csrftoken1 = session.cookies.get('csrftoken')
+account_data = {
+    'csrfmiddlewaretoken': csrftoken1,
+    'username': 'fikqmw98654',
+    'password': '123456'
+}
+session.post('http://www.heibanke.com/accounts/login/?next=/lesson/crawler_ex02/',
+             data = account_data)
+csrftoken2 = session.cookies.get('csrftoken')
+</code></pre>
+<p>两次token不同  需重新获取 然后就是熟悉的猜密码 和第二关相同</p>
+<h3 id="第四关">第四关</h3>
+<p><img src="https://s2.ax1x.com/2019/10/02/uaxydA.png" alt="uaxydA.png"></p>
+<p>依然一脸懵逼 尝试输入密码 提示密码在这里寻找</p>
+<p><img src="https://i.loli.net/2019/10/02/LaCRexzIHTGjnom.png" alt="UTOOLS_COMPRESS_1570001394116.png"></p>
+<p>注意：并不把所有13页的密码按照&lt;位置,值&gt;拼起来就组成最终的密   码，因为有些位置会重复给出 可能加载完所有页 也不一定组成出完整的密码 可能还是会有个别位置缺失<br>
+PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置缺失<br>
+其实只要第一页反复刷新就可以了<br>
+直到所有密码(共100位 页面探索所得)都有拼上为止</p>
+<p>当然拼密码之前 需要模拟登陆 熟悉的配方<br>
+经过漫长的登陆 终于获得所有位置的密码</p>
+<pre><code>共100位密码，已获得99位密码
+共100位密码，已获得99位密码
+共100位密码，已获得99位密码
+共100位密码，已获得100位密码
+密码是：5357748950695244329548946136479903948743260484371348776618136963449163264706489936702831052533819016
+恭喜! 用户aaa成功闯关, 继续你的爬虫之旅吧
+</code></pre>
+<h3 id="第五关">第五关</h3>
+<p><img src="https://i.loli.net/2019/10/02/EIbCJ5zMXGgfvo4.png" alt="UTOOLS_COMPRESS_1570001895588.png"></p>
+<p>加了验证码 验证码使用OCR识别出正确的字母 这里的图片已经很清晰 不用二值化或灰度处理 唯一的问题就是个别字母倾斜导致OCR识别错误 暂时不知道如何倾斜矫正</p>
+<p>OCR使用 pytesseract或者百度OCR  两者的识别准确率半斤八两 都不太高 基本都出错在倾斜字母上 但总体上还是能用</p>
+<p>tips:不用把每次的验证码图片下载下来 会下载很多验证码 以后也不会用到 浪费空间  直接获得验证码图片的二进制content 每次拿二进制content去识别</p>
+<p>当然验证码识别之前 需要模拟登陆 密码也是30以内的数字 熟悉的配置</p>
+<p>经过漫长的等待</p>
+<pre><code>第1次尝试,验证码:CINR,密码:3
+验证码输入错误
+第2次尝试,验证码:SSMO,密码:3
+恭喜! 用户spider成功闯关, 后续关卡敬请期待
+</code></pre>
+<h3 id="end">END</h3>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
@@ -275,7 +318,7 @@ hljs.initHighlightingOnLoad()
         document.getElementById('article').innerHTML = article
 
     let navigation = new AutocJs({
-        title:'股票行情面板Web',
+        title:'黑板客爬虫闯关通关',
         isGenerateOutlineChapterCode: false
     })
     </script>
