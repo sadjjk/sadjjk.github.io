@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-10-02T08:06:08.467Z</updated>
+    <updated>2019-10-02T08:09:34.606Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -114,6 +114,8 @@ PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置
 恭喜! 用户spider成功闯关, 后续关卡敬请期待
 </code></pre>
 <h3 id="end">END</h3>
+<p><a href="https://github.com/sadjjk/CrawerExam-heibanke">Code</a>:https://github.com/sadjjk/CrawerExam-heibanke</p>
+<p><a href="https://sadjjk.github.io/">Blog</a>    <a href="http://47.105.166.237/index">Stock</a></p>
 ]]></content>
     </entry>
     <entry>
