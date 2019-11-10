@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-11-10T09:10:29.603Z</updated>
+    <updated>2019-11-10T12:58:33.829Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -10,6 +10,70 @@
     <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[BilibiliVideo-后话篇]]></title>
+        <id>https://blog.wangjy.xyz//post/BilibiliVideo_last</id>
+        <link href="https://blog.wangjy.xyz//post/BilibiliVideo_last">
+        </link>
+        <updated>2019-11-10T12:56:03.000Z</updated>
+        <summary type="html"><![CDATA[<p>只要我不努力<br>
+老板就永远过不上他想要的生活</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>只要我不努力<br>
+老板就永远过不上他想要的生活</p>
+<!--more-->
+<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
+<ul>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
+</ul>
+<p>BilibiliViedeo  V1.0(暂且称为1.0)<br>
+前前后后 花了一个月的闲(咸)余(鱼)时间<br>
+基本就结束了<br>
+当然还有更多的骚想法<br>
+结果留下了没有技术的眼泪<br>
+比如 已经拿到了视频地址<br>
+那就想能不能把B站放在自己的页面上播放<br>
+播放器插件都找好了 打算使用Dplayer.js<br>
+直接给url播放地址就行<br>
+但是B站视频地址有防盗链<br>
+要有header信息才能访问<br>
+Dplayer好像不支持<br>
+在Dplayer的issues中就有人提出这个问题</p>
+<p><img src="https://i.loli.net/2019/11/10/hOsWycDubiB5q3k.jpg" alt="3321573389630_.pic.jpg"></p>
+<p>最后也没有找到方法<br>
+除了留下没有技术的眼泪<br>
+当然也留下了没有金钱的眼泪<br>
+买的最低配的阿里云<br>
+只有1M带宽<br>
+所以在下载视频的时候<br>
+网速最快也只有150K/s左右<br>
+如果是本地服务  则会快很多<br>
+由自己的宽带所决定   下载速度可以达到1M/s</p>
+<p>最后该项目放在了Github私人库里<br>
+非常抱歉 不能公开源码<br>
+因喜欢B站(小破站)的Up主们<br>
+喜欢B站的动漫、教程、弹幕<br>
+个个都是人才<br>
+可以下载视频的同时 也在引导 投币点赞<br>
+每位Up主做视频都不容易<br>
+如果有打动你的地方 请一键三连<br>
+而不是下次一定<br>
+<img src="https://i.loli.net/2019/11/10/sYZ34NFu6CG2rJI.png" alt="UTOOLS_COMPRESS_1573389263386.png"></p>
+<p>这也是不想公开源码的重要原因  仅分享思路<br>
+怕被滥用  怕伤害到Up主 怕伤害到B站
+再次重申 仅供学习 请勿商用<br>
+若有一天无意伤害了<br>
+会及时关闭服务</p>
+<p>到头来 其实就是一个人的自嗨<br>
+既想让更多人知道这个网站<br>
+人总是需要被羡慕的 被需要的<br>
+又不想让太多人知道</p>
+<p>好   收！</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-实现篇-优化篇]]></title>
         <id>https://blog.wangjy.xyz//post/BilibiliVideo_optimize</id>
@@ -20,10 +84,12 @@
 ]]></summary>
         <content type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
 <!--more-->
+<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
 </ul>
 <p>基本篇已经实现了B站视频下载到本地的功能<br>
 把这个功能部署在服务上 就可以使用浏览器页面下载<br>
@@ -140,10 +206,12 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
         <content type="html"><![CDATA[<p>只有用水将心上的雾气淘洗干净<br>
 荣光才会照亮最初的梦想</p>
 <!--more-->
+<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
 </ul>
 <p>BilibiliVideo的核心就是如何获取视频的下载地址<br>
 主要的参考思路来自<a href="https://github.com/Henryhaohao/Bilibili_video_download">Github大佬的项目</a> https://github.com/Henryhaohao/Bilibili_video_download<br>
@@ -278,18 +346,20 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
         <link href="https://blog.wangjy.xyz//post/BilibiliVideo_begin">
         </link>
         <updated>2019-11-10T03:29:25.000Z</updated>
-        <summary type="html"><![CDATA[<p>如果你真的愿意去努力
-你人生最坏的结果
+        <summary type="html"><![CDATA[<p>如果你真的愿意去努力<br>
+你人生最坏的结果<br>
 也不过是大器晚成</p>
 ]]></summary>
-        <content type="html"><![CDATA[<p>如果你真的愿意去努力
-你人生最坏的结果
+        <content type="html"><![CDATA[<p>如果你真的愿意去努力<br>
+你人生最坏的结果<br>
 也不过是大器晚成</p>
 <!--more-->
+<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
 </ul>
 <p>有一天想下载B站的视频  网上了解了一番 常用的是<a href="https://www.ibilibili.com/">爱哔哩</a>和<a href="http://www.shipinyu.com/">视频鱼</a><br>
 但都不尽人意 于是决定自己做一款 <a href="http://121.40.197.122/index">BilibiliVideo</a><br>
@@ -863,72 +933,6 @@ remove_bg('imgs/demo.jpg')
 <p>总体上 这两个免费的API人像抠图的效果都非常不错 处理速度也是秒级</p>
 <h3 id="参考资料">参考资料</h3>
 <p><a href="https://www.jiqizhixin.com/articles/2019-01-23-16">https://www.jiqizhixin.com/articles/2019-01-23-16</a></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[几行代码系列:图片压缩(批量)]]></title>
-        <id>https://blog.wangjy.xyz//post/img_small_api</id>
-        <link href="https://blog.wangjy.xyz//post/img_small_api">
-        </link>
-        <updated>2019-07-28T07:00:42.000Z</updated>
-        <summary type="html"><![CDATA[<p>图片压缩API  可敲代码 也可不敲代码</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>图片压缩API  可敲代码 也可不敲代码</p>
-<!--more-->
-<h3 id="敲代码tinypng">敲代码:<a href="https://tinypng.com/">TinyPNG</a></h3>
-<p><img src="https://i.loli.net/2019/07/28/5d3d53ce0cbf616047.png" alt="5d3d49b6f244d80875.png"></p>
-<p>当初搜到过这网站 但因“Up to 20 images, max 5 MB each” 被我直接PASS  后来在一篇文章中再次看着这个网址 定眼仔细一看 简单的网页是阉割版 API才是它的强大的地方</p>
-<p><img src="https://i.loli.net/2019/07/28/5d3d54297602e78475.png" alt="5d3d4aa51d0dc93847.png"></p>
-<p>邮箱就能注册<br>
-提供Ruby，PHP，Node.js，Python，Java和.NET等各个语言的API <br>
-以Python为例 <br></p>
-<pre><code class="language-python"># 安装
-pip install tinify
-</code></pre>
-<pre><code class="language-python">import tinify
-import os
-
-tinify.key = '注册后获得的key'
-imgs_path = &quot;imgs&quot; # 图片存放文件夹的路径
-
-for file in os.listdir(imgs_path):
-    imgpath = os.path.join(imgs_path,file)
-    print(&quot;图片压缩前大小: %.3f KB&quot; % (os.path.getsize(imgpath) / 1024))
-    print(&quot;开始压缩%s ...&quot; % imgpath)
-    tinify.from_file(imgpath).resize(method = 'scale',width=800).to_file(imgpath)
-    # tinify.from_file(imgpath).to_file(imgpath)
-    print(&quot;... 压缩完成&quot; )
-    print(&quot;图片压缩后大小: %.3f KB&quot; % (os.path.getsize(imgpath) / 1024))
-    compressions_this_month = tinify.compression_count
-    print(&quot;当月已压缩%d次,剩余%d次&quot; % (compressions_this_month,500-compressions_this_month))
-
-        
-</code></pre>
-<p>十余行代码完成整个文件夹压缩 没有图片数量限制 没有图片大小限制     压缩率也是非常的高  画质几乎无损<br>
-支持反复压缩 不过再次压缩 大小就减少没有那么多<br>
-可指定大小 可智能裁剪 更多功能见 <a href="https://tinypng.com/developers/reference/python">API文档</a><br>
-每个账号每月可调用<strong>500</strong>次 这对个人使用而言足够了 实在不够就多注册几个</p>
-<h3 id="不敲代码utools">不敲代码:<a href="https://u.tools/">uTools</a></h3>
-<p>uTools是一个极简、插件化、跨平台的现代桌面软件。通过自由选配丰富的插件，打造你得心应手的工具集合。当你熟悉它后，能够为你节约大量时间，让你可以更加专注地改变世界。(强！无敌！)</p>
-<p>里面有压缩图片功能，调用的就是<strong>TinyPNG</strong>的接口 本质是一样的
-不足就是不能更改图片尺寸大小</p>
-<p><img src="https://i.loli.net/2019/07/28/5d3d574840acc70457.jpg" alt="Xnip2019-07-28_16-05-03.jpg"></p>
-<p>uTools还有非常丰富的插件 无处不惊喜 小小的遗憾是Mac端没有像Win端本地文件快速搜索的插件</p>
-<h3 id="后记">后记</h3>
-<p>图片的无损压缩需求来自个人网站(也就是这个网站)访问速度的优化这个网站有几个页面访问速度巨慢 加载不完  F12后 基本是图片的加载耗时<br>
-搜了一下 压缩图片 目的基本也都是Web优化 提高页面加载速度<br>
-找到很多工具类网站提供压缩图片的功能 但都不尽人意</p>
-<ul>
-<li>图片过多 一张张上传下载很麻烦</li>
-<li>有上传图片大小限制  万一我就有高清大图 怎么办？</li>
-</ul>
-<p>也找到几款软件处理压缩图片 但感觉还是差点意思</p>
-<ul>
-<li>有的软件比较大</li>
-<li>有的只能压缩数张 再压缩 右拐请购买VIP</li>
-</ul>
-<p>PPDuck3这款软件还是不错的 几乎无损 文件夹自动处理 原地覆盖 有个小缺点 每次仅10张 用完关闭重开即可</p>
-<p>后来有了图片压缩API  软件基本就不使用了</p>
 ]]></content>
     </entry>
 </feed>

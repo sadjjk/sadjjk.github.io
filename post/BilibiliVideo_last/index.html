@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>BilibiliVideo-实现篇-基础篇 | 今语</title>
+<title>BilibiliVideo-后话篇 | 今语</title>
 <link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1573390675141">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
@@ -88,7 +88,7 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/11/10/qL5boIXTCAfvps7.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/11/10/QF63deM1BPW9H7l.png">
           </div>
         
 
@@ -103,7 +103,7 @@
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>BilibiliVideo-实现篇-基础篇</h1>
+          <h1 class='entry-title'>BilibiliVideo-后话篇</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/BilibiliVideo_begin">下一篇->BilibiliVideo-缘起篇</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/BilibiliVideo_optimize">下一篇->BilibiliVideo-实现篇-优化篇</a>
               </div>
             </nav>
           
@@ -216,8 +216,8 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wangjy.xyz//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>只有用水将心上的雾气淘洗干净<br>
-荣光才会照亮最初的梦想</p>
+    var article = `<p>只要我不努力<br>
+老板就永远过不上他想要的生活</p>
 <!--more-->
 <p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
@@ -226,131 +226,49 @@ hljs.initHighlightingOnLoad()
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
 </ul>
-<p>BilibiliVideo的核心就是如何获取视频的下载地址<br>
-主要的参考思路来自<a href="https://github.com/Henryhaohao/Bilibili_video_download">Github大佬的项目</a> https://github.com/Henryhaohao/Bilibili_video_download<br>
-在此基础上进行了梳理修改<br>
-下面是视频下载的大体思路</p>
-<h4 id="获取视频基本信息">获取视频基本信息</h4>
-<p><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg"></p>
-<p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681<br>
-番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
-<p>requests.get(url).text  获取当前地址的源码<br>
-正则匹配<code>r'INITIAL_STATE__=(.*?});'</code><br>
-匹配里的内容就是视频的基本信息json 有</p>
-<ul>
-<li>aid</li>
-<li>cid</li>
-<li>视频标题 title</li>
-<li>视频封面 cover</li>
-</ul>
-<p>这里要注意Up主视频地址与番剧视频的json内容不同的<br>
-所以要分开处理</p>
-<h5 id="up主视频">Up主视频</h5>
-<p><img src="https://i.loli.net/2019/11/10/O6mfwrtpeZQJDlG.png" alt="UTOOLS_COMPRESS_1573368344571.png"></p>
-<p>json里面有pic(即封面)、title(即标题)<br>
-一个视频地址里面可能有多个子视频<br>
-pages里面就存着多个子视频的信息<br>
-需要用到的是cid和part(子视频的名字)</p>
-<h5 id="番剧视频">番剧视频</h5>
-<p>番剧的json内容与Up主json内容略有不同</p>
-<p><img src="https://i.loli.net/2019/11/10/1vKXJPo3DlmgfbY.png" alt="UTOOLS_COMPRESS_1573368890717.png"></p>
-<p>mediainfo里放着这个番剧的标题和封面<br>
-epList里有每集视频的cid和aid</p>
-<h4 id="获取视频下载地址">获取视频下载地址</h4>
-<p>上一步已经拿到了每集视频的cid、aid、quality(默认720P)<br>
-使用非官方公开API</p>
-<pre><code>https://api.bilibili.com/x/player/playurl?cid={}&amp;avid={}&amp;qn={}
-</code></pre>
-<p>cid 即获取到的cid<br>
-avid 即获取到的aid<br>
-qn 即获取到的quality所对应的值<br>
-如下表</p>
-<pre><code>&quot;360P&quot;:16,
-&quot;480P&quot;:32,
-&quot;720P&quot;:64,
-&quot;1080P&quot;:80,
-&quot;1080P+&quot;:112
-</code></pre>
-<p>request.get(API_URL)<br>
-即可获取大部分视频<br>
-Up主视频基本都能解析了<br>
-还有部分视频需要会员<br>
-清晰度1080P+ 也是会员特有<br>
-那如何获取会员视频 ？<br>
-毫无疑问 首先要有一个<strong>大会员账号</strong><br>
-实名感谢Y朋友提供的大会员账号<br>
-没有大会员 肯定是无法下载会员视频的<br>
-毕竟天下没有免费的午餐<br>
-有了大会员账号  登陆B站<br>
-F12&gt; Application&gt;Cookies&gt;SESSDATA<br>
-记录SESSDATA的值  添加headers<br>
-补充:SESSDATA据说是有1个月的有效期<br>
-若失效 需重新登录获取</p>
-<pre><code>headers = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
-    'Cookie': 'SESSDATA=刚记录的SESSDATA值',
-    'Host': 'api.bilibili.com'
-}
-</code></pre>
-<p>request.get(API_URL,headers = headers) 即可<br>
-这是返回的结果 同样是json<br>
-<img src="https://i.loli.net/2019/11/10/CGPTJ9g2m1b3Q6O.png" alt="UTOOLS_COMPRESS_1573370101861.png"></p>
-<p>下载地址是data['durl']['url']<br>
-到这里基本可以获取全站所有的视频下载地址</p>
-<h4 id="本地下载视频">本地下载视频</h4>
-<p>上一步已获取到视频的下载地址<br>
-开始Download<br>
-这里推荐使用urllib.request.urlretrieve<br>
-这个下载比较优雅 还有回调函数 可实时打印下载进度<br>
-不推荐使用requests.get<br>
-requests库虽然对urllib进一步封装更加常用 但在下载这些视频的时候<br>
-经常报403错误  可能是视频流的原因<br>
-当初就犯了这个错误 使用requests.get<br>
-结果好多视频地址失效了<br>
-其实地址都是有效的<br>
-如果要本地下载 就用  urllib.request.urlretrieve<br>
-如果要打开(使用服务时) 就用  urllib.request.urlopen<br>
-当然 直接开始下载 也还是不行的<br>
-资源一般都有防盗链   不会那么随便就能访问到服务器的资源<br>
-同样要添加headers  urllib添加headers 与requests略有不同</p>
-<pre><code>opener = urllib.request.build_opener()
-
-# 请求头
-opener.addheaders = [
-    ('Host', 'upos-hz-mirrorks3.acgvideo.com'),
-    ('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 '),
-    ('Accept', '*/*'),
-    ('Accept-Language', 'en-US,en;q=0.5'),
-    ('Accept-Encoding', 'gzip, deflate, br'),
-    ('Range', 'bytes=0-'),  # Range 的值要为 bytes=0- 才能下载完整视频
-    ('Referer', 一开始输入的B站视频地址),
-    ('Origin', 'https://www.bilibili.com'),
-    ('Connection', 'keep-alive'),
-]
-urllib.request.install_opener(opener)
-urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名)
-
-</code></pre>
-<p>这样就可以下载视频了<br>
-如果要查看下载的进度 需要添加回调函数</p>
-<pre><code>def _progress(self,block_num, block_size, total_size):
-    '''回调函数
-       @block_num: 已经下载的数据块
-       @block_size: 数据块的大小
-       @total_size: 远程文件的大小
-    '''
-
-    # 设置下载进度条
-    pervent = block_num * block_size / total_size * 100
-    percent_str = &quot;%.2f%%&quot; % (pervent)
-    logger.info(percent_str)
-        
-urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,reporthook = _progress)        
-</code></pre>
-<h4 id="end">END</h4>
-<p>整体思路介绍完毕<br>
-基本上就可以下载任意视频到本地了</p>
-<p><img src="https://i.loli.net/2019/11/10/iO4UmQs6REHP5vl.png" alt="UTOOLS_COMPRESS_1573371620820.png"></p>
+<p>BilibiliViedeo  V1.0(暂且称为1.0)<br>
+前前后后 花了一个月的闲(咸)余(鱼)时间<br>
+基本就结束了<br>
+当然还有更多的骚想法<br>
+结果留下了没有技术的眼泪<br>
+比如 已经拿到了视频地址<br>
+那就想能不能把B站放在自己的页面上播放<br>
+播放器插件都找好了 打算使用Dplayer.js<br>
+直接给url播放地址就行<br>
+但是B站视频地址有防盗链<br>
+要有header信息才能访问<br>
+Dplayer好像不支持<br>
+在Dplayer的issues中就有人提出这个问题</p>
+<p><img src="https://i.loli.net/2019/11/10/hOsWycDubiB5q3k.jpg" alt="3321573389630_.pic.jpg"></p>
+<p>最后也没有找到方法<br>
+除了留下没有技术的眼泪<br>
+当然也留下了没有金钱的眼泪<br>
+买的最低配的阿里云<br>
+只有1M带宽<br>
+所以在下载视频的时候<br>
+网速最快也只有150K/s左右<br>
+如果是本地服务  则会快很多<br>
+由自己的宽带所决定   下载速度可以达到1M/s</p>
+<p>最后该项目放在了Github私人库里<br>
+非常抱歉 不能公开源码<br>
+因喜欢B站(小破站)的Up主们<br>
+喜欢B站的动漫、教程、弹幕<br>
+个个都是人才<br>
+可以下载视频的同时 也在引导 投币点赞<br>
+每位Up主做视频都不容易<br>
+如果有打动你的地方 请一键三连<br>
+而不是下次一定<br>
+<img src="https://i.loli.net/2019/11/10/sYZ34NFu6CG2rJI.png" alt="UTOOLS_COMPRESS_1573389263386.png"></p>
+<p>这也是不想公开源码的重要原因  仅分享思路<br>
+怕被滥用  怕伤害到Up主 怕伤害到B站
+再次重申 仅供学习 请勿商用<br>
+若有一天无意伤害了<br>
+会及时关闭服务</p>
+<p>到头来 其实就是一个人的自嗨<br>
+既想让更多人知道这个网站<br>
+人总是需要被羡慕的 被需要的<br>
+又不想让太多人知道</p>
+<p>好   收！</p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
@@ -359,7 +277,7 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
         document.getElementById('article').innerHTML = article
 
     let navigation = new AutocJs({
-        title:'BilibiliVideo-实现篇-基础篇',
+        title:'BilibiliVideo-后话篇',
         isGenerateOutlineChapterCode: false
     })
     </script>
