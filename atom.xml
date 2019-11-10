@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-11-10T12:58:33.829Z</updated>
+    <updated>2019-11-10T13:02:33.250Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -22,6 +22,7 @@
         <content type="html"><![CDATA[<p>只要我不努力<br>
 老板就永远过不上他想要的生活</p>
 <!--more-->
+<p>网站：<a href="http://121.40.197.122/index">BilibiliVideo</a></p>
 <p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
@@ -84,6 +85,7 @@ Dplayer好像不支持<br>
 ]]></summary>
         <content type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
 <!--more-->
+<p>网站：<a href="http://121.40.197.122/index">BilibiliVideo</a></p>
 <p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
@@ -206,6 +208,7 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
         <content type="html"><![CDATA[<p>只有用水将心上的雾气淘洗干净<br>
 荣光才会照亮最初的梦想</p>
 <!--more-->
+<p>网站：<a href="http://121.40.197.122/index">BilibiliVideo</a></p>
 <p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
@@ -354,6 +357,7 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 你人生最坏的结果<br>
 也不过是大器晚成</p>
 <!--more-->
+<p>网站：<a href="http://121.40.197.122/index">BilibiliVideo</a></p>
 <p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
