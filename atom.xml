@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-11-10T07:51:46.356Z</updated>
+    <updated>2019-11-10T09:06:22.921Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -10,6 +10,124 @@
     <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[BilibiliVideo-实现篇-优化篇]]></title>
+        <id>https://blog.wangjy.xyz//post/BilibiliVideo_optimize</id>
+        <link href="https://blog.wangjy.xyz//post/BilibiliVideo_optimize">
+        </link>
+        <updated>2019-11-10T09:05:51.000Z</updated>
+        <summary type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
+<!--more-->
+<ul>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+</ul>
+<p>基本篇已经实现了B站视频下载到本地的功能<br>
+把这个功能部署在服务上 就可以使用浏览器页面下载<br>
+我使用的是Flask  当然无论什么Web框架都是可行的<br>
+优化篇说一些部署服务的小细节</p>
+<ul>
+<li>Flask下载视频流</li>
+<li>HTML页面设计</li>
+<li>视频解析进度条</li>
+<li>添加CSRF Token防御</li>
+<li>大会员SESSDATA不过期</li>
+</ul>
+<h4 id="flask下载视频流">Flask下载视频流</h4>
+<p>基本篇是使用<code>urllib.request.urlretrieve</code>下载到本地的<br>
+如果是使用服务的话 要用<code>urllib.request.urlopen</code><br>
+再封装成Response返回   同时要在Response中添加header<br>
+Content-Disposition 视频名<br>
+Content-Length  视频大小<br>
+这样通过页面下载的视频才有正常的视频名字和视频大小
+浏览器下载时才会出现  共XXXMB</p>
+<pre><code>@app.route(&quot;/download&quot;,methods=['POST'])
+def download():
+  -----忽略部分代码-----
+  r = urllib.request.urlopen(video_download_url)
+  response = Response(
+          r,
+          content_type=r.headers['content-type'],
+      )
+  response.headers[&quot;Content-Disposition&quot;] = 'attachment; filename={0}; filename*=utf-8''{0}'.format(quote(video_name) + '.flv')
+  response.headers[&quot;Content-Length&quot;] = r.headers['Content-Length']
+  
+  return response
+
+</code></pre>
+<p><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png"></p>
+<h4 id="html页面设计">HTML页面设计</h4>
+<p>设计三个基本html页面</p>
+<ul>
+<li>index 主页 用于输入视频地址</li>
+<li>search  解析结果页</li>
+<li>search_error  解析结果异常页</li>
+</ul>
+<p>search_error页可使用Jinja模型语言继承search页<br>
+修改要展示的内容即可<br>
+若解析异常 则给提出异常提示和热门搜索(其实就是写死的推荐项)<br>
+异常可以使用AssertionError断言拦截 比如&quot;链接必须是来自B站&quot;、&quot;链接不能为空&quot;、&quot;无法解析该地址&quot;、&quot;内部异常！可能被233娘吃掉了&quot;等等</p>
+<p><img src="https://i.loli.net/2019/11/10/NJQZAvbBGhfynWe.png" alt="UTOOLS_COMPRESS_1573373340096.png"></p>
+<h4 id="视频解析进度条">视频解析进度条</h4>
+<p>当视频地址里视频比较多的时候<br>
+解析比较耗时  但页面上没有反应出来<br>
+所以最好要有一个前端进度条<br>
+这样 对用户就非常友好  非常直观<br>
+进度条使用的是NProgress.js插件<br>
+非常美观  <a href="http://ricostacruz.com/nprogress/">了解详情点这里</a><br>
+使用也很简单  只需要在按钮点击的时候<br>
+增加一个start   一个stop  如果是跳转页面 stop可加可不加</p>
+<pre><code>$(&quot;.hot-item&quot;).click(function () {
+  NProgress.start();
+  NProgress.stop();
+})
+</code></pre>
+<p><img src="https://i.loli.net/2019/11/10/3nlKuipDeOdmH69.png" alt="UTOOLS_COMPRESS_1573373940104.png"></p>
+<p>在页面顶部就有一个进度条 右上还有加载圆 大赞！</p>
+<h4 id="添加csrf-token防御">添加CSRF Token防御</h4>
+<p>CSRF具体是什么 我不太了解<br>
+当初添加这个 主要是想<br>
+如果用户模拟出了表单提交的参数<br>
+那么直接POST请求就能下载了<br>
+(爬虫爬多了的后遗症)<br>
+不能这么随便 要加个密什么的<br>
+后来查了一些资料 看到了 CSRF Token<br>
+Flask里使用也非常简单</p>
+<pre><code>from flask_wtf.csrf import CsrfProtect
+app.config['SECRET_KEY'] = '自定义加密令牌'
+CsrfProtect(app)
+</code></pre>
+<p>这样表单提交就会自动生成一个<strong>csrf_token</strong><br>
+并且验证token的正确性<br>
+每次刷新生成的<strong>csrf_token</strong>也都不一样</p>
+<p><img src="https://i.loli.net/2019/11/10/mM7OoEeDuZ9bJjy.png" alt="UTOOLS_COMPRESS_1573376370149.png"></p>
+<h4 id="大会员sessdata不过期">大会员SESSDATA不过期</h4>
+<p>基础篇提到过SESSDATA是大概有一个月的有效期<br>
+既然都发布服务了 总不能每隔一个月去修改SESSDATA吧<br>
+所有就需要B站模拟自动登陆 获取Cookies 更新SESSDATA<br>
+B站的登陆 是滑块登陆 可以说相当困难<br>
+办法也还是有的 Selenium + ChromeDriver<br>
+缺点就是会占内存<br>
+所幸我们不频繁登陆<br>
+只要半个月或一个月登陆一次<br>
+获取Cookies 更新SESSDATA 就足够了<br>
+自动登陆还有一定失败率 失败就刷新 再次重新滑动<br>
+主要难点 在于模拟人的滑动轨迹<br>
+不能太快 也不能太慢<br>
+实测下来  1次成功到5次才成功不等<br>
+写好了模拟登陆的脚本<br>
+部署在云服务上  Crontab 定时调用即可<br>
+为了了解登陆成功与否的详细<br>
+再增加邮箱发送的脚本<br>
+这样就能及时了解模拟登陆的情况 及时排查</p>
+<p><img src="https://i.loli.net/2019/11/10/4KcFfLeq8Q7o9Tm.png" alt="UTOOLS_COMPRESS_1573375534489.png"></p>
+<p>额外篇 如何实现B站滑块自动登陆 有机会再讲<br>
+额外篇 如何实现邮箱发送  有机会再讲</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-实现篇-基础篇]]></title>
         <id>https://blog.wangjy.xyz//post/BilibiliVideo_realize</id>
@@ -24,7 +142,7 @@
 <!--more-->
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
-<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基本篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
 </ul>
 <p>BilibiliVideo的核心就是如何获取视频的下载地址<br>
 主要的参考思路来自<a href="https://github.com/Henryhaohao/Bilibili_video_download">Github大佬的项目</a> https://github.com/Henryhaohao/Bilibili_video_download<br>
@@ -32,8 +150,8 @@
 下面是视频下载的大体思路</p>
 <h4 id="获取视频基本信息">获取视频基本信息</h4>
 <p><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg"></p>
-<p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681</p>
-<p>番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
+<p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681<br>
+番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
 <p>requests.get(url).text  获取当前地址的源码<br>
 正则匹配<code>r'INITIAL_STATE__=(.*?});'</code><br>
 匹配里的内容就是视频的基本信息json 有</p>
@@ -83,7 +201,9 @@ Up主视频基本都能解析了<br>
 毕竟天下没有免费的午餐<br>
 有了大会员账号  登陆B站<br>
 F12&gt; Application&gt;Cookies&gt;SESSDATA<br>
-记录SESSDATA的值  添加headers</p>
+记录SESSDATA的值  添加headers<br>
+补充:SESSDATA据说是有1个月的有效期<br>
+若失效 需重新登录获取</p>
 <pre><code>headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
     'Cookie': 'SESSDATA=刚记录的SESSDATA值',
@@ -803,103 +923,6 @@ for file in os.listdir(imgs_path):
 </ul>
 <p>PPDuck3这款软件还是不错的 几乎无损 文件夹自动处理 原地覆盖 有个小缺点 每次仅10张 用完关闭重开即可</p>
 <p>后来有了图片压缩API  软件基本就不使用了</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[吃韭菜®]]></title>
-        <id>https://blog.wangjy.xyz//post/eatleek</id>
-        <link href="https://blog.wangjy.xyz//post/eatleek">
-        </link>
-        <updated>2019-07-13T12:32:09.000Z</updated>
-        <summary type="html"><![CDATA[<p>侠之大者 为国接盘</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>侠之大者 为国接盘</p>
-<!--more-->
-<center><h3>
-  一
-  </h3></center>
-一个平常的晚上，一个平常的烧烤摊，宵夜起。
-<p>&quot;都到齐了！ 老板！ 二十串韭菜， 要麻！！要辣！！&quot;</p>
-<p>十分钟后，韭菜上齐了。</p>
-<p>然后是长久地沉默，大家低着头面无表情地吃着韭菜。</p>
-<p>终于，老四憋不住了，&quot;最近 ，这日子没法过啊！&quot;</p>
-<p>&quot;老四，别急，你说的大家都明白。&quot;</p>
-<p>话匣子一下子决了堤，</p>
-<p>哥几个你一言我一语。</p>
-<p>从流动性到制度性，从国企混改到毛衣摩擦，从共产主义到计划经济，</p>
-<p>从地产税到比特币，从边缘计算到芯片之战，从石油期货到把妹技巧。</p>
-<p>啪！大哥双手握拳，拍起桌子。</p>
-<p>&quot;天下兴亡，匹夫有责。侠之大者，当为国接盘！</p>
-<p>今日，国运之争，咱们保儿帮要全力支持！&quot;</p>
-<p>&quot;大哥 我这有一万&quot;</p>
-<p>&quot;大哥 我这有五万&quot;</p>
-<p>&quot;大哥 我这有十万&quot;</p>
-<p>&quot;好好好！不愧是我的兄弟，咱们拼了命，也要把这钱砸出去 &quot;</p>
-<p>零零总总，加在一起，差不多三十万。</p>
-<p>在他们看来，就是三百亿！这就是救命的药引子！</p>
-<p>他们知道，</p>
-<p>保儿帮从来只做亏本买卖</p>
-<p>有利不图，有钱不挣，是他们一贯的作风。</p>
-<p>别人都说他们傻，是韭菜。</p>
-<p>但只有他们知道，</p>
-<p>他们从来都是自愿的。</p>
-<p>&quot;大哥，都听你的，我们时刻准备着！ &quot;</p>
-<p>&quot;好好好，等我摔杯为号！！&quot;</p>
-<p>桌上的韭菜吃完了，夜也深了。</p>
-<p>大家低调地回了家，就像往常一样。</p>
-<p>又有点不一样，</p>
-<p>这次的路灯格外亮，</p>
-<p>亮得飞蛾也忍不住扑上去。</p>
-<center><h3>二 </h3></center>
-次日 九点三十
-<p>&quot;咔嚓嚓&quot;</p>
-<p>杯子摔在地上，碎了一地</p>
-<p>&quot;给我使劲砸！&quot;</p>
-<p>保儿帮开始行动。</p>
-<p>5分钟后，</p>
-<p>&quot;大哥 我没子弹了！&quot;</p>
-<p>&quot;老四 你怎么这么快打完了 &quot;</p>
-<p>&quot;….&quot;</p>
-<p>&quot;老四 你个败家玩意  你买什么&quot;宜州茅台&quot;啊 &quot;</p>
-<p>&quot;大哥 这可是最贵的股票  买它准没错 &quot;</p>
-<p>&quot;老四  买它有啥用  剩下的弟兄 听我号令 统统给我买妖股&quot;</p>
-<p>&quot;大哥 这家被邻国制裁了&quot;  &quot;买！&quot;</p>
-<p>&quot;大哥 这家财务造假300亿&quot;    &quot;买买！&quot;</p>
-<p>&quot;大哥 这家董事长嫖娼被抓了&quot;   &quot;买买买！&quot;</p>
-<p>短短的半小时，大家手忙脚乱，精疲力尽 ，像是度过了半个世纪</p>
-<p>但对他们来说，这场战役已经结束了。</p>
-<p>除了老四的瞎搞，可以说是，</p>
-<p>赢的非常漂亮。</p>
-<p>&quot;兄弟们  收工！&quot;</p>
-<center><h3>
-  三
-</h3></center>
-<p>三个月后 一切都和往常一样 又有些不一样</p>
-<p>期间发生了许多事，比如</p>
-<p>邻国放弃了某公司的制裁</p>
-<p>造假财务的被人高价收购</p>
-<p>嫖娼的董事长也无罪释放</p>
-<p>原本一步将死的局愣是起死回生</p>
-<p>打算为国接盘的他们</p>
-<p>如今反而从中大捞一笔</p>
-<p>这违背了保儿帮的初衷 这钱挣不得啊</p>
-<p>大哥 正在家中来回踱步  不知如何是好</p>
-<p>二哥焦急地跑来</p>
-<p>&quot;大哥 大哥 不好了 老四家出事了&quot;</p>
-<p>&quot;二弟 你慢慢说&quot;</p>
-<p>&quot;老四的老婆要跟他闹离婚，之前他买的宜州茅台，如今亏得很惨。今天被他老婆发现了，老四说不清这十万块钱哪去了&quot;</p>
-<p>大哥叹了口气 &quot;老四啊 老四啊  &quot;</p>
-<p>转念一想 不对 老四干的才是为国接盘的正确事</p>
-<p>老四做的好 做的对</p>
-<p>还是老四有眼光</p>
-<p>时代变了 如今一股脑买妖股的老路行不通</p>
-<p>当下识时务者为俊杰 要买就买最贵</p>
-<p>只有最贵的才能为国接盘</p>
-<p>家和万事兴  大哥计上心来</p>
-<p>&quot;二弟 咱们这样，你看行不行，不能让老四因为这茬闹离婚。钱是小事，正好这三个月来 咱们挣了不该挣得钱，兄弟几个拿这钱给补上。就说有天老四喝多了借了咱十万，他自个给忘了。 &quot;</p>
-<p>&quot;大哥 好主意！ &quot;</p>
-<p>&quot;对了 老四这事提醒我了 咱们保儿帮要想活下去 得改变思路了 以前的的法子不好走了 改天咱们商量商量 还是那烧烤摊&quot;</p>
-<p>&quot;行！&quot;</p>
 ]]></content>
     </entry>
 </feed>

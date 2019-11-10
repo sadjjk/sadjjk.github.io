@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>BilibiliVideo-实现篇-基础篇 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1573372145736">
+<link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1573376780606">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wangjy.xyz//media/scripts/autoc.css" rel="stylesheet">
@@ -221,7 +221,7 @@ hljs.initHighlightingOnLoad()
 <!--more-->
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
-<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基本篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
 </ul>
 <p>BilibiliVideo的核心就是如何获取视频的下载地址<br>
 主要的参考思路来自<a href="https://github.com/Henryhaohao/Bilibili_video_download">Github大佬的项目</a> https://github.com/Henryhaohao/Bilibili_video_download<br>
@@ -229,8 +229,8 @@ hljs.initHighlightingOnLoad()
 下面是视频下载的大体思路</p>
 <h4 id="获取视频基本信息">获取视频基本信息</h4>
 <p><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg"></p>
-<p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681</p>
-<p>番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
+<p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681<br>
+番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
 <p>requests.get(url).text  获取当前地址的源码<br>
 正则匹配<code>r'INITIAL_STATE__=(.*?});'</code><br>
 匹配里的内容就是视频的基本信息json 有</p>
@@ -280,7 +280,9 @@ Up主视频基本都能解析了<br>
 毕竟天下没有免费的午餐<br>
 有了大会员账号  登陆B站<br>
 F12&gt; Application&gt;Cookies&gt;SESSDATA<br>
-记录SESSDATA的值  添加headers</p>
+记录SESSDATA的值  添加headers<br>
+补充:SESSDATA据说是有1个月的有效期<br>
+若失效 需重新登录获取</p>
 <pre><code>headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
     'Cookie': 'SESSDATA=刚记录的SESSDATA值',
