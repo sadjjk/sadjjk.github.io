@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-10-07T08:13:32.971Z</updated>
+    <updated>2019-11-10T03:34:54.202Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -10,6 +10,57 @@
     <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
     <icon>https://blog.wangjy.xyz//favicon.ico</icon>
     <rights>All rights reserved 2019, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[BilibiliVideo-缘起篇]]></title>
+        <id>https://blog.wangjy.xyz//post/BilibiliVideo_begin</id>
+        <link href="https://blog.wangjy.xyz//post/BilibiliVideo_begin">
+        </link>
+        <updated>2019-11-10T03:29:25.000Z</updated>
+        <summary type="html"><![CDATA[<p>如果你真的愿意去努力
+你人生最坏的结果
+也不过是大器晚成</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>如果你真的愿意去努力
+你人生最坏的结果
+也不过是大器晚成</p>
+<!--more-->
+<h1 id="bilibilivideo-缘起篇">BilibiliVideo-缘起篇</h1>
+<p>有一天想下载B站的视频  网上了解了一番 常用的是<a href="https://www.ibilibili.com/">爱哔哩</a>和<a href="http://www.shipinyu.com/">视频鱼</a>
+但都不尽人意 于是决定自己做一款 <a href="http://121.40.197.122/index">BilibiliVideo</a>
+下面简直描述下以上提到的产品</p>
+<h3 id="爱哔哩">爱哔哩</h3>
+<p>爱哔哩 https://www.ibilibili.com/ 使用起来非常方便 在原bilibili.com前添加i即可自动跳转解析
+<img src="https://i.loli.net/2019/11/10/qwVzHk9G1voa3Zs.png" alt="UTOOLS_COMPRESS_1573353905290.png">
+但近期解析的视频基本提示“请使用下载工具下载”
+<img src="https://i.loli.net/2019/11/10/IieOURXE1YlJ8G2.png" alt="UTOOLS_COMPRESS_1573354124301.png">
+如果是B站的番剧或电影 添加i跳转解析 直接失败
+下载下载工具后 解析是没有问题的 无论番剧或者Up主视频都能下载
+<img src="https://i.loli.net/2019/11/10/GxH564iIeYgoDTX.png" alt="UTOOLS1573355181219.png"></p>
+<p>会员专属视频也能下载 这个点赞
+缺点就是下载工具无法选择清晰度 同时通过网页解析再下载下载工具总觉得多此一举 能不能就简单一些 页面解析 解析完  下载 一气呵成</p>
+<h3 id="视频鱼">视频鱼</h3>
+<p>视频鱼 http://www.shipinyu.com/ 支持的视频解析网站非常全面</p>
+<p><img src="https://i.loli.net/2019/11/10/XZ26itrmSPICy9M.png" alt="UTOOLS_COMPRESS_1573354969146.png"></p>
+<p>依然测试下B站视频 解析成功了 这才符合之前说的 解析完 点击下载
+<img src="https://i.loli.net/2019/11/10/dSnlHsGZrwCpIqX.png" alt="UTOOLS_COMPRESS_1573355073441.png"></p>
+<p>但点击下载时 突然发现高兴太早了 选择flv文件 提示“解析失败，请稍后再试！”  选择mp4文件 任一清晰度  下载失败</p>
+<p><img src="https://i.loli.net/2019/11/10/49xyd5ZXDlkiw2T.png" alt="UTOOLS_COMPRESS_1573355277094.png"></p>
+<h3 id="bilibilivideo">BilibiliVideo</h3>
+<p>爱哔哩和视频鱼都不是很满意 决定自己做一款B站视频下载解析 要有以下几点</p>
+<ol>
+<li>输入视频地址 开始解析</li>
+<li>解析完 选择视频 点击即可下载</li>
+<li>可选择视频清晰度</li>
+<li>支持会员视频、番剧、电影</li>
+</ol>
+<p>花费一个月的闲(咸)余(鱼)时间 终于完成了自己理想的<a href="http://121.40.197.122/index">B站视频下载解析</a> 输入要下载的B站视频链接 开始解析 解析完成后展示可下载的剧集 点击即可下载 左上角可选择清晰度 360P~1080P+
+欢迎体验 下载的B站的同时也不要忘记给Up主一键三连 投币点赞
+最后 仅供学习 请勿商用</p>
+<p><img src="https://i.loli.net/2019/11/10/8MqmCJpAKlzQUnH.png" alt="首页"></p>
+<p><img src="https://i.loli.net/2019/11/10/hxzFmJq9GWvD43l.png" alt="UTOOLS_COMPRESS_1573355902309.png"></p>
+<p><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[黑板客爬虫闯关通关]]></title>
         <id>https://blog.wangjy.xyz//post/CrawerExam-heibanke</id>
@@ -873,89 +924,6 @@ init: k-means++ 、random 、指定具体初始质心
 <p>https://scikit-learn.org/stable/modules/classes.html#module-sklearn.cluster</p>
 <p>https://www.cnblogs.com/huadongw/articles/4101306.html</p>
 <p>http://sklearn.apachecn.org/#/docs/22?id=spectral-clustering</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[聚类算法效果衡量标准]]></title>
-        <id>https://blog.wangjy.xyz//post/cluster-measure</id>
-        <link href="https://blog.wangjy.xyz//post/cluster-measure">
-        </link>
-        <updated>2019-06-29T12:06:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>聚类算法中常用的评估指标 确定最优k值</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>聚类算法中常用的评估指标 确定最优k值</p>
-<!--more-->
-<p>聚类效果指标分为无监督指标(实际类别信息未知)和有监督指标(实际类别信息已知)。</p>
-<p><strong>没有一个指标是一招鲜 通常结合多个指标 来判断最佳K值</strong></p>
-<h2 id="无监督指标实际类别信息未知">无监督指标：实际类别信息未知</h2>
-<h3 id="肘部法">肘部法</h3>
-<p>SSE：误差平方和</p>
-<p><img src="https://i.loli.net/2019/07/21/5d3429dfd7ff475473.png" alt="">
-每个样本点到其所属簇心的距离的平方和<br>
-因此如果每个点自成一簇，则SSE为0<br>
-理论上簇(K值)越多，SSE越小<br>
-在这个平方和变化过程中，会出现一个拐点，即“肘”点，下降率突然变缓	  时即认为是最佳的k值。</p>
-<pre><code class="language-PYTHON">import numpy as np
-from sklearn.cluster import KMeans
-from scipy.spatial.distance import cdist
-
-kmeans = KMeans(4)
-kmeans.fit(X)
-
-cdist(X, kmeans.cluster_centers_, 'euclidean') # 每个样本到各个簇心的距离
-np.min(cdist(X, kmeans.cluster_centers_, 'euclidean'),axis=1) # 每个样本点到所属簇心的距离，即距离最短
-SSE = sum(np.min(cdist(X, kmeans.cluster_centers_, 'euclidean'), axis=1)) # SSE值
-
-</code></pre>
-<h3 id="sc轮廓系数法">SC：轮廓系数法</h3>
-<p><strong>SC值越大越好 [-1,1]</strong></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342a061f9dd20016.png" alt=""></p>
-<p>a是Xi与同簇的其他样本的平均距离，称为凝聚度；<br>
-b是Xi与最近簇中所有样本的平均距离，称为分离度。<br>
-求出所有样本的轮廓系数后再求平均值就得到了平均轮廓系数。<br>
-平均轮廓系数的取值范围为[-1,1]，系数越大，聚类效果越好。</p>
-<pre><code class="language-python">import numpy as np
-from sklearn.cluster import KMeans
-
-kmeans_model = KMeans(n_clusters=3, random_state=1).fit(X)
-labels = kmeans_model.labels_
-
-metrics.silhouette_score(X, labels, metric='euclidean')
-</code></pre>
-<h3 id="chcalinski-harabasz">CH：Calinski-Harabasz</h3>
-<p><strong>CH值越大越好</strong></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342a2296dce11891.png" alt=""></p>
-<pre><code class="language-python">from sklearn import metrics
-metrics.calinski_harabaz_score(X, labels)  
-</code></pre>
-<h2 id="有监督指标实际类别信息已知">有监督指标：实际类别信息已知</h2>
-<h3 id="调整兰德系数-ari">调整兰德系数 ARI</h3>
-<p><img src="https://i.loli.net/2019/07/21/5d342a42a2adc98309.png" alt=""></p>
-<p><em>公式怎么算的没看懂</em></p>
-<p>&amp;&amp;&amp;&amp;&amp;UPDATE 2019年07月01日23:43:41&amp;&amp;&amp;&amp;&amp;</p>
-<p><strong>终于搞明白了 是怎么计算的</strong></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342ab64b72c12711.png" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342a690242a98936.png" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342aea5534265266.png" alt=""></p>
-<p>$ARI(A,B) = \frac{\sum\limits_{i = 1}^{K_A}\sum\limits_{j = 1}^{K_B}  \left(\begin{array}{c}2\ {N_{ij}}\end{array}\right) -t3 } {\frac{t_1+t_2}{2} - t3} $</p>
-<p>其中，A和B是数据集Z的真实值和预测值的划分，分别有K~A~和K~B~个簇；N~ij~表示在划分A的第i个簇中的数据同时也在划分B的第j个簇中数据的数量；N~i~、N~j~分别表示划分A中第i个簇与划分B的第j个簇中的数据质量</p>
-<h4 id="举例说明">举例说明</h4>
-<p><img src="https://i.loli.net/2019/07/21/5d342b01083be93873.png" alt=""></p>
-<p><img src="https://i.loli.net/2019/07/21/5d342b2a10e6239071.png" alt=""></p>
-<h4 id="代码调用">代码调用</h4>
-<pre><code class="language-python">from sklearn import metrics
-labels_true = [0, 0, 0, 1, 1, 1] 
-labels_pred = [0, 0, 1, 1, 2, 2] 
-metrics.adjusted_rand_score(labels_true, labels_pred) 
-&gt;&gt;0.2424242424242424
-</code></pre>
-<h3 id="调整互信息-ami">调整互信息 AMI</h3>
-<p><img src="https://i.loli.net/2019/07/21/5d342b3d94db676735.png" alt=""></p>
-<p><em>同样没看懂怎么算的</em></p>
-<h4 id="代码调用-2">代码调用</h4>
-<pre><code class="language-python">metrics.adjusted_mutual_info_score(labels_true, labels_pred)
-</code></pre>
-<p>​</p>
 ]]></content>
     </entry>
 </feed>
