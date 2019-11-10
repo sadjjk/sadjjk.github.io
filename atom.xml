@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-11-10T03:38:07.122Z</updated>
+    <updated>2019-11-10T03:40:44.148Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -24,36 +24,44 @@
 你人生最坏的结果
 也不过是大器晚成</p>
 <!--more-->
-<p>有一天想下载B站的视频  网上了解了一番 常用的是<a href="https://www.ibilibili.com/">爱哔哩</a>和<a href="http://www.shipinyu.com/">视频鱼</a>
-但都不尽人意 于是决定自己做一款 <a href="http://121.40.197.122/index">BilibiliVideo</a>
+<p>有一天想下载B站的视频  网上了解了一番 常用的是<a href="https://www.ibilibili.com/">爱哔哩</a>和<a href="http://www.shipinyu.com/">视频鱼</a><br>
+但都不尽人意 于是决定自己做一款 <a href="http://121.40.197.122/index">BilibiliVideo</a><br>
 下面简直描述下以上提到的产品</p>
 <h3 id="爱哔哩">爱哔哩</h3>
 <p>爱哔哩 https://www.ibilibili.com/ 使用起来非常方便 在原bilibili.com前添加i即可自动跳转解析
 <img src="https://i.loli.net/2019/11/10/qwVzHk9G1voa3Zs.png" alt="UTOOLS_COMPRESS_1573353905290.png">
 但近期解析的视频基本提示“请使用下载工具下载”
 <img src="https://i.loli.net/2019/11/10/IieOURXE1YlJ8G2.png" alt="UTOOLS_COMPRESS_1573354124301.png">
-如果是B站的番剧或电影 添加i跳转解析 直接失败
+如果是B站的番剧或电影 添加i跳转解析 直接失败<br>
 下载下载工具后 解析是没有问题的 无论番剧或者Up主视频都能下载
 <img src="https://i.loli.net/2019/11/10/GxH564iIeYgoDTX.png" alt="UTOOLS1573355181219.png"></p>
 <p>会员专属视频也能下载 这个点赞
-缺点就是下载工具无法选择清晰度 同时通过网页解析再下载下载工具总觉得多此一举 能不能就简单一些 页面解析 解析完  下载 一气呵成</p>
+缺点就是下载工具无法选择清晰度<br>
+同时通过网页解析再下载下载工具总觉得多此一举<br>
+能不能就简单一些 页面解析 解析完  下载 一气呵成</p>
 <h3 id="视频鱼">视频鱼</h3>
 <p>视频鱼 http://www.shipinyu.com/ 支持的视频解析网站非常全面</p>
 <p><img src="https://i.loli.net/2019/11/10/XZ26itrmSPICy9M.png" alt="UTOOLS_COMPRESS_1573354969146.png"></p>
 <p>依然测试下B站视频 解析成功了 这才符合之前说的 解析完 点击下载
 <img src="https://i.loli.net/2019/11/10/dSnlHsGZrwCpIqX.png" alt="UTOOLS_COMPRESS_1573355073441.png"></p>
-<p>但点击下载时 突然发现高兴太早了 选择flv文件 提示“解析失败，请稍后再试！”  选择mp4文件 任一清晰度  下载失败</p>
+<p>但点击下载时 突然发现高兴太早了<br>
+选择flv文件 提示“解析失败，请稍后再试！”<br>
+选择mp4文件 任一清晰度  下载失败</p>
 <p><img src="https://i.loli.net/2019/11/10/49xyd5ZXDlkiw2T.png" alt="UTOOLS_COMPRESS_1573355277094.png"></p>
 <h3 id="bilibilivideo">BilibiliVideo</h3>
-<p>爱哔哩和视频鱼都不是很满意 决定自己做一款B站视频下载解析 要有以下几点</p>
+<p>爱哔哩和视频鱼都不是很满意<br>
+决定自己做一款B站视频下载解析 要有以下几点</p>
 <ol>
 <li>输入视频地址 开始解析</li>
 <li>解析完 选择视频 点击即可下载</li>
 <li>可选择视频清晰度</li>
 <li>支持会员视频、番剧、电影</li>
 </ol>
-<p>花费一个月的闲(咸)余(鱼)时间 终于完成了自己理想的<a href="http://121.40.197.122/index">B站视频下载解析</a> 输入要下载的B站视频链接 开始解析 解析完成后展示可下载的剧集 点击即可下载 左上角可选择清晰度 360P~1080P+
-欢迎体验 下载的B站的同时也不要忘记给Up主一键三连 投币点赞
+<p>花费一个月的闲(咸)余(鱼)时间 终于完成了自己理想的<a href="http://121.40.197.122/index">B站视频下载解析</a><br>
+输入要下载的B站视频链接 开始解析<br>
+解析完成后展示可下载的剧集 点击即可下载<br>
+左上角可选择清晰度 360P~1080P+<br>
+欢迎体验 下载B站视频的同时也不要忘记给Up主一键三连 投币点赞<br>
 最后 仅供学习 请勿商用</p>
 <p><img src="https://i.loli.net/2019/11/10/8MqmCJpAKlzQUnH.png" alt="首页"></p>
 <p><img src="https://i.loli.net/2019/11/10/hxzFmJq9GWvD43l.png" alt="UTOOLS_COMPRESS_1573355902309.png"></p>
