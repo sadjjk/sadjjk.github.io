@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-11-10T09:06:22.921Z</updated>
+    <updated>2019-11-10T09:09:38.884Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -143,6 +143,7 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
 <ul>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
 <li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
 </ul>
 <p>BilibiliVideo的核心就是如何获取视频的下载地址<br>
 主要的参考思路来自<a href="https://github.com/Henryhaohao/Bilibili_video_download">Github大佬的项目</a> https://github.com/Henryhaohao/Bilibili_video_download<br>
@@ -285,6 +286,11 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 你人生最坏的结果
 也不过是大器晚成</p>
 <!--more-->
+<ul>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
+<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+</ul>
 <p>有一天想下载B站的视频  网上了解了一番 常用的是<a href="https://www.ibilibili.com/">爱哔哩</a>和<a href="http://www.shipinyu.com/">视频鱼</a><br>
 但都不尽人意 于是决定自己做一款 <a href="http://121.40.197.122/index">BilibiliVideo</a><br>
 下面简直描述下以上提到的产品</p>
