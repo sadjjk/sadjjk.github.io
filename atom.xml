@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-11-10T13:49:00.910Z</updated>
+    <updated>2019-11-17T06:47:59.805Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -407,6 +407,108 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 <p><img src="https://i.loli.net/2019/11/10/8MqmCJpAKlzQUnH.png" alt="首页"></p>
 <p><img src="https://i.loli.net/2019/11/10/hxzFmJq9GWvD43l.png" alt="UTOOLS_COMPRESS_1573355902309.png"></p>
 <p><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CentOS7 Chrome ChromeDriver Selenium 安装手册]]></title>
+        <id>https://blog.wangjy.xyz//post/CentOS7-Chrome-ChromeDriver-Selenium-install</id>
+        <link href="https://blog.wangjy.xyz//post/CentOS7-Chrome-ChromeDriver-Selenium-install">
+        </link>
+        <updated>2019-11-05T06:18:27.000Z</updated>
+        <content type="html"><![CDATA[<p>Selenium作为爬虫的最后的杀手锏<br>
+不到万不得已不会使用<br>
+今遇到了这样的场景<br>
+就记录下安装手册<br>
+CentOS7 安装ChromeDriver Selenium<br>
+可以说是非常的简单顺滑<br>
+比Win要容易些<br>
+当然CentOS没有图形用户界面<br>
+所以通常是代码已经调试完毕<br>
+再放在CentOS中 Chrome无头模式运行</p>
+<h2 id="chrome">Chrome</h2>
+<h4 id="安装">安装</h4>
+<pre><code>yum install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+</code></pre>
+<h4 id="查看版本">查看版本</h4>
+<pre><code>/usr/bin/google-chrome -version
+</code></pre>
+<h2 id="chromedriver">ChromeDriver</h2>
+<p>理论上chromeDriver最好要与chrome的版本相对应 即存在ChromeDriver与Chrome版本映射表  <a href="https://www.cnblogs.com/Summer-skr--blog/p/11715259.html">点这里</a><br>
+通过查看chrome版本号 找到相对应的chromedriver版本号 <a href="http://chromedriver.storage.googleapis.com/index.html">点这里下载</a><br>
+实测过程中 不用一一对应版本号也是能运行的  这是我的版本 仅供参考</p>
+<pre><code>[root~]# /usr/bin/google-chrome -version
+Google Chrome 78.0.3904.97
+[root~]# /usr/bin/chromedriver -version
+ChromeDriver 2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb)
+</code></pre>
+<h4 id="安装-2">安装</h4>
+<p>这里以2.38为例  若要选择其他版本 请在上面链接里自行寻找</p>
+<pre><code>wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+</code></pre>
+<h4 id="解压">解压</h4>
+<p>若unzip命令失败 则<code>yum install unzip</code><br>
+解压至<code>/usr/bin</code> 当然任意目录都可以 后期代码会指定文件的位置<br>
+建议放在<code>/usr/bin</code></p>
+<pre><code>unzip chromedriver_linux64.zip -d /usr/bin
+</code></pre>
+<h4 id="赋权">赋权</h4>
+<pre><code>chmod +x /usr/bin/chromedriver
+</code></pre>
+<h2 id="selenium">Selenium</h2>
+<h4 id="安装-3">安装</h4>
+<pre><code>pip install selenium
+</code></pre>
+<h2 id="test">Test</h2>
+<p>Chrome、chromeDriver、Selenium 安装完毕<br>
+测试下能否成功运行<br>
+新建测试demo.py文件</p>
+<pre><code>from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+import os
+
+
+chrome_location = '/usr/bin/google-chrome'  #指定chrome路径
+chrome_driver_location = '/usr/bin/chromedriver' #指定chromedriver路径
+
+chrome_options = Options()
+chrome_options.binary_location = chrome_location
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--disable-dev-shm-usage')
+
+os.environ[&quot;webdriver.chrome.driver&quot;] = chrome_driver_location
+
+browser = webdriver.Chrome(executable_path=chrome_driver_location, options=chrome_options)
+
+
+# test
+browser.get('https://www.baidu.com/')
+print(browser.page_source[:1000])
+browser.close()
+</code></pre>
+<p>运行文件 若正确返回baidu页面源码 则运行成功</p>
+<pre><code>[root@aliyun2 ~]# python demo.py
+&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;head&gt;
+
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot; /&gt;
+	&lt;meta content=&quot;always&quot; name=&quot;referrer&quot; /&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;#2932e1&quot; /&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
+    &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/content-search.xml&quot; title=&quot;百度搜索&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; sizes=&quot;any&quot; mask=&quot;&quot; href=&quot;//www.baidu.com/img/baidu_85beaf5496f291521eb75ba38eacbd87.svg&quot; /&gt;
+
+
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//s1.bdstatic.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t1.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t2.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t3.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t10.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t11.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t12.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetc
+</code></pre>
 ]]></content>
     </entry>
     <entry>
@@ -864,79 +966,6 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
 <p>—————————————小心翼翼的分割线————————————-</p>
 <p>这份稿子写得一点也不真实 因为好多事情就没有发生过  求职简历的在校获奖情况 假的  半夜被拉去网吧 假的 可以说上面的大多都是假的 非要说什么是真的 只有每天早晨不情愿地摁闹钟是真的</p>
 <p><strong>生活不是笑话</strong>  这一年没有多少灵感 就像标题&quot;其实我是演员&quot;一样 更多的便是假装 假装快乐 假装满意 假装努力  &quot;<strong>装着装着你就像了</strong>&quot; 这话是没错 但有些东西装的再久 始终还是缺点真实</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[几行代码系列:人像抠图(批量)]]></title>
-        <id>https://blog.wangjy.xyz//post/img_remove_bg_api</id>
-        <link href="https://blog.wangjy.xyz//post/img_remove_bg_api">
-        </link>
-        <updated>2019-07-29T08:51:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>智能抠图 解放双手</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>智能抠图 解放双手</p>
-<!--more-->
-<p>人像抠图 国内外开放了不少API 不过大多收费 选择两个还阔以的免费API  足够个人开发使用</p>
-<h3 id=""><a href="https://www.remove.bg/"><strong>RemoveBg</strong></a></h3>
-<p>大名鼎鼎的国外人像抠图软件  效果极佳  堪比抠图师<br>
-<a href="https://www.remove.bg/">https://www.remove.bg/</a>  网站可直接上传 一键抠图 非常简单<br>
-当然 要批量处理 还是Code更方便<br>
-依然Python为例</p>
-<pre><code class="language-python">from removebg import RemoveBg
-import os 
-rmbg = RemoveBg('YOUR KET','error.log')
-img = 'demo.jpg'
-rmbg.remove_background_from_img_file(img)
-</code></pre>
-<p>5行代码 解决问题 如果批量 则遍历图片文件夹即可</p>
-<p>邮箱注册可获取Key</p>
-<p>每月仅支持调用50次(<strong>有点小气</strong>)  支持抠图生成4k/HD画质 当然这是收费的</p>
-<p><em>PS:尽管代码非常简洁 但是API用起来并不怎么优雅</em><br>
-<em>1.初始化必须填error日志</em><br>
-<em>2.暂无抠图文件命名参数，默认自动后缀加_no_bg.png,</em><br>
-<em>而且是这样的“demo.jpg_no_bg.png” 文件类型都修改了</em><br>
-<em>3.无法直接查看已调用次数</em></p>
-<h3 id="baidu-ai-开放平台"><a href="https://ai.baidu.com/tech/body/seg">Baidu AI 开放平台</a></h3>
-<p>百度开放了人像分割的API 也就是人像抠图 非常得大方 每天5万次免费调用<br>
-效果要比RemoveBg要差一些 细节上不够细腻<br>
-但也足以使用</p>
-<p><img src="https://i.loli.net/2019/07/29/5d3eb975cfbc228797.png" alt="微信截图_20190729171529.png"><code>pip install baidu-aip</code></p>
-<pre><code class="language-python">from aip import AipBodyAnalysis
-import base64
-
-APP_ID = 'XXXXXX'
-API_KEY = 'XXXXXXX'
-SECRET_KEY = 'XXXXXXXX'
-
-client = AipBodyAnalysis(APP_ID, API_KEY, SECRET_KEY)
-def remove_bg(input_path,out_path = ''):
-    &quot;&quot;&quot; 读取图片 &quot;&quot;&quot;
-    def get_file_content(filePath):
-        with open(filePath, 'rb') as fp:
-            return fp.read()
-        
-    image = get_file_content(input_path)
-
-    &quot;&quot;&quot; 调用人像分割 &quot;&quot;&quot;
-    client.bodySeg(image);
-    base64_str = client.bodySeg(image)['foreground']
-
-    if out_path == '':
-        out_path = input_path.split('.')[0] + '_no_bg_baidu.' + input_path.split('.')[1]
-
-    with open(out_path,'wb') as f:
-        f.write(base64.b64decode(base64_str))
-
-remove_bg('imgs/demo.jpg')
-</code></pre>
-<p>登录百度 AI 开放平台 人体分析 创建应用<br>
-获得APP_ID、API_KEY、SECRET_KEY<br>
-百度封装得不够彻底 需要自己再写点<br>
-默认返回的是base64编码 需要再次解码</p>
-<h3 id="总结">总结</h3>
-<p>总体上 这两个免费的API人像抠图的效果都非常不错 处理速度也是秒级</p>
-<h3 id="参考资料">参考资料</h3>
-<p><a href="https://www.jiqizhixin.com/articles/2019-01-23-16">https://www.jiqizhixin.com/articles/2019-01-23-16</a></p>
 ]]></content>
     </entry>
 </feed>

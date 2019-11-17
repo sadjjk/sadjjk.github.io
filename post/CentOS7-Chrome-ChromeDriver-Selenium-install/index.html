@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>股票行情面板Web | 今语</title>
+<title>CentOS7 Chrome ChromeDriver Selenium 安装手册 | 今语</title>
 <link rel="shortcut icon" href="https://blog.wangjy.xyz//favicon.ico?v=1573973260951">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wangjy.xyz//styles/main.css" type='text/css' media='all'>
@@ -94,22 +94,22 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/11/17/pyfQEshoVHurvBC.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-09-13 ·</span>
+          <span class="date">· 2019-11-05 ·</span>
 
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wangjy.xyz//tag/work">Work</a>
+                    <a href="https://blog.wangjy.xyz//tag/life">Life</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>股票行情面板Web</h1>
+          <h1 class='entry-title'>CentOS7 Chrome ChromeDriver Selenium 安装手册</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
@@ -122,7 +122,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/Book_MonthlyRecords">下一篇->山月记</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wangjy.xyz//post/CrawerExam-heibanke">下一篇->黑板客爬虫闯关通关</a>
               </div>
             </nav>
           
@@ -222,57 +222,100 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wangjy.xyz//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>这一腔热血 只卖与那识货的</p>
-<!--more-->
-<p><a href="http://47.105.166.237/index">演示地址</a>                            <a href="https://github.com/sadjjk/StockProject">Github</a></p>
-<p>股票行情看板，前前后后花了一个月，基本是周末闲(咸)余(鱼)时间写写改改，工作日实在没时间。</p>
-<p><img src="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg" alt="Xnip2019-09-13_15-23-45.jpg"></p>
-<p><img src="https://i.loli.net/2019/09/13/v7pPDuyLQA6of2G.jpg" alt="Xnip2019-09-13_15-24-39.jpg"></p>
-<p><img src="https://i.loli.net/2019/09/13/urC7GbWq9NpKeDh.jpg" alt="Xnip2019-09-13_15-31-42.jpg"></p>
-<h2 id="设计">设计</h2>
-<h3 id="首页">首页</h3>
-<h4 id="头部">头部</h4>
-<p>三大股指，增加了涨、平、跌各多少只。</p>
-<h4 id="topbanner">TopBanner</h4>
-<p>选择当前价、成交量金额、振幅、换手率。之所以选择这四个，是因为这四个相比于涨幅Top、跌幅Top更能反应市场整体情绪。</p>
-<blockquote>
-<p>当前价Top:最高的当属<strong>贵州茅台</strong>  毫无疑问是市场的风向标 一锤定音<br>
-成交量金额Top:成交最多的哪几只，基本是有业绩有实力的好公司  <em>纯属个人经验</em><br>
-振幅Top、换手率Top:基本是当下市场最热门最冲动的股票 游资炒作居多</p>
-</blockquote>
-<h4 id="自选股">自选股</h4>
-<p>自选股最重要的是可添加可删除，功能已实现，手机端无法删除，mouseout事件会失效。</p>
-<h4 id="沪深300">沪深300</h4>
-<p>沪深300几乎涵盖了各个行业 具有代表性</p>
-<h3 id="详情页">详情页</h3>
-<h4 id="分时图">分时图</h4>
-<br>
-<h4 id="k线图">K线图</h4>
-<br>
-<h2 id="交互">交互</h2>
-<h4 id="刷新">刷新</h4>
-<p>首页交易时间1分钟刷新一次，非交易时间不刷新。交易时间哪里来，你怎么知道某年某天是节假日？tushare-三方库，我依然不生产数据，只是数据的搬运工。最初设计2秒刷新一次，毕竟1秒就是几百万的买卖，数据当然要及时。红的绿的一闪一闪真好看，最后闪瞎了狗眼，倔强得改成了1分钟刷新一次。其次爬虫用的好，牢房进的早。爬得太频繁，怕律师函警告，尤其是东方财富的数据。</p>
-<h4 id="搜索">搜索</h4>
-<p>输入股票代码搜索股票详情 ，不支持股票名称、缩写，因为接口不支持，也没有精力是实现。搜索时页面刷新会暂停。搜索奇怪的东西有菜单，我真是天才！</p>
-<h4 id="自选股添加删除">自选股添加/删除</h4>
-<p>输入股票代码添加 ，同样不支持股票名称、缩写。添加时页面刷新会暂停</p>
-<h2 id="后端">后端</h2>
-<p>后端使用Python的微型Web框架Bottle，因为实在是非常的简单，没有必要使用Flask、Django，其实是我也不怎么会Flask、Django。后端鸡贼的地方就是没有数据库，<strong>我从不生产数据，只是数据的搬运工</strong>。使用腾讯、新浪、东财的股票接口，即用即爬。唯一要记录的就是自选股，用于查看、添加、删除。这里采用了保存为二级制隐藏文件，每次去读取、增删(不推荐 本人纯属偷懒省事)。第一次使用装饰器记录函数日志和异常</p>
-<h2 id="前端">前端</h2>
-<p>前端是最耗时的  想法很多 但都实现不出来 磕磕绊绊 现在这版终于比较满意的。搜索页、自选股增删、头部Header、底部Footer、BacktoTop、搜索或添加自选时暂停刷新等 一点一点 慢慢磨出来   教练！ 我真的很想学前端</p>
-<h2 id="部署">部署</h2>
-<p>uwsgi+nginx<br>
-备案实在有些麻烦 IP凑合用下</p>
-<h2 id="总结">总结</h2>
-<p>过程中 能抽象就抽象 减少重复代码 最大的感触就是 “<strong>这样子好像不够优雅！</strong>” 能力有限，尽管功能都基本实现了，但总觉得有更优雅更好实现方法。若干年后 我若再看到这份代码 一定会想重构。</p>
-<p>👇下面是感谢环节</p>
-<p>感谢Github<br>
-感谢<a href="https://github.com/geeeeeeeek">geeeeeeeek</a> 他的项目给我了idea<br>
-这是B站他项目的<a href="https://www.bilibili.com/video/av45168955">视频</a> 一键三连 投币点赞<br>
-感谢<a href="https://github.com/2557606319">2557606319</a> 项目中使用到了他echarts封装的K线图<br>
-感谢许多CSDN、Stack OverFlow、博客主等留下的教程与问题记录<br>
-尽管他们与我都不认识 但他们间接的帮助了我很多 非常感谢！</p>
-<p>_——</p>
+    var article = `<p>Selenium作为爬虫的最后的杀手锏<br>
+不到万不得已不会使用<br>
+今遇到了这样的场景<br>
+就记录下安装手册<br>
+CentOS7 安装ChromeDriver Selenium<br>
+可以说是非常的简单顺滑<br>
+比Win要容易些<br>
+当然CentOS没有图形用户界面<br>
+所以通常是代码已经调试完毕<br>
+再放在CentOS中 Chrome无头模式运行</p>
+<h2 id="chrome">Chrome</h2>
+<h4 id="安装">安装</h4>
+<pre><code>yum install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+</code></pre>
+<h4 id="查看版本">查看版本</h4>
+<pre><code>/usr/bin/google-chrome -version
+</code></pre>
+<h2 id="chromedriver">ChromeDriver</h2>
+<p>理论上chromeDriver最好要与chrome的版本相对应 即存在ChromeDriver与Chrome版本映射表  <a href="https://www.cnblogs.com/Summer-skr--blog/p/11715259.html">点这里</a><br>
+通过查看chrome版本号 找到相对应的chromedriver版本号 <a href="http://chromedriver.storage.googleapis.com/index.html">点这里下载</a><br>
+实测过程中 不用一一对应版本号也是能运行的  这是我的版本 仅供参考</p>
+<pre><code>[root~]# /usr/bin/google-chrome -version
+Google Chrome 78.0.3904.97
+[root~]# /usr/bin/chromedriver -version
+ChromeDriver 2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb)
+</code></pre>
+<h4 id="安装-2">安装</h4>
+<p>这里以2.38为例  若要选择其他版本 请在上面链接里自行寻找</p>
+<pre><code>wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+</code></pre>
+<h4 id="解压">解压</h4>
+<p>若unzip命令失败 则<code>yum install unzip</code><br>
+解压至<code>/usr/bin</code> 当然任意目录都可以 后期代码会指定文件的位置<br>
+建议放在<code>/usr/bin</code></p>
+<pre><code>unzip chromedriver_linux64.zip -d /usr/bin
+</code></pre>
+<h4 id="赋权">赋权</h4>
+<pre><code>chmod +x /usr/bin/chromedriver
+</code></pre>
+<h2 id="selenium">Selenium</h2>
+<h4 id="安装-3">安装</h4>
+<pre><code>pip install selenium
+</code></pre>
+<h2 id="test">Test</h2>
+<p>Chrome、chromeDriver、Selenium 安装完毕<br>
+测试下能否成功运行<br>
+新建测试demo.py文件</p>
+<pre><code>from selenium.webdriver.chrome.options import Options
+from selenium import webdriver
+import os
+
+
+chrome_location = '/usr/bin/google-chrome'  #指定chrome路径
+chrome_driver_location = '/usr/bin/chromedriver' #指定chromedriver路径
+
+chrome_options = Options()
+chrome_options.binary_location = chrome_location
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--disable-dev-shm-usage')
+
+os.environ[&quot;webdriver.chrome.driver&quot;] = chrome_driver_location
+
+browser = webdriver.Chrome(executable_path=chrome_driver_location, options=chrome_options)
+
+
+# test
+browser.get('https://www.baidu.com/')
+print(browser.page_source[:1000])
+browser.close()
+</code></pre>
+<p>运行文件 若正确返回baidu页面源码 则运行成功</p>
+<pre><code>[root@aliyun2 ~]# python demo.py
+&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;head&gt;
+
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot; /&gt;
+	&lt;meta content=&quot;always&quot; name=&quot;referrer&quot; /&gt;
+    &lt;meta name=&quot;theme-color&quot; content=&quot;#2932e1&quot; /&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
+    &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/content-search.xml&quot; title=&quot;百度搜索&quot; /&gt;
+    &lt;link rel=&quot;icon&quot; sizes=&quot;any&quot; mask=&quot;&quot; href=&quot;//www.baidu.com/img/baidu_85beaf5496f291521eb75ba38eacbd87.svg&quot; /&gt;
+
+
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//s1.bdstatic.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t1.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t2.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t3.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t10.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t11.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t12.baidu.com&quot; /&gt;
+	&lt;link rel=&quot;dns-prefetc
+</code></pre>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
@@ -281,7 +324,7 @@ hljs.initHighlightingOnLoad()
         document.getElementById('article').innerHTML = article
 
     let navigation = new AutocJs({
-        title:'股票行情面板Web',
+        title:'CentOS7 Chrome ChromeDriver Selenium 安装手册',
         isGenerateOutlineChapterCode: false
     })
     </script>
