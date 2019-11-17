@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wangjy.xyz/</id>
     <title>今语</title>
-    <updated>2019-11-17T06:48:06.891Z</updated>
+    <updated>2019-11-17T06:51:35.921Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wangjy.xyz/"/>
     <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
@@ -411,11 +411,17 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
     </entry>
     <entry>
         <title type="html"><![CDATA[CentOS7 Chrome ChromeDriver Selenium 安装手册]]></title>
-        <id>https://blog.wangjy.xyz//post/CentOS7-Chrome-ChromeDriver-Selenium-install</id>
-        <link href="https://blog.wangjy.xyz//post/CentOS7-Chrome-ChromeDriver-Selenium-install">
+        <id>https://blog.wangjy.xyz//post/CentOS7_Chrome_ChromeDriver_Selenium_install</id>
+        <link href="https://blog.wangjy.xyz//post/CentOS7_Chrome_ChromeDriver_Selenium_install">
         </link>
         <updated>2019-11-05T06:18:27.000Z</updated>
-        <content type="html"><![CDATA[<p>Selenium作为爬虫的最后的杀手锏<br>
+        <summary type="html"><![CDATA[<p>白白胖胖<br>
+脱单无望</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>白白胖胖<br>
+脱单无望</p>
+<!--more-->
+<p>Selenium作为爬虫的最后的杀手锏<br>
 不到万不得已不会使用<br>
 今遇到了这样的场景<br>
 就记录下安装手册<br>
