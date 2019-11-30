@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://blog.wangjy.xyz/</id>
+    <id>https://www.wjinyiu.top/</id>
     <title>今语</title>
-    <updated>2019-11-17T06:51:42.828Z</updated>
+    <updated>2019-11-30T11:09:24.965Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://blog.wangjy.xyz/"/>
-    <link rel="self" href="https://blog.wangjy.xyz//atom.xml"/>
+    <link rel="alternate" href="https://www.wjinyiu.top/"/>
+    <link rel="self" href="https://www.wjinyiu.top//atom.xml"/>
     <subtitle>真话、假话、胡话、骚话、全都说</subtitle>
-    <logo>https://blog.wangjy.xyz//images/avatar.png</logo>
-    <icon>https://blog.wangjy.xyz//favicon.ico</icon>
+    <logo>https://www.wjinyiu.top//images/avatar.png</logo>
+    <icon>https://www.wjinyiu.top//favicon.ico</icon>
     <rights>All rights reserved 2019, 今语</rights>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-后话篇]]></title>
-        <id>https://blog.wangjy.xyz//post/BilibiliVideo_last</id>
-        <link href="https://blog.wangjy.xyz//post/BilibiliVideo_last">
+        <id>https://www.wjinyiu.top//post/BilibiliVideo_last</id>
+        <link href="https://www.wjinyiu.top//post/BilibiliVideo_last">
         </link>
         <updated>2019-11-10T12:56:03.000Z</updated>
         <summary type="html"><![CDATA[<p>只要我不努力<br>
@@ -77,8 +77,8 @@ Dplayer好像不支持<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-实现篇-优化篇]]></title>
-        <id>https://blog.wangjy.xyz//post/BilibiliVideo_optimize</id>
-        <link href="https://blog.wangjy.xyz//post/BilibiliVideo_optimize">
+        <id>https://www.wjinyiu.top//post/BilibiliVideo_optimize</id>
+        <link href="https://www.wjinyiu.top//post/BilibiliVideo_optimize">
         </link>
         <updated>2019-11-10T09:05:51.000Z</updated>
         <summary type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
@@ -198,8 +198,8 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-实现篇-基础篇]]></title>
-        <id>https://blog.wangjy.xyz//post/BilibiliVideo_realize</id>
-        <link href="https://blog.wangjy.xyz//post/BilibiliVideo_realize">
+        <id>https://www.wjinyiu.top//post/BilibiliVideo_realize</id>
+        <link href="https://www.wjinyiu.top//post/BilibiliVideo_realize">
         </link>
         <updated>2019-11-10T03:45:30.000Z</updated>
         <summary type="html"><![CDATA[<p>只有用水将心上的雾气淘洗干净<br>
@@ -345,8 +345,8 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
     </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-缘起篇]]></title>
-        <id>https://blog.wangjy.xyz//post/BilibiliVideo_begin</id>
-        <link href="https://blog.wangjy.xyz//post/BilibiliVideo_begin">
+        <id>https://www.wjinyiu.top//post/BilibiliVideo_begin</id>
+        <link href="https://www.wjinyiu.top//post/BilibiliVideo_begin">
         </link>
         <updated>2019-11-10T03:29:25.000Z</updated>
         <summary type="html"><![CDATA[<p>如果你真的愿意去努力<br>
@@ -411,8 +411,8 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
     </entry>
     <entry>
         <title type="html"><![CDATA[CentOS7 Chrome ChromeDriver Selenium 安装手册]]></title>
-        <id>https://blog.wangjy.xyz//post/CentOS7_Chrome_ChromeDriver_Selenium_install</id>
-        <link href="https://blog.wangjy.xyz//post/CentOS7_Chrome_ChromeDriver_Selenium_install">
+        <id>https://www.wjinyiu.top//post/CentOS7_Chrome_ChromeDriver_Selenium_install</id>
+        <link href="https://www.wjinyiu.top//post/CentOS7_Chrome_ChromeDriver_Selenium_install">
         </link>
         <updated>2019-11-05T06:18:27.000Z</updated>
         <summary type="html"><![CDATA[<p>白白胖胖<br>
@@ -519,8 +519,8 @@ browser.close()
     </entry>
     <entry>
         <title type="html"><![CDATA[黑板客爬虫闯关通关]]></title>
-        <id>https://blog.wangjy.xyz//post/CrawerExam-heibanke</id>
-        <link href="https://blog.wangjy.xyz//post/CrawerExam-heibanke">
+        <id>https://www.wjinyiu.top//post/CrawerExam-heibanke</id>
+        <link href="https://www.wjinyiu.top//post/CrawerExam-heibanke">
         </link>
         <updated>2019-10-02T06:57:34.000Z</updated>
         <summary type="html"><![CDATA[<p>爬虫学的好 牢房进的早<br>
@@ -627,8 +627,8 @@ PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置
     </entry>
     <entry>
         <title type="html"><![CDATA[Python制作豆瓣书单分享海报(仿电影海报)]]></title>
-        <id>https://blog.wangjy.xyz//post/DoubanPoster</id>
-        <link href="https://blog.wangjy.xyz//post/DoubanPoster">
+        <id>https://www.wjinyiu.top//post/DoubanPoster</id>
+        <link href="https://www.wjinyiu.top//post/DoubanPoster">
         </link>
         <updated>2019-09-29T08:50:20.000Z</updated>
         <summary type="html"><![CDATA[<p>Github:https://github.com/sadjjk/DoubanPoster</p>
@@ -772,8 +772,8 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
     </entry>
     <entry>
         <title type="html"><![CDATA[股票行情面板Web]]></title>
-        <id>https://blog.wangjy.xyz//post/StockProject</id>
-        <link href="https://blog.wangjy.xyz//post/StockProject">
+        <id>https://www.wjinyiu.top//post/StockProject</id>
+        <link href="https://www.wjinyiu.top//post/StockProject">
         </link>
         <updated>2019-09-13T07:47:36.000Z</updated>
         <summary type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
@@ -833,8 +833,8 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
     </entry>
     <entry>
         <title type="html"><![CDATA[山月记]]></title>
-        <id>https://blog.wangjy.xyz//post/Book_MonthlyRecords</id>
-        <link href="https://blog.wangjy.xyz//post/Book_MonthlyRecords">
+        <id>https://www.wjinyiu.top//post/Book_MonthlyRecords</id>
+        <link href="https://www.wjinyiu.top//post/Book_MonthlyRecords">
         </link>
         <updated>2019-08-12T12:33:10.000Z</updated>
         <summary type="html"><![CDATA[<p>我深怕自己本非美玉，故而不敢加以刻苦琢磨<br>
@@ -867,8 +867,8 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
     </entry>
     <entry>
         <title type="html"><![CDATA[其实我是演员]]></title>
-        <id>https://blog.wangjy.xyz//post/actor</id>
-        <link href="https://blog.wangjy.xyz//post/actor">
+        <id>https://www.wjinyiu.top//post/actor</id>
+        <link href="https://www.wjinyiu.top//post/actor">
         </link>
         <updated>2019-08-11T12:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>心有多大 舞台就有多大<br>
