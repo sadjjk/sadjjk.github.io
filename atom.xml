@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2019-11-30T13:46:05.508Z</updated>
+    <updated>2019-11-30T13:53:40.370Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top//atom.xml"/>
@@ -28,9 +28,9 @@
 <p>这事要从这篇文章<a href="https://mp.weixin.qq.com/s/DbsEc4YVQ0442ibfJMYO7w">使用python假装装黑客，批量破解朋友的网站密码</a>开始说起<br>
 这篇文章介绍了如何在Win下破解Chrome浏览器存储的密码<br>
 简单的说<br>
-Chrome保存的密码都记录在固定位置(<code>当前用户\Google\Chrome\User Data\Default\Login Data)</code>的文件中 而该文件恰恰是SQLite数据库文件 随便个SQLite工具均可打开</p>
+Chrome保存的密码都记录在固定位置(<code>当前用户\Google\Chrome\User Data\Default\Login Data</code>)的文件中 而该文件恰恰是SQLite数据库文件 随便个SQLite工具均可打开</p>
 <p><img src="https://i.loli.net/2019/11/30/KsUe9dZEtyHGqTX.png" alt="UTOOLS_COMPRESS_1575114584023.png"></p>
-<p>Username_value 即账号<br>
+<p>username_value 即账号<br>
 password_value 即密码<br>
 显然密码不是明文 是经过加密的<br>
 Win下妙就妙在 python可是使用三方库<code>win32crypt</code>的<code>CryptUnprotectData</code>方法 即可解密查看明文<br>
@@ -78,13 +78,13 @@ macOS中都记录在钥匙串keyChain中
 <img src="https://i.loli.net/2019/11/30/9DW3cixsgXZJBz1.png" alt="UTOOLS_COMPRESS_1575116489356.png"></p>
 <p>最下方的password即是密码<br>
 该密码是经过base64编码的 需要decode<br>
-(在尝试的过程中 直到很后面才发现要解码 不可直接拿来使用)
+(在尝试的过程中 直到很后面才发现要解码 不可直接拿来使用)<br>
 在更早期的macOS版本 连密码都不用输入<br>
 参考的文章中当时(大概是2016年~2017年)就是不用输密码的<br>
 <strong>no code no bb</strong>
 这里Python有两种方法实现上述过程<br>
 第一种：Python2使用commands;Python3使用subprocess<br>
-都是自带的库  作用是调用执行命令
+都是自带的库  作用是调用执行命令<br>
 传入命令 输入密码即可获得返回值<br>
 这个是比较简单方便的</p>
 <pre><code class="language-python">import subprocess
@@ -142,7 +142,7 @@ result = subprocess.getstatusoutput(&quot;openssl enc -d -aes-128-cbc -iv '%s' -
 <h3 id="复盘">复盘</h3>
 <p><strong>在整个失败复盘过程中<br>
 最可能出的问题 应该第一步</strong><br>
-参考的文章中有透露password<br>
+参考的文章中有出现过password<br>
 使用它的password是可以解码回字符串的</p>
 <p><img src="https://i.loli.net/2019/11/30/k2rO3W1aLBpqnPo.png" alt="UTOOLS_COMPRESS_1575117043985.png"></p>
 <p><img src="https://i.loli.net/2019/11/30/IL1z2cdmCVP5lQH.png" alt="UTOOLS_COMPRESS_1575117330016.png">而现在再尝试已经无法再转码成utf8了<br>
@@ -201,6 +201,7 @@ END</p>
 <h3 id="参考">参考</h3>
 <h4 id="文章">文章</h4>
 <ul>
+<li><a href="https://mp.weixin.qq.com/s/DbsEc4YVQ0442ibfJMYO7w">使用python假装装黑客，批量破解朋友的网站密码</a></li>
 <li><a href="https://www.freebuf.com/articles/web/117038.html">《手把手教你解密MacOS平台下的Chrome密码》</a></li>
 <li><a href="https://www.jianshu.com/p/c94363c33bae">《Python实现获取macOS系统Chrome的Cookies数据》</a></li>
 <li><a href="https://bbs.pediy.com/thread-220981.htm">《实验code review 解码苹果上所有的Tokens decrypts/extracts all authorization tokens on macOS/OSX》</a></li>
