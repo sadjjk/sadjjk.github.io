@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2019-11-30T11:32:20.238Z</updated>
+    <updated>2019-11-30T13:46:05.508Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top//atom.xml"/>
@@ -10,6 +10,211 @@
     <logo>https://blog.wjinyu.top//images/avatar.png</logo>
     <icon>https://blog.wjinyu.top//favicon.ico</icon>
     <rights>All rights reserved 2019, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[macOS破解Chrome保存的密码————他失败 失败了]]></title>
+        <id>https://blog.wjinyu.top//post/macOSChromePassword</id>
+        <link href="https://blog.wjinyu.top//post/macOSChromePassword">
+        </link>
+        <updated>2019-11-30T11:36:15.000Z</updated>
+        <summary type="html"><![CDATA[<p>毫无疑问失败了 无功而返<br>
+但是探索的过程非常有意思<br>
+值得记录下</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>毫无疑问失败了 无功而返<br>
+但是探索的过程非常有意思<br>
+值得记录下</p>
+<!--more-->
+<h3 id="起源">起源</h3>
+<p>这事要从这篇文章<a href="https://mp.weixin.qq.com/s/DbsEc4YVQ0442ibfJMYO7w">使用python假装装黑客，批量破解朋友的网站密码</a>开始说起<br>
+这篇文章介绍了如何在Win下破解Chrome浏览器存储的密码<br>
+简单的说<br>
+Chrome保存的密码都记录在固定位置(<code>当前用户\Google\Chrome\User Data\Default\Login Data)</code>的文件中 而该文件恰恰是SQLite数据库文件 随便个SQLite工具均可打开</p>
+<p><img src="https://i.loli.net/2019/11/30/KsUe9dZEtyHGqTX.png" alt="UTOOLS_COMPRESS_1575114584023.png"></p>
+<p>Username_value 即账号<br>
+password_value 即密码<br>
+显然密码不是明文 是经过加密的<br>
+Win下妙就妙在 python可是使用三方库<code>win32crypt</code>的<code>CryptUnprotectData</code>方法 即可解密查看明文<br>
+然后一切就变得非(索)常(然)简(无)单(味)<br>
+要是再加工打包成EXE 发布出去<br>
+即可轻松获取对方的账号密码<br>
+具体的代码细节 这里不再过多阐述<br>
+既然Win下已成功破解 那么macOS系统呢<br>
+好戏开始！</p>
+<h3 id="探索">探索</h3>
+<p>macOS系统中Python并没有像三方库<code>win32crypt</code>的<code>CryptUnprotectData</code>方法<br>
+也就是没有轮子 需要从底层分析是如何加密   再解密<br>
+了解到几篇文章</p>
+<p><a href="https://www.freebuf.com/articles/web/117038.html">《手把手教你解密MacOS平台下的Chrome密码》</a></p>
+<p><a href="https://www.jianshu.com/p/c94363c33bae">《Python实现获取macOS系统Chrome的Cookies数据》</a></p>
+<p>Chrome的Cookies和login的password使用的是同一套方法<br>
+都是保存在SQLite文件中 加密的方法应该都是一样的<br>
+加密的方法来自<a href="https://github.com/chromium/chromium/blob/master/components/os_crypt/os_crypt_mac.mm">Github中Chrome的源码</a><br>
+源码中使用的加密机制为：AES-128-CBC（使用固定盐值和固定迭代次数）</p>
+<ol>
+<li>
+<p>盐值：盐值固定不变（saltysalt）；</p>
+</li>
+<li>
+<p>迭代次数：在对称密钥的生成过程中进行1003次迭代计算；</p>
+</li>
+<li>
+<p>IV：空字符串 16位；</p>
+</li>
+<li>
+<p>哈希函数：sha1；</p>
+</li>
+<li>
+<p>password：加密的密码</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/11/30/SkDWBNMraYLjo83.png" alt="UTOOLS_COMPRESS_1575115968886.png"></p>
+<h3 id="整理">整理</h3>
+<h4 id="第一步">第一步</h4>
+<p>首先获取加密的密码<br>
+macOS中都记录在钥匙串keyChain中
+直接在macOS中iTerm输入<code>security find-generic-password -ga 'Chrome'</code>
+然后提示输入密码(需输入两遍 这是个系统小bug)
+即可出现<br>
+<img src="https://i.loli.net/2019/11/30/9DW3cixsgXZJBz1.png" alt="UTOOLS_COMPRESS_1575116489356.png"></p>
+<p>最下方的password即是密码<br>
+该密码是经过base64编码的 需要decode<br>
+(在尝试的过程中 直到很后面才发现要解码 不可直接拿来使用)
+在更早期的macOS版本 连密码都不用输入<br>
+参考的文章中当时(大概是2016年~2017年)就是不用输密码的<br>
+<strong>no code no bb</strong>
+这里Python有两种方法实现上述过程<br>
+第一种：Python2使用commands;Python3使用subprocess<br>
+都是自带的库  作用是调用执行命令
+传入命令 输入密码即可获得返回值<br>
+这个是比较简单方便的</p>
+<pre><code class="language-python">import subprocess
+safeStorageKey = subprocess.getstatusoutput(&quot;security  find-generic-password -ga 'Chrome' | awk '{print $2}' 2&gt;&amp;1 &gt;/dev/null&quot;)[1]
+safeStorageKey = safeStorageKey.split(&quot;:&quot;)[1].replace(&quot;\&quot;&quot;,&quot;&quot;)
+safeStorageKey = base64.b64decode(safeStorageKey)
+</code></pre>
+<p>第二种：使用三方库keyring<br>
+需要下载三方库 pip install keyring<br>
+但keyring爆出过安全漏洞<br>
+毕竟是和系统密码相关<br>
+不推荐使用</p>
+<pre><code class="language-python">import keyring
+safeStorageKey = keyring.get_password('Chrome Safe Storage', 'Chrome')
+safeStorageKey = base64.b64decode(safeStorageKey)
+</code></pre>
+<h4 id="第二步">第二步</h4>
+<p>AES解密 得到明文
+同样有两种方法<br>
+第一种<br>
+python Crypto模块的安装<br>
+这个三方库由于些历史原因<br>
+安装方法有些小坑 什么小写改大写<br>
+具体安装详情Google或度娘吧<br>
+使用的参数就是上文提到过的盐值、哈希函数、迭代次数、IV值</p>
+<pre><code class="language-python">import hashlib
+from Crypto.Cipher import AES
+
+# SQLite文件中加密的password_value字段的值 类型为字节
+# 其中前三位为v10或v11 是写死的 需过滤掉
+encrypted_value = b'v10\x0bY\xd27\x0bJ\x1c0\xd39#\xd2\n\x82{\x1f'
+
+key = hashlib.pbkdf2_hmac('sha1', safeStorageKey, b'saltysalt', 1003)[:16]
+cipher = AES.new(key, AES.MODE_CBC, IV=b' ' * 16)
+decrypted_string = cipher.decrypt(encrypted_value[3:])
+</code></pre>
+<p>第二种<br>
+使用系统自带的openssl解密<br>
+不用安装额外的库<br>
+同样是Python调用命令</p>
+<pre><code class="language-python">import subprocess
+import hashlib
+
+encrypted_value = b'v10\x0bY\xd27\x0bJ\x1c0\xd39#\xd2\n\x82{\x1f'
+iv = ''.join(('20',) * 16)  # 16个空字符串的16进制是16个20
+key = hashlib.pbkdf2_hmac('sha1', safeStorageKey, b'saltysalt', 1003)[:16]
+result = subprocess.getstatusoutput(&quot;openssl enc -d -aes-128-cbc -iv '%s' -K %s &lt; '%s' &quot; % (iv, key, encrypted_value[3:])&quot;)
+</code></pre>
+<h3 id="失败">失败</h3>
+<p>按上面的步骤 一切好像非常流畅<br>
+但在解密明文的最终结果上<br>
+懵逼了<br>
+按照第一种方法 得到的decrypted_string根本就不是明文密码<br>
+按照第二种方法 openssl 直接卡死 没有返回结果</p>
+<h3 id="复盘">复盘</h3>
+<p><strong>在整个失败复盘过程中<br>
+最可能出的问题 应该第一步</strong><br>
+参考的文章中有透露password<br>
+使用它的password是可以解码回字符串的</p>
+<p><img src="https://i.loli.net/2019/11/30/k2rO3W1aLBpqnPo.png" alt="UTOOLS_COMPRESS_1575117043985.png"></p>
+<p><img src="https://i.loli.net/2019/11/30/IL1z2cdmCVP5lQH.png" alt="UTOOLS_COMPRESS_1575117330016.png">而现在再尝试已经无法再转码成utf8了<br>
+<img src="https://i.loli.net/2019/11/30/2e65FGDkS7mB3Y1.png" alt="UTOOLS_COMPRESS_1575117234849.png"></p>
+<p>按照这个线索 再搜索keyChain的相关资料 找到了这篇关键材料</p>
+<p><a href="https://bbs.pediy.com/thread-220981.htm">《实验code review 解码苹果上所有的Tokens decrypts/extracts all authorization tokens on macOS/OSX》</a></p>
+<p>文章中作者提出破解iCoud的办法  且已经向苹果上报了bug<br>
+文章中还出现了<strong>OSXChromeDecrypt</strong> 也就是《《手把手教你解密MacOS平台下的Chrome密码》的项目代码<br>
+不亏是大神  原来都是出自他之手<br>
+最重要的一段</p>
+<blockquote>
+<p>这个 <strong>DSID</strong> 格式文件使用了<strong>128位AES的CBC模式</strong>[^注1] 和一个空的<strong>初始化向量</strong>进行加密。针对这个文件的解密密钥存储在用户的<strong>钥匙串</strong>里，一个名为 <strong>iCloud</strong> 的服务条目下，名字是 iCloud 账户相关的邮件地址。</p>
+<p><strong>这个解密钥匙进行了 base64 编码，并作为 Hmac 算法[^注2]中的消息体，进行标准的 MD5 哈希加密</strong>。<strong>这里的问题是，Hmac 算法里所需的输入钥匙，被藏在了 MacOS 内核深处</strong>。这个钥匙由44个随机字符组成，它是解密 DSID 文件的关键。<strong>这个钥匙包含在本工程的源代码中，据我所知，到目前为止这个钥匙还未被公开过</strong>。</p>
+</blockquote>
+<p>是不是很熟悉 AES CBC 空的IV 加密的秘钥<br>
+等等<br>
+&quot;这个解密钥匙进行了 base64 编码，并作为 Hmac 算法中的消息体，进行标准的 MD5 哈希加密&quot;<br>
+原来还有一层MD5哈希加密<br>
+(当时真的高兴坏了 如获至宝 )<br>
+继续 no code no bb<br>
+key = &quot;t9s&quot;lx^awe.580Gj%'ld+0LG&lt;#9xa?&gt;vb)-fkwb92[}&quot; 这串神秘数字</p>
+<pre><code>
+# 硬编码在系统中的字符串
+#Constant key used for hashing Hmac on all versions of MacOS.
+#this is the secret to the decryption!
+#/System/Library/PrivateFrameworks/AOSKit.framework/Versions/A/AOSKit yields the following subroutine
+#KeychainAccountStorage _generateKeyFromData:
+#that uses the below key that calls CCHmac to generate a Hmac that serves as the decryption key
+key = &quot;t9s\&quot;lx^awe.580Gj%'ld+0LG&lt;#9xa?&gt;vb)-fkwb92[}&quot;
+
+# md5 算法作为 Hmac 中的哈希算法
+hashed = hmac.new(key, safeStorageKey, digestmod=hashlib.md5).digest()
+hexedKey = binascii.hexlify(hashed) 
+
+# 然后再把hexedKey传入AES中
+</code></pre>
+<p>哎 还是失败了  还是没有解析出正确的明文<br>
+莫非是神秘数字已经是修改了？
+文章中提到了神秘数字的来源<code>/System/Library/PrivateFrameworks/AOSKit.framework/Versions/A/AOSKit</code><br>
+打开这个文件 都是乱码 应该是已经被编译的<br>
+思路从这里开始彻底没了  ！<br>
+真的放弃了</p>
+<h3 id="总结">总结</h3>
+<p>几乎的所有的参考文件及代码的时间点都在2018年以前<br>
+Github中的也没有最新的issue<br>
+尤其是最后找到的关键材料<br>
+文章提到作者一直在联系苹果 希望修复钥匙串访问的bug<br>
+按目前的情况来看  应该是已经是被fix了<br>
+但Chrome那一层的加密算法应该还是原封不动<br>
+所有的结果都对的上<br>
+就是AES加密使用到的password 是怎么来的
+已经不得而知<br>
+或许是修改了加密的算法 或许是修改了神秘数字<br>
+最后不得不说 macOS的安全性实在是高！<br>
+END</p>
+<h3 id="参考">参考</h3>
+<h4 id="文章">文章</h4>
+<ul>
+<li><a href="https://www.freebuf.com/articles/web/117038.html">《手把手教你解密MacOS平台下的Chrome密码》</a></li>
+<li><a href="https://www.jianshu.com/p/c94363c33bae">《Python实现获取macOS系统Chrome的Cookies数据》</a></li>
+<li><a href="https://bbs.pediy.com/thread-220981.htm">《实验code review 解码苹果上所有的Tokens decrypts/extracts all authorization tokens on macOS/OSX》</a></li>
+<li><a href="https://www.jianshu.com/p/a3b7140919e4">macOS系统下KeyChain的缺陷</a></li>
+</ul>
+<h4 id="代码">代码</h4>
+<ul>
+<li><a href="https://github.com/Noskthing/Scripts/blob/master/getChromeCookies_macOS.py">getChromeCookies</a></li>
+<li><a href="https://github.com/Hsn723/MMeTokenDecrypt">MMeTokenDecrypt</a></li>
+<li><a href="https://github.com/thanatoskira/OSXChromeDecrypt">OSXChromeDecrypt</a></li>
+<li><a href="https://github.com/n8henrie/pycookiecheat">pycookiecheat</a></li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-后话篇]]></title>
         <id>https://blog.wjinyu.top//post/BilibiliVideo_last</id>
@@ -863,115 +1068,6 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
 神箭手纪昌、沙僧悟净、孔子与子路、汉将李陵<br>
 在一个日本作家笔下 他们的故事熟悉又陌生<br>
 更多细节的撰写 更多细节的思考</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[其实我是演员]]></title>
-        <id>https://blog.wjinyu.top//post/actor</id>
-        <link href="https://blog.wjinyu.top//post/actor">
-        </link>
-        <updated>2019-08-11T12:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>心有多大 舞台就有多大<br>
-一份脱口秀稿子 愿君一笑</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>心有多大 舞台就有多大<br>
-一份脱口秀稿子 愿君一笑</p>
-<!--more-->
-<p>毕业一年多了<br>
-这一年里 有什么东西 一开始觉得很贵 其实很便宜？<br>
-大学刚毕业的我<br>
-大一 一边玩着手机 一边熬夜划重点<br>
-大二 一边打着LOL  一边准备四六级<br>
-大三 一边找着实习 一边看着理想在彷徨<br>
-大四 一边穿着学士服乱拍 一边摔着酒瓶怀念青春</p>
-<p>就这样 我的大学结束了 平凡到不能再平凡<br>
-以至于毕业了在求职简历上<em>在校获取情况</em> 一栏<br>
-都不好意思下笔 最后还是鼓起勇气 写下了不要脸的文字<br>
-“<u><strong>本人在校期间为人低调 淡泊名利<br>
-虽然没获过奖 但是遵纪守法 团结友爱 虚心好学</strong></u>&quot;</p>
-<p>所有求职平台搜了个遍<br>
-终于有家公司慧眼识珠<br>
-说我有理想有抱负<br>
-轻松允诺一月八千上万<br>
-心动一查 还真是家大公司<br>
-央企背景/万人规模/扁平化管理<br>
-员工照片个个脸上洋溢着人生赢家的笑容<br>
-要不是多看了一眼公司抬头 —— “XX保险有限公司”<br>
-差点就去了</p>
-<p>皇天不负有心人<br>
-终于有人被我的<strong>遵纪守法、团结友爱</strong>所打动<br>
-也就是现在的老板<br>
-从那以后 开始了我的演艺生涯</p>
-<p>每个剧本往往<br>
-都是从早晨按掉无数个闹钟开始的<br>
-此时的我躺在床上一动不动<br>
-但内心早已和梁朝伟对戏</p>
-<blockquote>
-<p>实力派演员W君:以前我没得选 现在我想做一个废人<br>
-梁朝伟:你去和老板说吧！</p>
-</blockquote>
-<p>经过激烈的思想斗争后<br>
-我还是顺利的起床了<br>
-叫醒我的 从来都不是梦想<br>
-是房租、水电费、花呗账单<br>
-还有<strong>老板的无微不至/出其不意的关怀</strong></p>
-<p>公司对我还是非常重视的<br>
-重视到 要是迟到就扣我钱<br>
-就算大雨让这座城市颠倒<br>
-老板给你怀抱 然后照样算你迟到</p>
-<p>到了公司 就开始认真工作<br>
-在老板注目时 假装努力<br>
-在老板不在时 灵魂出窍<br>
-在老板开会时 完全赞同<br>
-在老板讲述公司愿景时  仰慕崇拜向往憧憬<br>
-<strong>这 是一个优秀演员的自我修养</strong></p>
-<p>当然也有拿错剧本的时候——有时候对老板很不满<br>
-上下级之间沟通有问题很正常<br>
-心平气和的找老板谈一谈<br>
-一定会达成共识<br>
-如果是我们有问题<br>
-那就自我改正<br>
-如果是老板有问题<br>
-那么他就会把我们炒掉<br>
-<strong>天真 老板怎么会有问题！</strong></p>
-<p>终于在年会上<br>
-我再一次鼓起勇气<br>
-就像当年在求职简历上<br>
-写下在校获奖情况一样<br>
-“<strong>老板 我不干了！</strong><br>
-酒还是得慢慢喝呢“</p>
-<p>至今都没有跟老板提过涨工资<br>
-因为愿望说出来就不灵了<br>
-但是现在不一样了<br>
-我的愿望已经实现了一半！<br>
-老板嘴上说不给我涨工资<br>
-但我知道他心里面早给我涨啦</p>
-<p>确认过老板的眼神<br>
-我不会在乎这点工资<br>
-我是要赚大钱的人<br>
-只为成功找方法 不为失败找理由<br>
-要用实际行动说话 说干就干<br>
-我真的很努力很努力在买彩票了</p>
-<p>经历过无数次失望后<br>
-我想开了  做人还是要靠自己<br>
-我命由我不由天  求天不如求自己<br>
-求自己不要再出门了 这样就不用花钱</p>
-<p>所以到了周末<br>
-在丰富多彩的白天就疯狂补觉<br>
-在无人打扰的夜晚<br>
-就独自吃夜宵看综艺打游戏刷微博<br>
-就这样 一个人对着电脑屏幕<br>
-笑的像个两百斤的孩子</p>
-<p>最后各位在网上一定要慎言<br>
-独自生活在一个城市<br>
-生日发了条消息求祝福<br>
-不小心标了地点<br>
-当晚就有四位大汉 破门而入<br>
-硬是被拉去网吧通宵<br>
-那场景  太惨了！</p>
-<p>—————————————小心翼翼的分割线————————————-</p>
-<p>这份稿子写得一点也不真实 因为好多事情就没有发生过  求职简历的在校获奖情况 假的  半夜被拉去网吧 假的 可以说上面的大多都是假的 非要说什么是真的 只有每天早晨不情愿地摁闹钟是真的</p>
-<p><strong>生活不是笑话</strong>  这一年没有多少灵感 就像标题&quot;其实我是演员&quot;一样 更多的便是假装 假装快乐 假装满意 假装努力  &quot;<strong>装着装着你就像了</strong>&quot; 这话是没错 但有些东西装的再久 始终还是缺点真实</p>
 ]]></content>
     </entry>
 </feed>
