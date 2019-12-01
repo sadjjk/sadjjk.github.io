@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Python制作豆瓣书单分享海报(仿电影海报) | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1575123612459">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1575174664413">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -220,7 +220,7 @@ hljs.initHighlightingOnLoad()
 <!--more-->
 <h3 id="0x00前言">0x00前言</h3>
 <p>之前看到一张 豆瓣分享海报 感觉很不错</p>
-<p><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png"></p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png"></figure>
 <p>应该是豆瓣官方的设计的 但是没找到分享的地方<br>
 <em>PS:手机APP端分享的海报不是这样的</em><br>
 于是就想自己用Python画一个<br>
@@ -229,20 +229,20 @@ hljs.initHighlightingOnLoad()
 等实现完所有细节 自我陶醉时<br>
 在豆瓣网页端找到这张官方分享海报的地方<br>
 评分右上角 点击 <strong>引用</strong> 即可导出官方分享海报图<br>
-当场吐血 功能白做了
+当场吐血 功能白做了<br>
 好在 豆瓣书单是没有引用导出海报功能<br>
-临时加需求 按照电影海报的亚子 绘制书单的分享海报
+临时加需求 按照电影海报的亚子 绘制书单的分享海报<br>
 <img src="https://i.loli.net/2019/09/29/fh3KVSa8TECBIkD.png" alt="房思琪的初恋乐园_poster.png"></p>
 <h3 id="0x01-豆瓣爬虫">0x01 豆瓣爬虫</h3>
-<p>豆瓣电影/书单提供了相应的官方接口 但好像不够满足海报所需的数据 比如星星数
-就写相应的爬虫获取相应的数据 这里不是详细阐述爬虫过程 具体见源码
+<p>豆瓣电影/书单提供了相应的官方接口 但好像不够满足海报所需的数据 比如星星数<br>
+就写相应的爬虫获取相应的数据 这里不是详细阐述爬虫过程 具体见源码<br>
 假设相应的数据都已获得</p>
 <h3 id="0x02-开始绘图">0x02 开始绘图</h3>
-<p>Python画图主要使用的是PIL
-二维码绘制使用 qrcode
+<p>Python画图主要使用的是PIL<br>
+二维码绘制使用 qrcode<br>
 海报主要分为3部分：①区背景图、 ②区标题和描述、③区评分及详情</p>
 <h4 id="0加载模板素材"><strong>0.加载模板素材</strong></h4>
-<p>模板素材在imgs文件夹中
+<p>模板素材在imgs文件夹中<br>
 一张豆瓣海报空白底版 三张不同状态的星星</p>
 <pre><code class="language-python">from PIL import Image
 
@@ -256,10 +256,10 @@ class DouBanPoster:
 </code></pre>
 <p>之后所有信息都在template_image上进行绘制添加</p>
 <h4 id="1-1区背景图">1. ①区背景图</h4>
-<p>自定义函数backgroundImg
-参数 : bgImg (type:dict)
-bgImgPath：背景图路径
-postition：粘贴位置 默认(0,0)
+<p>自定义函数backgroundImg<br>
+参数 : bgImg (type:dict)<br>
+bgImgPath：背景图路径<br>
+postition：粘贴位置 默认(0,0)<br>
 size: 重置尺寸 默认(450,684)</p>
 <p>把背景图放在在底版图上 <code>paste</code>即可</p>
 <pre><code class="language-python">def backgroudImg(self,bgImg):
@@ -275,16 +275,16 @@ size: 重置尺寸 默认(450,684)</p>
 
 </code></pre>
 <h4 id="22区标题和描述">2.②区标题和描述</h4>
-<p>文本的绘制 使用<code>draw.text</code>
-唯一要注意的是长文本
-标题或描述可能会过长 超出绘制区域 无法自动换行
-因此需要定义一个自动换行的函数
-所有的可能过长的文本都调用此函数
-自动换行功能使用textwrap.wrap
-它会根据width自动换行
-将换好的行 逐行绘制即可
-PS:还有一个细节 一行一行绘制
-累计高度可能会超过模板图片的高度
+<p>文本的绘制 使用<code>draw.text</code><br>
+唯一要注意的是长文本<br>
+标题或描述可能会过长 超出绘制区域 无法自动换行<br>
+因此需要定义一个自动换行的函数<br>
+所有的可能过长的文本都调用此函数<br>
+自动换行功能使用textwrap.wrap<br>
+它会根据width自动换行<br>
+将换好的行 逐行绘制即可<br>
+PS:还有一个细节 一行一行绘制<br>
+累计高度可能会超过模板图片的高度<br>
 因此累计高度超出模板图片高度 break退出 不在绘制文本</p>
 <pre><code class="language-python"># 长文本换行
     def draw_longtext(self,draw, item_describe, postition, pad_h,font_size,width,text_color = &quot;#000000&quot;,bd=False):
@@ -326,7 +326,7 @@ if star_rate:
 </li>
 <li>
 <p>二维码</p>
-<p>使用qrcode生成地址二维码
+<p>使用qrcode生成地址二维码<br>
 因为模板非纯白色 所以在二维码边框增加模板颜色</p>
 <pre><code class="language-python"># 二维码
 def make_QR(self,content, sizeW, sizeH):  # 创建二维码
@@ -344,7 +344,7 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
   img = img.resize((sizeW, sizeH))
   return img
 </code></pre>
-<p>将生成好的二维码 放在模板图片上
+<p>将生成好的二维码 放在模板图片上<br>
 处理逻辑和背景图一致</p>
 </li>
 </ul>

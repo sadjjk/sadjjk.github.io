@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>BilibiliVideo-实现篇-优化篇 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1575123612459">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1575174664413">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -243,7 +243,7 @@ hljs.initHighlightingOnLoad()
 再封装成Response返回   同时要在Response中添加header<br>
 Content-Disposition 视频名<br>
 Content-Length  视频大小<br>
-这样通过页面下载的视频才有正常的视频名字和视频大小
+这样通过页面下载的视频才有正常的视频名字和视频大小<br>
 浏览器下载时才会出现  共XXXMB</p>
 <pre><code>@app.route(&quot;/download&quot;,methods=['POST'])
 def download():
@@ -259,7 +259,7 @@ def download():
   return response
 
 </code></pre>
-<p><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png"></p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png"></figure>
 <h4 id="html页面设计">HTML页面设计</h4>
 <p>设计三个基本html页面</p>
 <ul>
@@ -271,7 +271,7 @@ def download():
 修改要展示的内容即可<br>
 若解析异常 则给提出异常提示和热门搜索(其实就是写死的推荐项)<br>
 异常可以使用AssertionError断言拦截 比如&quot;链接必须是来自B站&quot;、&quot;链接不能为空&quot;、&quot;无法解析该地址&quot;、&quot;内部异常！可能被233娘吃掉了&quot;等等</p>
-<p><img src="https://i.loli.net/2019/11/10/NJQZAvbBGhfynWe.png" alt="UTOOLS_COMPRESS_1573373340096.png"></p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/NJQZAvbBGhfynWe.png" alt="UTOOLS_COMPRESS_1573373340096.png"></figure>
 <h4 id="视频解析进度条">视频解析进度条</h4>
 <p>当视频地址里视频比较多的时候<br>
 解析比较耗时  但页面上没有反应出来<br>
@@ -286,7 +286,7 @@ def download():
   NProgress.stop();
 })
 </code></pre>
-<p><img src="https://i.loli.net/2019/11/10/3nlKuipDeOdmH69.png" alt="UTOOLS_COMPRESS_1573373940104.png"></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/3nlKuipDeOdmH69.png" alt="UTOOLS_COMPRESS_1573373940104.png"></figure>
 <p>在页面顶部就有一个进度条 右上还有加载圆 大赞！</p>
 <h4 id="添加csrf-token防御">添加CSRF Token防御</h4>
 <p>CSRF具体是什么 我不太了解<br>
@@ -304,7 +304,7 @@ CsrfProtect(app)
 <p>这样表单提交就会自动生成一个<strong>csrf_token</strong><br>
 并且验证token的正确性<br>
 每次刷新生成的<strong>csrf_token</strong>也都不一样</p>
-<p><img src="https://i.loli.net/2019/11/10/mM7OoEeDuZ9bJjy.png" alt="UTOOLS_COMPRESS_1573376370149.png"></p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/mM7OoEeDuZ9bJjy.png" alt="UTOOLS_COMPRESS_1573376370149.png"></figure>
 <h4 id="大会员sessdata不过期">大会员SESSDATA不过期</h4>
 <p>基础篇提到过SESSDATA是大概有一个月的有效期<br>
 既然都发布服务了 总不能每隔一个月去修改SESSDATA吧<br>
@@ -324,7 +324,7 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
 为了了解登陆成功与否的详细<br>
 再增加邮箱发送的脚本<br>
 这样就能及时了解模拟登陆的情况 及时排查</p>
-<p><img src="https://i.loli.net/2019/11/10/4KcFfLeq8Q7o9Tm.png" alt="UTOOLS_COMPRESS_1573375534489.png"></p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/4KcFfLeq8Q7o9Tm.png" alt="UTOOLS_COMPRESS_1573375534489.png"></figure>
 <p>额外篇 如何实现B站滑块自动登陆 有机会再讲<br>
 额外篇 如何实现邮箱发送  有机会再讲</p>
 `

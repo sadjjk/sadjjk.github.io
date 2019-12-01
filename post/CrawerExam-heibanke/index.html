@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>黑板客爬虫闯关通关 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1575123612459">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1575174664413">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -231,7 +231,7 @@ Code:https://github.com/sadjjk/CrawerExam-heibanke</p>
 <p>网上关于这部分的代码实践也不少<br>
 绝知此事要躬行  自己code一遍</p>
 <h3 id="第一关">第一关</h3>
-<p><img src="https://i.loli.net/2019/10/02/hAwDifI4vkNtge9.png" alt="UTOOLS_COMPRESS_1569999755672.png"></p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/10/02/hAwDifI4vkNtge9.png" alt="UTOOLS_COMPRESS_1569999755672.png"></figure>
 <p><code>requests</code> GET 不断请求即可</p>
 <pre><code>下一个你需要输入的数字是25997. 老实告诉你吧, 这样的数字还有上百个
 第49次尝试 URL:http://www.heibanke.com/lesson/crawler_ex00/25997
@@ -244,7 +244,7 @@ Code:https://github.com/sadjjk/CrawerExam-heibanke</p>
 END
 </code></pre>
 <h3 id="第二关">第二关</h3>
-<p><img src="https://i.loli.net/2019/10/02/Hx8YCN2kVrt9qcJ.png" alt="UTOOLS_COMPRESS_1569999938435.png"></p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/10/02/Hx8YCN2kVrt9qcJ.png" alt="UTOOLS_COMPRESS_1569999938435.png"></figure>
 <p>猜密码 这里从0~30的列表中 <code>random.choice</code>每次随机给出一个数<br>
 若此数密码不正确 则从该列表中remove</p>
 <pre><code>尝试密码:13
@@ -257,14 +257,14 @@ END
 恭喜! 用户spider成功闯关, 继续你的爬虫之旅吧
 </code></pre>
 <h3 id="第三关">第三关</h3>
-<p><img src="https://i.loli.net/2019/10/02/vtEu8UbP31Dgfy7.jpg" alt="Xnip2019-10-02_15-10-41.jpg"></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/10/02/vtEu8UbP31Dgfy7.jpg" alt="Xnip2019-10-02_15-10-41.jpg"></figure>
 <p>第三关先进去是这样的 没有谜题 一头雾水<br>
 需要先在这里注册账号 登陆后重新打开 出现谜题</p>
-<p><img src="https://i.loli.net/2019/10/02/scdnE5CUTq6l4WH.png" alt="UTOOLS_COMPRESS_1570000211937.png"></p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/10/02/scdnE5CUTq6l4WH.png" alt="UTOOLS_COMPRESS_1570000211937.png"></figure>
 <p>还是猜密码 第一反应就是要先登陆 requests Session 模拟登陆即可<br>
 但是没有成功 谜题写着两层保护 也没看懂<br>
 百度后 明白了 还有一层token的加密</p>
-<p><img src="https://i.loli.net/2019/10/02/DmY3XNvFhueLkRJ.png" alt="UTOOLS_COMPRESS_1570000617203.png"></p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/10/02/DmY3XNvFhueLkRJ.png" alt="UTOOLS_COMPRESS_1570000617203.png"></figure>
 <p>首先是账号登陆时需要一个token<br>
 其次是谜题猜密码时也需要一个token<br>
 这里两个token均来自cookies</p>
@@ -282,9 +282,9 @@ csrftoken2 = session.cookies.get('csrftoken')
 </code></pre>
 <p>两次token不同  需重新获取 然后就是熟悉的猜密码 和第二关相同</p>
 <h3 id="第四关">第四关</h3>
-<p><img src="https://s2.ax1x.com/2019/10/02/uaxydA.png" alt="uaxydA.png"></p>
+<figure data-type="image" tabindex="6"><img src="https://s2.ax1x.com/2019/10/02/uaxydA.png" alt="uaxydA.png"></figure>
 <p>依然一脸懵逼 尝试输入密码 提示密码在这里寻找</p>
-<p><img src="https://i.loli.net/2019/10/02/LaCRexzIHTGjnom.png" alt="UTOOLS_COMPRESS_1570001394116.png"></p>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2019/10/02/LaCRexzIHTGjnom.png" alt="UTOOLS_COMPRESS_1570001394116.png"></figure>
 <p>注意：并不把所有13页的密码按照&lt;位置,值&gt;拼起来就组成最终的密   码，因为有些位置会重复给出 可能加载完所有页 也不一定组成出完整的密码 可能还是会有个别位置缺失<br>
 PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置缺失<br>
 其实只要第一页反复刷新就可以了<br>
@@ -299,7 +299,7 @@ PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置
 恭喜! 用户aaa成功闯关, 继续你的爬虫之旅吧
 </code></pre>
 <h3 id="第五关">第五关</h3>
-<p><img src="https://i.loli.net/2019/10/02/EIbCJ5zMXGgfvo4.png" alt="UTOOLS_COMPRESS_1570001895588.png"></p>
+<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2019/10/02/EIbCJ5zMXGgfvo4.png" alt="UTOOLS_COMPRESS_1570001895588.png"></figure>
 <p>加了验证码 验证码使用OCR识别出正确的字母 这里的图片已经很清晰 不用二值化或灰度处理 唯一的问题就是个别字母倾斜导致OCR识别错误 暂时不知道如何倾斜矫正</p>
 <p>OCR使用 pytesseract或者百度OCR  两者的识别准确率半斤八两 都不太高 基本都出错在倾斜字母上 但总体上还是能用</p>
 <p>tips:不用把每次的验证码图片下载下来 会下载很多验证码 以后也不会用到 浪费空间  直接获得验证码图片的二进制content 每次拿二进制content去识别</p>

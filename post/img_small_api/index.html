@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>几行代码系列:图片压缩(批量) | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1575123612459">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1575174664413">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -219,11 +219,11 @@ hljs.initHighlightingOnLoad()
     var article = `<p>图片压缩API  可敲代码 也可不敲代码</p>
 <!--more-->
 <h3 id="敲代码tinypng">敲代码:<a href="https://tinypng.com/">TinyPNG</a></h3>
-<p><img src="https://i.loli.net/2019/07/28/5d3d53ce0cbf616047.png" alt="5d3d49b6f244d80875.png"></p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/07/28/5d3d53ce0cbf616047.png" alt="5d3d49b6f244d80875.png"></figure>
 <p>当初搜到过这网站 但因“Up to 20 images, max 5 MB each” 被我直接PASS  后来在一篇文章中再次看着这个网址 定眼仔细一看 简单的网页是阉割版 API才是它的强大的地方</p>
-<p><img src="https://i.loli.net/2019/07/28/5d3d54297602e78475.png" alt="5d3d4aa51d0dc93847.png"></p>
-<p>邮箱就能注册<br>
-提供Ruby，PHP，Node.js，Python，Java和.NET等各个语言的API <br>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/07/28/5d3d54297602e78475.png" alt="5d3d4aa51d0dc93847.png"></figure>
+<p>邮箱就能注册<br><br>
+提供Ruby，PHP，Node.js，Python，Java和.NET等各个语言的API <br><br>
 以Python为例 <br></p>
 <pre><code class="language-python"># 安装
 pip install tinify
@@ -253,9 +253,9 @@ for file in os.listdir(imgs_path):
 每个账号每月可调用<strong>500</strong>次 这对个人使用而言足够了 实在不够就多注册几个</p>
 <h3 id="不敲代码utools">不敲代码:<a href="https://u.tools/">uTools</a></h3>
 <p>uTools是一个极简、插件化、跨平台的现代桌面软件。通过自由选配丰富的插件，打造你得心应手的工具集合。当你熟悉它后，能够为你节约大量时间，让你可以更加专注地改变世界。(强！无敌！)</p>
-<p>里面有压缩图片功能，调用的就是<strong>TinyPNG</strong>的接口 本质是一样的
+<p>里面有压缩图片功能，调用的就是<strong>TinyPNG</strong>的接口 本质是一样的<br>
 不足就是不能更改图片尺寸大小</p>
-<p><img src="https://i.loli.net/2019/07/28/5d3d574840acc70457.jpg" alt="Xnip2019-07-28_16-05-03.jpg"></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/07/28/5d3d574840acc70457.jpg" alt="Xnip2019-07-28_16-05-03.jpg"></figure>
 <p>uTools还有非常丰富的插件 无处不惊喜 小小的遗憾是Mac端没有像Win端本地文件快速搜索的插件</p>
 <h3 id="后记">后记</h3>
 <p>图片的无损压缩需求来自个人网站(也就是这个网站)访问速度的优化这个网站有几个页面访问速度巨慢 加载不完  F12后 基本是图片的加载耗时<br>
