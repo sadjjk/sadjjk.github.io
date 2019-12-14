@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2019-12-01T04:31:48.466Z</updated>
+    <updated>2019-12-14T03:52:41.677Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top//atom.xml"/>
@@ -10,6 +10,201 @@
     <logo>https://blog.wjinyu.top//images/avatar.png</logo>
     <icon>https://blog.wjinyu.top//favicon.ico</icon>
     <rights>All rights reserved 2019, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[Miniconda/Anconda使用手册]]></title>
+        <id>https://blog.wjinyu.top//post/condaUse</id>
+        <link href="https://blog.wjinyu.top//post/condaUse">
+        </link>
+        <updated>2019-12-14T03:47:21.000Z</updated>
+        <summary type="html"><![CDATA[<p>留下了没有技术的眼泪</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>留下了没有技术的眼泪</p>
+<!-- more -->
+<h3 id="起源">起源</h3>
+<p>原本使用virtualenv打了虚拟环境和离线包 便可在各个服务器部署安装，但由于生产环境极其恶劣，可能有的服务器中相关依赖包并没有装全，进而导致virtualenv的虚拟环境启动失败。如</p>
+<pre><code class="language-shell">ImportError: libpython2.7.so.1.0: cannot open shared object file: No such file or directory 
+</code></pre>
+<p>问题详情及解决方案见<a href="https://stackoverflow.com/questions/20842732/libpython2-7-so-1-0-cannot-open-shared-object-file-no-such-file-or-directory">这里</a><br>
+当尝试了一些方法 都没有用<br>
+根本原因是这台服务器中就没有libpython2.7.so.1.0这个依赖包<br>
+而当初构建虚拟环境的服务器母机中是有存在这个依赖动态包的<br>
+当然可以通过重新打虚拟环境解决<br>
+但并不优雅 仅仅是case by case的解决方法<br>
+所以这时候conda就登场了<br>
+conda会自带依赖包 如</p>
+<blockquote>
+<p>engines-1.1         liblzma.so.5          libstdc++.so<br>
+itcl4.1.1           liblzma.so.5.2.4      libstdc++.so.6<br>
+libasan.so          libmenu.a             libstdc++.so.6.0.26<br>
+....</p>
+</blockquote>
+<p>只有source 激活环境 即可使用<br>
+就算来了台没有预装的Python的服务器<br>
+也可以完美运行自己的Python服务<br>
+这样子 就与原生Python环境完全隔离<br>
+放心食用</p>
+<h3 id="简介">简介</h3>
+<p>conda是一个打包的Python发行版本 ，包含了依赖包和三方库包<br>
+<a href="https://docs.conda.io/en/latest/index.html">官网</a></p>
+<ul>
+<li>Anaconda:是一个开源的<a href="https://baike.baidu.com/item/Python">Python</a>发行版本，其包含了conda、Python等180多个科学包及其<strong>依赖包</strong>。所以安装文件比较大，如非必要，使用Miniconda即可</li>
+<li>Miniconda:Python的最小安装版本，仅保留必要的依赖包以及少量的软件包</li>
+</ul>
+<p>两者安装和使用方法，基本一模一样，接下来均以<strong>miniconda</strong>为例</p>
+<h3 id="安装">安装</h3>
+<p>Win、Mac、Linux的安装包略有区别  <a href="https://docs.conda.io/en/latest/miniconda.html">下载地址</a>	<br>
+这里以linux为例</p>
+<h4 id="下载安装文件">下载安装文件</h4>
+<pre><code class="language-shell">weget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+</code></pre>
+<h4 id="执行安装文件">执行安装文件</h4>
+<p>这里有两种模式 一种是交互式 一种是静态式</p>
+<h5 id="交互式">交互式</h5>
+<pre><code>[root@ ~]#sh Miniconda3-latest-Linux-x86_64.sh
+
+Welcome to Miniconda3 4.7.12
+
+In order to continue the installation process, please review the license
+agreement.
+Please, press ENTER to continue
+&gt;&gt;&gt;
+###不断输入回车Enter###
+###直到出现如下内容###
+Do you accept the license terms? [yes|no]
+[no] &gt;&gt;&gt;
+Please answer 'yes' or 'no':'
+&gt;&gt;&gt;
+Please answer 'yes' or 'no':'
+&gt;&gt;&gt;
+###输入yes###
+###之后是选择安装路径###
+###默认Enter为当前目录的miniconda3文件夹###
+Miniconda3 will now be installed into this location:
+/root/miniconda3
+
+  - Press ENTER to confirm the location
+  - Press CTRL-C to abort the installation
+  - Or specify a different location below
+
+[/root/miniconda3] &gt;&gt;&gt;
+###选择完路径后###
+###是否要初始化init###
+###这里推荐为no###
+Do you wish the installer to initialize Miniconda3
+by running conda init? [yes|no]
+[no] &gt;&gt;&gt; no
+
+
+</code></pre>
+<p>这里有个小坑的地方 在init中最好选择no<br>
+如果选择了yes  之后每次打开一个服务器连接<br>
+用户名前面都有一个**(base)**标记 而且默认使用的都是conda的python</p>
+<pre><code>(base) [root@aliyun2 ~]# python
+Python 3.7.4 (default, Aug 13 2019, 20:35:49)
+[GCC 7.3.0] :: Anaconda, Inc. on linux
+Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+&gt;&gt;&gt;
+</code></pre>
+<p>即 输入python 调用的是anconda的版本<br>
+这是因为init选择了yes后 它会修改.bashrc文件<br>
+在后面追加如下内容</p>
+<pre><code># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup=&quot;$('/root/miniconda3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)&quot;
+if [ $? -eq 0 ]; then
+    eval &quot;$__conda_setup&quot;
+else
+    if [ -f &quot;/root/miniconda3/etc/profile.d/conda.sh&quot; ]; then
+        . &quot;/root/miniconda3/etc/profile.d/conda.sh&quot;
+    else
+        export PATH=&quot;/root/miniconda3/bin:$PATH&quot;
+    fi
+fi
+unset __conda_setup
+# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
+</code></pre>
+<p>大概意思就是把miniconda加入环境变量<br>
+查看环境变量 已添加miniconda</p>
+<pre><code>(base) [root@aliyun2 ~]# echo $PATH
+/root/miniconda3/bin:/root/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+</code></pre>
+<p>这就是为什么输入python 不再调用原生Python版本 它优先在miniconda3/bin中去寻找python<br>
+这样子有可能会对原生Python有影响<br>
+比如 有个服务就是通过原生Python去启动的<br>
+但现在同样的方式 去启动 有可能会失败<br>
+因为它现在使用的是conda的Python<br>
+可能会缺少相关三方库</p>
+<p><strong>总之</strong>:不推荐初始化 要使用conda的Python 就<code>source miniconda3/bin/activate</code>  去激活<br>
+使用完 就<code>conda deactivate</code>退出conda环境<br>
+一旦init了 每次进入服务器 都有**(base)标记**<br>
+要还原回来 只要把.bashrc中conda添加的代码  删除即可<br>
+再source .bashrc<br>
+即可恢复还原</p>
+<h5 id="静态式">静态式</h5>
+<p>即silent mode</p>
+<pre><code>[root@ ~]#sh Miniconda3-latest-Linux-x86_64.sh -b -p /root/conda 
+</code></pre>
+<p>-b 不初始化<br>
+-p 指定安装目录<br>
+使用效果是一模一样的</p>
+<h3 id="使用">使用</h3>
+<pre><code class="language-shell">source /path/miniconda/bin/activate  # 激活环境
+conda create -n venv  # 新建虚拟环境
+conda info -e  # 查看已创建的虚拟环境
+conda activate venv #使用指定虚拟环境
+</code></pre>
+<p>一般情况下 找台机器作为母机 在里面新建虚拟环境 然后pip install xxxx<br>
+使用方法和原生Python一样</p>
+<pre><code>[root@~ miniconda3]# ls
+bin              conda-meta  include      pkgs   ssl
+compiler_compat  envs        lib          share  x86_64-conda_cos6-linux-gnu
+condabin         etc         LICENSE.txt  shell
+</code></pre>
+<h3 id="迁移">迁移</h3>
+<p>打包好所有的三方库  测试完毕<br>
+可将pkgs文件夹和envs/venv(新建的虚拟环境名)文件夹<br>
+压缩成tar.gz<br>
+若需迁移环境 只需拷贝到新机器中<br>
+解压 替换这两个文件夹</p>
+<ol>
+<li>新机器 安装Miniconda3-latest-Linux-x86_64.sh</li>
+<li>替换成母机的pkgs文件夹</li>
+<li>母机的venv(新建的虚拟环境名) 拷贝到该机器的任意位置</li>
+<li>用母机的venv(新建的虚拟环境名)创建环境</li>
+</ol>
+<pre><code>source /path/miniconda3/bin/activate  # 激活环境
+conda create -n venv(新建的虚拟环境名) --clone 母机venv文件夹的路径 --offline
+</code></pre>
+<ol start="5">
+<li><code>conda activate venv</code> 即可使用</li>
+</ol>
+<p>PS:这里还有个小坑<br>
+不要直接将pkgs或venv文件夹拷到Win<br>
+再拷到新的Linux 服务器上<br>
+在拷到Win的过程中 文件的权限信息后丢失<br>
+导致迁移安装异常<br>
+应该在母机上压缩成tar.gz 拷出来<br>
+再拷贝到新机器上 解压<br>
+这时候的文件权限信息才不会丢失<br>
+当时没注意这个坑 怀疑人生到自闭</p>
+<h3 id="卸载">卸载</h3>
+<pre><code class="language-shell"># 删除文件夹
+rm -rf /path/miniconda3
+# 删除隐藏文件
+rm -rf ~/.condarc ~/.conda ~/.continuum
+</code></pre>
+<h3 id="参考">参考</h3>
+<ul>
+<li><a href="https://www.jianshu.com/p/35b71432093d">conda Installing on macOS</a></li>
+<li><a href="https://docs.conda.io/en/latest/miniconda.html#">conda官网</a></li>
+<li><a href="https://www.jianshu.com/p/7299c2d4d170">Miniconda快速入门</a></li>
+<li><a href="https://blog.csdn.net/sinat_28442665/article/details/86650152">conda环境转移复制和pip包的转移复制</a></li>
+<li><a href="https://blog.csdn.net/qq_35608277/article/details/96771954">conda离线创建虚拟环境</a></li>
+<li><a href="https://www.jianshu.com/p/0511decff9f8">miniconda安装</a></li>
+</ul>
+<p><a href=""></a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[macOS破解Chrome保存的密码————他失败 失败了]]></title>
         <id>https://blog.wjinyu.top//post/macOSChromePassword</id>
@@ -1035,40 +1230,6 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
 感谢许多CSDN、Stack OverFlow、博客主等留下的教程与问题记录<br>
 尽管他们与我都不认识 但他们间接的帮助了我很多 非常感谢！</p>
 <p>_——</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[山月记]]></title>
-        <id>https://blog.wjinyu.top//post/Book_MonthlyRecords</id>
-        <link href="https://blog.wjinyu.top//post/Book_MonthlyRecords">
-        </link>
-        <updated>2019-08-12T12:33:10.000Z</updated>
-        <summary type="html"><![CDATA[<p>我深怕自己本非美玉，故而不敢加以刻苦琢磨<br>
-却又半信自己是块美玉，故又不肯庸庸碌碌，与瓦砾为伍。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我深怕自己本非美玉，故而不敢加以刻苦琢磨<br>
-却又半信自己是块美玉，故又不肯庸庸碌碌，与瓦砾为伍。</p>
-<!--more-->
-<p>日本作家<strong>中岛敦</strong>的小说集 以首篇《山月记》为书名<br>
-听其声 闻其名 机缘巧合(也就是所谓的网上书店打折) 便购之<br>
-初拿到书时 乍以为全书就一篇长篇小说——《山月记》<br>
-铆足了劲 准备花了晌午读上一读 嘀嘀嘀嘀嘀嘀<br>
-几分钟 十来页 小说就结束了<br>
-当然 略短的篇幅丝毫不影响它的价值<br>
-最精彩的一段话<br>
-多少人就因为这一段有了非要买上书看上一看的心思</p>
-<blockquote>
-<p>我深怕自己本非美玉，故而不敢加以刻苦琢磨<br>
-却又半信自己是块美玉，故又不肯庸庸碌碌，与瓦砾为伍。<br>
-于是我渐渐地脱离凡尘，疏远世人，<br>
-结果便是一任愤懑与羞恨日益助长内心那怯弱的自尊心。</p>
-</blockquote>
-<p>书中除了《山月记》篇，还有不少有趣的小说<br>
-这些小说的人物、故事多多少少都知道一些<br>
-原型出自左传、西游记、孔子、史记<br>
-神箭手纪昌、沙僧悟净、孔子与子路、汉将李陵<br>
-在一个日本作家笔下 他们的故事熟悉又陌生<br>
-更多细节的撰写 更多细节的思考</p>
 ]]></content>
     </entry>
 </feed>
