@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2019-12-14T03:56:20.096Z</updated>
+    <updated>2019-12-14T04:16:23.985Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top//atom.xml"/>
@@ -19,7 +19,7 @@
         <summary type="html"><![CDATA[<p>留下了没有技术的眼泪</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>留下了没有技术的眼泪</p>
-<!-- more -->
+<!--more-->
 <h3 id="起源">起源</h3>
 <p>原本使用virtualenv打了虚拟环境和离线包 便可在各个服务器部署安装，但由于生产环境极其恶劣，可能有的服务器中相关依赖包并没有装全，进而导致virtualenv的虚拟环境启动失败。如</p>
 <pre><code class="language-shell">ImportError: libpython2.7.so.1.0: cannot open shared object file: No such file or directory 
@@ -38,7 +38,7 @@ itcl4.1.1           liblzma.so.5.2.4      libstdc++.so.6<br>
 libasan.so          libmenu.a             libstdc++.so.6.0.26<br>
 ....</p>
 </blockquote>
-<p>只有source 激活环境 即可使用<br>
+<p>只要source 激活环境 即可使用<br>
 就算来了台没有预装的Python的服务器<br>
 也可以完美运行自己的Python服务<br>
 这样子 就与原生Python环境完全隔离<br>
