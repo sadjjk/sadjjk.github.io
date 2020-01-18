@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>Python制作豆瓣书单分享海报(仿电影海报) | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1579350127769">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1579350764872">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -98,7 +98,7 @@
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wjinyu.top//tag/life">Life</a>
+                    <a href="https://blog.wjinyu.top/tag/life">Life</a>
                 </span>
           
         </div>
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top//post/StockProject">下一篇->股票行情面板Web</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/StockProject">下一篇->股票行情面板Web</a>
               </div>
             </nav>
           
@@ -220,11 +220,11 @@ hljs.initHighlightingOnLoad()
 <!--more-->
 <h3 id="0x00前言">0x00前言</h3>
 <p>之前看到一张 豆瓣分享海报 感觉很不错</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png" loading="lazy"></figure>
 <p>应该是豆瓣官方的设计的 但是没找到分享的地方<br>
 <em>PS:手机APP端分享的海报不是这样的</em><br>
 于是就想自己用Python画一个<br>
-<img src="https://i.loli.net/2019/08/25/F3vnwIjSNs6EKkM.png" alt="哪吒之魔童降世_poster.png"></p>
+<img src="https://i.loli.net/2019/08/25/F3vnwIjSNs6EKkM.png" alt="哪吒之魔童降世_poster.png" loading="lazy"></p>
 <p>自己画的是这样的  没有阴影 没有半圆分割 字体略不同 其他基本是一样的 基本满意<br>
 等实现完所有细节 自我陶醉时<br>
 在豆瓣网页端找到这张官方分享海报的地方<br>
@@ -232,7 +232,7 @@ hljs.initHighlightingOnLoad()
 当场吐血 功能白做了<br>
 好在 豆瓣书单是没有引用导出海报功能<br>
 临时加需求 按照电影海报的亚子 绘制书单的分享海报<br>
-<img src="https://i.loli.net/2019/09/29/fh3KVSa8TECBIkD.png" alt="房思琪的初恋乐园_poster.png"></p>
+<img src="https://i.loli.net/2019/09/29/fh3KVSa8TECBIkD.png" alt="房思琪的初恋乐园_poster.png" loading="lazy"></p>
 <h3 id="0x01-豆瓣爬虫">0x01 豆瓣爬虫</h3>
 <p>豆瓣电影/书单提供了相应的官方接口 但好像不够满足海报所需的数据 比如星星数<br>
 就写相应的爬虫获取相应的数据 这里不是详细阐述爬虫过程 具体见源码<br>

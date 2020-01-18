@@ -2,18 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2020-01-18T12:23:06.869Z</updated>
+    <updated>2020-01-18T12:32:47.354Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
-    <link rel="self" href="https://blog.wjinyu.top//atom.xml"/>
+    <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
     <subtitle>真话、假话、胡话、骚话、全都说</subtitle>
-    <logo>https://blog.wjinyu.top//images/avatar.png</logo>
-    <icon>https://blog.wjinyu.top//favicon.ico</icon>
+    <logo>https://blog.wjinyu.top/images/avatar.png</logo>
+    <icon>https://blog.wjinyu.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 今语</rights>
     <entry>
         <title type="html"><![CDATA[Miniconda/Anconda使用手册]]></title>
-        <id>https://blog.wjinyu.top//post/condaUse</id>
-        <link href="https://blog.wjinyu.top//post/condaUse">
+        <id>https://blog.wjinyu.top/post/condaUse</id>
+        <link href="https://blog.wjinyu.top/post/condaUse">
         </link>
         <updated>2019-12-14T03:47:21.000Z</updated>
         <summary type="html"><![CDATA[<p>留下了没有技术的眼泪</p>
@@ -207,8 +207,8 @@ rm -rf ~/.condarc ~/.conda ~/.continuum
     </entry>
     <entry>
         <title type="html"><![CDATA[macOS破解Chrome保存的密码————他失败 失败了]]></title>
-        <id>https://blog.wjinyu.top//post/macOSChromePassword</id>
-        <link href="https://blog.wjinyu.top//post/macOSChromePassword">
+        <id>https://blog.wjinyu.top/post/macOSChromePassword</id>
+        <link href="https://blog.wjinyu.top/post/macOSChromePassword">
         </link>
         <updated>2019-11-30T11:36:15.000Z</updated>
         <summary type="html"><![CDATA[<p>毫无疑问失败了 无功而返<br>
@@ -224,7 +224,7 @@ rm -rf ~/.condarc ~/.conda ~/.continuum
 这篇文章介绍了如何在Win下破解Chrome浏览器存储的密码<br>
 简单的说<br>
 Chrome保存的密码都记录在固定位置(<code>当前用户\Google\Chrome\User Data\Default\Login Data</code>)的文件中 而该文件恰恰是SQLite数据库文件 随便个SQLite工具均可打开</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/30/KsUe9dZEtyHGqTX.png" alt="UTOOLS_COMPRESS_1575114584023.png"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/30/KsUe9dZEtyHGqTX.png" alt="UTOOLS_COMPRESS_1575114584023.png" loading="lazy"></figure>
 <p>username_value 即账号<br>
 password_value 即密码<br>
 显然密码不是明文 是经过加密的<br>
@@ -262,7 +262,7 @@ Win下妙就妙在 python可是使用三方库<code>win32crypt</code>的<code>Cr
 <p>password：加密的密码</p>
 </li>
 </ol>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/30/SkDWBNMraYLjo83.png" alt="UTOOLS_COMPRESS_1575115968886.png"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/30/SkDWBNMraYLjo83.png" alt="UTOOLS_COMPRESS_1575115968886.png" loading="lazy"></figure>
 <h3 id="整理">整理</h3>
 <h4 id="第一步">第一步</h4>
 <p>首先获取加密的密码<br>
@@ -270,7 +270,7 @@ macOS中都记录在钥匙串keyChain中<br>
 直接在macOS中iTerm输入<code>security find-generic-password -ga 'Chrome'</code><br>
 然后提示输入密码(需输入两遍 这是个系统小bug)<br>
 即可出现<br>
-<img src="https://i.loli.net/2019/11/30/9DW3cixsgXZJBz1.png" alt="UTOOLS_COMPRESS_1575116489356.png"></p>
+<img src="https://i.loli.net/2019/11/30/9DW3cixsgXZJBz1.png" alt="UTOOLS_COMPRESS_1575116489356.png" loading="lazy"></p>
 <p>最下方的password即是密码<br>
 该密码是经过base64编码的 需要decode<br>
 (在尝试的过程中 直到很后面才发现要解码 不可直接拿来使用)<br>
@@ -339,9 +339,9 @@ result = subprocess.getstatusoutput(&quot;openssl enc -d -aes-128-cbc -iv '%s' -
 最可能出的问题 应该第一步</strong><br>
 参考的文章中有出现过password<br>
 使用它的password是可以解码回字符串的</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/30/k2rO3W1aLBpqnPo.png" alt="UTOOLS_COMPRESS_1575117043985.png"></figure>
-<p><img src="https://i.loli.net/2019/11/30/IL1z2cdmCVP5lQH.png" alt="UTOOLS_COMPRESS_1575117330016.png">而现在再尝试已经无法再转码成utf8了<br>
-<img src="https://i.loli.net/2019/11/30/2e65FGDkS7mB3Y1.png" alt="UTOOLS_COMPRESS_1575117234849.png"></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/30/k2rO3W1aLBpqnPo.png" alt="UTOOLS_COMPRESS_1575117043985.png" loading="lazy"></figure>
+<p><img src="https://i.loli.net/2019/11/30/IL1z2cdmCVP5lQH.png" alt="UTOOLS_COMPRESS_1575117330016.png" loading="lazy">而现在再尝试已经无法再转码成utf8了<br>
+<img src="https://i.loli.net/2019/11/30/2e65FGDkS7mB3Y1.png" alt="UTOOLS_COMPRESS_1575117234849.png" loading="lazy"></p>
 <p>按照这个线索 再搜索keyChain的相关资料 找到了这篇关键材料</p>
 <p><a href="https://bbs.pediy.com/thread-220981.htm">《实验code review 解码苹果上所有的Tokens decrypts/extracts all authorization tokens on macOS/OSX》</a></p>
 <p>文章中作者提出破解iCoud的办法  且已经向苹果上报了bug<br>
@@ -413,8 +413,8 @@ END</p>
     </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-后话篇]]></title>
-        <id>https://blog.wjinyu.top//post/BilibiliVideo_last</id>
-        <link href="https://blog.wjinyu.top//post/BilibiliVideo_last">
+        <id>https://blog.wjinyu.top/post/BilibiliVideo_last</id>
+        <link href="https://blog.wjinyu.top/post/BilibiliVideo_last">
         </link>
         <updated>2019-11-10T12:56:03.000Z</updated>
         <summary type="html"><![CDATA[<p>只要我不努力<br>
@@ -444,7 +444,7 @@ END</p>
 要有header信息才能访问<br>
 Dplayer好像不支持<br>
 在Dplayer的issues中就有人提出这个问题</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/hOsWycDubiB5q3k.jpg" alt="3321573389630_.pic.jpg"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/hOsWycDubiB5q3k.jpg" alt="3321573389630_.pic.jpg" loading="lazy"></figure>
 <p>最后也没有找到方法<br>
 除了留下没有技术的眼泪<br>
 当然也留下了没有金钱的眼泪<br>
@@ -463,7 +463,7 @@ Dplayer好像不支持<br>
 每位Up主做视频都不容易<br>
 如果有打动你的地方 请一键三连<br>
 而不是下次一定<br>
-<img src="https://i.loli.net/2019/11/10/sYZ34NFu6CG2rJI.png" alt="UTOOLS_COMPRESS_1573389263386.png"></p>
+<img src="https://i.loli.net/2019/11/10/sYZ34NFu6CG2rJI.png" alt="UTOOLS_COMPRESS_1573389263386.png" loading="lazy"></p>
 <p>这也是不想公开源码的重要原因  仅分享思路<br>
 怕被滥用  怕伤害到Up主 怕伤害到B站<br>
 再次重申 仅供学习 请勿商用<br>
@@ -478,8 +478,8 @@ Dplayer好像不支持<br>
     </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-实现篇-优化篇]]></title>
-        <id>https://blog.wjinyu.top//post/BilibiliVideo_optimize</id>
-        <link href="https://blog.wjinyu.top//post/BilibiliVideo_optimize">
+        <id>https://blog.wjinyu.top/post/BilibiliVideo_optimize</id>
+        <link href="https://blog.wjinyu.top/post/BilibiliVideo_optimize">
         </link>
         <updated>2019-11-10T09:05:51.000Z</updated>
         <summary type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
@@ -527,7 +527,7 @@ def download():
   return response
 
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png" loading="lazy"></figure>
 <h4 id="html页面设计">HTML页面设计</h4>
 <p>设计三个基本html页面</p>
 <ul>
@@ -539,7 +539,7 @@ def download():
 修改要展示的内容即可<br>
 若解析异常 则给提出异常提示和热门搜索(其实就是写死的推荐项)<br>
 异常可以使用AssertionError断言拦截 比如&quot;链接必须是来自B站&quot;、&quot;链接不能为空&quot;、&quot;无法解析该地址&quot;、&quot;内部异常！可能被233娘吃掉了&quot;等等</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/NJQZAvbBGhfynWe.png" alt="UTOOLS_COMPRESS_1573373340096.png"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/NJQZAvbBGhfynWe.png" alt="UTOOLS_COMPRESS_1573373340096.png" loading="lazy"></figure>
 <h4 id="视频解析进度条">视频解析进度条</h4>
 <p>当视频地址里视频比较多的时候<br>
 解析比较耗时  但页面上没有反应出来<br>
@@ -554,7 +554,7 @@ def download():
   NProgress.stop();
 })
 </code></pre>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/3nlKuipDeOdmH69.png" alt="UTOOLS_COMPRESS_1573373940104.png"></figure>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/3nlKuipDeOdmH69.png" alt="UTOOLS_COMPRESS_1573373940104.png" loading="lazy"></figure>
 <p>在页面顶部就有一个进度条 右上还有加载圆 大赞！</p>
 <h4 id="添加csrf-token防御">添加CSRF Token防御</h4>
 <p>CSRF具体是什么 我不太了解<br>
@@ -572,7 +572,7 @@ CsrfProtect(app)
 <p>这样表单提交就会自动生成一个<strong>csrf_token</strong><br>
 并且验证token的正确性<br>
 每次刷新生成的<strong>csrf_token</strong>也都不一样</p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/mM7OoEeDuZ9bJjy.png" alt="UTOOLS_COMPRESS_1573376370149.png"></figure>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/mM7OoEeDuZ9bJjy.png" alt="UTOOLS_COMPRESS_1573376370149.png" loading="lazy"></figure>
 <h4 id="大会员sessdata不过期">大会员SESSDATA不过期</h4>
 <p>基础篇提到过SESSDATA是大概有一个月的有效期<br>
 既然都发布服务了 总不能每隔一个月去修改SESSDATA吧<br>
@@ -592,15 +592,15 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
 为了了解登陆成功与否的详细<br>
 再增加邮箱发送的脚本<br>
 这样就能及时了解模拟登陆的情况 及时排查</p>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/4KcFfLeq8Q7o9Tm.png" alt="UTOOLS_COMPRESS_1573375534489.png"></figure>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/4KcFfLeq8Q7o9Tm.png" alt="UTOOLS_COMPRESS_1573375534489.png" loading="lazy"></figure>
 <p>额外篇 如何实现B站滑块自动登陆 有机会再讲<br>
 额外篇 如何实现邮箱发送  有机会再讲</p>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-实现篇-基础篇]]></title>
-        <id>https://blog.wjinyu.top//post/BilibiliVideo_realize</id>
-        <link href="https://blog.wjinyu.top//post/BilibiliVideo_realize">
+        <id>https://blog.wjinyu.top/post/BilibiliVideo_realize</id>
+        <link href="https://blog.wjinyu.top/post/BilibiliVideo_realize">
         </link>
         <updated>2019-11-10T03:45:30.000Z</updated>
         <summary type="html"><![CDATA[<p>只有用水将心上的雾气淘洗干净<br>
@@ -622,7 +622,7 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
 在此基础上进行了梳理修改<br>
 下面是视频下载的大体思路</p>
 <h4 id="获取视频基本信息">获取视频基本信息</h4>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg" loading="lazy"></figure>
 <p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681<br>
 番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
 <p>requests.get(url).text  获取当前地址的源码<br>
@@ -637,14 +637,14 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
 <p>这里要注意Up主视频地址与番剧视频的json内容不同的<br>
 所以要分开处理</p>
 <h5 id="up主视频">Up主视频</h5>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/O6mfwrtpeZQJDlG.png" alt="UTOOLS_COMPRESS_1573368344571.png"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/O6mfwrtpeZQJDlG.png" alt="UTOOLS_COMPRESS_1573368344571.png" loading="lazy"></figure>
 <p>json里面有pic(即封面)、title(即标题)<br>
 一个视频地址里面可能有多个子视频<br>
 pages里面就存着多个子视频的信息<br>
 需要用到的是cid和part(子视频的名字)</p>
 <h5 id="番剧视频">番剧视频</h5>
 <p>番剧的json内容与Up主json内容略有不同</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/1vKXJPo3DlmgfbY.png" alt="UTOOLS_COMPRESS_1573368890717.png"></figure>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/1vKXJPo3DlmgfbY.png" alt="UTOOLS_COMPRESS_1573368890717.png" loading="lazy"></figure>
 <p>mediainfo里放着这个番剧的标题和封面<br>
 epList里有每集视频的cid和aid</p>
 <h4 id="获取视频下载地址">获取视频下载地址</h4>
@@ -685,7 +685,7 @@ F12&gt; Application&gt;Cookies&gt;SESSDATA<br>
 </code></pre>
 <p>request.get(API_URL,headers = headers) 即可<br>
 这是返回的结果 同样是json<br>
-<img src="https://i.loli.net/2019/11/10/CGPTJ9g2m1b3Q6O.png" alt="UTOOLS_COMPRESS_1573370101861.png"></p>
+<img src="https://i.loli.net/2019/11/10/CGPTJ9g2m1b3Q6O.png" alt="UTOOLS_COMPRESS_1573370101861.png" loading="lazy"></p>
 <p>下载地址是data['durl']['url']<br>
 到这里基本可以获取全站所有的视频下载地址</p>
 <h4 id="本地下载视频">本地下载视频</h4>
@@ -741,13 +741,13 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 <h4 id="end">END</h4>
 <p>整体思路介绍完毕<br>
 基本上就可以下载任意视频到本地了</p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/iO4UmQs6REHP5vl.png" alt="UTOOLS_COMPRESS_1573371620820.png"></figure>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/iO4UmQs6REHP5vl.png" alt="UTOOLS_COMPRESS_1573371620820.png" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[BilibiliVideo-缘起篇]]></title>
-        <id>https://blog.wjinyu.top//post/BilibiliVideo_begin</id>
-        <link href="https://blog.wjinyu.top//post/BilibiliVideo_begin">
+        <id>https://blog.wjinyu.top/post/BilibiliVideo_begin</id>
+        <link href="https://blog.wjinyu.top/post/BilibiliVideo_begin">
         </link>
         <updated>2019-11-10T03:29:25.000Z</updated>
         <summary type="html"><![CDATA[<p>如果你真的愿意去努力<br>
@@ -771,25 +771,25 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 下面简直描述下以上提到的产品</p>
 <h3 id="爱哔哩">爱哔哩</h3>
 <p>爱哔哩 https://www.ibilibili.com/ 使用起来非常方便 在原bilibili.com前添加i即可自动跳转解析<br>
-<img src="https://i.loli.net/2019/11/10/qwVzHk9G1voa3Zs.png" alt="UTOOLS_COMPRESS_1573353905290.png"><br>
+<img src="https://i.loli.net/2019/11/10/qwVzHk9G1voa3Zs.png" alt="UTOOLS_COMPRESS_1573353905290.png" loading="lazy"><br>
 但近期解析的视频基本提示“请使用下载工具下载”<br>
-<img src="https://i.loli.net/2019/11/10/IieOURXE1YlJ8G2.png" alt="UTOOLS_COMPRESS_1573354124301.png"><br>
+<img src="https://i.loli.net/2019/11/10/IieOURXE1YlJ8G2.png" alt="UTOOLS_COMPRESS_1573354124301.png" loading="lazy"><br>
 如果是B站的番剧或电影 添加i跳转解析 直接失败<br>
 下载下载工具后 解析是没有问题的 无论番剧或者Up主视频都能下载<br>
-<img src="https://i.loli.net/2019/11/10/GxH564iIeYgoDTX.png" alt="UTOOLS1573355181219.png"></p>
+<img src="https://i.loli.net/2019/11/10/GxH564iIeYgoDTX.png" alt="UTOOLS1573355181219.png" loading="lazy"></p>
 <p>会员专属视频也能下载 这个点赞<br>
 缺点就是下载工具无法选择清晰度<br>
 同时通过网页解析再下载下载工具总觉得多此一举<br>
 能不能就简单一些 页面解析 解析完  下载 一气呵成</p>
 <h3 id="视频鱼">视频鱼</h3>
 <p>视频鱼 http://www.shipinyu.com/ 支持的视频解析网站非常全面</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/XZ26itrmSPICy9M.png" alt="UTOOLS_COMPRESS_1573354969146.png"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/XZ26itrmSPICy9M.png" alt="UTOOLS_COMPRESS_1573354969146.png" loading="lazy"></figure>
 <p>依然测试下B站视频 解析成功了 这才符合之前说的 解析完 点击下载<br>
-<img src="https://i.loli.net/2019/11/10/dSnlHsGZrwCpIqX.png" alt="UTOOLS_COMPRESS_1573355073441.png"></p>
+<img src="https://i.loli.net/2019/11/10/dSnlHsGZrwCpIqX.png" alt="UTOOLS_COMPRESS_1573355073441.png" loading="lazy"></p>
 <p>但点击下载时 突然发现高兴太早了<br>
 选择flv文件 提示“解析失败，请稍后再试！”<br>
 选择mp4文件 任一清晰度  下载失败</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/49xyd5ZXDlkiw2T.png" alt="UTOOLS_COMPRESS_1573355277094.png"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/49xyd5ZXDlkiw2T.png" alt="UTOOLS_COMPRESS_1573355277094.png" loading="lazy"></figure>
 <h3 id="bilibilivideo">BilibiliVideo</h3>
 <p>爱哔哩和视频鱼都不是很满意<br>
 决定自己做一款B站视频下载解析 要有以下几点</p>
@@ -805,15 +805,15 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 左上角可选择清晰度 360P~1080P+<br>
 欢迎体验 下载B站视频的同时也不要忘记给Up主一键三连 投币点赞<br>
 最后 仅供学习 请勿商用</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/8MqmCJpAKlzQUnH.png" alt="首页"></figure>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/hxzFmJq9GWvD43l.png" alt="UTOOLS_COMPRESS_1573355902309.png"></figure>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png"></figure>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/8MqmCJpAKlzQUnH.png" alt="首页" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/hxzFmJq9GWvD43l.png" alt="UTOOLS_COMPRESS_1573355902309.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png" loading="lazy"></figure>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[CentOS7 Chrome ChromeDriver Selenium 安装手册]]></title>
-        <id>https://blog.wjinyu.top//post/CentOS7_Chrome_ChromeDriver_Selenium_install</id>
-        <link href="https://blog.wjinyu.top//post/CentOS7_Chrome_ChromeDriver_Selenium_install">
+        <id>https://blog.wjinyu.top/post/CentOS7_Chrome_ChromeDriver_Selenium_install</id>
+        <link href="https://blog.wjinyu.top/post/CentOS7_Chrome_ChromeDriver_Selenium_install">
         </link>
         <updated>2019-11-05T06:18:27.000Z</updated>
         <summary type="html"><![CDATA[<p>白白胖胖<br>
@@ -920,8 +920,8 @@ browser.close()
     </entry>
     <entry>
         <title type="html"><![CDATA[黑板客爬虫闯关通关]]></title>
-        <id>https://blog.wjinyu.top//post/CrawerExam-heibanke</id>
-        <link href="https://blog.wjinyu.top//post/CrawerExam-heibanke">
+        <id>https://blog.wjinyu.top/post/CrawerExam-heibanke</id>
+        <link href="https://blog.wjinyu.top/post/CrawerExam-heibanke">
         </link>
         <updated>2019-10-02T06:57:34.000Z</updated>
         <summary type="html"><![CDATA[<p>爬虫学的好 牢房进的早<br>
@@ -942,7 +942,7 @@ Code:https://github.com/sadjjk/CrawerExam-heibanke</p>
 <p>网上关于这部分的代码实践也不少<br>
 绝知此事要躬行  自己code一遍</p>
 <h3 id="第一关">第一关</h3>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/10/02/hAwDifI4vkNtge9.png" alt="UTOOLS_COMPRESS_1569999755672.png"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/10/02/hAwDifI4vkNtge9.png" alt="UTOOLS_COMPRESS_1569999755672.png" loading="lazy"></figure>
 <p><code>requests</code> GET 不断请求即可</p>
 <pre><code>下一个你需要输入的数字是25997. 老实告诉你吧, 这样的数字还有上百个
 第49次尝试 URL:http://www.heibanke.com/lesson/crawler_ex00/25997
@@ -955,7 +955,7 @@ Code:https://github.com/sadjjk/CrawerExam-heibanke</p>
 END
 </code></pre>
 <h3 id="第二关">第二关</h3>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/10/02/Hx8YCN2kVrt9qcJ.png" alt="UTOOLS_COMPRESS_1569999938435.png"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/10/02/Hx8YCN2kVrt9qcJ.png" alt="UTOOLS_COMPRESS_1569999938435.png" loading="lazy"></figure>
 <p>猜密码 这里从0~30的列表中 <code>random.choice</code>每次随机给出一个数<br>
 若此数密码不正确 则从该列表中remove</p>
 <pre><code>尝试密码:13
@@ -968,14 +968,14 @@ END
 恭喜! 用户spider成功闯关, 继续你的爬虫之旅吧
 </code></pre>
 <h3 id="第三关">第三关</h3>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/10/02/vtEu8UbP31Dgfy7.jpg" alt="Xnip2019-10-02_15-10-41.jpg"></figure>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/10/02/vtEu8UbP31Dgfy7.jpg" alt="Xnip2019-10-02_15-10-41.jpg" loading="lazy"></figure>
 <p>第三关先进去是这样的 没有谜题 一头雾水<br>
 需要先在这里注册账号 登陆后重新打开 出现谜题</p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/10/02/scdnE5CUTq6l4WH.png" alt="UTOOLS_COMPRESS_1570000211937.png"></figure>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/10/02/scdnE5CUTq6l4WH.png" alt="UTOOLS_COMPRESS_1570000211937.png" loading="lazy"></figure>
 <p>还是猜密码 第一反应就是要先登陆 requests Session 模拟登陆即可<br>
 但是没有成功 谜题写着两层保护 也没看懂<br>
 百度后 明白了 还有一层token的加密</p>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/10/02/DmY3XNvFhueLkRJ.png" alt="UTOOLS_COMPRESS_1570000617203.png"></figure>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/10/02/DmY3XNvFhueLkRJ.png" alt="UTOOLS_COMPRESS_1570000617203.png" loading="lazy"></figure>
 <p>首先是账号登陆时需要一个token<br>
 其次是谜题猜密码时也需要一个token<br>
 这里两个token均来自cookies</p>
@@ -993,9 +993,9 @@ csrftoken2 = session.cookies.get('csrftoken')
 </code></pre>
 <p>两次token不同  需重新获取 然后就是熟悉的猜密码 和第二关相同</p>
 <h3 id="第四关">第四关</h3>
-<figure data-type="image" tabindex="6"><img src="https://s2.ax1x.com/2019/10/02/uaxydA.png" alt="uaxydA.png"></figure>
+<figure data-type="image" tabindex="6"><img src="https://s2.ax1x.com/2019/10/02/uaxydA.png" alt="uaxydA.png" loading="lazy"></figure>
 <p>依然一脸懵逼 尝试输入密码 提示密码在这里寻找</p>
-<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2019/10/02/LaCRexzIHTGjnom.png" alt="UTOOLS_COMPRESS_1570001394116.png"></figure>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2019/10/02/LaCRexzIHTGjnom.png" alt="UTOOLS_COMPRESS_1570001394116.png" loading="lazy"></figure>
 <p>注意：并不把所有13页的密码按照&lt;位置,值&gt;拼起来就组成最终的密   码，因为有些位置会重复给出 可能加载完所有页 也不一定组成出完整的密码 可能还是会有个别位置缺失<br>
 PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置缺失<br>
 其实只要第一页反复刷新就可以了<br>
@@ -1010,7 +1010,7 @@ PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置
 恭喜! 用户aaa成功闯关, 继续你的爬虫之旅吧
 </code></pre>
 <h3 id="第五关">第五关</h3>
-<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2019/10/02/EIbCJ5zMXGgfvo4.png" alt="UTOOLS_COMPRESS_1570001895588.png"></figure>
+<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2019/10/02/EIbCJ5zMXGgfvo4.png" alt="UTOOLS_COMPRESS_1570001895588.png" loading="lazy"></figure>
 <p>加了验证码 验证码使用OCR识别出正确的字母 这里的图片已经很清晰 不用二值化或灰度处理 唯一的问题就是个别字母倾斜导致OCR识别错误 暂时不知道如何倾斜矫正</p>
 <p>OCR使用 pytesseract或者百度OCR  两者的识别准确率半斤八两 都不太高 基本都出错在倾斜字母上 但总体上还是能用</p>
 <p>tips:不用把每次的验证码图片下载下来 会下载很多验证码 以后也不会用到 浪费空间  直接获得验证码图片的二进制content 每次拿二进制content去识别</p>
@@ -1028,8 +1028,8 @@ PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置
     </entry>
     <entry>
         <title type="html"><![CDATA[Python制作豆瓣书单分享海报(仿电影海报)]]></title>
-        <id>https://blog.wjinyu.top//post/DoubanPoster</id>
-        <link href="https://blog.wjinyu.top//post/DoubanPoster">
+        <id>https://blog.wjinyu.top/post/DoubanPoster</id>
+        <link href="https://blog.wjinyu.top/post/DoubanPoster">
         </link>
         <updated>2019-09-29T08:50:20.000Z</updated>
         <summary type="html"><![CDATA[<p>Github:https://github.com/sadjjk/DoubanPoster</p>
@@ -1038,11 +1038,11 @@ PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置
 <!--more-->
 <h3 id="0x00前言">0x00前言</h3>
 <p>之前看到一张 豆瓣分享海报 感觉很不错</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/08/25/Vc72z9JuxgkKyEY.png" alt="哪吒之魔童降世.png" loading="lazy"></figure>
 <p>应该是豆瓣官方的设计的 但是没找到分享的地方<br>
 <em>PS:手机APP端分享的海报不是这样的</em><br>
 于是就想自己用Python画一个<br>
-<img src="https://i.loli.net/2019/08/25/F3vnwIjSNs6EKkM.png" alt="哪吒之魔童降世_poster.png"></p>
+<img src="https://i.loli.net/2019/08/25/F3vnwIjSNs6EKkM.png" alt="哪吒之魔童降世_poster.png" loading="lazy"></p>
 <p>自己画的是这样的  没有阴影 没有半圆分割 字体略不同 其他基本是一样的 基本满意<br>
 等实现完所有细节 自我陶醉时<br>
 在豆瓣网页端找到这张官方分享海报的地方<br>
@@ -1050,7 +1050,7 @@ PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置
 当场吐血 功能白做了<br>
 好在 豆瓣书单是没有引用导出海报功能<br>
 临时加需求 按照电影海报的亚子 绘制书单的分享海报<br>
-<img src="https://i.loli.net/2019/09/29/fh3KVSa8TECBIkD.png" alt="房思琪的初恋乐园_poster.png"></p>
+<img src="https://i.loli.net/2019/09/29/fh3KVSa8TECBIkD.png" alt="房思琪的初恋乐园_poster.png" loading="lazy"></p>
 <h3 id="0x01-豆瓣爬虫">0x01 豆瓣爬虫</h3>
 <p>豆瓣电影/书单提供了相应的官方接口 但好像不够满足海报所需的数据 比如星星数<br>
 就写相应的爬虫获取相应的数据 这里不是详细阐述爬虫过程 具体见源码<br>
@@ -1173,8 +1173,8 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
     </entry>
     <entry>
         <title type="html"><![CDATA[股票行情面板Web]]></title>
-        <id>https://blog.wjinyu.top//post/StockProject</id>
-        <link href="https://blog.wjinyu.top//post/StockProject">
+        <id>https://blog.wjinyu.top/post/StockProject</id>
+        <link href="https://blog.wjinyu.top/post/StockProject">
         </link>
         <updated>2019-09-13T07:47:36.000Z</updated>
         <summary type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
@@ -1183,9 +1183,9 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
 <!--more-->
 <p><a href="http://47.105.166.237/index">演示地址</a>                            <a href="https://github.com/sadjjk/StockProject">Github</a></p>
 <p>股票行情看板，前前后后花了一个月，基本是周末闲(咸)余(鱼)时间写写改改，工作日实在没时间。</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg" alt="Xnip2019-09-13_15-23-45.jpg"></figure>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/09/13/v7pPDuyLQA6of2G.jpg" alt="Xnip2019-09-13_15-24-39.jpg"></figure>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/09/13/urC7GbWq9NpKeDh.jpg" alt="Xnip2019-09-13_15-31-42.jpg"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg" alt="Xnip2019-09-13_15-23-45.jpg" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/09/13/v7pPDuyLQA6of2G.jpg" alt="Xnip2019-09-13_15-24-39.jpg" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/09/13/urC7GbWq9NpKeDh.jpg" alt="Xnip2019-09-13_15-31-42.jpg" loading="lazy"></figure>
 <h2 id="设计">设计</h2>
 <h3 id="首页">首页</h3>
 <h4 id="头部">头部</h4>

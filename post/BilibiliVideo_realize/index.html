@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>BilibiliVideo-实现篇-基础篇 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1579350127769">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1579350764872">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -98,7 +98,7 @@
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wjinyu.top//tag/life">Life</a>
+                    <a href="https://blog.wjinyu.top/tag/life">Life</a>
                 </span>
           
         </div>
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top//post/BilibiliVideo_begin">下一篇->BilibiliVideo-缘起篇</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/BilibiliVideo_begin">下一篇->BilibiliVideo-缘起篇</a>
               </div>
             </nav>
           
@@ -232,7 +232,7 @@ hljs.initHighlightingOnLoad()
 在此基础上进行了梳理修改<br>
 下面是视频下载的大体思路</p>
 <h4 id="获取视频基本信息">获取视频基本信息</h4>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg" loading="lazy"></figure>
 <p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681<br>
 番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
 <p>requests.get(url).text  获取当前地址的源码<br>
@@ -247,14 +247,14 @@ hljs.initHighlightingOnLoad()
 <p>这里要注意Up主视频地址与番剧视频的json内容不同的<br>
 所以要分开处理</p>
 <h5 id="up主视频">Up主视频</h5>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/O6mfwrtpeZQJDlG.png" alt="UTOOLS_COMPRESS_1573368344571.png"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/O6mfwrtpeZQJDlG.png" alt="UTOOLS_COMPRESS_1573368344571.png" loading="lazy"></figure>
 <p>json里面有pic(即封面)、title(即标题)<br>
 一个视频地址里面可能有多个子视频<br>
 pages里面就存着多个子视频的信息<br>
 需要用到的是cid和part(子视频的名字)</p>
 <h5 id="番剧视频">番剧视频</h5>
 <p>番剧的json内容与Up主json内容略有不同</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/1vKXJPo3DlmgfbY.png" alt="UTOOLS_COMPRESS_1573368890717.png"></figure>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/1vKXJPo3DlmgfbY.png" alt="UTOOLS_COMPRESS_1573368890717.png" loading="lazy"></figure>
 <p>mediainfo里放着这个番剧的标题和封面<br>
 epList里有每集视频的cid和aid</p>
 <h4 id="获取视频下载地址">获取视频下载地址</h4>
@@ -295,7 +295,7 @@ F12&gt; Application&gt;Cookies&gt;SESSDATA<br>
 </code></pre>
 <p>request.get(API_URL,headers = headers) 即可<br>
 这是返回的结果 同样是json<br>
-<img src="https://i.loli.net/2019/11/10/CGPTJ9g2m1b3Q6O.png" alt="UTOOLS_COMPRESS_1573370101861.png"></p>
+<img src="https://i.loli.net/2019/11/10/CGPTJ9g2m1b3Q6O.png" alt="UTOOLS_COMPRESS_1573370101861.png" loading="lazy"></p>
 <p>下载地址是data['durl']['url']<br>
 到这里基本可以获取全站所有的视频下载地址</p>
 <h4 id="本地下载视频">本地下载视频</h4>
@@ -351,7 +351,7 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 <h4 id="end">END</h4>
 <p>整体思路介绍完毕<br>
 基本上就可以下载任意视频到本地了</p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/iO4UmQs6REHP5vl.png" alt="UTOOLS_COMPRESS_1573371620820.png"></figure>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/iO4UmQs6REHP5vl.png" alt="UTOOLS_COMPRESS_1573371620820.png" loading="lazy"></figure>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)

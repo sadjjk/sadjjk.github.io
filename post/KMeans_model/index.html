@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>KMeans及其衍生聚类算法 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1579350127769">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1579350764872">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -98,7 +98,7 @@
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wjinyu.top//tag/work">Work</a>
+                    <a href="https://blog.wjinyu.top/tag/work">Work</a>
                 </span>
           
         </div>
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top//post/GoldTalk">下一篇->钱途</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/GoldTalk">下一篇->钱途</a>
               </div>
             </nav>
           
@@ -277,7 +277,7 @@ K-Medoids对于较多的样本量，速度就慢了(见下表的时间复杂度)
 # 在早已无人维护的三方模块pyclust中有KMedoids
 from pyclust import KMedoids
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/07/21/5d342b7fdc18579814.png" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/07/21/5d342b7fdc18579814.png" alt="" loading="lazy"></figure>
 <p>2.随机地确定初始质心，不同的初始质心可能导致完全不同的聚类结果。</p>
 <ul>
 <li>
@@ -314,7 +314,7 @@ init: k-means++ 、random 、指定具体初始质心
 ​	2.将该簇一分为二<br>
 ​	3.选择能最大限度降低聚类代价函数的簇划分为两个簇。<br>
 ​	4.以此进行下去，直到簇的数目等于用户给定的数目k为止。</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/07/21/5d342b95811f385134.png" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/07/21/5d342b95811f385134.png" alt="" loading="lazy"></figure>
 <pre><code>skearn没有此模型
 目前也没找到已实现的三方模块
 需自己手写
@@ -330,7 +330,7 @@ init: k-means++ 、random 、指定具体初始质心
 <p>4.线性不可分的样本效果不佳</p>
 <h5 id="kernel-k-means"><strong>Kernel K-means</strong></h5>
 <p>​	使用核函数，将每个样本进行一个投射到高维空间的处理，然后再将处理后的	数据使用普通的k-means算法思想进行聚类。其基本思路与SVM(支持向量机)一	致。</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/07/21/5d342badcd11317376.png" alt=""></figure>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/07/21/5d342badcd11317376.png" alt="" loading="lazy"></figure>
 <pre><code>skearn没有此模型
 目前也没找到已实现的三方模块
 需自己手写

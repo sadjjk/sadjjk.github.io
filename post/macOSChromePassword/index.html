@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>macOS破解Chrome保存的密码————他失败 失败了 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1579350127769">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1579350764872">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -98,7 +98,7 @@
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wjinyu.top//tag/work">Work</a>
+                    <a href="https://blog.wjinyu.top/tag/work">Work</a>
                 </span>
           
         </div>
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top//post/BilibiliVideo_last">下一篇->BilibiliVideo-后话篇</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/BilibiliVideo_last">下一篇->BilibiliVideo-后话篇</a>
               </div>
             </nav>
           
@@ -225,7 +225,7 @@ hljs.initHighlightingOnLoad()
 这篇文章介绍了如何在Win下破解Chrome浏览器存储的密码<br>
 简单的说<br>
 Chrome保存的密码都记录在固定位置(<code>当前用户\Google\Chrome\User Data\Default\Login Data</code>)的文件中 而该文件恰恰是SQLite数据库文件 随便个SQLite工具均可打开</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/30/KsUe9dZEtyHGqTX.png" alt="UTOOLS_COMPRESS_1575114584023.png"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/30/KsUe9dZEtyHGqTX.png" alt="UTOOLS_COMPRESS_1575114584023.png" loading="lazy"></figure>
 <p>username_value 即账号<br>
 password_value 即密码<br>
 显然密码不是明文 是经过加密的<br>
@@ -263,7 +263,7 @@ Win下妙就妙在 python可是使用三方库<code>win32crypt</code>的<code>Cr
 <p>password：加密的密码</p>
 </li>
 </ol>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/30/SkDWBNMraYLjo83.png" alt="UTOOLS_COMPRESS_1575115968886.png"></figure>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/30/SkDWBNMraYLjo83.png" alt="UTOOLS_COMPRESS_1575115968886.png" loading="lazy"></figure>
 <h3 id="整理">整理</h3>
 <h4 id="第一步">第一步</h4>
 <p>首先获取加密的密码<br>
@@ -271,7 +271,7 @@ macOS中都记录在钥匙串keyChain中<br>
 直接在macOS中iTerm输入<code>security find-generic-password -ga 'Chrome'</code><br>
 然后提示输入密码(需输入两遍 这是个系统小bug)<br>
 即可出现<br>
-<img src="https://i.loli.net/2019/11/30/9DW3cixsgXZJBz1.png" alt="UTOOLS_COMPRESS_1575116489356.png"></p>
+<img src="https://i.loli.net/2019/11/30/9DW3cixsgXZJBz1.png" alt="UTOOLS_COMPRESS_1575116489356.png" loading="lazy"></p>
 <p>最下方的password即是密码<br>
 该密码是经过base64编码的 需要decode<br>
 (在尝试的过程中 直到很后面才发现要解码 不可直接拿来使用)<br>
@@ -340,9 +340,9 @@ result = subprocess.getstatusoutput(&quot;openssl enc -d -aes-128-cbc -iv '%s' -
 最可能出的问题 应该第一步</strong><br>
 参考的文章中有出现过password<br>
 使用它的password是可以解码回字符串的</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/30/k2rO3W1aLBpqnPo.png" alt="UTOOLS_COMPRESS_1575117043985.png"></figure>
-<p><img src="https://i.loli.net/2019/11/30/IL1z2cdmCVP5lQH.png" alt="UTOOLS_COMPRESS_1575117330016.png">而现在再尝试已经无法再转码成utf8了<br>
-<img src="https://i.loli.net/2019/11/30/2e65FGDkS7mB3Y1.png" alt="UTOOLS_COMPRESS_1575117234849.png"></p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/30/k2rO3W1aLBpqnPo.png" alt="UTOOLS_COMPRESS_1575117043985.png" loading="lazy"></figure>
+<p><img src="https://i.loli.net/2019/11/30/IL1z2cdmCVP5lQH.png" alt="UTOOLS_COMPRESS_1575117330016.png" loading="lazy">而现在再尝试已经无法再转码成utf8了<br>
+<img src="https://i.loli.net/2019/11/30/2e65FGDkS7mB3Y1.png" alt="UTOOLS_COMPRESS_1575117234849.png" loading="lazy"></p>
 <p>按照这个线索 再搜索keyChain的相关资料 找到了这篇关键材料</p>
 <p><a href="https://bbs.pediy.com/thread-220981.htm">《实验code review 解码苹果上所有的Tokens decrypts/extracts all authorization tokens on macOS/OSX》</a></p>
 <p>文章中作者提出破解iCoud的办法  且已经向苹果上报了bug<br>
