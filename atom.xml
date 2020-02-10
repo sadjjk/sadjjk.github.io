@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2020-01-18T12:33:38.222Z</updated>
+    <updated>2020-02-10T12:01:29.321Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -758,16 +758,16 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 你人生最坏的结果<br>
 也不过是大器晚成</p>
 <!--more-->
-<p>网站：<a href="http://121.40.197.122/index">BilibiliVideo</a></p>
+<p>网站：<a href="http://www.wjinyu.top:233/">BilibiliVideo</a></p>
 <p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
 <ul>
-<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
-<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
-<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
-<li><a href="https://blog.wangjy.xyz/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
+<li><a href="/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
+<li><a href="/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
+<li><a href="/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+<li><a href="/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
 </ul>
 <p>有一天想下载B站的视频  网上了解了一番 常用的是<a href="https://www.ibilibili.com/">爱哔哩</a>和<a href="http://www.shipinyu.com/">视频鱼</a><br>
-但都不尽人意 于是决定自己做一款 <a href="http://121.40.197.122/index">BilibiliVideo</a><br>
+但都不尽人意 于是决定自己做一款 <a href="http://www.wjinyu.top:233/">BilibiliVideo</a><br>
 下面简直描述下以上提到的产品</p>
 <h3 id="爱哔哩">爱哔哩</h3>
 <p>爱哔哩 https://www.ibilibili.com/ 使用起来非常方便 在原bilibili.com前添加i即可自动跳转解析<br>
@@ -799,7 +799,7 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 <li>可选择视频清晰度</li>
 <li>支持会员视频、番剧、电影</li>
 </ol>
-<p>花费一个月的闲(咸)余(鱼)时间 终于完成了自己理想的<a href="http://121.40.197.122/index">B站视频下载解析</a><br>
+<p>花费一个月的闲(咸)余(鱼)时间 终于完成了自己理想的<a href="http://www.wjinyu.top:233/">B站视频下载解析</a><br>
 输入要下载的B站视频链接 开始解析<br>
 解析完成后展示可下载的剧集 点击即可下载<br>
 左上角可选择清晰度 360P~1080P+<br>
