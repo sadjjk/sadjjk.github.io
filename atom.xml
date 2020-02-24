@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2020-02-10T12:05:38.108Z</updated>
+    <updated>2020-02-24T14:21:52.385Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -10,6 +10,79 @@
     <logo>https://blog.wjinyu.top/images/avatar.png</logo>
     <icon>https://blog.wjinyu.top/favicon.ico</icon>
     <rights>All rights reserved 2020, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[客户画像-个人经验总结]]></title>
+        <id>https://blog.wjinyu.top/post/userPortrait</id>
+        <link href="https://blog.wjinyu.top/post/userPortrait">
+        </link>
+        <updated>2020-02-24T14:18:41.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="客户画像">客户画像</h3>
+<p>PS:<strong>个人经验总结</strong> 相当主观 大体分为业务面和技术面。</p>
+<ul>
+<li>业务面好比文科 总要有东西可以说的</li>
+<li>技术面就是理科 其实实现起来简单 一旦标签数梳理完毕<br>
+就是ETL数据处理、转换，俗称&quot;写SQL&quot;</li>
+</ul>
+<h4 id="业务层面">业务层面</h4>
+<h5 id="定义">定义</h5>
+<p>在特定业务场景下，对客户数据进行抽象化和标签化的一种表达方式。<strong>统计、挖掘、归纳、总结</strong></p>
+<h5 id="作用意义">作用/意义</h5>
+<ul>
+<li>高价值客户挖掘——多维度挖掘重要价值客户</li>
+<li>交叉营销——充分利用已知目标特征，匹配相似标签人群</li>
+<li>客户生命周期管理——监控用户各阶段变化，防止流失，及时召回</li>
+<li>精准营销/个性化推送——对各潜在人群进行针对性的营销</li>
+</ul>
+<h5 id="总之">总之</h5>
+<p>客户画像，作为一个产品，最重要价值的是快速认知客户的大致模样<br>
+那么标签分类要清晰、指标要深度<br>
+反复出现 表达直观(词云)</p>
+<h4 id="技术层面">技术层面</h4>
+<p>用户画像约等于标签树,技术层面只讨论标签数梳理完毕后的过程。<br>
+至于什么样算好的标签树？第一要义，一切以甲方为准，服务好甲方爸爸。</p>
+<h5 id="流程">流程</h5>
+<ol>
+<li>原始数据
+<ul>
+<li>基本信息数据</li>
+<li>交易流失数据</li>
+<li>资金仓位数据</li>
+<li>等等</li>
+</ul>
+</li>
+<li>事实标签
+<ul>
+<li>个人属性</li>
+<li>资产状况</li>
+<li>账户历史</li>
+<li>等等</li>
+</ul>
+</li>
+<li>模型标签
+<ul>
+<li>交易偏好</li>
+<li>用户活跃度/客户价值</li>
+<li>风险评分/止损能力</li>
+<li>关联关系</li>
+<li>等等</li>
+</ul>
+</li>
+<li>预测标签
+<ul>
+<li>违约概率</li>
+<li>流失率</li>
+<li>开户率</li>
+<li>等等</li>
+</ul>
+</li>
+</ol>
+<h5 id="标签体系">标签体系</h5>
+<p>一级标签  &gt;  二级标签  &gt;  三级标签  &gt;  明细指标 &gt; 明细标签</p>
+<p>事实标签  &gt;  交易行为  &gt;   融资    &gt;  资金周转率  &gt;  高/中/低</p>
+<figure data-type="image" tabindex="1"><img src="https://s2.ax1x.com/2020/02/24/3Gbuee.png" alt="某证券客户标签" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s2.ax1x.com/2020/02/24/3GbHOO.png" alt="3GbHOO.png" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Miniconda/Anconda(填)使(坑)用手册]]></title>
         <id>https://blog.wjinyu.top/post/condaUse</id>
@@ -1169,67 +1242,6 @@ def make_QR(self,content, sizeW, sizeH):  # 创建二维码
 <h3 id="0x03-总结">0x03 总结</h3>
 <p>run.py 传入豆瓣相应地址 即可一键生成海报</p>
 <p>PS:因数据是按照网页结构即时抓取的 若豆瓣html相应结构发生变化 则会失效 故不保证永远有效</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[股票行情面板Web]]></title>
-        <id>https://blog.wjinyu.top/post/StockProject</id>
-        <link href="https://blog.wjinyu.top/post/StockProject">
-        </link>
-        <updated>2019-09-13T07:47:36.000Z</updated>
-        <summary type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>这一腔热血 只卖与那识货的</p>
-<!--more-->
-<p><a href="http://47.105.166.237/index">演示地址</a>                            <a href="https://github.com/sadjjk/StockProject">Github</a></p>
-<p>股票行情看板，前前后后花了一个月，基本是周末闲(咸)余(鱼)时间写写改改，工作日实在没时间。</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg" alt="Xnip2019-09-13_15-23-45.jpg" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/09/13/v7pPDuyLQA6of2G.jpg" alt="Xnip2019-09-13_15-24-39.jpg" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/09/13/urC7GbWq9NpKeDh.jpg" alt="Xnip2019-09-13_15-31-42.jpg" loading="lazy"></figure>
-<h2 id="设计">设计</h2>
-<h3 id="首页">首页</h3>
-<h4 id="头部">头部</h4>
-<p>三大股指，增加了涨、平、跌各多少只。</p>
-<h4 id="topbanner">TopBanner</h4>
-<p>选择当前价、成交量金额、振幅、换手率。之所以选择这四个，是因为这四个相比于涨幅Top、跌幅Top更能反应市场整体情绪。</p>
-<blockquote>
-<p>当前价Top:最高的当属<strong>贵州茅台</strong>  毫无疑问是市场的风向标 一锤定音<br>
-成交量金额Top:成交最多的哪几只，基本是有业绩有实力的好公司  <em>纯属个人经验</em><br>
-振幅Top、换手率Top:基本是当下市场最热门最冲动的股票 游资炒作居多</p>
-</blockquote>
-<h4 id="自选股">自选股</h4>
-<p>自选股最重要的是可添加可删除，功能已实现，手机端无法删除，mouseout事件会失效。</p>
-<h4 id="沪深300">沪深300</h4>
-<p>沪深300几乎涵盖了各个行业 具有代表性</p>
-<h3 id="详情页">详情页</h3>
-<h4 id="分时图">分时图</h4>
-<br>
-<h4 id="k线图">K线图</h4>
-<br>
-<h2 id="交互">交互</h2>
-<h4 id="刷新">刷新</h4>
-<p>首页交易时间1分钟刷新一次，非交易时间不刷新。交易时间哪里来，你怎么知道某年某天是节假日？tushare-三方库，我依然不生产数据，只是数据的搬运工。最初设计2秒刷新一次，毕竟1秒就是几百万的买卖，数据当然要及时。红的绿的一闪一闪真好看，最后闪瞎了狗眼，倔强得改成了1分钟刷新一次。其次爬虫用的好，牢房进的早。爬得太频繁，怕律师函警告，尤其是东方财富的数据。</p>
-<h4 id="搜索">搜索</h4>
-<p>输入股票代码搜索股票详情 ，不支持股票名称、缩写，因为接口不支持，也没有精力是实现。搜索时页面刷新会暂停。搜索奇怪的东西有菜单，我真是天才！</p>
-<h4 id="自选股添加删除">自选股添加/删除</h4>
-<p>输入股票代码添加 ，同样不支持股票名称、缩写。添加时页面刷新会暂停</p>
-<h2 id="后端">后端</h2>
-<p>后端使用Python的微型Web框架Bottle，因为实在是非常的简单，没有必要使用Flask、Django，其实是我也不怎么会Flask、Django。后端鸡贼的地方就是没有数据库，<strong>我从不生产数据，只是数据的搬运工</strong>。使用腾讯、新浪、东财的股票接口，即用即爬。唯一要记录的就是自选股，用于查看、添加、删除。这里采用了保存为二级制隐藏文件，每次去读取、增删(不推荐 本人纯属偷懒省事)。第一次使用装饰器记录函数日志和异常</p>
-<h2 id="前端">前端</h2>
-<p>前端是最耗时的  想法很多 但都实现不出来 磕磕绊绊 现在这版终于比较满意的。搜索页、自选股增删、头部Header、底部Footer、BacktoTop、搜索或添加自选时暂停刷新等 一点一点 慢慢磨出来   教练！ 我真的很想学前端</p>
-<h2 id="部署">部署</h2>
-<p>uwsgi+nginx<br>
-备案实在有些麻烦 IP凑合用下</p>
-<h2 id="总结">总结</h2>
-<p>过程中 能抽象就抽象 减少重复代码 最大的感触就是 “<strong>这样子好像不够优雅！</strong>” 能力有限，尽管功能都基本实现了，但总觉得有更优雅更好实现方法。若干年后 我若再看到这份代码 一定会想重构。</p>
-<p>👇下面是感谢环节</p>
-<p>感谢Github<br>
-感谢<a href="https://github.com/geeeeeeeek">geeeeeeeek</a> 他的项目给我了idea<br>
-这是B站他项目的<a href="https://www.bilibili.com/video/av45168955">视频</a> 一键三连 投币点赞<br>
-感谢<a href="https://github.com/2557606319">2557606319</a> 项目中使用到了他echarts封装的K线图<br>
-感谢许多CSDN、Stack OverFlow、博客主等留下的教程与问题记录<br>
-尽管他们与我都不认识 但他们间接的帮助了我很多 非常感谢！</p>
-<p>_——</p>
 ]]></content>
     </entry>
 </feed>
