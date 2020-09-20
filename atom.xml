@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2020-09-20T08:52:18.400Z</updated>
+    <updated>2020-09-20T08:54:18.154Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -103,125 +103,6 @@ Spark 也有!</p>
 <p>而且当时又有诸多数据库可代替</p>
 <p>也就造成了HBase没有像HDFS、MapReduce那样流行</p>
 <h3 id="故事就先说到这">故事就先说到这！</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[王抑云]]></title>
-        <id>https://blog.wjinyu.top/post/wangyiyun/</id>
-        <link href="https://blog.wjinyu.top/post/wangyiyun/">
-        </link>
-        <updated>2020-08-15T09:10:48.000Z</updated>
-        <summary type="html"><![CDATA[<p>曾经 我满心欢喜</p>
-<p>如今 我满目疮痍</p>
-<p>少年还是那个少年</p>
-<p>是那个叫青春的人</p>
-<p>替少年死过了一回</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>曾经 我满心欢喜</p>
-<p>如今 我满目疮痍</p>
-<p>少年还是那个少年</p>
-<p>是那个叫青春的人</p>
-<p>替少年死过了一回</p>
-<!--more-->
-<p>想随便写点自己看的东西 不让别人知道</p>
-<p>但又想有存在感 可以和人分享</p>
-<p>矛盾的鄙人 或者换个词 叫 作 可劲作</p>
-<p>于是就这么一个比较绕的方式——博文</p>
-<p>不同于朋友圈动态 所见即所得</p>
-<p>需要点击一下 跳链</p>
-<p>其次Github坑爹的访问速度</p>
-<p>能好好等他加载完打开的</p>
-<p>估计是真爱了吧</p>
-<p>---------------正文分割线------------</p>
-<p>又是一年生日</p>
-<p>磨磨唧唧 24周岁了</p>
-<p>这一年较往年 最大的感觉是</p>
-<p><strong>懒</strong>多了</p>
-<p>越来越多的事情闲麻烦 闲花时间</p>
-<p>就不想做了</p>
-<p>其实生日已经过了几天了 但拖着拖着</p>
-<p>到现在才搞出来 真的磨叽</p>
-<p><strong>想学剪辑</strong> 煞有介事的看这看那</p>
-<p>没过多久就自暴自弃了</p>
-<p><strong>想学日语</strong> 同样照猫画虎的学学</p>
-<p>没过多久也自暴自弃了</p>
-<p><strong>想再学学新技术</strong></p>
-<p>到头来 就是能用就行 能跑就行</p>
-<p><strong>想多交朋友</strong> 又怕空气突然的尴尬</p>
-<p>反倒经常删掉不怎么联系的人</p>
-<p>最兴奋的时刻就是找资源找教程</p>
-<p>看着教程中一个个吸引人的标题</p>
-<p>毫不犹豫  保存   一气呵成</p>
-<p>然后大多时候就下文了</p>
-<p>我都收藏了 以后有的是机会看</p>
-<p><strong>这是一大借口</strong></p>
-<p>再者在线视频始终没有本地视频的流畅感</p>
-<p>加上某云盘坑爹的下载速度</p>
-<p><strong>这是第二个理由</strong></p>
-<p>这两个理由使学习的前期准备变的非常麻烦</p>
-<p>困难总比办法多</p>
-<p>为了解决上述的问题</p>
-<p>买了硬盘和某云会员</p>
-<p>咔咔咔 一顿下载</p>
-<p>几个T 总算是搬了个家</p>
-<p>学习的路径缩短了 麻烦少了一个</p>
-<p>打开硬盘文件夹即可</p>
-<p>想快进就快进</p>
-<p>想暂停就快进</p>
-<p>风风火火试了一个月</p>
-<p>鸡血没了 tm学习的教程也太枯燥了</p>
-<p>谁看谁睡着 就不能跟动漫综艺一样有意思吗</p>
-<p>问题出在了教程质量上</p>
-<p>教程始终是教程</p>
-<p>干货就是干货</p>
-<p>教程要是看着爽</p>
-<p>最后便是 一看就会 一做就废</p>
-<p>其二 动漫综艺真的太有意思了</p>
-<p>看完一集又一集 一部又一部</p>
-<p>短频快的奶头乐</p>
-<p>让人实在难以停下</p>
-<p>这一年可以说是看的动漫/综艺最多的一年</p>
-<p>每到周末 家里蹲  外卖作伴  熟练打开B站</p>
-<p>看到昏天地暗 地老天荒</p>
-<p>其三 工作的真的太累了 放松下有错嘛</p>
-<p>这简直戴维斯双杀 工作压力确实比从前要略大一丢丢</p>
-<p>可总有那么几天工作比较轻松的</p>
-<p>依然 肌肉记忆熟练地选择打开动漫/综艺</p>
-<p>诱惑多了 抵抗力也弱了</p>
-<p>到这 最大的问题其实就闲麻烦 闲枯燥 就放纵了</p>
-<p>没有往年的多一份折腾</p>
-<p>如今不想折腾 就躺着</p>
-<p>嘴上说我是废物 但是内心感觉良好</p>
-<p>不折腾 不瞎搞 舒适区是真的舒适</p>
-<p>这博客搭起来后 也很少来写了</p>
-<p>看看以前写的东西 看看以前留的段子</p>
-<p>感觉我又可以了 那股折腾 那股热血 那个少年</p>
-<p>本来是没有想写的想法</p>
-<p>也是看到以前的博文</p>
-<p>才打开了尘封已久的文档</p>
-<p>流水账似的随便写点</p>
-<p>好了 好了 问题都知道了</p>
-<p>下一步 怎么解决</p>
-<p>1.列计划 一口一口吃掉一个青蛙</p>
-<p>但决不能列太详细 比如精确到每小时每天</p>
-<p>以前试验下来 列的太细</p>
-<p>一旦计划赶不上变化 一天没跟上</p>
-<p>导致后续每天都跟不上 然后就反正也做不完了</p>
-<p>不如不做吧 放弃吧</p>
-<p>2.没有及时反馈机制</p>
-<p>也是导致放弃的一大原因</p>
-<p>自己闭门造车 学着学着就崩溃了</p>
-<p>尽可能寻找反馈源</p>
-<p>3.出门走走 你会死啊</p>
-<p>兄弟 再一个人自娱自乐下去</p>
-<p>真的就孤独终老了</p>
-<hr>
-<p>曾经 我满心欢喜</p>
-<p>如今 我满目疮痍</p>
-<p>少年还是那个少年</p>
-<p>是那个叫青春的人</p>
-<p>替少年死过了一回</p>
-<p>​															----- 王抑云</p>
 ]]></content>
     </entry>
     <entry>
@@ -1207,6 +1088,114 @@ browser.close()
 	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t12.baidu.com&quot; /&gt;
 	&lt;link rel=&quot;dns-prefetc
 </code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[黑板客爬虫闯关通关]]></title>
+        <id>https://blog.wjinyu.top/post/CrawerExam-heibanke/</id>
+        <link href="https://blog.wjinyu.top/post/CrawerExam-heibanke/">
+        </link>
+        <updated>2019-10-02T06:57:34.000Z</updated>
+        <summary type="html"><![CDATA[<p>爬虫学的好 牢房进的早<br>
+Code:https://github.com/sadjjk/CrawerExam-heibanke</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>爬虫学的好 牢房进的早<br>
+Code:https://github.com/sadjjk/CrawerExam-heibanke</p>
+<!--more-->
+<h3 id="前言">前言</h3>
+<p>黑板客爬虫闯关共5关</p>
+<ul>
+<li>http://www.heibanke.com/lesson/crawler_ex00/</li>
+<li>http://www.heibanke.com/lesson/crawler_ex01/</li>
+<li>http://www.heibanke.com/lesson/crawler_ex02/</li>
+<li>http://www.heibanke.com/lesson/crawler_ex03/</li>
+<li>http://www.heibanke.com/lesson/crawler_ex04/</li>
+</ul>
+<p>网上关于这部分的代码实践也不少<br>
+绝知此事要躬行  自己code一遍</p>
+<h3 id="第一关">第一关</h3>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/10/02/hAwDifI4vkNtge9.png" alt="UTOOLS_COMPRESS_1569999755672.png" loading="lazy"></figure>
+<p><code>requests</code> GET 不断请求即可</p>
+<pre><code>下一个你需要输入的数字是25997. 老实告诉你吧, 这样的数字还有上百个
+第49次尝试 URL:http://www.heibanke.com/lesson/crawler_ex00/25997
+下一个你需要输入的数字是73222. 老实告诉你吧, 这样的数字还有上百个
+第50次尝试 URL:http://www.heibanke.com/lesson/crawler_ex00/73222
+下一个你需要输入的数字是93891. 老实告诉你吧, 这样的数字还有上百个
+第51次尝试 URL:http://www.heibanke.com/lesson/crawler_ex00/93891
+恭喜你,你找到了答案.继续你的爬虫之旅吧
+最终地址是：http://www.heibanke.com/lesson/crawler_ex00/93891
+END
+</code></pre>
+<h3 id="第二关">第二关</h3>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/10/02/Hx8YCN2kVrt9qcJ.png" alt="UTOOLS_COMPRESS_1569999938435.png" loading="lazy"></figure>
+<p>猜密码 这里从0~30的列表中 <code>random.choice</code>每次随机给出一个数<br>
+若此数密码不正确 则从该列表中remove</p>
+<pre><code>尝试密码:13
+您输入的密码错误, 请重新输入
+尝试密码:5
+您输入的密码错误, 请重新输入
+尝试密码:10
+您输入的密码错误, 请重新输入
+尝试密码:8
+恭喜! 用户spider成功闯关, 继续你的爬虫之旅吧
+</code></pre>
+<h3 id="第三关">第三关</h3>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/10/02/vtEu8UbP31Dgfy7.jpg" alt="Xnip2019-10-02_15-10-41.jpg" loading="lazy"></figure>
+<p>第三关先进去是这样的 没有谜题 一头雾水<br>
+需要先在这里注册账号 登陆后重新打开 出现谜题</p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/10/02/scdnE5CUTq6l4WH.png" alt="UTOOLS_COMPRESS_1570000211937.png" loading="lazy"></figure>
+<p>还是猜密码 第一反应就是要先登陆 requests Session 模拟登陆即可<br>
+但是没有成功 谜题写着两层保护 也没看懂<br>
+百度后 明白了 还有一层token的加密</p>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/10/02/DmY3XNvFhueLkRJ.png" alt="UTOOLS_COMPRESS_1570000617203.png" loading="lazy"></figure>
+<p>首先是账号登陆时需要一个token<br>
+其次是谜题猜密码时也需要一个token<br>
+这里两个token均来自cookies</p>
+<pre><code class="language-python">session = requests.Session()
+session.get('http://www.heibanke.com/lesson/crawler_ex02/')
+csrftoken1 = session.cookies.get('csrftoken')
+account_data = {
+    'csrfmiddlewaretoken': csrftoken1,
+    'username': 'fikqmw98654',
+    'password': '123456'
+}
+session.post('http://www.heibanke.com/accounts/login/?next=/lesson/crawler_ex02/',
+             data = account_data)
+csrftoken2 = session.cookies.get('csrftoken')
+</code></pre>
+<p>两次token不同  需重新获取 然后就是熟悉的猜密码 和第二关相同</p>
+<h3 id="第四关">第四关</h3>
+<figure data-type="image" tabindex="6"><img src="https://s2.ax1x.com/2019/10/02/uaxydA.png" alt="uaxydA.png" loading="lazy"></figure>
+<p>依然一脸懵逼 尝试输入密码 提示密码在这里寻找</p>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2019/10/02/LaCRexzIHTGjnom.png" alt="UTOOLS_COMPRESS_1570001394116.png" loading="lazy"></figure>
+<p>注意：并不把所有13页的密码按照&lt;位置,值&gt;拼起来就组成最终的密   码，因为有些位置会重复给出 可能加载完所有页 也不一定组成出完整的密码 可能还是会有个别位置缺失<br>
+PS:第一次尝试就是把所有页爬下来 拼密码 发现存在个别位置缺失<br>
+其实只要第一页反复刷新就可以了<br>
+直到所有密码(共100位 页面探索所得)都有拼上为止</p>
+<p>当然拼密码之前 需要模拟登陆 熟悉的配方<br>
+经过漫长的登陆 终于获得所有位置的密码</p>
+<pre><code>共100位密码，已获得99位密码
+共100位密码，已获得99位密码
+共100位密码，已获得99位密码
+共100位密码，已获得100位密码
+密码是：5357748950695244329548946136479903948743260484371348776618136963449163264706489936702831052533819016
+恭喜! 用户aaa成功闯关, 继续你的爬虫之旅吧
+</code></pre>
+<h3 id="第五关">第五关</h3>
+<figure data-type="image" tabindex="8"><img src="https://i.loli.net/2019/10/02/EIbCJ5zMXGgfvo4.png" alt="UTOOLS_COMPRESS_1570001895588.png" loading="lazy"></figure>
+<p>加了验证码 验证码使用OCR识别出正确的字母 这里的图片已经很清晰 不用二值化或灰度处理 唯一的问题就是个别字母倾斜导致OCR识别错误 暂时不知道如何倾斜矫正</p>
+<p>OCR使用 pytesseract或者百度OCR  两者的识别准确率半斤八两 都不太高 基本都出错在倾斜字母上 但总体上还是能用</p>
+<p>tips:不用把每次的验证码图片下载下来 会下载很多验证码 以后也不会用到 浪费空间  直接获得验证码图片的二进制content 每次拿二进制content去识别</p>
+<p>当然验证码识别之前 需要模拟登陆 密码也是30以内的数字 熟悉的配置</p>
+<p>经过漫长的等待</p>
+<pre><code>第1次尝试,验证码:CINR,密码:3
+验证码输入错误
+第2次尝试,验证码:SSMO,密码:3
+恭喜! 用户spider成功闯关, 后续关卡敬请期待
+</code></pre>
+<h3 id="end">END</h3>
+<p><a href="https://github.com/sadjjk/CrawerExam-heibanke">Code</a>:https://github.com/sadjjk/CrawerExam-heibanke</p>
+<p><a href="https://sadjjk.github.io/">Blog</a>    <a href="http://47.105.166.237/index">Stock</a></p>
 ]]></content>
     </entry>
 </feed>
