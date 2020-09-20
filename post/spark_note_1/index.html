@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>BilibiliVideo-实现篇-优化篇 | 今语</title>
+<title>Spark学习笔记-1.故事要从那三篇论文说起 | 今语</title>
 <link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1600591925861">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
@@ -88,22 +88,22 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/11/10/1XeAfkMLNVRzs2i.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i0.hdslb.com/bfs/article/22c2d47a741d637842d8952410bf0d6d2f5755d5.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-11-10 ·</span>
+          <span class="date">· 2020-09-20 ·</span>
 
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wjinyu.top/tag/life/">Life</a>
+                    <a href="https://blog.wjinyu.top/tag/work/">Work</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>BilibiliVideo-实现篇-优化篇</h1>
+          <h1 class='entry-title'>Spark学习笔记-1.故事要从那三篇论文说起</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/BilibiliVideo_realize/">下一篇->BilibiliVideo-实现篇-基础篇</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/wangyiyun/">下一篇->王抑云</a>
               </div>
             </nav>
           
@@ -216,117 +216,90 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wjinyu.top//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>这一腔热血 只卖与那识货的</p>
+    var article = `<p>这年头谁没个故事呢！<br>
+Spark 也有!</p>
 <!--more-->
-<p>网站：<a href="http://www.wjinyu.top:233/">BilibiliVideo</a></p>
-<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
+<p>这年头谁没个故事呢！<br>
+Spark 也有!</p>
+<h3 id="起源">起源</h3>
+<p>计算机科学大致分为4个领域:</p>
 <ul>
-<li><a href="/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
-<li><a href="/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
-<li><a href="/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
-<li><a href="/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
+<li>人工智能</li>
+<li>编程语言</li>
+<li>操作系统</li>
+<li>计算机理论</li>
 </ul>
-<p>基本篇已经实现了B站视频下载到本地的功能<br>
-把这个功能部署在服务上 就可以使用浏览器页面下载<br>
-我使用的是Flask  当然无论什么Web框架都是可行的<br>
-优化篇说一些部署服务的小细节</p>
+<p>其中<strong>操作系统</strong>领域有两个顶级会议</p>
+<ol>
+<li>ODSI （USENIX conference on Operating Systems Design and Implementation）</li>
+<li>SOSP （ACM Symposium on Operating Systems Principles）</li>
+</ol>
+<p>相当于操作系统的武林大会</p>
+<p>如果把近几十年关于这两个大会提到的武功收录到一本书</p>
+<p>就可以看做是操作系统的绝世秘籍</p>
+<p>毫不夸张的说 得此秘籍者 得天下</p>
+<h3 id="三篇论文">三篇论文</h3>
+<p>其中  一家成立不到三十年的小门派——Google</p>
+<p>四年间分别在 ODSI 与 SOSP 发表了 3 篇论文</p>
+<p>引起了整个武林对分布式系统的广泛关注与讨论</p>
+<p>这三篇论文分别是:</p>
+<p><strong>SOSP2003—The Google File System</strong></p>
+<p><strong>ODSI2004—MapReduce: Simplifed Data Processing on Large Clusters</strong></p>
+<p><strong>ODSI2006—Bigtable: A Distributed Storage System for Structured Data</strong></p>
+<p>The Google File System 主要讨论分布式文件系统</p>
+<p>MapReduce 主要讨论分布式计算框架</p>
+<p>Bigtable 主要讨论分布式数据存储</p>
+<p>有了这 三篇论文的理论基础与后续的一系列文章</p>
+<p>再加上开源社区强大的实战能力</p>
+<p>Hadoop、HDFS、MapReduce、HBase、Spark 等很快走上了台前</p>
+<p>大数据技术开始呈现出一个诸子百家的局面</p>
+<h3 id="hdfs">HDFS</h3>
+<p>开源社区根据Google的第一篇论文&quot;The Google File System&quot;</p>
+<p>实现了一个名为HDFS的<strong>分布式文件系统</strong></p>
+<p>任你武功招式再多 也逃不过最基础的练功心法</p>
+<p>HDFS就好比那最基础的练功心法</p>
+<p>而且是最上乘的 也是最容易掌握的</p>
+<p>因HDFS的高容错性、高吞吐量、适合部署在廉价的机器上</p>
+<p>这三招使其声名大噪  成为了各家门派的基础心法</p>
+<p>就算练不成绝世武功</p>
+<p>拿来修身养性也是可以的</p>
+<h3 id="mapreduce">MapReduce</h3>
+<p>我们常说的MapReduce指的就是</p>
+<p>开源社区根据Google的第二篇论文 实现的<strong>一个分布式计算框架</strong></p>
+<p>但随着练的人越来越来多 MapReduce的缺点也逐渐暴露出来</p>
+<p>不少江湖人士反映 练一段时间后</p>
+<p>怎么练都练不上去 非常容易产生瓶颈</p>
+<p>于是乎 就开始有许多人在此功法上进行修正及完善</p>
+<p>新一代计算框架如 Spark、Flink 也就开始崛起</p>
+<p>最初名为MapReduce的计算框架也逐渐退出历史舞台</p>
+<p>只留在了老一辈江湖人士的记忆里</p>
+<p>MapReduce还有另一层含义:<strong>一种编程模型</strong></p>
+<p>MapReduce 模型将数据处理方式抽象为 map 和 reduce</p>
 <ul>
-<li>Flask下载视频流</li>
-<li>HTML页面设计</li>
-<li>视频解析进度条</li>
-<li>添加CSRF Token防御</li>
-<li>大会员SESSDATA不过期</li>
+<li>map 也就是映射 可以理解为数据一对一的映射</li>
+<li>reduce 也就是归约 可以理解为数据一对多的映射</li>
 </ul>
-<h4 id="flask下载视频流">Flask下载视频流</h4>
-<p>基本篇是使用<code>urllib.request.urlretrieve</code>下载到本地的<br>
-如果是使用服务的话 要用<code>urllib.request.urlopen</code><br>
-再封装成Response返回   同时要在Response中添加header<br>
-Content-Disposition 视频名<br>
-Content-Length  视频大小<br>
-这样通过页面下载的视频才有正常的视频名字和视频大小<br>
-浏览器下载时才会出现  共XXXMB</p>
-<pre><code>@app.route(&quot;/download&quot;,methods=['POST'])
-def download():
-  -----忽略部分代码-----
-  r = urllib.request.urlopen(video_download_url)
-  response = Response(
-          r,
-          content_type=r.headers['content-type'],
-      )
-  response.headers[&quot;Content-Disposition&quot;] = 'attachment; filename={0}; filename*=utf-8''{0}'.format(quote(video_name) + '.flv')
-  response.headers[&quot;Content-Length&quot;] = r.headers['Content-Length']
-  
-  return response
-
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png" loading="lazy"></figure>
-<h4 id="html页面设计">HTML页面设计</h4>
-<p>设计三个基本html页面</p>
-<ul>
-<li>index 主页 用于输入视频地址</li>
-<li>search  解析结果页</li>
-<li>search_error  解析结果异常页</li>
-</ul>
-<p>search_error页可使用Jinja模型语言继承search页<br>
-修改要展示的内容即可<br>
-若解析异常 则给提出异常提示和热门搜索(其实就是写死的推荐项)<br>
-异常可以使用AssertionError断言拦截 比如&quot;链接必须是来自B站&quot;、&quot;链接不能为空&quot;、&quot;无法解析该地址&quot;、&quot;内部异常！可能被233娘吃掉了&quot;等等</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/NJQZAvbBGhfynWe.png" alt="UTOOLS_COMPRESS_1573373340096.png" loading="lazy"></figure>
-<h4 id="视频解析进度条">视频解析进度条</h4>
-<p>当视频地址里视频比较多的时候<br>
-解析比较耗时  但页面上没有反应出来<br>
-所以最好要有一个前端进度条<br>
-这样 对用户就非常友好  非常直观<br>
-进度条使用的是NProgress.js插件<br>
-非常美观  <a href="http://ricostacruz.com/nprogress/">了解详情点这里</a><br>
-使用也很简单  只需要在按钮点击的时候<br>
-增加一个start   一个stop  如果是跳转页面 stop可加可不加</p>
-<pre><code>$(&quot;.hot-item&quot;).click(function () {
-  NProgress.start();
-  NProgress.stop();
-})
-</code></pre>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/3nlKuipDeOdmH69.png" alt="UTOOLS_COMPRESS_1573373940104.png" loading="lazy"></figure>
-<p>在页面顶部就有一个进度条 右上还有加载圆 大赞！</p>
-<h4 id="添加csrf-token防御">添加CSRF Token防御</h4>
-<p>CSRF具体是什么 我不太了解<br>
-当初添加这个 主要是想<br>
-如果用户模拟出了表单提交的参数<br>
-那么直接POST请求就能下载了<br>
-(爬虫爬多了的后遗症)<br>
-不能这么随便 要加个密什么的<br>
-后来查了一些资料 看到了 CSRF Token<br>
-Flask里使用也非常简单</p>
-<pre><code>from flask_wtf.csrf import CsrfProtect
-app.config['SECRET_KEY'] = '自定义加密令牌'
-CsrfProtect(app)
-</code></pre>
-<p>这样表单提交就会自动生成一个<strong>csrf_token</strong><br>
-并且验证token的正确性<br>
-每次刷新生成的<strong>csrf_token</strong>也都不一样</p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/mM7OoEeDuZ9bJjy.png" alt="UTOOLS_COMPRESS_1573376370149.png" loading="lazy"></figure>
-<h4 id="大会员sessdata不过期">大会员SESSDATA不过期</h4>
-<p>基础篇提到过SESSDATA是大概有一个月的有效期<br>
-既然都发布服务了 总不能每隔一个月去修改SESSDATA吧<br>
-所有就需要B站模拟自动登陆 获取Cookies 更新SESSDATA<br>
-B站的登陆 是滑块登陆 可以说相当困难<br>
-办法也还是有的 Selenium + ChromeDriver<br>
-缺点就是会占内存<br>
-所幸我们不频繁登陆<br>
-只要半个月或一个月登陆一次<br>
-获取Cookies 更新SESSDATA 就足够了<br>
-自动登陆还有一定失败率 失败就刷新 再次重新滑动<br>
-主要难点 在于模拟人的滑动轨迹<br>
-不能太快 也不能太慢<br>
-实测下来  1次成功到5次才成功不等<br>
-写好了模拟登陆的脚本<br>
-部署在云服务上  Crontab 定时调用即可<br>
-为了了解登陆成功与否的详细<br>
-再增加邮箱发送的脚本<br>
-这样就能及时了解模拟登陆的情况 及时排查</p>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/4KcFfLeq8Q7o9Tm.png" alt="UTOOLS_COMPRESS_1573375534489.png" loading="lazy"></figure>
-<p>额外篇 如何实现B站滑块自动登陆 有机会再讲<br>
-额外篇 如何实现邮箱发送  有机会再讲</p>
+<p>如下图所示</p>
+<figure data-type="image" tabindex="1"><img src="https://s0.lgstatic.com/i/image3/M01/0C/A9/Ciqah16OuviABEodAADcW42Rou4249.png" alt="img" loading="lazy"></figure>
+<p>MapReduce认为再复杂的数据处理流程也无非是这两种映射方式的组合</p>
+<figure data-type="image" tabindex="2"><img src="https://s0.lgstatic.com/i/image3/M01/85/BF/Cgq2xl6Ouv6ATQMfAAC8oOgBQqk428.png" alt="img" loading="lazy"></figure>
+<p>这样的编程模型为分布式的实现提供了可能</p>
+<p>当整个数据集的计算量超过一台计算机处理的极限时</p>
+<p>我们就会想办法把不同的数据集交给不同的计算机完成</p>
+<p>map过程 非常容易就可以把各个数据交给不同的计算机完成<br>
+不影响最终的结果</p>
+<p>reduce过程 必然会涉及数据在不同计算机之间的传输<br>
+这也是MapReduce计算框架的分布式实现的一个关键点</p>
+<h3 id="hbase">HBase</h3>
+<p>开源社区根据Google的第三篇论文&quot;Bigtable&quot;</p>
+<p>实现了一个名为HBase的<strong>分布式非结构化数据库</strong></p>
+<p>它不是运行MapReduce任务来查询存放在HDFS上的数据</p>
+<p>而是使用自己的一套规则来存储数据</p>
+<p>所以运行速度非常快 适用于海量明细数据的实时查询</p>
+<p>由于HBase相较于HDFS、MapReduce诞生的比较晚</p>
+<p>而且当时又有诸多数据库可代替</p>
+<p>也就造成了HBase没有像HDFS、MapReduce那样流行</p>
+<h3 id="故事就先说到这">故事就先说到这！</h3>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
@@ -335,7 +308,7 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
         document.getElementById('article').innerHTML = article
 
     let navigation = new AutocJs({
-        title:'BilibiliVideo-实现篇-优化篇',
+        title:'Spark学习笔记-1.故事要从那三篇论文说起',
         isGenerateOutlineChapterCode: false
     })
     </script>
