@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>BilibiliVideo-实现篇-优化篇 | 今语</title>
+<title>Spark学习笔记-2.打造生态圈 为梦想窒息 | 今语</title>
 <link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1603533893706">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
@@ -88,22 +88,22 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/11/10/1XeAfkMLNVRzs2i.png">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://s1.ax1x.com/2020/10/24/BZMbJH.png">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-11-10 ·</span>
+          <span class="date">· 2020-10-24 ·</span>
 
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wjinyu.top/tag/life/">Life</a>
+                    <a href="https://blog.wjinyu.top/tag/work/">Work</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>BilibiliVideo-实现篇-优化篇</h1>
+          <h1 class='entry-title'>Spark学习笔记-2.打造生态圈 为梦想窒息</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
@@ -116,7 +116,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/BilibiliVideo_realize/">下一篇->BilibiliVideo-实现篇-基础篇</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/spark_note_1/">下一篇->Spark学习笔记-1.故事要从那三篇论文说起</a>
               </div>
             </nav>
           
@@ -216,117 +216,105 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wjinyu.top//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>这一腔热血 只卖与那识货的</p>
+    var article = `<p>打造Hadoop生态圈</p>
+<p>让我们为梦想窒息吧!</p>
 <!--more-->
-<p>网站：<a href="http://www.wjinyu.top:233/">BilibiliVideo</a></p>
-<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
+<h3 id="hadoop生态圈">Hadoop生态圈</h3>
+<p>前面已经提到了三篇重要的论文</p>
+<p>其中基于第一篇和第二篇开源实现的HDFS和MapReduce ，可以称为狭义上的<strong>Hadoop</strong></p>
+<p>当时的互联网(2008年) 数据呈几何倍数增长</p>
+<p>Hadoop很大程度上解决了数据处理的痛点</p>
+<p>于是Hadoop生态圈应运而生</p>
+<p>让我们为梦想窒息吧!</p>
+<h3 id="hadoop10">Hadoop1.0</h3>
+<figure data-type="image" tabindex="1"><img src="https://s1.ax1x.com/2020/10/24/BVvNoF.png" alt="BVvNoF.png" loading="lazy"></figure>
+<p>1.0的架构基本就是按照论文中的框架实现</p>
+<p>下层是 HDFS(Hadoop 分布式文件系统)</p>
+<p>上层是 MapReduce(Hadoop 分布式计算框架)</p>
+<p>分布式计算框架基于分布式文件系统</p>
+<p>分布式计算平台就算基本成型了</p>
+<p>简单的分布式框架在使用过程中</p>
+<p>随之也出现不少问题 主要有3点:</p>
+<ol>
+<li>主节点可靠性差,没有热备份</li>
+<li>提交MapReduce作业过多时，调度将成为整个分布式计算的瓶颈<br>
+造成资源利用率低</li>
+<li>不能支持扩展其他类型的分布式计算框架</li>
+</ol>
+<p>产生问题的原因:</p>
 <ul>
-<li><a href="/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
-<li><a href="/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
-<li><a href="/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
-<li><a href="/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
+<li>第一点是设计上的缺陷，可改造底层系统设计</li>
+<li>产生第二点的主要原因是<strong>MapReduce 并没有将资源管理和作业调度这两个组件分开，造成当同时有多个作业提交的时候，资源调度器会不堪重负，导致资源利用率过低</strong></li>
+<li>第三点属于直接套用论文造成的历史遗留问题。</li>
 </ul>
-<p>基本篇已经实现了B站视频下载到本地的功能<br>
-把这个功能部署在服务上 就可以使用浏览器页面下载<br>
-我使用的是Flask  当然无论什么Web框架都是可行的<br>
-优化篇说一些部署服务的小细节</p>
+<h3 id="hadoop20">Hadoop2.0</h3>
+<figure data-type="image" tabindex="2"><img src="https://s1.ax1x.com/2020/10/24/BVxjAO.png" alt="BVxjAO.png" loading="lazy"></figure>
+<p>基于1.0的这些问题，2.0随之诞生</p>
+<p>2.0最大的改动就是<strong>引入了资源管理与调度系统 YARN，代替了原有的计算框架，而计算框架则变成了 YARN 的用户</strong></p>
+<p>我们可以认为 YARN 管理计算资源，HDFS 管理存储资源</p>
+<p>上层的计算框架地位也大大降低，变成了 YARN 的一个用户</p>
+<p>此外 YARN 可以兼容多个计算框架，如 Spark、Storm、MapReduce 等</p>
+<p>也正是因此</p>
+<p>Hadoop 逐渐形成了一个庞大的生态圈</p>
+<h3 id="hadoop发行版">Hadoop发行版</h3>
+<p>Hadoop 生态圈的各个组件</p>
 <ul>
-<li>Flask下载视频流</li>
-<li>HTML页面设计</li>
-<li>视频解析进度条</li>
-<li>添加CSRF Token防御</li>
-<li>大会员SESSDATA不过期</li>
+<li>*<strong>HDFS</strong>            分布式文件系统——核心</li>
+<li>*<strong>YARN</strong>            分布式调度系统——核心</li>
+<li>MapReduce  分布式计算框架</li>
+<li>Spark               分布式计算引擎</li>
+<li>Storm              分布式流式计算系统</li>
+<li>HBase             分布式非结构化数据库</li>
+<li>Hive                  数据仓库工具 提供SQL功能 封装SQL转换成MapReudce执行</li>
+<li>Impala             新型SQL查询引擎 比Hvie更快</li>
+<li>Hue                   可视化操作界面系统  基于Python Web框架Django实现的 使用Hue可以在浏览器端与Hadoop集群进行交互来分析处理数据</li>
+<li>Sqoop              批量数据抽取工具</li>
+<li>Flume               流失数据传输工具</li>
+<li>Zookeeper      负责分布式一致性工具</li>
+<li>Ambari              集群管理和监控工具</li>
 </ul>
-<h4 id="flask下载视频流">Flask下载视频流</h4>
-<p>基本篇是使用<code>urllib.request.urlretrieve</code>下载到本地的<br>
-如果是使用服务的话 要用<code>urllib.request.urlopen</code><br>
-再封装成Response返回   同时要在Response中添加header<br>
-Content-Disposition 视频名<br>
-Content-Length  视频大小<br>
-这样通过页面下载的视频才有正常的视频名字和视频大小<br>
-浏览器下载时才会出现  共XXXMB</p>
-<pre><code>@app.route(&quot;/download&quot;,methods=['POST'])
-def download():
-  -----忽略部分代码-----
-  r = urllib.request.urlopen(video_download_url)
-  response = Response(
-          r,
-          content_type=r.headers['content-type'],
-      )
-  response.headers[&quot;Content-Disposition&quot;] = 'attachment; filename={0}; filename*=utf-8''{0}'.format(quote(video_name) + '.flv')
-  response.headers[&quot;Content-Length&quot;] = r.headers['Content-Length']
-  
-  return response
-
+<p>将如此多的组件集成到一个平台，势必会产生各式各样的问题。</p>
+<p>很快有公司注意到了这个问题中的商机，其中做的最好的是 Cloudera 和 Hortonworks 这两家公司</p>
+<p>它们核心产品就是将上述 Hadoop 生态圈中最常用到的开源组件打包为一个 Hadoop 发行版</p>
+<p>Clouera 的叫 CDH，Hortonworks 的叫 HDP</p>
+<p>这个发行版中的所有组件不会有兼容性等其他莫名其妙的问题，供用户免费使用</p>
+<h3 id="hadoop平台">Hadoop平台</h3>
+<p>很多文章在提到Hadoop时</p>
+<p>有时会用大数据平台、数据仓库、分布式数据库、分布式计算框架等字眼</p>
+<p>看似合理，但又不完全正确，让人非常迷惑</p>
+<p>这里做个简单的解释</p>
+<p><strong>传统应用开发</strong>:</p>
+<p>我们不会过多的关注磁盘驱动器</p>
+<p>这是因为文件系统已经帮我们进行了抽象</p>
+<p>我们只需要使用文件系统 API 就可以操作磁盘驱动器。</p>
+<p>同样的，我们在开发应用时也无需过多关注 CPU</p>
+<p>操作系统和编程语言已经帮我们做好了抽象和隔离。</p>
+<p><strong>大数据开发</strong>:</p>
+<p>大数据平台相当于把这些集群抽象成一台计算机</p>
+<p>隔离了底层的实现细节</p>
+<p>让用户使用这个平台时</p>
+<p>不会感觉到自己在使用一个分布式系统</p>
+<p>而是在使用一台计算机</p>
+<p>如下命令</p>
+<pre><code>ls              //Linux 查询文件命令
+hadoop dfs -ls  //Hadoop 查询文件命令
 </code></pre>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png" loading="lazy"></figure>
-<h4 id="html页面设计">HTML页面设计</h4>
-<p>设计三个基本html页面</p>
-<ul>
-<li>index 主页 用于输入视频地址</li>
-<li>search  解析结果页</li>
-<li>search_error  解析结果异常页</li>
-</ul>
-<p>search_error页可使用Jinja模型语言继承search页<br>
-修改要展示的内容即可<br>
-若解析异常 则给提出异常提示和热门搜索(其实就是写死的推荐项)<br>
-异常可以使用AssertionError断言拦截 比如&quot;链接必须是来自B站&quot;、&quot;链接不能为空&quot;、&quot;无法解析该地址&quot;、&quot;内部异常！可能被233娘吃掉了&quot;等等</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/NJQZAvbBGhfynWe.png" alt="UTOOLS_COMPRESS_1573373340096.png" loading="lazy"></figure>
-<h4 id="视频解析进度条">视频解析进度条</h4>
-<p>当视频地址里视频比较多的时候<br>
-解析比较耗时  但页面上没有反应出来<br>
-所以最好要有一个前端进度条<br>
-这样 对用户就非常友好  非常直观<br>
-进度条使用的是NProgress.js插件<br>
-非常美观  <a href="http://ricostacruz.com/nprogress/">了解详情点这里</a><br>
-使用也很简单  只需要在按钮点击的时候<br>
-增加一个start   一个stop  如果是跳转页面 stop可加可不加</p>
-<pre><code>$(&quot;.hot-item&quot;).click(function () {
-  NProgress.start();
-  NProgress.stop();
-})
-</code></pre>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/3nlKuipDeOdmH69.png" alt="UTOOLS_COMPRESS_1573373940104.png" loading="lazy"></figure>
-<p>在页面顶部就有一个进度条 右上还有加载圆 大赞！</p>
-<h4 id="添加csrf-token防御">添加CSRF Token防御</h4>
-<p>CSRF具体是什么 我不太了解<br>
-当初添加这个 主要是想<br>
-如果用户模拟出了表单提交的参数<br>
-那么直接POST请求就能下载了<br>
-(爬虫爬多了的后遗症)<br>
-不能这么随便 要加个密什么的<br>
-后来查了一些资料 看到了 CSRF Token<br>
-Flask里使用也非常简单</p>
-<pre><code>from flask_wtf.csrf import CsrfProtect
-app.config['SECRET_KEY'] = '自定义加密令牌'
-CsrfProtect(app)
-</code></pre>
-<p>这样表单提交就会自动生成一个<strong>csrf_token</strong><br>
-并且验证token的正确性<br>
-每次刷新生成的<strong>csrf_token</strong>也都不一样</p>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/mM7OoEeDuZ9bJjy.png" alt="UTOOLS_COMPRESS_1573376370149.png" loading="lazy"></figure>
-<h4 id="大会员sessdata不过期">大会员SESSDATA不过期</h4>
-<p>基础篇提到过SESSDATA是大概有一个月的有效期<br>
-既然都发布服务了 总不能每隔一个月去修改SESSDATA吧<br>
-所有就需要B站模拟自动登陆 获取Cookies 更新SESSDATA<br>
-B站的登陆 是滑块登陆 可以说相当困难<br>
-办法也还是有的 Selenium + ChromeDriver<br>
-缺点就是会占内存<br>
-所幸我们不频繁登陆<br>
-只要半个月或一个月登陆一次<br>
-获取Cookies 更新SESSDATA 就足够了<br>
-自动登陆还有一定失败率 失败就刷新 再次重新滑动<br>
-主要难点 在于模拟人的滑动轨迹<br>
-不能太快 也不能太慢<br>
-实测下来  1次成功到5次才成功不等<br>
-写好了模拟登陆的脚本<br>
-部署在云服务上  Crontab 定时调用即可<br>
-为了了解登陆成功与否的详细<br>
-再增加邮箱发送的脚本<br>
-这样就能及时了解模拟登陆的情况 及时排查</p>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/4KcFfLeq8Q7o9Tm.png" alt="UTOOLS_COMPRESS_1573375534489.png" loading="lazy"></figure>
-<p>额外篇 如何实现B站滑块自动登陆 有机会再讲<br>
-额外篇 如何实现邮箱发送  有机会再讲</p>
+<p>因此 Hadoop 可以理解为是一个计算机集群的操作系统</p>
+<p>HDFS 是基于所有计算机文件系统之上的抽象</p>
+<p>YARN 是基于所有计算机资源管理与调度系统之上的抽象</p>
+<p>Spark、MapReduce 只是这个操作系统支持的编程语言</p>
+<h3 id="hadoop趋势">Hadoop趋势</h3>
+<p>就像普通计算机一样</p>
+<p>编程语言的热度始终要大于操作系统。</p>
+<p>随着计算框架和资源管理与调度系统问世</p>
+<p>Hadoop 的存在感越来越低</p>
+<p>在大数据平台中越来越底层</p>
+<p>有些大数据平台甚至只采用 HDFS</p>
+<p>其余按照需求选取组件</p>
+<p>这就逐渐造成了一种现象</p>
+<p>Hadoop 的热度越来越低</p>
+<p>而分布式计算框架的热度越来越高</p>
+<p>就像 Java 的热度肯定比 Linux 高</p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
@@ -335,7 +323,7 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
         document.getElementById('article').innerHTML = article
 
     let navigation = new AutocJs({
-        title:'BilibiliVideo-实现篇-优化篇',
+        title:'Spark学习笔记-2.打造生态圈 为梦想窒息',
         isGenerateOutlineChapterCode: false
     })
     </script>
