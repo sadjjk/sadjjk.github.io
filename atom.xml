@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-01-23T07:57:42.163Z</updated>
+    <updated>2021-01-23T07:58:52.238Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -23,7 +23,7 @@
         <content type="html"><![CDATA[<p>网抑云音乐<br>
 生不出人<br>
 我很抱歉</p>
-<!-- more -->
+<!--more-->
 <figure data-type="image" tabindex="1"><img src="https://img.shields.io/github/stars/sadjjk/JinyuMusic.svg" alt="Github stars" loading="lazy"></figure>
 <p><a href="http://www.wjinyu.top:666/">在线聚合音乐平台</a></p>
 <figure data-type="image" tabindex="2"><img src="https://s3.ax1x.com/2021/01/23/sTqgfI.png" alt="sTqgfI.png" loading="lazy"></figure>
