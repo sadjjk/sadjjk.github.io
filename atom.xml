@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-01-17T12:26:51.298Z</updated>
+    <updated>2021-01-23T07:54:07.401Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -10,6 +10,69 @@
     <logo>https://blog.wjinyu.top/images/avatar.png</logo>
     <icon>https://blog.wjinyu.top/favicon.ico</icon>
     <rights>All rights reserved 2021, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[今语云音乐]]></title>
+        <id>https://blog.wjinyu.top/post/jinyumusic/</id>
+        <link href="https://blog.wjinyu.top/post/jinyumusic/">
+        </link>
+        <updated>2021-01-23T07:51:14.000Z</updated>
+        <summary type="html"><![CDATA[<p>网抑云音乐<br>
+生不出人<br>
+我很抱歉</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>网抑云音乐<br>
+生不出人<br>
+我很抱歉</p>
+<!-- more -->
+<p><img src="https://img.shields.io/github/stars/sadjjk/JinyuMusic.svg" alt="Github stars" loading="lazy">   <img src="https://img.shields.io/github/last-commit/sadjjk/JinyuMusic" alt="GitHub last commit" loading="lazy">   <img src="https://img.shields.io/github/forks/sadjjk/JinyuMusic?style=social" alt="GitHub forks" loading="lazy"></p>
+<p><a href="http://www.wjinyu.top:666/">在线聚合音乐平台</a></p>
+<figure data-type="image" tabindex="1"><img src="https://s3.ax1x.com/2021/01/23/sTqgfI.png" alt="sTqgfI.png" loading="lazy"></figure>
+<h3 id="缘起">缘起</h3>
+<p>有些人看到这个页面</p>
+<p>可能会非常眼熟</p>
+<p>没错 整体前端的设计借鉴自<a href="https://listen1.github.io/listen1/">Listen1</a> Chrome插件版</p>
+<p>第一次使用Listen1时</p>
+<p>感觉非常的Nice 👍</p>
+<p>但感觉又缺个排行榜</p>
+<p>出于对技术的偏执和学习的目的</p>
+<p>于是乎 自己动手做了一个</p>
+<p>增加了排行榜等功能</p>
+<p>项目使用前后端分离的设计</p>
+<p>后端使用Python  Flask框架</p>
+<p>前端使用了最简单的HTML、JS</p>
+<h3 id="设计">设计</h3>
+<p>目前已接入7大音乐平台</p>
+<ol>
+<li>网易云音乐</li>
+<li>QQ音乐</li>
+<li>咪咕音乐</li>
+<li>虾米音乐 (2021年2月将下线)</li>
+<li>酷狗音乐</li>
+<li>酷我音乐</li>
+<li>千千音乐</li>
+</ol>
+<p>支持全网的音乐搜索、歌单推荐、排行榜、歌手详情、专辑详情</p>
+<p><strong>当然该花钱的还是要花钱去听</strong></p>
+<p>在探索过程中</p>
+<p>个别接口都是连蒙带猜的</p>
+<p>花费了不少时间和精力</p>
+<p>如果你觉得很赞</p>
+<p>不妨Star一下</p>
+<h3 id="感谢">感谢</h3>
+<p>非常感谢以下使用到的开源项目以及帮助过我的朋友们</p>
+<p><a href="http://listen1.github.io/listen1/">Listen 1 </a>: <a href="http://listen1.github.io/listen1/">http://listen1.github.io/listen1</a></p>
+<p><a href="https://aplayer.js.org/">APlayer </a>: <a href="https://aplayer.js.org/">https://aplayer.js.org</a></p>
+<p><a href="https://github.com/cschensai">cschensai</a>:https://github.com/cschensai</p>
+<h3 id="吐槽">吐槽</h3>
+<p>既想让人知道 又不想让太多人知道的矛盾心情</p>
+<p>就像喜欢的小众歌手 一下子人尽皆知</p>
+<p>反而自己有点高兴不起来了</p>
+<p>像这样的聚合服务始终是上不了台面</p>
+<p>如果用的人过多</p>
+<p>随之到来的就是版权律师函问题</p>
+<p>所以 <strong>仅供学习 请勿商用</strong></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Spark学习笔记-2.打造生态圈 为梦想窒息]]></title>
         <id>https://blog.wjinyu.top/post/spark_note_2/</id>
@@ -1090,114 +1153,6 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 <figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/8MqmCJpAKlzQUnH.png" alt="首页" loading="lazy"></figure>
 <figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/hxzFmJq9GWvD43l.png" alt="UTOOLS_COMPRESS_1573355902309.png" loading="lazy"></figure>
 <figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CentOS7 Chrome ChromeDriver Selenium 安装手册]]></title>
-        <id>https://blog.wjinyu.top/post/CentOS7_Chrome_ChromeDriver_Selenium_install/</id>
-        <link href="https://blog.wjinyu.top/post/CentOS7_Chrome_ChromeDriver_Selenium_install/">
-        </link>
-        <updated>2019-11-05T06:18:27.000Z</updated>
-        <summary type="html"><![CDATA[<p>白白胖胖<br>
-脱单无望</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>白白胖胖<br>
-脱单无望</p>
-<!--more-->
-<p>Selenium作为爬虫的最后的杀手锏<br>
-不到万不得已不会使用<br>
-今遇到了这样的场景<br>
-就记录下安装手册<br>
-CentOS7 安装ChromeDriver Selenium<br>
-可以说是非常的简单顺滑<br>
-比Win要容易些<br>
-当然CentOS没有图形用户界面<br>
-所以通常是代码已经调试完毕<br>
-再放在CentOS中 Chrome无头模式运行</p>
-<h2 id="chrome">Chrome</h2>
-<h4 id="安装">安装</h4>
-<pre><code>yum install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
-</code></pre>
-<h4 id="查看版本">查看版本</h4>
-<pre><code>/usr/bin/google-chrome -version
-</code></pre>
-<h2 id="chromedriver">ChromeDriver</h2>
-<p>理论上chromeDriver最好要与chrome的版本相对应 即存在ChromeDriver与Chrome版本映射表  <a href="https://www.cnblogs.com/Summer-skr--blog/p/11715259.html">点这里</a><br>
-通过查看chrome版本号 找到相对应的chromedriver版本号 <a href="http://chromedriver.storage.googleapis.com/index.html">点这里下载</a><br>
-实测过程中 不用一一对应版本号也是能运行的  这是我的版本 仅供参考</p>
-<pre><code>[root~]# /usr/bin/google-chrome -version
-Google Chrome 78.0.3904.97
-[root~]# /usr/bin/chromedriver -version
-ChromeDriver 2.38.552522 (437e6fbedfa8762dec75e2c5b3ddb86763dc9dcb)
-</code></pre>
-<h4 id="安装-2">安装</h4>
-<p>这里以2.38为例  若要选择其他版本 请在上面链接里自行寻找</p>
-<pre><code>wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
-</code></pre>
-<h4 id="解压">解压</h4>
-<p>若unzip命令失败 则<code>yum install unzip</code><br>
-解压至<code>/usr/bin</code> 当然任意目录都可以 后期代码会指定文件的位置<br>
-建议放在<code>/usr/bin</code></p>
-<pre><code>unzip chromedriver_linux64.zip -d /usr/bin
-</code></pre>
-<h4 id="赋权">赋权</h4>
-<pre><code>chmod +x /usr/bin/chromedriver
-</code></pre>
-<h2 id="selenium">Selenium</h2>
-<h4 id="安装-3">安装</h4>
-<pre><code>pip install selenium
-</code></pre>
-<h2 id="test">Test</h2>
-<p>Chrome、chromeDriver、Selenium 安装完毕<br>
-测试下能否成功运行<br>
-新建测试demo.py文件</p>
-<pre><code>from selenium.webdriver.chrome.options import Options
-from selenium import webdriver
-import os
-
-
-chrome_location = '/usr/bin/google-chrome'  #指定chrome路径
-chrome_driver_location = '/usr/bin/chromedriver' #指定chromedriver路径
-
-chrome_options = Options()
-chrome_options.binary_location = chrome_location
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--disable-gpu')
-chrome_options.add_argument('--disable-dev-shm-usage')
-
-os.environ[&quot;webdriver.chrome.driver&quot;] = chrome_driver_location
-
-browser = webdriver.Chrome(executable_path=chrome_driver_location, options=chrome_options)
-
-
-# test
-browser.get('https://www.baidu.com/')
-print(browser.page_source[:1000])
-browser.close()
-</code></pre>
-<p>运行文件 若正确返回baidu页面源码 则运行成功</p>
-<pre><code>[root@aliyun2 ~]# python demo.py
-&lt;!DOCTYPE html&gt;&lt;!--STATUS OK--&gt;&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;head&gt;
-
-    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=Edge&quot; /&gt;
-	&lt;meta content=&quot;always&quot; name=&quot;referrer&quot; /&gt;
-    &lt;meta name=&quot;theme-color&quot; content=&quot;#2932e1&quot; /&gt;
-    &lt;link rel=&quot;shortcut icon&quot; href=&quot;/favicon.ico&quot; type=&quot;image/x-icon&quot; /&gt;
-    &lt;link rel=&quot;search&quot; type=&quot;application/opensearchdescription+xml&quot; href=&quot;/content-search.xml&quot; title=&quot;百度搜索&quot; /&gt;
-    &lt;link rel=&quot;icon&quot; sizes=&quot;any&quot; mask=&quot;&quot; href=&quot;//www.baidu.com/img/baidu_85beaf5496f291521eb75ba38eacbd87.svg&quot; /&gt;
-
-
-	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//s1.bdstatic.com&quot; /&gt;
-	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t1.baidu.com&quot; /&gt;
-	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t2.baidu.com&quot; /&gt;
-	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t3.baidu.com&quot; /&gt;
-	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t10.baidu.com&quot; /&gt;
-	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t11.baidu.com&quot; /&gt;
-	&lt;link rel=&quot;dns-prefetch&quot; href=&quot;//t12.baidu.com&quot; /&gt;
-	&lt;link rel=&quot;dns-prefetc
-</code></pre>
 ]]></content>
     </entry>
 </feed>
