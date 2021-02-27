@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-02-27T13:08:11.149Z</updated>
+    <updated>2021-02-27T13:09:33.495Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -10,97 +10,6 @@
     <logo>https://blog.wjinyu.top/images/avatar.png</logo>
     <icon>https://blog.wjinyu.top/favicon.ico</icon>
     <rights>All rights reserved 2021, 今语</rights>
-    <entry>
-        <title type="html"><![CDATA[综合评价方法-论如何科学的打分]]></title>
-        <id>https://blog.wjinyu.top/post/OverviewAlgo/</id>
-        <link href="https://blog.wjinyu.top/post/OverviewAlgo/">
-        </link>
-        <updated>2021-02-27T12:41:16.000Z</updated>
-        <summary type="html"><![CDATA[<p>我不要你觉得</p>
-<p>我要我觉得</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我不要你觉得</p>
-<p>我要我觉得</p>
-<!--more-->
-<h3 id="前言">前言</h3>
-<p>如果我们想评价一个事物</p>
-<p>只从单一指标出发评价</p>
-<p>会显得很不公正也不科学</p>
-<p>因此多数情况下</p>
-<p>评价一个事物往往需要涉及多个层次、多个方面的指标</p>
-<p>进行综合评价 从而得出更加科学合理的结论</p>
-<h4 id="评价步骤">评价步骤</h4>
-<figure data-type="image" tabindex="1"><img src="https://s3.ax1x.com/2021/02/01/yZxHu8.png" alt="yZxHu8.png" loading="lazy"></figure>
-<ol>
-<li>确定评价指标</li>
-<li>确定指标权重  (部分方法无需确定权重)</li>
-<li>建立综合评价模型</li>
-<li>评价结果分析</li>
-</ol>
-<h4 id="评价方法">评价方法</h4>
-<p>综合评价方法有很多 大致分类如下 如下图:</p>
-<figure data-type="image" tabindex="2"><img src="https://s3.ax1x.com/2021/01/14/saGr7j.png" alt="saGr7j.png" loading="lazy"></figure>
-<p>总体来说 分为计算指标的权重和直接排序</p>
-<ul>
-<li>计算指标权重: 计算出各指标的权重 各对象依据权重计算出最终得分</li>
-<li>直接排序:无需计算各指标权重 直接对各对象进行打分</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>数据波动性</th>
-<th>数据相关性</th>
-<th>其他</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>AHP层次法</td>
-<td>无</td>
-<td>无</td>
-<td>专家建议</td>
-</tr>
-<tr>
-<td>熵值法</td>
-<td>无</td>
-<td>无</td>
-<td>熵值</td>
-</tr>
-<tr>
-<td>CRITIC权重法</td>
-<td>有</td>
-<td>有</td>
-<td></td>
-</tr>
-<tr>
-<td>独立性权重</td>
-<td>无</td>
-<td>有</td>
-<td></td>
-</tr>
-<tr>
-<td>信息量权重</td>
-<td>有</td>
-<td>无</td>
-<td></td>
-</tr>
-<tr>
-<td>TOPSIS</td>
-<td>无</td>
-<td>无</td>
-<td>理想距离</td>
-</tr>
-<tr>
-<td>熵权TOPSIS</td>
-<td>无</td>
-<td>无</td>
-<td>熵权+TOPSIS</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[综合评价方法-论如何科学的打分]]></title>
         <id>https://blog.wjinyu.top/post/overview_summary/</id>
@@ -1052,6 +961,153 @@ B站的登陆 是滑块登陆 可以说相当困难<br>
 <figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/4KcFfLeq8Q7o9Tm.png" alt="UTOOLS_COMPRESS_1573375534489.png" loading="lazy"></figure>
 <p>额外篇 如何实现B站滑块自动登陆 有机会再讲<br>
 额外篇 如何实现邮箱发送  有机会再讲</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[BilibiliVideo-实现篇-基础篇]]></title>
+        <id>https://blog.wjinyu.top/post/BilibiliVideo_realize/</id>
+        <link href="https://blog.wjinyu.top/post/BilibiliVideo_realize/">
+        </link>
+        <updated>2019-11-10T03:45:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>只有用水将心上的雾气淘洗干净<br>
+荣光才会照亮最初的梦想</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>只有用水将心上的雾气淘洗干净<br>
+荣光才会照亮最初的梦想</p>
+<!--more-->
+<p>网站：<a href="http://www.wjinyu.top:233/">BilibiliVideo</a></p>
+<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
+<ul>
+<li><a href="/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
+<li><a href="/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
+<li><a href="/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+<li><a href="/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
+</ul>
+<p>BilibiliVideo的核心就是如何获取视频的下载地址<br>
+主要的参考思路来自<a href="https://github.com/Henryhaohao/Bilibili_video_download">Github大佬的项目</a> https://github.com/Henryhaohao/Bilibili_video_download<br>
+在此基础上进行了梳理修改<br>
+下面是视频下载的大体思路</p>
+<h4 id="获取视频基本信息">获取视频基本信息</h4>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg" loading="lazy"></figure>
+<p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681<br>
+番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
+<p>requests.get(url).text  获取当前地址的源码<br>
+正则匹配<code>r'INITIAL_STATE__=(.*?});'</code><br>
+匹配里的内容就是视频的基本信息json 有</p>
+<ul>
+<li>aid</li>
+<li>cid</li>
+<li>视频标题 title</li>
+<li>视频封面 cover</li>
+</ul>
+<p>这里要注意Up主视频地址与番剧视频的json内容不同的<br>
+所以要分开处理</p>
+<h5 id="up主视频">Up主视频</h5>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/O6mfwrtpeZQJDlG.png" alt="UTOOLS_COMPRESS_1573368344571.png" loading="lazy"></figure>
+<p>json里面有pic(即封面)、title(即标题)<br>
+一个视频地址里面可能有多个子视频<br>
+pages里面就存着多个子视频的信息<br>
+需要用到的是cid和part(子视频的名字)</p>
+<h5 id="番剧视频">番剧视频</h5>
+<p>番剧的json内容与Up主json内容略有不同</p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/1vKXJPo3DlmgfbY.png" alt="UTOOLS_COMPRESS_1573368890717.png" loading="lazy"></figure>
+<p>mediainfo里放着这个番剧的标题和封面<br>
+epList里有每集视频的cid和aid</p>
+<h4 id="获取视频下载地址">获取视频下载地址</h4>
+<p>上一步已经拿到了每集视频的cid、aid、quality(默认720P)<br>
+使用非官方公开API</p>
+<pre><code>https://api.bilibili.com/x/player/playurl?cid={}&amp;avid={}&amp;qn={}
+</code></pre>
+<p>cid 即获取到的cid<br>
+avid 即获取到的aid<br>
+qn 即获取到的quality所对应的值<br>
+如下表</p>
+<pre><code>&quot;360P&quot;:16,
+&quot;480P&quot;:32,
+&quot;720P&quot;:64,
+&quot;1080P&quot;:80,
+&quot;1080P+&quot;:112
+</code></pre>
+<p>request.get(API_URL)<br>
+即可获取大部分视频<br>
+Up主视频基本都能解析了<br>
+还有部分视频需要会员<br>
+清晰度1080P+ 也是会员特有<br>
+那如何获取会员视频 ？<br>
+毫无疑问 首先要有一个<strong>大会员账号</strong><br>
+实名感谢Y朋友提供的大会员账号<br>
+没有大会员 肯定是无法下载会员视频的<br>
+毕竟天下没有免费的午餐<br>
+有了大会员账号  登陆B站<br>
+F12&gt; Application&gt;Cookies&gt;SESSDATA<br>
+记录SESSDATA的值  添加headers<br>
+补充:SESSDATA据说是有1个月的有效期<br>
+若失效 需重新登录获取</p>
+<pre><code>headers = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+    'Cookie': 'SESSDATA=刚记录的SESSDATA值',
+    'Host': 'api.bilibili.com'
+}
+</code></pre>
+<p>request.get(API_URL,headers = headers) 即可<br>
+这是返回的结果 同样是json<br>
+<img src="https://i.loli.net/2019/11/10/CGPTJ9g2m1b3Q6O.png" alt="UTOOLS_COMPRESS_1573370101861.png" loading="lazy"></p>
+<p>下载地址是data['durl']['url']<br>
+到这里基本可以获取全站所有的视频下载地址</p>
+<h4 id="本地下载视频">本地下载视频</h4>
+<p>上一步已获取到视频的下载地址<br>
+开始Download<br>
+这里推荐使用urllib.request.urlretrieve<br>
+这个下载比较优雅 还有回调函数 可实时打印下载进度<br>
+不推荐使用requests.get<br>
+requests库虽然对urllib进一步封装更加常用 但在下载这些视频的时候<br>
+经常报403错误  可能是视频流的原因<br>
+当初就犯了这个错误 使用requests.get<br>
+结果好多视频地址失效了<br>
+其实地址都是有效的<br>
+如果要本地下载 就用  urllib.request.urlretrieve<br>
+如果要打开(使用服务时) 就用  urllib.request.urlopen<br>
+当然 直接开始下载 也还是不行的<br>
+资源一般都有防盗链   不会那么随便就能访问到服务器的资源<br>
+同样要添加headers  urllib添加headers 与requests略有不同</p>
+<pre><code>opener = urllib.request.build_opener()
+
+# 请求头
+opener.addheaders = [
+    ('Host', 'upos-hz-mirrorks3.acgvideo.com'),
+    ('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 '),
+    ('Accept', '*/*'),
+    ('Accept-Language', 'en-US,en;q=0.5'),
+    ('Accept-Encoding', 'gzip, deflate, br'),
+    ('Range', 'bytes=0-'),  # Range 的值要为 bytes=0- 才能下载完整视频
+    ('Referer', 一开始输入的B站视频地址),
+    ('Origin', 'https://www.bilibili.com'),
+    ('Connection', 'keep-alive'),
+]
+urllib.request.install_opener(opener)
+urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名)
+
+</code></pre>
+<p>这样就可以下载视频了<br>
+如果要查看下载的进度 需要添加回调函数</p>
+<pre><code>def _progress(self,block_num, block_size, total_size):
+    '''回调函数
+       @block_num: 已经下载的数据块
+       @block_size: 数据块的大小
+       @total_size: 远程文件的大小
+    '''
+
+    # 设置下载进度条
+    pervent = block_num * block_size / total_size * 100
+    percent_str = &quot;%.2f%%&quot; % (pervent)
+    logger.info(percent_str)
+        
+urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,reporthook = _progress)        
+</code></pre>
+<h4 id="end">END</h4>
+<p>整体思路介绍完毕<br>
+基本上就可以下载任意视频到本地了</p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/iO4UmQs6REHP5vl.png" alt="UTOOLS_COMPRESS_1573371620820.png" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
