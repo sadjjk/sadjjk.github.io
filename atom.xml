@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-01-23T08:01:57.097Z</updated>
+    <updated>2021-02-27T12:49:19.009Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -10,6 +10,97 @@
     <logo>https://blog.wjinyu.top/images/avatar.png</logo>
     <icon>https://blog.wjinyu.top/favicon.ico</icon>
     <rights>All rights reserved 2021, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[综合评价方法-论如何科学的打分]]></title>
+        <id>https://blog.wjinyu.top/post/OverviewAlgo/</id>
+        <link href="https://blog.wjinyu.top/post/OverviewAlgo/">
+        </link>
+        <updated>2021-02-27T12:41:16.000Z</updated>
+        <summary type="html"><![CDATA[<p>我不要你觉得</p>
+<p>我要我觉得</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>我不要你觉得</p>
+<p>我要我觉得</p>
+<!--more-->
+<h3 id="前言">前言</h3>
+<p>如果我们想评价一个事物</p>
+<p>只从单一指标出发评价</p>
+<p>会显得很不公正也不科学</p>
+<p>因此多数情况下</p>
+<p>评价一个事物往往需要涉及多个层次、多个方面的指标</p>
+<p>进行综合评价 从而得出更加科学合理的结论</p>
+<h4 id="评价步骤">评价步骤</h4>
+<figure data-type="image" tabindex="1"><img src="https://s3.ax1x.com/2021/02/01/yZxHu8.png" alt="yZxHu8.png" loading="lazy"></figure>
+<ol>
+<li>确定评价指标</li>
+<li>确定指标权重  (部分方法无需确定权重)</li>
+<li>建立综合评价模型</li>
+<li>评价结果分析</li>
+</ol>
+<h4 id="评价方法">评价方法</h4>
+<p>综合评价方法有很多 大致分类如下 如下图:</p>
+<figure data-type="image" tabindex="2"><img src="https://s3.ax1x.com/2021/01/14/saGr7j.png" alt="saGr7j.png" loading="lazy"></figure>
+<p>总体来说 分为计算指标的权重和直接排序</p>
+<ul>
+<li>计算指标权重: 计算出各指标的权重 各对象依据权重计算出最终得分</li>
+<li>直接排序:无需计算各指标权重 直接对各对象进行打分</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>数据波动性</th>
+<th>数据相关性</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AHP层次法</td>
+<td>无</td>
+<td>无</td>
+<td>专家建议</td>
+</tr>
+<tr>
+<td>熵值法</td>
+<td>无</td>
+<td>无</td>
+<td>熵值</td>
+</tr>
+<tr>
+<td>CRITIC权重法</td>
+<td>有</td>
+<td>有</td>
+<td></td>
+</tr>
+<tr>
+<td>独立性权重</td>
+<td>无</td>
+<td>有</td>
+<td></td>
+</tr>
+<tr>
+<td>信息量权重</td>
+<td>有</td>
+<td>无</td>
+<td></td>
+</tr>
+<tr>
+<td>TOPSIS</td>
+<td>无</td>
+<td>无</td>
+<td>理想距离</td>
+</tr>
+<tr>
+<td>熵权TOPSIS</td>
+<td>无</td>
+<td>无</td>
+<td>熵权+TOPSIS</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[今语云音乐]]></title>
         <id>https://blog.wjinyu.top/post/jinyumusic/</id>
@@ -1087,72 +1178,6 @@ urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,repo
 <p>整体思路介绍完毕<br>
 基本上就可以下载任意视频到本地了</p>
 <figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/iO4UmQs6REHP5vl.png" alt="UTOOLS_COMPRESS_1573371620820.png" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[BilibiliVideo-缘起篇]]></title>
-        <id>https://blog.wjinyu.top/post/BilibiliVideo_begin/</id>
-        <link href="https://blog.wjinyu.top/post/BilibiliVideo_begin/">
-        </link>
-        <updated>2019-11-10T03:29:25.000Z</updated>
-        <summary type="html"><![CDATA[<p>如果你真的愿意去努力<br>
-你人生最坏的结果<br>
-也不过是大器晚成</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>如果你真的愿意去努力<br>
-你人生最坏的结果<br>
-也不过是大器晚成</p>
-<!--more-->
-<p>网站：<a href="http://www.wjinyu.top:233/">BilibiliVideo</a></p>
-<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
-<ul>
-<li><a href="/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
-<li><a href="/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
-<li><a href="/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
-<li><a href="/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
-</ul>
-<p>有一天想下载B站的视频  网上了解了一番 常用的是<a href="https://www.ibilibili.com/">爱哔哩</a>和<a href="http://www.shipinyu.com/">视频鱼</a><br>
-但都不尽人意 于是决定自己做一款 <a href="http://www.wjinyu.top:233/">BilibiliVideo</a><br>
-下面简直描述下以上提到的产品</p>
-<h3 id="爱哔哩">爱哔哩</h3>
-<p>爱哔哩 https://www.ibilibili.com/ 使用起来非常方便 在原bilibili.com前添加i即可自动跳转解析<br>
-<img src="https://i.loli.net/2019/11/10/qwVzHk9G1voa3Zs.png" alt="UTOOLS_COMPRESS_1573353905290.png" loading="lazy"><br>
-但近期解析的视频基本提示“请使用下载工具下载”<br>
-<img src="https://i.loli.net/2019/11/10/IieOURXE1YlJ8G2.png" alt="UTOOLS_COMPRESS_1573354124301.png" loading="lazy"><br>
-如果是B站的番剧或电影 添加i跳转解析 直接失败<br>
-下载下载工具后 解析是没有问题的 无论番剧或者Up主视频都能下载<br>
-<img src="https://i.loli.net/2019/11/10/GxH564iIeYgoDTX.png" alt="UTOOLS1573355181219.png" loading="lazy"></p>
-<p>会员专属视频也能下载 这个点赞<br>
-缺点就是下载工具无法选择清晰度<br>
-同时通过网页解析再下载下载工具总觉得多此一举<br>
-能不能就简单一些 页面解析 解析完  下载 一气呵成</p>
-<h3 id="视频鱼">视频鱼</h3>
-<p>视频鱼 http://www.shipinyu.com/ 支持的视频解析网站非常全面</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/XZ26itrmSPICy9M.png" alt="UTOOLS_COMPRESS_1573354969146.png" loading="lazy"></figure>
-<p>依然测试下B站视频 解析成功了 这才符合之前说的 解析完 点击下载<br>
-<img src="https://i.loli.net/2019/11/10/dSnlHsGZrwCpIqX.png" alt="UTOOLS_COMPRESS_1573355073441.png" loading="lazy"></p>
-<p>但点击下载时 突然发现高兴太早了<br>
-选择flv文件 提示“解析失败，请稍后再试！”<br>
-选择mp4文件 任一清晰度  下载失败</p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/49xyd5ZXDlkiw2T.png" alt="UTOOLS_COMPRESS_1573355277094.png" loading="lazy"></figure>
-<h3 id="bilibilivideo">BilibiliVideo</h3>
-<p>爱哔哩和视频鱼都不是很满意<br>
-决定自己做一款B站视频下载解析 要有以下几点</p>
-<ol>
-<li>输入视频地址 开始解析</li>
-<li>解析完 选择视频 点击即可下载</li>
-<li>可选择视频清晰度</li>
-<li>支持会员视频、番剧、电影</li>
-</ol>
-<p>花费一个月的闲(咸)余(鱼)时间 终于完成了自己理想的<a href="http://www.wjinyu.top:233/">B站视频下载解析</a><br>
-输入要下载的B站视频链接 开始解析<br>
-解析完成后展示可下载的剧集 点击即可下载<br>
-左上角可选择清晰度 360P~1080P+<br>
-欢迎体验 下载B站视频的同时也不要忘记给Up主一键三连 投币点赞<br>
-最后 仅供学习 请勿商用</p>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/8MqmCJpAKlzQUnH.png" alt="首页" loading="lazy"></figure>
-<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/hxzFmJq9GWvD43l.png" alt="UTOOLS_COMPRESS_1573355902309.png" loading="lazy"></figure>
-<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2019/11/10/U5R43NVfSF2ZvsK.png" alt="UTOOLS_COMPRESS_1573355993700.png" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
