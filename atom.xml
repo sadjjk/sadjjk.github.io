@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-02-27T13:09:33.495Z</updated>
+    <updated>2021-02-27T13:21:28.805Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -12,23 +12,93 @@
     <rights>All rights reserved 2021, 今语</rights>
     <entry>
         <title type="html"><![CDATA[综合评价方法-论如何科学的打分]]></title>
-        <id>https://blog.wjinyu.top/post/overview_summary/</id>
-        <link href="https://blog.wjinyu.top/post/overview_summary/">
+        <id>https://blog.wjinyu.top/post/OverviewAlgo/</id>
+        <link href="https://blog.wjinyu.top/post/OverviewAlgo/">
         </link>
-        <updated>2021-02-01T07:12:22.000Z</updated>
+        <updated>2021-02-27T12:41:16.000Z</updated>
         <summary type="html"><![CDATA[<p>我不要你觉得</p>
 <p>我要我觉得</p>
 ]]></summary>
         <content type="html"><![CDATA[<p>我不要你觉得</p>
 <p>我要我觉得</p>
 <!--more-->
+<h3 id="前言">前言</h3>
+<p>如果我们想评价一个事物</p>
+<p>只从单一指标出发评价</p>
+<p>会显得很不公正也不科学</p>
+<p>因此多数情况下</p>
+<p>评价一个事物往往需要涉及多个层次、多个方面的指标</p>
+<p>进行综合评价 从而得出更加科学合理的结论</p>
+<h4 id="评价步骤">评价步骤</h4>
+<figure data-type="image" tabindex="1"><img src="https://s3.ax1x.com/2021/02/01/yZxHu8.png" alt="yZxHu8.png" loading="lazy"></figure>
+<ol>
+<li>确定评价指标</li>
+<li>确定指标权重  (部分方法无需确定权重)</li>
+<li>建立综合评价模型</li>
+<li>评价结果分析</li>
+</ol>
+<h4 id="评价方法">评价方法</h4>
 <p>综合评价方法有很多 大致分类如下 如下图:</p>
-<figure data-type="image" tabindex="1"><img src="https://s3.ax1x.com/2021/01/14/saGr7j.png" alt="saGr7j.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://s3.ax1x.com/2021/01/14/saGr7j.png" alt="saGr7j.png" loading="lazy"></figure>
 <p>总体来说 分为计算指标的权重和直接排序</p>
 <ul>
 <li>计算指标权重: 计算出各指标的权重 各对象依据权重计算出最终得分</li>
 <li>直接排序:无需计算各指标权重 直接对各对象进行打分</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>数据波动性</th>
+<th>数据相关性</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AHP层次法</td>
+<td>无</td>
+<td>无</td>
+<td>专家建议</td>
+</tr>
+<tr>
+<td>熵值法</td>
+<td>无</td>
+<td>无</td>
+<td>熵值</td>
+</tr>
+<tr>
+<td>CRITIC权重法</td>
+<td>有</td>
+<td>有</td>
+<td></td>
+</tr>
+<tr>
+<td>独立性权重</td>
+<td>无</td>
+<td>有</td>
+<td></td>
+</tr>
+<tr>
+<td>信息量权重</td>
+<td>有</td>
+<td>无</td>
+<td></td>
+</tr>
+<tr>
+<td>TOPSIS</td>
+<td>无</td>
+<td>无</td>
+<td>理想距离</td>
+</tr>
+<tr>
+<td>熵权TOPSIS</td>
+<td>无</td>
+<td>无</td>
+<td>熵权+TOPSIS</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     </entry>
     <entry>
