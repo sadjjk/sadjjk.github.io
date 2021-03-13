@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-03-13T04:17:36.237Z</updated>
+    <updated>2021-03-13T04:29:48.798Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -646,7 +646,7 @@ C I=\frac{\max (3.0037,-0.0018,-0.0018)-3}{3-1}=\frac{3.0037-3}{3-1} \\
         <content type="html"><![CDATA[<p>我不要你觉得</p>
 <p>我要我觉得</p>
 <!--more-->
-<h3 id="前言">前言</h3>
+<h4 id="前言">前言</h4>
 <p>如果我们想评价一个事物 ，只从单一指标出发评价，会显得很不公正也不科学</p>
 <p>因此多数情况下，评价一个事物往往需要涉及多个层次、多个方面的指标进行综合评价</p>
 <p>从而得出更加科学合理的结论</p>
@@ -669,7 +669,7 @@ C I=\frac{\max (3.0037,-0.0018,-0.0018)-3}{3-1}=\frac{3.0037-3}{3-1} \\
 </ol>
 <h4 id="评价方法">评价方法</h4>
 <p>综合评价方法有很多 大致分类如下 如下图:</p>
-<img src="https://i.loli.net/2021/03/05/n4vxlO7PiksWE5e.png" alt="saGr7j.png" style="zoom:50%;max-width:50%;" />
+<img src="https://i.loli.net/2021/03/05/n4vxlO7PiksWE5e.png" alt="saGr7j.png" style="zoom:50%;max-width:80%;" />
 <p>总体来说 分为两大类 : 计算指标的权重和直接排序</p>
 <ul>
 <li>计算指标权重: 计算出各指标的权重 各对象依据权重计算出最终得分</li>
