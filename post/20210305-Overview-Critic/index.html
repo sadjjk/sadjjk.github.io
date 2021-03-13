@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>综合评价法-CRITIC权重法 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1615617372341">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1615617621771">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
 
@@ -104,7 +104,7 @@
         
 
         <div class="entry-meta">
-          <span class="date">· 2021-03-05 ·</span>
+          <span class="date">· 2021-03-13 ·</span>
 
           
             <span class="category">
@@ -127,7 +127,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/20210305-DataDimension/">下一篇->数据量纲化与同向化</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/20210313-AHPModel/">下一篇->综合评价法-AHP层次分析法</a>
               </div>
             </nav>
           
@@ -227,15 +227,16 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wjinyu.top//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>做人不要太攀比</p>
-<p>要比就比谁早起</p>
+    var article = `<p>做人不要太攀比<br>
+要比就比谁早起</p>
 <!--more-->
+<h4 id="理论概述">理论概述</h4>
 <p>基于评价指标的<strong>变异性</strong>和<strong>冲突性</strong>来综合衡量指标的客观权重</p>
 <ul>
 <li><strong>指标变异性</strong>：以标准差来表现，<strong>标准差越大</strong>，说明<strong>波动越大，权重越高</strong>；</li>
 <li><strong>指标冲突性</strong>：用相关系数进行表示，若两个指标之间具有<strong>较强的正相关</strong>，说明其<strong>冲突性小</strong>，<strong>权重越低</strong>。</li>
 </ul>
-<h4 id="举例数据">举例数据</h4>
+<h4 id="数据说明">数据说明</h4>
 <table>
 <thead>
 <tr>
@@ -278,8 +279,8 @@ hljs.initHighlightingOnLoad()
 </tr>
 </tbody>
 </table>
-<h4 id="数据预处理">数据预处理</h4>
-<p>所有数据进行综合评价前 都要进行<strong>量纲化</strong>和<strong>同向化</strong></p>
+<h4 id="计算步骤">计算步骤</h4>
+<h5 id="0数据预处理">0.数据预处理</h5>
 <p>若数据已量纲化和同向化 则可忽略此步骤</p>
 <p>该方法下使用归一化 不建议使用标准化</p>
 <p><em>PS:若使用标准化 则导致所有指标标准差一致 则指标的变异性无意义</em></p>
@@ -327,7 +328,6 @@ hljs.initHighlightingOnLoad()
 </tr>
 </tbody>
 </table>
-<h4 id="操作步骤">操作步骤</h4>
 <h5 id="1计算指标变异性">1.计算指标变异性</h5>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><mo>=</mo><mfrac><mn>1</mn><mi>n</mi></mfrac><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><msub><mi>x</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msub><mi>S</mi><mi>j</mi></msub><mo>=</mo><msqrt><mfrac><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></msubsup><mo>(</mo><msub><mi>x</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mo>−</mo><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover><msup><mo>)</mo><mn>2</mn></msup></mrow><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></mfrac></msqrt></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">\begin{array}{c}
 \bar{x} = \frac{1}{n} \sum_{i = 1}^{n}  x_{ij} \\
@@ -340,7 +340,7 @@ c-6,-5.3,-15,-14,-27,-26s25,-30,25,-30c26.7,-32.7,52,-63,76,-91s52,-60,52,-60
 s208,722,208,722c56,-175.3,126.3,-397.3,211,-666c84.7,-268.7,153.8,-488.2,207.5,
 -658.5c53.7,-170.3,84.5,-266.8,92.5,-289.5c4,-6.7,10,-10,18,-10z
 M1001 80H400000v40H1013z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5266620000000002em;"><span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.272554em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span></span></span></span></span></span></span></p>
-<p>即标准差 表示各指标的内取值的差异波动情况</p>
+<p>即样本标准差 表示各指标的内取值的差异波动情况</p>
 <p>标准差越大越能放映出更多的信息</p>
 <p>该指标本身的评价强度也就越强</p>
 <p>该指标分配的权重就越多</p>
@@ -355,10 +355,10 @@ M1001 80H400000v40H1013z'/></svg></span></span></span><span class="vlist-s">​<
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">标准差</td>
-<td style="text-align:center">0.40</td>
-<td style="text-align:center">0.41</td>
-<td style="text-align:center">0.41</td>
+<td style="text-align:center">样本标准差</td>
+<td style="text-align:center">0.3954</td>
+<td style="text-align:center">0.4129</td>
+<td style="text-align:center">0.4094</td>
 </tr>
 </tbody>
 </table>
@@ -494,6 +494,16 @@ W_{j}：第j个指标的权重
 </tr>
 </tbody>
 </table>
+<h4 id="代码实践">代码实践</h4>
+<pre><code class="language-python"># 代码段
+def get_critic_weight(data):
+    data = np.array(data)
+    std = data.std(axis=0, ddof=1)
+    R = (1 - np.corrcoef(data.T)).sum(axis=0)
+    C = std * R
+    return list(C / C.sum())
+</code></pre>
+<p>详情代码: <a href="https://github.com/sadjjk/OverviewAlgo/blob/master/code/5.CriticModel.py">CriticModel.py</a></p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
