@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-03-13T05:45:52.242Z</updated>
+    <updated>2021-03-13T06:12:15.982Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -10,6 +10,267 @@
     <logo>https://blog.wjinyu.top/images/avatar.png</logo>
     <icon>https://blog.wjinyu.top/favicon.ico</icon>
     <rights>All rights reserved 2021, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[综合评价法-独立性权重]]></title>
+        <id>https://blog.wjinyu.top/post/20210313-Independent/</id>
+        <link href="https://blog.wjinyu.top/post/20210313-Independent/">
+        </link>
+        <updated>2021-03-13T06:10:02.000Z</updated>
+        <summary type="html"><![CDATA[<p>老师认为我已经有独立生存能力</p>
+<p>于是帮我退了学</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>老师认为我已经有独立生存能力</p>
+<p>于是帮我退了学</p>
+<!--more-->
+<h4 id="理论概述">理论概述</h4>
+<p>利用指标之间的共线性强弱来确定权重。</p>
+<p>如果说某指标与其它指标的相关性很强，说明信息有着较大的重叠，意味着该指标的权重会比较低。</p>
+<p>反之如果说某指标与其它指标的相关性较弱，那么说明该指标携带的信息量较大，该指标应该赋予更高的权重。</p>
+<p>共线性强弱由回归分析得到的<strong>复相关系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> 值</strong>来表示</p>
+<p><strong>复相关系数反映了一个变量与另一组变量的密切程度。</strong></p>
+<p>比如有5个指标，那么指标1作为因变量，其余4个指标作为自变量进行回归分析，就会得到复相关系数<em>R</em> 值</p>
+<p>余下4个指标重复进行即可</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span>值越大说明共线性越强，权重越低</p>
+<p>复相关系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> 值的倒数即<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mi mathvariant="normal">/</mi><mi>R</mi></mrow><annotation encoding="application/x-tex">1/R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span></span></span></span> ，进行归一化后即得到各指标的权重。</p>
+<h4 id="数据说明">数据说明</h4>
+<p>设共有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个待评价对象，每个对象都有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个指标(属性)，即如下所示：</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">(</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>11</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>12</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mn>1</mn><mi>m</mi></mrow></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>21</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>22</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mn>2</mn><mi>m</mi></mrow></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">⋮</mi><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">⋮</mi><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋱</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">⋮</mi><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mi>n</mi><mn>1</mn></mrow></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mi>n</mi><mn>2</mn></mrow></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mi>n</mi><mi>m</mi></mrow></msub></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow><annotation encoding="application/x-tex">\begin{pmatrix}  
+  x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1m} \\  
+  x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2m} \\  
+  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\  
+  x_{n1} &amp; x_{n2} &amp; \cdots &amp; x_{nm}  
+\end{pmatrix}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:5.459999999999999em;vertical-align:-2.4799999999999995em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.9500349999999997em;"><span style="top:-1.3499850000000007em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎝</span></span></span><span style="top:-2.5049950000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎜</span></span></span><span style="top:-3.1050050000000007em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎜</span></span></span><span style="top:-3.7050150000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎜</span></span></span><span style="top:-4.950035em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎛</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4500349999999997em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.9799999999999995em;"><span style="top:-5.8275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.6275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.7674999999999996em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">⋮</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-1.5675000000000006em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4799999999999995em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.9799999999999995em;"><span style="top:-5.8275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.6275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.7674999999999996em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">⋮</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-1.5675000000000006em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4799999999999995em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.9799999999999995em;"><span style="top:-5.64em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">⋯</span></span></span><span style="top:-4.44em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">⋯</span></span></span><span style="top:-2.5799999999999996em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">⋱</span></span></span><span style="top:-1.3800000000000006em;"><span class="pstrut" style="height:3.5em;"></span><span class="mord"><span class="minner">⋯</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4799999999999995em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.9799999999999995em;"><span style="top:-5.8275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-4.6275em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-2.7674999999999996em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">⋮</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-1.5675000000000006em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4799999999999995em;"><span></span></span></span></span></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.9500349999999997em;"><span style="top:-1.3499850000000007em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎠</span></span></span><span style="top:-2.5049950000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎟</span></span></span><span style="top:-3.1050050000000007em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎟</span></span></span><span style="top:-3.7050150000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎟</span></span></span><span style="top:-4.950035em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎞</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4500349999999997em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>举例数据</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>专业课1</th>
+<th>专业课2</th>
+<th>专业课3</th>
+<th>专业课4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应聘者1</td>
+<td>67</td>
+<td>90</td>
+<td>67</td>
+<td>81</td>
+</tr>
+<tr>
+<td>应聘者2</td>
+<td>82</td>
+<td>73</td>
+<td>95</td>
+<td>85</td>
+</tr>
+<tr>
+<td>应聘者3</td>
+<td>67</td>
+<td>92</td>
+<td>79</td>
+<td>78</td>
+</tr>
+<tr>
+<td>应聘者4</td>
+<td>82</td>
+<td>81</td>
+<td>86</td>
+<td>76</td>
+</tr>
+<tr>
+<td>应聘者5</td>
+<td>70</td>
+<td>91</td>
+<td>82</td>
+<td>89</td>
+</tr>
+<tr>
+<td>应聘者6</td>
+<td>72</td>
+<td>90</td>
+<td>89</td>
+<td>74</td>
+</tr>
+<tr>
+<td>应聘者7</td>
+<td>82</td>
+<td>85</td>
+<td>92</td>
+<td>69</td>
+</tr>
+<tr>
+<td>应聘者8</td>
+<td>85</td>
+<td>72</td>
+<td>72</td>
+<td>92</td>
+</tr>
+<tr>
+<td>应聘者9</td>
+<td>82</td>
+<td>69</td>
+<td>71</td>
+<td>86</td>
+</tr>
+</tbody>
+</table>
+<h4 id="计算步骤">计算步骤</h4>
+<h5 id="0数据量纲化和同向化">0.数据量纲化和同向化</h5>
+<p>若数据已量纲化和同向化 则可忽略此步骤</p>
+<p>由于举例数据的各项指标均处于0~100分</p>
+<p>大小一致 故该步骤省略跳过</p>
+<h5 id="1计算复相关系数">1.计算复相关系数</h5>
+<p>每个指标依次作为因变量，其余4个指标作为自变量 计算各指标的复相关系数</p>
+<p>如何计算当前指标的复相关系数？</p>
+<p>假设当前指标为第一个指标:专业课1</p>
+<p>第一步 用指标1:专业课1(<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Y</mi></mrow><annotation encoding="application/x-tex">Y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.22222em;">Y</span></span></span></span>) 作多元回归模型</p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mover accent="true"><mi>y</mi><mo>^</mo></mover><mrow><mtext>专业课 </mtext><mn>1</mn></mrow></msub><mo>=</mo><msub><mover accent="true"><mi>β</mi><mo>^</mo></mover><mn>0</mn></msub><mo>+</mo><msub><mover accent="true"><mi>β</mi><mo>^</mo></mover><mn>1</mn></msub><msub><mi>X</mi><mrow><mtext>专业课 </mtext><mn>2</mn></mrow></msub><mo>+</mo><msub><mover accent="true"><mi>β</mi><mo>^</mo></mover><mn>2</mn></msub><msub><mi>X</mi><mrow><mtext>专业课 </mtext><mn>3</mn></mrow></msub><mo>+</mo><msub><mover accent="true"><mi>β</mi><mo>^</mo></mover><mn>3</mn></msub><msub><mi>X</mi><mrow><mtext>专业课4 </mtext><mn>4</mn></mrow></msub></mrow><annotation encoding="application/x-tex">\hat{y}_{\text {专业课 } 1}=\hat{\beta}_{0}+\hat{\beta}_{1} X_{\text {专业课 } 2}+\hat{\beta}_{2} X_{\text {专业课 } 3}+\hat{\beta}_{3} X_{\text {专业课4 } 4}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.19444em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">专业课</span><span class="mord mtight"> </span></span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1523199999999998em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1523199999999998em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">专业课</span><span class="mord mtight"> </span></span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1523199999999998em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">专业课</span><span class="mord mtight"> </span></span><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1523199999999998em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.9578799999999998em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span><span style="top:-3.26344em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;">^</span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.07847em;">X</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.07847em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord text mtight"><span class="mord cjk_fallback mtight">专业课</span><span class="mord mtight">4 </span></span><span class="mord mtight">4</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<p>第二步  曲线拟合 计算预测值</p>
+<p>第三步  计算复相关系数</p>
+<p>​              计算公式为:</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: Unknown column alignment: R at position 15: \begin{array}
+R̲ &amp;=&amp;\frac{\sum(…'>\begin{array}
+R &amp;=&amp;\frac{\sum(y-\bar{y})(\hat{y}-\bar{y})}{\sqrt{\sum(y-\bar{y})^{2}(\hat{y}-\bar{y})^{2}}} \\
+\bar{y}&amp;=&amp;mean(y_{1},y_{2},\dots,y_{n}) \\
+\hat{y}&amp;=&amp;predict(y_{1},y_{2},\dots,y_{n})
+\end{array}
+</p>
+<p>举例数据中各个指标的复相关系数 计算得到如下:</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>专业课1</th>
+<th>专业课2</th>
+<th>专业课3</th>
+<th>专业课4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>复相关系数</td>
+<td>0.9266</td>
+<td>0.9359</td>
+<td>0.642</td>
+<td>0.7195</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2计算权重系数">2.计算权重系数</h5>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>专业课1</th>
+<th>专业课2</th>
+<th>专业课3</th>
+<th>专业课4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>复相关系数 R值</td>
+<td>0.9266</td>
+<td>0.9359</td>
+<td>0.642</td>
+<td>0.7195</td>
+</tr>
+<tr>
+<td>1/R</td>
+<td>1.0792</td>
+<td>1.0685</td>
+<td>1.5576</td>
+<td>1.3899</td>
+</tr>
+<tr>
+<td>权重 h</td>
+<td>21.18%</td>
+<td>20.97%</td>
+<td>30.57%</td>
+<td>27.28%</td>
+</tr>
+</tbody>
+</table>
+<h5 id="3计算对象得分">3.计算对象得分</h5>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">[</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mrow><mo fence="true">(</mo><msub><mi>x</mi><mrow><mn>1</mn><mi>j</mi></mrow></msub><mo>×</mo><msub><mi>h</mi><mi>j</mi></msub><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mrow><mo fence="true">(</mo><msub><mi>x</mi><mrow><mn>2</mn><mi>j</mi></mrow></msub><mo>×</mo><msub><mi>h</mi><mi>j</mi></msub><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">⋮</mi><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mrow><mo fence="true">(</mo><msub><mi>x</mi><mrow><mi>n</mi><mi>j</mi></mrow></msub><mo>×</mo><msub><mi>h</mi><mi>j</mi></msub><mo fence="true">)</mo></mrow></mrow></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow><annotation encoding="application/x-tex">\left[\begin{array}{c}
+\sum_{j=1}^{m}\left(x_{1 j} \times h_{j}\right) \\
+\sum_{j=1}^{m}\left(x_{2 j} \times h_{j}\right) \\
+\vdots \\
+\sum_{j=1}^{m}\left(x_{n j} \times h_{j}\right)
+\end{array}\right]
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:5.687454000000001em;vertical-align:-2.5937270000000003em;"></span><span class="minner"><span class="mopen"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.953005em;"><span style="top:-1.3499850000000007em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎣</span></span></span><span style="top:-2.5049850000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎢</span></span></span><span style="top:-3.1059850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎢</span></span></span><span style="top:-3.7069850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎢</span></span></span><span style="top:-4.953005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎡</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4500349999999997em;"><span></span></span></span></span></span></span><span class="mord"><span class="mtable"><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:3.0937270000000003em;"><span style="top:-5.9412270000000005em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span><span style="top:-4.665409em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span><span style="top:-2.7295909999999997em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mord"><span class="mord">⋮</span><span class="mord rule" style="border-right-width:0em;border-top-width:1.5em;bottom:0em;"></span></span></span></span><span style="top:-1.5295909999999997em;"><span class="pstrut" style="height:3.6875em;"></span><span class="mord"><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;">(</span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;">)</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.5937270000000003em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span></span></span><span class="mclose"><span class="delimsizing mult"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.953005em;"><span style="top:-1.3499850000000007em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎦</span></span></span><span style="top:-2.5049850000000005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎥</span></span></span><span style="top:-3.1059850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎥</span></span></span><span style="top:-3.7069850000000004em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎥</span></span></span><span style="top:-4.953005em;"><span class="pstrut" style="height:3.1550000000000002em;"></span><span class="delimsizinginner delim-size4"><span>⎤</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.4500349999999997em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>专业课1</th>
+<th>专业课2</th>
+<th>专业课3</th>
+<th>专业课4</th>
+<th>总分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>应聘者1</td>
+<td>67</td>
+<td>90</td>
+<td>67</td>
+<td>81</td>
+<td>75.64</td>
+</tr>
+<tr>
+<td>应聘者2</td>
+<td>82</td>
+<td>73</td>
+<td>95</td>
+<td>85</td>
+<td>84.91</td>
+</tr>
+<tr>
+<td>应聘者3</td>
+<td>67</td>
+<td>92</td>
+<td>79</td>
+<td>78</td>
+<td>78.91</td>
+</tr>
+<tr>
+<td>应聘者4</td>
+<td>82</td>
+<td>81</td>
+<td>86</td>
+<td>76</td>
+<td>81.38</td>
+</tr>
+</tbody>
+</table>
+<h4 id="代码实践">代码实践</h4>
+<pre><code class="language-python"># 代码段
+import numpy as np
+import statsmodels.api as sm
+def get_independent_weight(data):
+    data = np.array(data)
+    R_list = []
+    for index in range(data.shape[1]):
+        # 计算R值
+        X = sm.add_constant(np.delete(data, index, 1))
+        y = data[:, index]
+        model = sm.OLS(y, X).fit()
+        R = round(math.sqrt(model.rsquared), 4)
+        R_list.append(R)
+
+    R_1_sum = sum([round(1 / r, 4) for r in R_list])
+    return [1 / r / R_1_sum for r in R_list]
+</code></pre>
+<p>详情代码: <a href="https://github.com/sadjjk/OverviewAlgo/blob/master/code/2.IndependentModel.py">IndependentModel.py</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[综合评价法-熵权法]]></title>
         <id>https://blog.wjinyu.top/post/20210313-Entropy/</id>
@@ -28,7 +289,7 @@
 <p>若指标的离散程度越大（越无序） 则熵值越大</p>
 <p>那么指标可提供的信息量越多  则该指标的权重也越大</p>
 <h4 id="数据说明">数据说明</h4>
-<p>设共有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个待评价对象，每个对象都有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个指标(属性)，即如下所示：</p>
+<p>设共有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>个待评价对象，每个对象都有<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span>个指标(属性)，即如下所示：</p>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo fence="true">(</mo><mtable><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>11</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>12</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mn>1</mn><mi>m</mi></mrow></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>21</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mn>22</mn></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mn>2</mn><mi>m</mi></mrow></msub></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">⋮</mi><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">⋮</mi><mrow></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋱</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mi mathvariant="normal">⋮</mi><mrow></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mi>n</mi><mn>1</mn></mrow></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mi>n</mi><mn>2</mn></mrow></msub></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo>⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msub><mi>x</mi><mrow><mi>n</mi><mi>m</mi></mrow></msub></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow><annotation encoding="application/x-tex">\begin{pmatrix}  
   x_{11} &amp; x_{12} &amp; \cdots &amp; x_{1m} \\  
   x_{21} &amp; x_{22} &amp; \cdots &amp; x_{2m} \\  
@@ -1346,201 +1607,6 @@ Spark 也有!</p>
 <p>而且当时又有诸多数据库可代替</p>
 <p>也就造成了HBase没有像HDFS、MapReduce那样流行</p>
 <h3 id="故事就先说到这">故事就先说到这！</h3>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Miniconda/Anconda(填)使(坑)用手册]]></title>
-        <id>https://blog.wjinyu.top/post/condaUse/</id>
-        <link href="https://blog.wjinyu.top/post/condaUse/">
-        </link>
-        <updated>2019-12-14T03:47:21.000Z</updated>
-        <summary type="html"><![CDATA[<p>留下了没有技术的眼泪</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>留下了没有技术的眼泪</p>
-<!--more-->
-<h3 id="起源">起源</h3>
-<p>原本使用virtualenv打了虚拟环境和离线包 便可在各个服务器部署安装，但由于生产环境极其恶劣，可能有的服务器中相关依赖包并没有装全，进而导致virtualenv的虚拟环境启动失败。如</p>
-<pre><code class="language-shell">ImportError: libpython2.7.so.1.0: cannot open shared object file: No such file or directory 
-</code></pre>
-<p>问题详情及解决方案见<a href="https://stackoverflow.com/questions/20842732/libpython2-7-so-1-0-cannot-open-shared-object-file-no-such-file-or-directory">这里</a><br>
-当尝试了一些方法 都没有用<br>
-根本原因是这台服务器中就没有libpython2.7.so.1.0这个依赖包<br>
-而当初构建虚拟环境的服务器母机中是有存在这个依赖动态包的<br>
-当然可以通过重新打虚拟环境解决<br>
-但并不优雅 仅仅是case by case的解决方法<br>
-所以这时候conda就登场了<br>
-conda会自带依赖包 如</p>
-<blockquote>
-<p>engines-1.1         liblzma.so.5          libstdc++.so<br>
-itcl4.1.1           liblzma.so.5.2.4      libstdc++.so.6<br>
-libasan.so          libmenu.a             libstdc++.so.6.0.26<br>
-....</p>
-</blockquote>
-<p>只要source 激活环境 即可使用<br>
-就算来了台没有预装的Python的服务器<br>
-也可以完美运行自己的Python服务<br>
-这样子 就与原生Python环境完全隔离<br>
-放心食用</p>
-<h3 id="简介">简介</h3>
-<p>conda是一个打包的Python发行版本 ，包含了依赖包和三方库包<br>
-<a href="https://docs.conda.io/en/latest/index.html">官网</a></p>
-<ul>
-<li>Anaconda:是一个开源的<a href="https://baike.baidu.com/item/Python">Python</a>发行版本，其包含了conda、Python等180多个科学包及其<strong>依赖包</strong>。所以安装文件比较大，如非必要，使用Miniconda即可</li>
-<li>Miniconda:Python的最小安装版本，仅保留必要的依赖包以及少量的软件包</li>
-</ul>
-<p>两者安装和使用方法，基本一模一样，接下来均以<strong>miniconda</strong>为例</p>
-<h3 id="安装">安装</h3>
-<p>Win、Mac、Linux的安装包略有区别  <a href="https://docs.conda.io/en/latest/miniconda.html">下载地址</a>	<br>
-这里以linux为例</p>
-<h4 id="下载安装文件">下载安装文件</h4>
-<pre><code class="language-shell">weget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-</code></pre>
-<h4 id="执行安装文件">执行安装文件</h4>
-<p>这里有两种模式 一种是交互式 一种是静态式</p>
-<h5 id="交互式">交互式</h5>
-<pre><code>[root@ ~]#sh Miniconda3-latest-Linux-x86_64.sh
-
-Welcome to Miniconda3 4.7.12
-
-In order to continue the installation process, please review the license
-agreement.
-Please, press ENTER to continue
-&gt;&gt;&gt;
-###不断输入回车Enter###
-###直到出现如下内容###
-Do you accept the license terms? [yes|no]
-[no] &gt;&gt;&gt;
-Please answer 'yes' or 'no':'
-&gt;&gt;&gt;
-Please answer 'yes' or 'no':'
-&gt;&gt;&gt;
-###输入yes###
-###之后是选择安装路径###
-###默认Enter为当前目录的miniconda3文件夹###
-Miniconda3 will now be installed into this location:
-/root/miniconda3
-
-  - Press ENTER to confirm the location
-  - Press CTRL-C to abort the installation
-  - Or specify a different location below
-
-[/root/miniconda3] &gt;&gt;&gt;
-###选择完路径后###
-###是否要初始化init###
-###这里推荐为no###
-Do you wish the installer to initialize Miniconda3
-by running conda init? [yes|no]
-[no] &gt;&gt;&gt; no
-
-
-</code></pre>
-<p>这里有个小坑的地方 在init中最好选择no<br>
-如果选择了yes  之后每次打开一个服务器连接<br>
-用户名前面都有一个**(base)**标记 而且默认使用的都是conda的python</p>
-<pre><code>(base) [root@aliyun2 ~]# python
-Python 3.7.4 (default, Aug 13 2019, 20:35:49)
-[GCC 7.3.0] :: Anaconda, Inc. on linux
-Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
-&gt;&gt;&gt;
-</code></pre>
-<p>即 输入python 调用的是anconda的版本<br>
-这是因为init选择了yes后 它会修改.bashrc文件<br>
-在后面追加如下内容</p>
-<pre><code># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup=&quot;$('/root/miniconda3/bin/conda' 'shell.bash' 'hook' 2&gt; /dev/null)&quot;
-if [ $? -eq 0 ]; then
-    eval &quot;$__conda_setup&quot;
-else
-    if [ -f &quot;/root/miniconda3/etc/profile.d/conda.sh&quot; ]; then
-        . &quot;/root/miniconda3/etc/profile.d/conda.sh&quot;
-    else
-        export PATH=&quot;/root/miniconda3/bin:$PATH&quot;
-    fi
-fi
-unset __conda_setup
-# &lt;&lt;&lt; conda initialize &lt;&lt;&lt;
-</code></pre>
-<p>大概意思就是把miniconda加入环境变量<br>
-查看环境变量 已添加miniconda</p>
-<pre><code>(base) [root@aliyun2 ~]# echo $PATH
-/root/miniconda3/bin:/root/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
-</code></pre>
-<p>这就是为什么输入python 不再调用原生Python版本 它优先在miniconda3/bin中去寻找python<br>
-这样子有可能会对原生Python有影响<br>
-比如 有个服务就是通过原生Python去启动的<br>
-但现在同样的方式 去启动 有可能会失败<br>
-因为它现在使用的是conda的Python<br>
-可能会缺少相关三方库</p>
-<p><strong>总之</strong>:不推荐初始化 要使用conda的Python 就<code>source miniconda3/bin/activate</code>  去激活<br>
-使用完 就<code>conda deactivate</code>退出conda环境<br>
-一旦init了 每次进入服务器 都有**(base)标记**<br>
-要还原回来 只要把.bashrc中conda添加的代码  删除即可<br>
-再source .bashrc<br>
-即可恢复还原</p>
-<h5 id="静态式">静态式</h5>
-<p>即silent mode</p>
-<pre><code>[root@ ~]#sh Miniconda3-latest-Linux-x86_64.sh -b -p /root/conda 
-</code></pre>
-<p>-b 不初始化<br>
--p 指定安装目录<br>
-使用效果是一模一样的</p>
-<h3 id="使用">使用</h3>
-<pre><code class="language-shell">source /path/miniconda/bin/activate  # 激活环境
-conda create -n venv  # 新建虚拟环境
-conda info -e  # 查看已创建的虚拟环境
-conda activate venv #使用指定虚拟环境
-</code></pre>
-<p>一般情况下 找台机器作为母机 在里面新建虚拟环境 然后pip install xxxx<br>
-使用方法和原生Python一样</p>
-<pre><code>[root@~ miniconda3]# ls
-bin              conda-meta  include      pkgs   ssl
-compiler_compat  envs        lib          share  x86_64-conda_cos6-linux-gnu
-condabin         etc         LICENSE.txt  shell
-</code></pre>
-<h3 id="迁移">迁移</h3>
-<p>打包好所有的三方库  测试完毕<br>
-可将pkgs文件夹和envs/venv(新建的虚拟环境名)文件夹<br>
-压缩成tar.gz<br>
-若需迁移环境 只需拷贝到新机器中<br>
-解压 替换这两个文件夹</p>
-<ol>
-<li>新机器 安装Miniconda3-latest-Linux-x86_64.sh</li>
-<li>替换成母机的pkgs文件夹</li>
-<li>母机的venv(新建的虚拟环境名) 拷贝到该机器的任意位置</li>
-<li>用母机的venv(新建的虚拟环境名)创建环境</li>
-</ol>
-<pre><code>source /path/miniconda3/bin/activate  # 激活环境
-conda create -n venv(新建的虚拟环境名) --clone 母机venv文件夹的路径 --offline
-</code></pre>
-<ol start="5">
-<li><code>conda activate venv</code> 即可使用</li>
-</ol>
-<p>PS:这里还有个小坑<br>
-不要直接将pkgs或venv文件夹拷到Win<br>
-再拷到新的Linux 服务器上<br>
-在拷到Win的过程中 文件的权限信息后丢失<br>
-导致迁移安装异常<br>
-应该在母机上压缩成tar.gz 拷出来<br>
-再拷贝到新机器上 解压<br>
-这时候的文件权限信息才不会丢失<br>
-当时没注意这个坑 怀疑人生到自闭</p>
-<h3 id="卸载">卸载</h3>
-<pre><code class="language-shell"># 删除文件夹
-rm -rf /path/miniconda3
-# 删除隐藏文件
-rm -rf ~/.condarc ~/.conda ~/.continuum
-</code></pre>
-<h3 id="参考">参考</h3>
-<ul>
-<li><a href="https://www.jianshu.com/p/35b71432093d">conda Installing on macOS</a></li>
-<li><a href="https://docs.conda.io/en/latest/miniconda.html#">conda官网</a></li>
-<li><a href="https://www.jianshu.com/p/7299c2d4d170">Miniconda快速入门</a></li>
-<li><a href="https://blog.csdn.net/sinat_28442665/article/details/86650152">conda环境转移复制和pip包的转移复制</a></li>
-<li><a href="https://blog.csdn.net/qq_35608277/article/details/96771954">conda离线创建虚拟环境</a></li>
-<li><a href="https://www.jianshu.com/p/0511decff9f8">miniconda安装</a></li>
-</ul>
-<p><a href=""></a></p>
 ]]></content>
     </entry>
 </feed>
