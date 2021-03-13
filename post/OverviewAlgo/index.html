@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>综合评价方法-论如何科学的打分 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1615208122004">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1615606710148">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
 
@@ -70,7 +70,7 @@
                     
                         
                             <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
-                                <a href="http://www.wjinyu.top:6888" target="_blank">视频榜单</a>
+                                <a href="http://www.wjinyu.top:520" target="_blank">今日追剧</a>
                             </li>
                         
                     
@@ -230,25 +230,32 @@ hljs.initHighlightingOnLoad()
     var article = `<p>我不要你觉得</p>
 <p>我要我觉得</p>
 <!--more-->
-<h4 id="前言">前言</h4>
-<p>如果我们想评价一个事物</p>
-<p>只从单一指标出发评价</p>
-<p>会显得很不公正也不科学</p>
-<p>因此多数情况下</p>
-<p>评价一个事物往往需要涉及多个层次、多个方面的指标</p>
-<p>进行综合评价 从而得出更加科学合理的结论</p>
+<h1 id="综合评价方法-论如何科学的打分">综合评价方法-论如何科学的打分</h1>
+<h3 id="前言">前言</h3>
+<p>如果我们想评价一个事物 ，只从单一指标出发评价，会显得很不公正也不科学</p>
+<p>因此多数情况下，评价一个事物往往需要涉及多个层次、多个方面的指标进行综合评价</p>
+<p>从而得出更加科学合理的结论</p>
 <h4 id="评价步骤">评价步骤</h4>
-<figure data-type="image" tabindex="1"><img src="https://s3.ax1x.com/2021/02/01/yZxHu8.png" alt="yZxHu8.png" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/03/05/BGhTYaElprd5D3W.png" alt="yZxHu8.png" loading="lazy"></figure>
 <ol>
-<li>确定评价指标</li>
-<li>确定指标权重  (部分方法无需确定权重)</li>
-<li>建立综合评价模型</li>
-<li>评价结果分析</li>
+<li>
+<p>确定评价指标</p>
+</li>
+<li>
+<p>确定指标权重</p>
+<p><em>(部分方法无需确定权重)</em></p>
+</li>
+<li>
+<p>计算对象得分</p>
+</li>
+<li>
+<p>评价结果分析</p>
+</li>
 </ol>
 <h4 id="评价方法">评价方法</h4>
 <p>综合评价方法有很多 大致分类如下 如下图:</p>
-<figure data-type="image" tabindex="2"><img src="https://s3.ax1x.com/2021/01/14/saGr7j.png" alt="saGr7j.png" loading="lazy"></figure>
-<p>总体来说 分为计算指标的权重和直接排序</p>
+<img src="https://i.loli.net/2021/03/05/n4vxlO7PiksWE5e.png" alt="saGr7j.png" style="zoom:50%;max-width:50%;" />
+<p>总体来说 分为两大类 : 计算指标的权重和直接排序</p>
 <ul>
 <li>计算指标权重: 计算出各指标的权重 各对象依据权重计算出最终得分</li>
 <li>直接排序:无需计算各指标权重 直接对各对象进行打分</li>
@@ -264,22 +271,10 @@ hljs.initHighlightingOnLoad()
 </thead>
 <tbody>
 <tr>
-<td>AHP层次法</td>
-<td>无</td>
-<td>无</td>
-<td>专家建议</td>
-</tr>
-<tr>
 <td>熵值法</td>
 <td>无</td>
 <td>无</td>
 <td>熵值</td>
-</tr>
-<tr>
-<td>CRITIC权重法</td>
-<td>有</td>
-<td>有</td>
-<td></td>
 </tr>
 <tr>
 <td>独立性权重</td>
@@ -294,7 +289,19 @@ hljs.initHighlightingOnLoad()
 <td></td>
 </tr>
 <tr>
-<td>TOPSIS</td>
+<td>AHP层次法</td>
+<td>无</td>
+<td>无</td>
+<td>专家建议</td>
+</tr>
+<tr>
+<td>CRITIC权重法</td>
+<td>有</td>
+<td>有</td>
+<td></td>
+</tr>
+<tr>
+<td>TOPSIS法</td>
 <td>无</td>
 <td>无</td>
 <td>理想距离</td>
@@ -307,6 +314,29 @@ hljs.initHighlightingOnLoad()
 </tr>
 </tbody>
 </table>
+<h4 id="理论与实践">理论与实践</h4>
+<p>大多综合评价法使用之前都要进行<strong>量纲化</strong>和<strong>同向化</strong></p>
+<p>什么是数据的量纲化和同向化？</p>
+<ul>
+<li><a href="./1.%E7%86%B5%E6%9D%83%E6%B3%95.md">熵值法</a></li>
+<li><a href="">独立性权重</a></li>
+<li>信息量权重</li>
+<li>AHP层次法</li>
+<li>CRITIC权重法</li>
+<li>TOPSIS法</li>
+</ul>
+<p>评价结果、评价方法的好坏，本身就具有很强的主观性。</p>
+<p>马克思主义告诉我们“具体问题 具体分析 在矛盾普遍性原理的指导下，具体分析矛盾的特殊性，并找出解决矛盾的正确方法。“</p>
+<p>综合评价的方法一般是主客观结合的</p>
+<p>方法的选择需<strong>基于实际指标数据情况选定</strong>，最为关键的是<strong>指标的选取</strong>，以及指标<strong>权重的设置</strong></p>
+<p>这些需要基于广泛的调研和扎实的业务知识，不能说单纯的从数学上解决的。</p>
+<p>只有最符合业务需要，解决业务痛点的方法才是最好的方法</p>
+<h4 id="数据输入">数据输入</h4>
+<p>设共有 <img src="https://www.zhihu.com/equation?tex=n" alt="[公式]" loading="lazy"> 个待评价对象，每个对象都有 <img src="https://www.zhihu.com/equation?tex=m+" alt="[公式]" loading="lazy"> 个指标(属性)，即 n*m 的二维数组，如下所示：<br>
+<img src="https://i.loli.net/2021/03/05/AqKzwRxh73UWTui.png" alt="[公式]" style="zoom:50%;max-width:50%;" /></p>
+<h4 id="数据输出">数据输出</h4>
+<p>各个评价对象的得分 即n个值得一维数组，如下所示:<br>
+<img src="https://i.loli.net/2021/03/05/5eKrhUETacBCyOP.png" style="zoom:50%;max-width:50%;" /></p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
