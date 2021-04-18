@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>股票行情面板Web | 今语</title>
+<title>四大抽样方法:随机/系统/分层/整群 | 今语</title>
 <link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1618728509764">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -99,22 +99,22 @@
     <div id="loop-container" class="loop-container">
       <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg">
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2021/04/18/M56EmtlyQSIC43b.jpg">
           </div>
         
 
         <div class="entry-meta">
-          <span class="date">· 2019-09-13 ·</span>
+          <span class="date">· 2021-04-18 ·</span>
 
           
             <span class="category">
                     <span> / </span>
-                    <a href="https://blog.wjinyu.top/tag/life/">Life</a>
+                    <a href="https://blog.wjinyu.top/tag/work/">Work</a>
                 </span>
           
         </div>
         <div class='entry-header'>
-          <h1 class='entry-title'>股票行情面板Web</h1>
+          <h1 class='entry-title'>四大抽样方法:随机/系统/分层/整群</h1>
         </div>
         <div class="entry-container">
           <div class="entry-content">
@@ -127,7 +127,7 @@
             <nav class="navigation pagination" role="navigation">
               <h2 class="screen-reader-text">Posts navigation</h2>
               <div class="nav-links">
-                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/Book_MonthlyRecords/">下一篇->山月记</a>
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/20210313-TOPSIS/">下一篇->综合评价法-TOPSIS法</a>
               </div>
             </nav>
           
@@ -227,57 +227,98 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wjinyu.top//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>这一腔热血 只卖与那识货的</p>
+    var article = `<p>小巫见大巫</p>
 <!--more-->
-<p><a href="http://47.105.166.237/index">演示地址</a>                            <a href="https://github.com/sadjjk/StockProject">Github</a></p>
-<p>股票行情看板，前前后后花了一个月，基本是周末闲(咸)余(鱼)时间写写改改，工作日实在没时间。</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/09/13/JxBvCRhUuOD84Ts.jpg" alt="Xnip2019-09-13_15-23-45.jpg" loading="lazy"></figure>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/09/13/v7pPDuyLQA6of2G.jpg" alt="Xnip2019-09-13_15-24-39.jpg" loading="lazy"></figure>
-<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/09/13/urC7GbWq9NpKeDh.jpg" alt="Xnip2019-09-13_15-31-42.jpg" loading="lazy"></figure>
-<h2 id="设计">设计</h2>
-<h3 id="首页">首页</h3>
-<h4 id="头部">头部</h4>
-<p>三大股指，增加了涨、平、跌各多少只。</p>
-<h4 id="topbanner">TopBanner</h4>
-<p>选择当前价、成交量金额、振幅、换手率。之所以选择这四个，是因为这四个相比于涨幅Top、跌幅Top更能反应市场整体情绪。</p>
-<blockquote>
-<p>当前价Top:最高的当属<strong>贵州茅台</strong>  毫无疑问是市场的风向标 一锤定音<br>
-成交量金额Top:成交最多的哪几只，基本是有业绩有实力的好公司  <em>纯属个人经验</em><br>
-振幅Top、换手率Top:基本是当下市场最热门最冲动的股票 游资炒作居多</p>
-</blockquote>
-<h4 id="自选股">自选股</h4>
-<p>自选股最重要的是可添加可删除，功能已实现，手机端无法删除，mouseout事件会失效。</p>
-<h4 id="沪深300">沪深300</h4>
-<p>沪深300几乎涵盖了各个行业 具有代表性</p>
-<h3 id="详情页">详情页</h3>
-<h4 id="分时图">分时图</h4>
-<br>
-<h4 id="k线图">K线图</h4>
-<br>
-<h2 id="交互">交互</h2>
-<h4 id="刷新">刷新</h4>
-<p>首页交易时间1分钟刷新一次，非交易时间不刷新。交易时间哪里来，你怎么知道某年某天是节假日？tushare-三方库，我依然不生产数据，只是数据的搬运工。最初设计2秒刷新一次，毕竟1秒就是几百万的买卖，数据当然要及时。红的绿的一闪一闪真好看，最后闪瞎了狗眼，倔强得改成了1分钟刷新一次。其次爬虫用的好，牢房进的早。爬得太频繁，怕律师函警告，尤其是东方财富的数据。</p>
-<h4 id="搜索">搜索</h4>
-<p>输入股票代码搜索股票详情 ，不支持股票名称、缩写，因为接口不支持，也没有精力是实现。搜索时页面刷新会暂停。搜索奇怪的东西有菜单，我真是天才！</p>
-<h4 id="自选股添加删除">自选股添加/删除</h4>
-<p>输入股票代码添加 ，同样不支持股票名称、缩写。添加时页面刷新会暂停</p>
-<h2 id="后端">后端</h2>
-<p>后端使用Python的微型Web框架Bottle，因为实在是非常的简单，没有必要使用Flask、Django，其实是我也不怎么会Flask、Django。后端鸡贼的地方就是没有数据库，<strong>我从不生产数据，只是数据的搬运工</strong>。使用腾讯、新浪、东财的股票接口，即用即爬。唯一要记录的就是自选股，用于查看、添加、删除。这里采用了保存为二级制隐藏文件，每次去读取、增删(不推荐 本人纯属偷懒省事)。第一次使用装饰器记录函数日志和异常</p>
-<h2 id="前端">前端</h2>
-<p>前端是最耗时的  想法很多 但都实现不出来 磕磕绊绊 现在这版终于比较满意的。搜索页、自选股增删、头部Header、底部Footer、BacktoTop、搜索或添加自选时暂停刷新等 一点一点 慢慢磨出来   教练！ 我真的很想学前端</p>
-<h2 id="部署">部署</h2>
-<p>uwsgi+nginx<br>
-备案实在有些麻烦 IP凑合用下</p>
-<h2 id="总结">总结</h2>
-<p>过程中 能抽象就抽象 减少重复代码 最大的感触就是 “<strong>这样子好像不够优雅！</strong>” 能力有限，尽管功能都基本实现了，但总觉得有更优雅更好实现方法。若干年后 我若再看到这份代码 一定会想重构。</p>
-<p>👇下面是感谢环节</p>
-<p>感谢Github<br>
-感谢<a href="https://github.com/geeeeeeeek">geeeeeeeek</a> 他的项目给我了idea<br>
-这是B站他项目的<a href="https://www.bilibili.com/video/av45168955">视频</a> 一键三连 投币点赞<br>
-感谢<a href="https://github.com/2557606319">2557606319</a> 项目中使用到了他echarts封装的K线图<br>
-感谢许多CSDN、Stack OverFlow、博客主等留下的教程与问题记录<br>
-尽管他们与我都不认识 但他们间接的帮助了我很多 非常感谢！</p>
-<p>_——</p>
+<p>抽样 即人为创造一个能代表总体的样本</p>
+<p>其中总体中的每个个体都有相等的被选中的机会。</p>
+<h3 id="抽样方法">抽样方法</h3>
+<ul>
+<li>随机抽样</li>
+<li>系统抽样</li>
+<li>分层抽样</li>
+<li>整群抽样</li>
+</ul>
+<h4 id="随机抽样">随机抽样</h4>
+<p>按等概率原则直接从N个总体中随机抽取n个样本</p>
+<pre><code class="language-python">df.sample(n) 
+</code></pre>
+<h4 id="系统抽样">系统抽样</h4>
+<p>即等距抽样 从N个总体中抽取n个等间距的样本</p>
+<pre><code class="language-python">df.iloc[range(0,len(df),len(df)//n+1),:] 
+</code></pre>
+<h4 id="分层抽样">分层抽样</h4>
+<p>将N个总体分成互不相交的层，</p>
+<p>然后按照一定的比例，从各层独立地抽取个体</p>
+<p>最终抽取出n个样本</p>
+<p>其中分层以后，在每一层进行抽样 一般有三种方法:</p>
+<ul>
+<li>等数分配法，即每一层随机抽取n/3(向上取整ceil)</li>
+<li>等比分配法，即各层抽得的样本数与所抽得的总样本数之比等于该层的个数与总体的个数之比</li>
+<li>最优分配法，即各层抽得的样本数与所抽得的总样本数之比等于该层方差与各类方差之和的比</li>
+</ul>
+<p>其中等比分配法最为常用</p>
+<pre><code class="language-python">import pandas as pd
+import math
+
+def get_stratified_sample(df, stratified_col, n=100, stratified_type='ratio', label=''):
+    '''
+    分层抽样
+    :param df: DataFrame
+    :param n:抽样个数
+    :param stratified_col: 待分层字段名
+    :param stratified_type: 分层分配类型 枚举值: num(等数),ratio(等比),best(最优)
+    :param label:标签值(数值型) 当分配类型=best时使用
+    :return: sample df
+    '''
+    assert stratified_col in df.columns, f'待分层的字段{stratified_col}不存在!请检查'
+    assert stratified_type in ('num', 'ratio', 'best'), '请选择指定的分配类型:num(等数),ratio(等比),best(最优)'
+    stratified_col_series = df[stratified_col].value_counts()
+
+    if stratified_type == 'num':
+        value_list = stratified_col_series.index
+        value_num_dict = dict(zip(value_list, [math.ceil(n / len(value_list))] * len(value_list)))
+    elif stratified_type == 'ratio':
+        value_num_dict = (stratified_col_series / stratified_col_series.sum() * n).apply(
+            lambda x: math.ceil(x)).to_dict()
+    elif stratified_type == 'best':
+        label_var_series = df.groupby(stratified_col)[label].var()
+        value_num_dict = (label_var_series / label_var_series.sum() * n).apply(lambda x: math.ceil(x)).to_dict()
+
+    sample_df = df.groupby(stratified_col).apply(lambda group: group.sample(value_num_dict.get(group.name)))
+
+    return sample_df
+</code></pre>
+<h4 id="整群抽样">整群抽样</h4>
+<p>总体N个样本指定分为若干组 称为群</p>
+<p>并随机选择一个群中的n个作为抽样样本</p>
+<p>比如:全校同学选择四班中的50个人作为抽样样本</p>
+<pre><code class="language-python">import pandas as pd
+import math
+import warnings
+
+def get_group_sample(df, group_col, group_value, n=100):
+    '''
+    整群抽样
+    :param df:DataFrame
+    :param group_col:分群的字段 一般为分类值
+    :param group_value:指定分群字段的值
+    :param n:抽样个数
+    :return:sample df
+    '''
+    assert group_col in df.columns, f'待分组的字段{group_col}不存在!请检查'
+    group_df = df[df[group_col] == group_value]
+    assert len(group_df) &gt; 0, f'当分组字段{group_col}=={group_value}时 不存在抽样样本'
+    if len(group_df) &lt; n:
+        warnings.warn(f'当分组字段{group_col}=={group_value}时 样本数为:{len(group_df)} 小于{n} 只抽取{len(group_df)}个')
+        n = len(group_df)
+
+    return group_df.sample(n)
+</code></pre>
+<h3 id="综合比较">综合比较</h3>
+<p>随机抽样: 简单常用</p>
+<p>系统抽样: 简单常用</p>
+<p>分层抽样: 具有更显著的统计意义 层间差异大 层内差异小</p>
+<p>整群抽样: 各群要有较好的代表性 群间差异小 群内差异大</p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
@@ -286,7 +327,7 @@ hljs.initHighlightingOnLoad()
         document.getElementById('article').innerHTML = article
 
     let navigation = new AutocJs({
-        title:'股票行情面板Web',
+        title:'四大抽样方法:随机/系统/分层/整群',
         isGenerateOutlineChapterCode: false
     })
     </script>

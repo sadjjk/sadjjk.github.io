@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-03-13T08:11:00.307Z</updated>
+    <updated>2021-04-18T06:48:32.619Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -10,6 +10,108 @@
     <logo>https://blog.wjinyu.top/images/avatar.png</logo>
     <icon>https://blog.wjinyu.top/favicon.ico</icon>
     <rights>All rights reserved 2021, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[四大抽样方法:随机/系统/分层/整群]]></title>
+        <id>https://blog.wjinyu.top/post/20210418-sampledata/</id>
+        <link href="https://blog.wjinyu.top/post/20210418-sampledata/">
+        </link>
+        <updated>2021-04-18T02:57:37.000Z</updated>
+        <summary type="html"><![CDATA[<p>小巫见大巫</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>小巫见大巫</p>
+<!--more-->
+<p>抽样 即人为创造一个能代表总体的样本</p>
+<p>其中总体中的每个个体都有相等的被选中的机会。</p>
+<h3 id="抽样方法">抽样方法</h3>
+<ul>
+<li>随机抽样</li>
+<li>系统抽样</li>
+<li>分层抽样</li>
+<li>整群抽样</li>
+</ul>
+<h4 id="随机抽样">随机抽样</h4>
+<p>按等概率原则直接从N个总体中随机抽取n个样本</p>
+<pre><code class="language-python">df.sample(n) 
+</code></pre>
+<h4 id="系统抽样">系统抽样</h4>
+<p>即等距抽样 从N个总体中抽取n个等间距的样本</p>
+<pre><code class="language-python">df.iloc[range(0,len(df),len(df)//n+1),:] 
+</code></pre>
+<h4 id="分层抽样">分层抽样</h4>
+<p>将N个总体分成互不相交的层，</p>
+<p>然后按照一定的比例，从各层独立地抽取个体</p>
+<p>最终抽取出n个样本</p>
+<p>其中分层以后，在每一层进行抽样 一般有三种方法:</p>
+<ul>
+<li>等数分配法，即每一层随机抽取n/3(向上取整ceil)</li>
+<li>等比分配法，即各层抽得的样本数与所抽得的总样本数之比等于该层的个数与总体的个数之比</li>
+<li>最优分配法，即各层抽得的样本数与所抽得的总样本数之比等于该层方差与各类方差之和的比</li>
+</ul>
+<p>其中等比分配法最为常用</p>
+<pre><code class="language-python">import pandas as pd
+import math
+
+def get_stratified_sample(df, stratified_col, n=100, stratified_type='ratio', label=''):
+    '''
+    分层抽样
+    :param df: DataFrame
+    :param n:抽样个数
+    :param stratified_col: 待分层字段名
+    :param stratified_type: 分层分配类型 枚举值: num(等数),ratio(等比),best(最优)
+    :param label:标签值(数值型) 当分配类型=best时使用
+    :return: sample df
+    '''
+    assert stratified_col in df.columns, f'待分层的字段{stratified_col}不存在!请检查'
+    assert stratified_type in ('num', 'ratio', 'best'), '请选择指定的分配类型:num(等数),ratio(等比),best(最优)'
+    stratified_col_series = df[stratified_col].value_counts()
+
+    if stratified_type == 'num':
+        value_list = stratified_col_series.index
+        value_num_dict = dict(zip(value_list, [math.ceil(n / len(value_list))] * len(value_list)))
+    elif stratified_type == 'ratio':
+        value_num_dict = (stratified_col_series / stratified_col_series.sum() * n).apply(
+            lambda x: math.ceil(x)).to_dict()
+    elif stratified_type == 'best':
+        label_var_series = df.groupby(stratified_col)[label].var()
+        value_num_dict = (label_var_series / label_var_series.sum() * n).apply(lambda x: math.ceil(x)).to_dict()
+
+    sample_df = df.groupby(stratified_col).apply(lambda group: group.sample(value_num_dict.get(group.name)))
+
+    return sample_df
+</code></pre>
+<h4 id="整群抽样">整群抽样</h4>
+<p>总体N个样本指定分为若干组 称为群</p>
+<p>并随机选择一个群中的n个作为抽样样本</p>
+<p>比如:全校同学选择四班中的50个人作为抽样样本</p>
+<pre><code class="language-python">import pandas as pd
+import math
+import warnings
+
+def get_group_sample(df, group_col, group_value, n=100):
+    '''
+    整群抽样
+    :param df:DataFrame
+    :param group_col:分群的字段 一般为分类值
+    :param group_value:指定分群字段的值
+    :param n:抽样个数
+    :return:sample df
+    '''
+    assert group_col in df.columns, f'待分组的字段{group_col}不存在!请检查'
+    group_df = df[df[group_col] == group_value]
+    assert len(group_df) &gt; 0, f'当分组字段{group_col}=={group_value}时 不存在抽样样本'
+    if len(group_df) &lt; n:
+        warnings.warn(f'当分组字段{group_col}=={group_value}时 样本数为:{len(group_df)} 小于{n} 只抽取{len(group_df)}个')
+        n = len(group_df)
+
+    return group_df.sample(n)
+</code></pre>
+<h3 id="综合比较">综合比较</h3>
+<p>随机抽样: 简单常用</p>
+<p>系统抽样: 简单常用</p>
+<p>分层抽样: 具有更显著的统计意义 层间差异大 层内差异小</p>
+<p>整群抽样: 各群要有较好的代表性 群间差异小 群内差异大</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[综合评价法-TOPSIS法]]></title>
         <id>https://blog.wjinyu.top/post/20210313-TOPSIS/</id>
@@ -1976,116 +2078,6 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <p>如果用的人过多</p>
 <p>随之到来的就是版权律师函问题</p>
 <p>所以 <strong>仅供学习 请勿商用</strong></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Spark学习笔记-2.打造生态圈 为梦想窒息]]></title>
-        <id>https://blog.wjinyu.top/post/spark_note_2/</id>
-        <link href="https://blog.wjinyu.top/post/spark_note_2/">
-        </link>
-        <updated>2020-10-24T08:25:40.000Z</updated>
-        <summary type="html"><![CDATA[<p>打造Hadoop生态圈</p>
-<p>让我们为梦想窒息吧!</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>打造Hadoop生态圈</p>
-<p>让我们为梦想窒息吧!</p>
-<!--more-->
-<h3 id="hadoop生态圈">Hadoop生态圈</h3>
-<p>前面已经提到了三篇重要的论文</p>
-<p>其中基于第一篇和第二篇开源实现的HDFS和MapReduce ，可以称为狭义上的<strong>Hadoop</strong></p>
-<p>当时的互联网(2008年) 数据呈几何倍数增长</p>
-<p>Hadoop很大程度上解决了数据处理的痛点</p>
-<p>于是Hadoop生态圈应运而生</p>
-<p>让我们为梦想窒息吧!</p>
-<h3 id="hadoop10">Hadoop1.0</h3>
-<figure data-type="image" tabindex="1"><img src="https://s1.ax1x.com/2020/10/24/BVvNoF.png" alt="BVvNoF.png" loading="lazy"></figure>
-<p>1.0的架构基本就是按照论文中的框架实现</p>
-<p>下层是 HDFS(Hadoop 分布式文件系统)</p>
-<p>上层是 MapReduce(Hadoop 分布式计算框架)</p>
-<p>分布式计算框架基于分布式文件系统</p>
-<p>分布式计算平台就算基本成型了</p>
-<p>简单的分布式框架在使用过程中</p>
-<p>随之也出现不少问题 主要有3点:</p>
-<ol>
-<li>主节点可靠性差,没有热备份</li>
-<li>提交MapReduce作业过多时，调度将成为整个分布式计算的瓶颈<br>
-造成资源利用率低</li>
-<li>不能支持扩展其他类型的分布式计算框架</li>
-</ol>
-<p>产生问题的原因:</p>
-<ul>
-<li>第一点是设计上的缺陷，可改造底层系统设计</li>
-<li>产生第二点的主要原因是<strong>MapReduce 并没有将资源管理和作业调度这两个组件分开，造成当同时有多个作业提交的时候，资源调度器会不堪重负，导致资源利用率过低</strong></li>
-<li>第三点属于直接套用论文造成的历史遗留问题。</li>
-</ul>
-<h3 id="hadoop20">Hadoop2.0</h3>
-<figure data-type="image" tabindex="2"><img src="https://s1.ax1x.com/2020/10/24/BVxjAO.png" alt="BVxjAO.png" loading="lazy"></figure>
-<p>基于1.0的这些问题，2.0随之诞生</p>
-<p>2.0最大的改动就是<strong>引入了资源管理与调度系统 YARN，代替了原有的计算框架，而计算框架则变成了 YARN 的用户</strong></p>
-<p>我们可以认为 YARN 管理计算资源，HDFS 管理存储资源</p>
-<p>上层的计算框架地位也大大降低，变成了 YARN 的一个用户</p>
-<p>此外 YARN 可以兼容多个计算框架，如 Spark、Storm、MapReduce 等</p>
-<p>也正是因此</p>
-<p>Hadoop 逐渐形成了一个庞大的生态圈</p>
-<h3 id="hadoop发行版">Hadoop发行版</h3>
-<p>Hadoop 生态圈的各个组件</p>
-<ul>
-<li>*<strong>HDFS</strong>            分布式文件系统——核心</li>
-<li>*<strong>YARN</strong>            分布式调度系统——核心</li>
-<li>MapReduce  分布式计算框架</li>
-<li>Spark               分布式计算引擎</li>
-<li>Storm              分布式流式计算系统</li>
-<li>HBase             分布式非结构化数据库</li>
-<li>Hive                  数据仓库工具 提供SQL功能 封装SQL转换成MapReudce执行</li>
-<li>Impala             新型SQL查询引擎 比Hvie更快</li>
-<li>Hue                   可视化操作界面系统  基于Python Web框架Django实现的 使用Hue可以在浏览器端与Hadoop集群进行交互来分析处理数据</li>
-<li>Sqoop              批量数据抽取工具</li>
-<li>Flume               流失数据传输工具</li>
-<li>Zookeeper      负责分布式一致性工具</li>
-<li>Ambari              集群管理和监控工具</li>
-</ul>
-<p>将如此多的组件集成到一个平台，势必会产生各式各样的问题。</p>
-<p>很快有公司注意到了这个问题中的商机，其中做的最好的是 Cloudera 和 Hortonworks 这两家公司</p>
-<p>它们核心产品就是将上述 Hadoop 生态圈中最常用到的开源组件打包为一个 Hadoop 发行版</p>
-<p>Clouera 的叫 CDH，Hortonworks 的叫 HDP</p>
-<p>这个发行版中的所有组件不会有兼容性等其他莫名其妙的问题，供用户免费使用</p>
-<h3 id="hadoop平台">Hadoop平台</h3>
-<p>很多文章在提到Hadoop时</p>
-<p>有时会用大数据平台、数据仓库、分布式数据库、分布式计算框架等字眼</p>
-<p>看似合理，但又不完全正确，让人非常迷惑</p>
-<p>这里做个简单的解释</p>
-<p><strong>传统应用开发</strong>:</p>
-<p>我们不会过多的关注磁盘驱动器</p>
-<p>这是因为文件系统已经帮我们进行了抽象</p>
-<p>我们只需要使用文件系统 API 就可以操作磁盘驱动器。</p>
-<p>同样的，我们在开发应用时也无需过多关注 CPU</p>
-<p>操作系统和编程语言已经帮我们做好了抽象和隔离。</p>
-<p><strong>大数据开发</strong>:</p>
-<p>大数据平台相当于把这些集群抽象成一台计算机</p>
-<p>隔离了底层的实现细节</p>
-<p>让用户使用这个平台时</p>
-<p>不会感觉到自己在使用一个分布式系统</p>
-<p>而是在使用一台计算机</p>
-<p>如下命令</p>
-<pre><code>ls              //Linux 查询文件命令
-hadoop dfs -ls  //Hadoop 查询文件命令
-</code></pre>
-<p>因此 Hadoop 可以理解为是一个计算机集群的操作系统</p>
-<p>HDFS 是基于所有计算机文件系统之上的抽象</p>
-<p>YARN 是基于所有计算机资源管理与调度系统之上的抽象</p>
-<p>Spark、MapReduce 只是这个操作系统支持的编程语言</p>
-<h3 id="hadoop趋势">Hadoop趋势</h3>
-<p>就像普通计算机一样</p>
-<p>编程语言的热度始终要大于操作系统。</p>
-<p>随着计算框架和资源管理与调度系统问世</p>
-<p>Hadoop 的存在感越来越低</p>
-<p>在大数据平台中越来越底层</p>
-<p>有些大数据平台甚至只采用 HDFS</p>
-<p>其余按照需求选取组件</p>
-<p>这就逐渐造成了一种现象</p>
-<p>Hadoop 的热度越来越低</p>
-<p>而分布式计算框架的热度越来越高</p>
-<p>就像 Java 的热度肯定比 Linux 高</p>
 ]]></content>
     </entry>
 </feed>
