@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-04-18T10:31:19.226Z</updated>
+    <updated>2021-04-18T10:36:43.626Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -16,7 +16,11 @@
         <link href="https://blog.wjinyu.top/post/20210418-DecisionTree-1/">
         </link>
         <updated>2021-04-18T07:55:28.000Z</updated>
-        <content type="html"><![CDATA[<h4 id="概述">概述</h4>
+        <summary type="html"><![CDATA[<p>一切都要从那个树讲起</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>一切都要从那个树讲起</p>
+<!--more-->
+<h4 id="概述">概述</h4>
 <p>ID3算法作为最早提出的决策树算法 可以说是奠定了树类算法的最重要的基础</p>
 <p>后续的算法都是在此基础上进行修修补补 一步步发展成了现在的Xgboost、LightGBM</p>
 <p>从现在的眼光去看ID3 可以说是各种问题 啥也不是 比如：</p>
@@ -412,7 +416,15 @@ Gain(D_{纹理=稍糊 },触感)  =  0.7219 \\
         <link href="https://blog.wjinyu.top/post/20210418-DecisionTree-0/">
         </link>
         <updated>2021-04-18T07:48:26.000Z</updated>
-        <content type="html"><![CDATA[<h4 id="前言">前言</h4>
+        <summary type="html"><![CDATA[<p>世界树</p>
+<p>混沌初始</p>
+<p>万物新生</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>世界树</p>
+<p>混沌初始</p>
+<p>万物新生</p>
+<!--more-->
+<h4 id="前言">前言</h4>
 <p>目前，最流行的两类算法莫过于<strong>神经网络算法（卷积神经网络、循环神经网络、生成式对抗网络和图神经网络）<strong>与</strong>树形算法（随机森林、GBDT、XGBoost和LightGBM）</strong>。</p>
 <p>树形算法的基础就是<strong>决策树</strong>，由于其易理解、易构建、速度快等特点，被广泛的应用在数据挖掘、机器学习等领域。</p>
 <p>因此，决策树是经典的机器学习算法，很多复杂的机器学习算法都是由决策树演变而来。</p>
@@ -485,7 +497,15 @@ Gain(D_{纹理=稍糊 },触感)  =  0.7219 \\
         <link href="https://blog.wjinyu.top/post/20210418-DecisionTree--1/">
         </link>
         <updated>2021-04-18T04:48:26.000Z</updated>
-        <content type="html"><![CDATA[<h4 id="什么是熵">什么是熵？</h4>
+        <summary type="html"><![CDATA[<p>人活着就是在对抗熵增定律，</p>
+<p>生命以负熵为生</p>
+<p>——薛定谔</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>人活着就是在对抗熵增定律，</p>
+<p>生命以负熵为生</p>
+<p>——薛定谔</p>
+<!--more-->
+<h4 id="什么是熵">什么是熵？</h4>
 <p>当一件事情有多种可能情况时 这件事情对某人而言具体是哪种情况的不确定性叫做<strong>熵</strong></p>
 <p>消除该人对这件事情的不确定性的事物叫做<strong>信息</strong></p>
 <p>即 获取信息意味着消除熵(不确定性)</p>
