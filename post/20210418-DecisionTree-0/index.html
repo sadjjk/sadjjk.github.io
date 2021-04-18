@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
-<title>今语</title>
+<title>决策树系统-综述 | 今语</title>
 <link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1618732537928">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
@@ -18,7 +18,7 @@
 
 
 </head>
-<body class="post-template-default single single-post single-format-standard ct-body singular singular-post not-front standard">
+<body class="home blog ct-body standard">
 <div id="overflow-container" class="overflow-container">
   <header id="site-header" class="site-header" role="banner">
 
@@ -94,19 +94,73 @@
 
 </header>
 
+
   <div id="main" class="main" role="main">
-    <div class="main-content">
-      <div class="tags-container">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
         
-          <a class="tag" style="font-size:30px"href="https://blog.wjinyu.top/tag/work/">Work</a>
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2021/04/18/1rTJv9DPRBQdMWL.jpg">
+          </div>
         
-          <a class="tag" style="font-size:30px"href="https://blog.wjinyu.top/tag/life/">Life</a>
-        
-          <a class="tag" style="font-size:30px"href="https://blog.wjinyu.top/tag/book/">Book</a>
-        
-          <a class="tag" style="font-size:30px"href="https://blog.wjinyu.top/tag/movie/">Movie</a>
-        
+
+        <div class="entry-meta">
+          <span class="date">· 2021-04-18 ·</span>
+
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://blog.wjinyu.top/tag/work/">Work</a>
+                </span>
+          
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'>决策树系统-综述</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article id="article">
+
+            </article>
+          </div>
+        </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" style="font-size:20px" href="https://blog.wjinyu.top/post/20210418-sampledata/">下一篇->四大抽样方法:随机/系统/分层/整群</a>
+              </div>
+            </nav>
+          
       </div>
+      <section id="comments" class="comments">
+        
+          
+            <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+
+<script>
+
+  var gitalk = new Gitalk({
+    clientID: '2421a94b8610913da80f',
+    clientSecret: 'a325413d8fe5e7f388653bf2067f2c01db20323e',
+    repo: 'sadjjk.github.io',
+    owner: 'sadjjk',
+    admin: ['sadjjk'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  })
+
+  gitalk.render('gitalk-container')
+
+</script>
+
+          
+
+          
+        
+      </section>
     </div>
   </div>
   <footer id="site-footer" class="site-footer" role="contentinfo">
@@ -172,8 +226,85 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wjinyu.top//media/scripts/lib/jquery.min.js"></script>
 <script src="https://blog.wjinyu.top//media/scripts/lib/production.min.js"></script>
 
+  <script>
+    var article = `<h4 id="前言">前言</h4>
+<p>目前，最流行的两类算法莫过于<strong>神经网络算法（卷积神经网络、循环神经网络、生成式对抗网络和图神经网络）<strong>与</strong>树形算法（随机森林、GBDT、XGBoost和LightGBM）</strong>。</p>
+<p>树形算法的基础就是<strong>决策树</strong>，由于其易理解、易构建、速度快等特点，被广泛的应用在数据挖掘、机器学习等领域。</p>
+<p>因此，决策树是经典的机器学习算法，很多复杂的机器学习算法都是由决策树演变而来。</p>
+<p>总体分为三个阶段</p>
+<ul>
+<li>基础决策树（ID3、C4.5、CART）</li>
+<li>集成决策树 (Random Forest、Adaboost、GBDT)</li>
+<li>再优化决策树 (Xgboost、LightGBM)</li>
+</ul>
+<h4 id="基础决策树">基础决策树</h4>
+<p>真正让决策树成为机器学习主流算法的罗斯.昆兰</p>
+<p>昆兰在1979年提出了ID3算法，掀起了决策树研究的高潮</p>
+<p>1993年提出C4.5 即ID3的进化版 ——”具有里程碑意义的决策树“</p>
+<p>1984年Brieman等人提出了CART算法，该算法拥有一个非常完整的体系</p>
+<p>细节对比</p>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>支持模型</th>
+<th>树结构</th>
+<th>特征选择</th>
+<th>连续值处理</th>
+<th>缺失值处理</th>
+<th>剪枝</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID3</td>
+<td>分类</td>
+<td>多叉数</td>
+<td>信息增益</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>C4.5</td>
+<td>分类</td>
+<td>多叉数</td>
+<td>信息增益比</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>CART</td>
+<td>分类、回归</td>
+<td>二叉树</td>
+<td>分类:基尼指数<br />回归:均方差</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<h4 id="集成决策树">集成决策树</h4>
+<p>基于集成学习的决策树，其主要通过不同学习框架生产基学习器</p>
+<p>并综合所有基学习器的预测结果来改善单个基学习器的识别率和泛化性</p>
+<h4 id="再优化决策树">再优化决策树</h4>
+<p>Xgboost、LightGBM基本是现最流行的算法</p>
+<p>它们训练速度快、内存小等特性</p>
+<p>使大规模应用于生产成为了可能</p>
+`
+    var content = article.split("<!--more-->")[1]
+    if (content != null)
+        document.getElementById('article').innerHTML = content;
+    else
+        document.getElementById('article').innerHTML = article
+
+    let navigation = new AutocJs({
+        title:'决策树系统-综述',
+        isGenerateOutlineChapterCode: false
+    })
+    </script>
 </div>
 </body>
 </html>
-
 

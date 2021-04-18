@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-04-18T07:45:34.985Z</updated>
+    <updated>2021-04-18T07:55:42.223Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -10,6 +10,495 @@
     <logo>https://blog.wjinyu.top/images/avatar.png</logo>
     <icon>https://blog.wjinyu.top/favicon.ico</icon>
     <rights>All rights reserved 2021, 今语</rights>
+    <entry>
+        <title type="html"><![CDATA[决策树系统-ID3]]></title>
+        <id>https://blog.wjinyu.top/post/20210418-DecisionTree-1/</id>
+        <link href="https://blog.wjinyu.top/post/20210418-DecisionTree-1/">
+        </link>
+        <updated>2021-04-18T07:55:28.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="概述">概述</h4>
+<p>ID3算法作为最早提出的决策树算法 可以说是奠定了树类算法的最重要的基础</p>
+<p>后续的算法都是在此基础上进行修修补补 一步步发展成了现在的Xgboost、LightGBM</p>
+<p>从现在的眼光去看ID3 可以说是各种问题 啥也不是 比如：</p>
+<ol>
+<li>只能预测分类问题 ，无法预测回归问题</li>
+<li>特征只能离散值 不能是连续值 也不能有缺失值</li>
+<li>没有剪枝 很容易过拟合</li>
+</ol>
+<p>但在1979年(30年前)可以说突破性成果</p>
+<h4 id="基本概念">基本概念</h4>
+<p>决策树 首先一定是一棵树，树包含一个根节点、若干个分支结点和若干个叶结点</p>
+<p>每个分支结点代表一个case ，每个叶结点代表一个case的输出结果</p>
+<p>决策树 就是将一系列带有特征和标签的数据转化成一个棵带有标签输出的树</p>
+<p>以西瓜数据集为例</p>
+<p>样例数据</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>色泽</th>
+<th>根蒂</th>
+<th>敲声</th>
+<th>纹理</th>
+<th>脐部</th>
+<th>触感</th>
+<th>类别(label)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>青绿</td>
+<td>蜷缩</td>
+<td>浊响</td>
+<td>清晰</td>
+<td>凹陷</td>
+<td>硬滑</td>
+<td>好瓜</td>
+</tr>
+<tr>
+<td>2</td>
+<td>乌黑</td>
+<td>蜷缩</td>
+<td>沉闷</td>
+<td>清晰</td>
+<td>凹陷</td>
+<td>硬滑</td>
+<td>好瓜</td>
+</tr>
+<tr>
+<td>3</td>
+<td>乌黑</td>
+<td>蜷缩</td>
+<td>浊响</td>
+<td>清晰</td>
+<td>凹陷</td>
+<td>硬滑</td>
+<td>好瓜</td>
+</tr>
+<tr>
+<td>4</td>
+<td>青绿</td>
+<td>蜷缩</td>
+<td>沉闷</td>
+<td>清晰</td>
+<td>凹陷</td>
+<td>硬滑</td>
+<td>好瓜</td>
+</tr>
+<tr>
+<td>5</td>
+<td>浅白</td>
+<td>蜷缩</td>
+<td>浊响</td>
+<td>清晰</td>
+<td>凹陷</td>
+<td>硬滑</td>
+<td>好瓜</td>
+</tr>
+<tr>
+<td>6</td>
+<td>青绿</td>
+<td>稍蜷</td>
+<td>浊响</td>
+<td>清晰</td>
+<td>稍凹</td>
+<td>软粘</td>
+<td>好瓜</td>
+</tr>
+<tr>
+<td>7</td>
+<td>乌黑</td>
+<td>稍蜷</td>
+<td>浊响</td>
+<td>稍糊</td>
+<td>稍凹</td>
+<td>软粘</td>
+<td>好瓜</td>
+</tr>
+<tr>
+<td>8</td>
+<td>乌黑</td>
+<td>稍蜷</td>
+<td>浊响</td>
+<td>清晰</td>
+<td>稍凹</td>
+<td>硬滑</td>
+<td>好瓜</td>
+</tr>
+<tr>
+<td>9</td>
+<td>乌黑</td>
+<td>稍蜷</td>
+<td>沉闷</td>
+<td>稍糊</td>
+<td>稍凹</td>
+<td>硬滑</td>
+<td>坏瓜</td>
+</tr>
+<tr>
+<td>10</td>
+<td>青绿</td>
+<td>硬挺</td>
+<td>清脆</td>
+<td>清晰</td>
+<td>平坦</td>
+<td>软粘</td>
+<td>坏瓜</td>
+</tr>
+<tr>
+<td>11</td>
+<td>浅白</td>
+<td>硬挺</td>
+<td>清脆</td>
+<td>模糊</td>
+<td>平坦</td>
+<td>硬滑</td>
+<td>坏瓜</td>
+</tr>
+<tr>
+<td>12</td>
+<td>浅白</td>
+<td>蜷缩</td>
+<td>浊响</td>
+<td>模糊</td>
+<td>平坦</td>
+<td>软粘</td>
+<td>坏瓜</td>
+</tr>
+<tr>
+<td>13</td>
+<td>青绿</td>
+<td>稍蜷</td>
+<td>浊响</td>
+<td>稍糊</td>
+<td>凹陷</td>
+<td>硬滑</td>
+<td>坏瓜</td>
+</tr>
+<tr>
+<td>14</td>
+<td>浅白</td>
+<td>稍蜷</td>
+<td>沉闷</td>
+<td>稍糊</td>
+<td>凹陷</td>
+<td>硬滑</td>
+<td>坏瓜</td>
+</tr>
+<tr>
+<td>15</td>
+<td>乌黑</td>
+<td>稍蜷</td>
+<td>浊响</td>
+<td>清晰</td>
+<td>稍凹</td>
+<td>软粘</td>
+<td>坏瓜</td>
+</tr>
+<tr>
+<td>16</td>
+<td>浅白</td>
+<td>蜷缩</td>
+<td>浊响</td>
+<td>模糊</td>
+<td>平坦</td>
+<td>硬滑</td>
+<td>坏瓜</td>
+</tr>
+<tr>
+<td>17</td>
+<td>青绿</td>
+<td>蜷缩</td>
+<td>沉闷</td>
+<td>稍糊</td>
+<td>稍凹</td>
+<td>硬滑</td>
+<td>坏瓜</td>
+</tr>
+</tbody>
+</table>
+<p>使用ID3算法后得出的决策树</p>
+<img src="https://i.loli.net/2021/03/12/voF4PZINkfWbiO9.png" alt="img" style="zoom:50%;" />
+当有新的数据产生要时 判断该瓜是好瓜还是坏瓜
+<p>则可按照该构造的决策树进行依次判断</p>
+<p>先判断纹理是清晰/稍糊/模糊? 在判断根蒂/触感 ...</p>
+<p>从而实现了预测的目的</p>
+<h4 id="关键点">关键点</h4>
+<p>决策树的关键在于如何选择最优的划分点，尽量使划分的样本属于同一类别？</p>
+<p>即划分后的样本尽可能纯</p>
+<p>那么如何来度量纯度？</p>
+<p>ID3使用<strong>信息熵</strong>来度量纯度，使用<strong>信息增益</strong>来度量划分前与划分后的纯度差异</p>
+<p><em>C4.5、CART最核心的优化点也都是在这个地方</em></p>
+<p>当按照**(某个属性=某个值)**划分时 该划分前与划分后的纯度差异达到最大时 则为最优划分点</p>
+<h5 id="信息熵">信息熵</h5>
+<p>假如当前样本集D中第k类样本所占的比例为<img src="https://img-blog.csdn.net/20180129135013432" alt="img" loading="lazy">，<img src="https://img-blog.csdn.net/20180129135213195" alt="img" loading="lazy"> 为类别的总数即label的不重复数（对于二元分类来说，<img src="https://img-blog.csdn.net/20180129135237279" alt="img" loading="lazy">）。则样本集的信息熵为</p>
+<figure data-type="image" tabindex="1"><img src="https://img-blog.csdn.net/20180129135548693" alt="img" loading="lazy"></figure>
+<h5 id="信息增益">信息增益</h5>
+<p>假定离散属性 <img src="https://img-blog.csdn.net/20180129140439073" alt="img" loading="lazy"> 有 <img src="https://img-blog.csdn.net/20180129140514900" alt="img" loading="lazy">个可能的取值<img src="https://img-blog.csdn.net/20180129141123940" alt="img" loading="lazy">，如果使用特征 <img src="https://img-blog.csdn.net/20180129140439073" alt="img" loading="lazy"> 来对数据集D进行划分，则会产生V个分支结点， 其中第v个结点包含了数据集D中所有在特征 <img src="https://img-blog.csdn.net/20180129140439073" alt="img" loading="lazy"> 上取值为 <img src="https://img-blog.csdn.net/20180129141756607" alt="img" loading="lazy">的样本总数，记为<img src="https://img-blog.csdn.net/20180129141835120" alt="img" loading="lazy">。</p>
+<figure data-type="image" tabindex="2"><img src="https://img-blog.csdn.net/20180129161423421" alt="img" loading="lazy"></figure>
+<h4 id="算法步骤">算法步骤</h4>
+<p>以上述西瓜集为例</p>
+<p>1.计算数据集的信息熵</p>
+<p>该数据集包含17个样本，label为好瓜与坏瓜，即<img src="https://img-blog.csdn.net/20180129135237279" alt="img" loading="lazy">。</p>
+<p>则 正例（类别为好瓜的样本）占的比例为：<img src="https://img-blog.csdn.net/20180129161637039" alt="img" loading="lazy">，反例（类别为坏瓜的样本）占的比例为：<img src="https://img-blog.csdn.net/20180129161649348" alt="img" loading="lazy"></p>
+<p>该数据的信息熵为</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: No such environment: eqnarray at position 7: \begin{̲e̲q̲n̲a̲r̲r̲a̲y̲}̲
+Ent(D) &amp; = &amp; -…'>\begin{eqnarray}
+Ent(D) &amp; = &amp; - \sum_{k=1}^{K}p_{k}log_2p_{k} \\
+      ~&amp; = &amp; - (\frac{8}{17} \times log_{2}\frac{8}{17} +  \frac{9}{17} \times log_{2}\frac{9}{17}) \\
+      ~&amp; = &amp; 0.9975
+\end{eqnarray}
+</p>
+<p>2.计算各个特征的信息熵</p>
+<p>特征分别为：色泽、根蒂、敲声、纹理、脐部、触感</p>
+<p>计算每个特征的信息增益</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: No such environment: eqnarray at position 7: \begin{̲e̲q̲n̲a̲r̲r̲a̲y̲}̲ 
+Ent(D_{色泽}^{浅…'>\begin{eqnarray} 
+Ent(D_{色泽}^{浅白}) &amp;= &amp; - (\frac{1}{5} \times log_{2}\frac{1}{5} + \frac{4}{5} \times log_{2}\frac{4}{5}) = 0.7219 \\
+Ent(D_{色泽}^{青绿}) &amp; =&amp;  - (\frac{3}{6} \times log_{2}\frac{3}{6} + \frac{3}{6} \times log_{2}\frac{3}{6}) = 1 \\
+Ent(D_{色泽}^{乌黑}) &amp;= &amp; - (\frac{2}{6} \times log_{2}\frac{2}{6} + \frac{4}{6} \times log_{2}\frac{4}{6}) = 0.9183 \\
+Gain(D,色泽) &amp;=&amp; Ent(D) - (\frac{5}{17} \times Ent(D_{色泽}^{浅白}) + \frac{6}{17} \times Ent(D_{色泽}^{青绿}) + \frac{6}{17} \times Ent(D_{色泽}^{乌黑})) \\
+ ~&amp;= &amp;0.9975 - (\frac{5}{17} \times  0.7219 + \frac{6}{17} \times 1+\frac{6}{17} \times 0.9183 ) = 0.1081 \\
+Ent(D_{根蒂}^{蜷缩}) &amp;=&amp;  - (\frac{5}{8} \times log_{2}\frac{5}{8} + \frac{3}{8} \times log_{2}\frac{3}{8}) = 0.9544\\
+Ent(D_{根蒂}^{稍蜷}) &amp;=&amp;  - (\frac{3}{7} \times log_{2}\frac{3}{7} + \frac{4}{7} \times log_{2}\frac{4}{7}) = 0.9852\\
+Ent(D_{根蒂}^{硬挺}) &amp;=&amp;  - (\frac{0}{2} \times log_{2}\frac{0}{2} + \frac{2}{2} \times log_{2}\frac{2}{2}) = 0\\
+Gain(D,根蒂) &amp;=&amp; Ent(D) - (\frac{8}{17} \times Ent(D_{根蒂}^{蜷缩}) + \frac{5}{17} \times Ent(D_{根蒂}^{稍蜷}) + \frac{2}{17} \times Ent(D_{根蒂}^{硬挺})) \\
+ ~&amp;=&amp; 0.9975 - (\frac{8}{17} \times  0.9544 + \frac{7}{17} \times 0.9852 +\frac{2}{17} \times 0 ) = 0.1427 \\
+Ent(D_{敲声}^{沉闷}) &amp;=&amp;  - (\frac{2}{5} \times log_{2}\frac{2}{5} + \frac{3}{5} \times log_{2}\frac{3}{5}) = 0.9710\\
+Ent(D_{敲声}^{清脆}) &amp;=&amp;  - (\frac{0}{2} \times log_{2}\frac{0}{2} + \frac{2}{2} \times log_{2}\frac{2}{2}) = 0\\
+Ent(D_{敲声}^{浊响}) &amp;=&amp;  - (\frac{6}{10} \times log_{2}\frac{6}{10} + \frac{4}{10} \times log_{2}\frac{4}{10}) = 0.9710\\
+Gain(D,敲声) &amp;=&amp; Ent(D) - (\frac{8}{17} \times Ent(D_{敲声}^{沉闷}) + \frac{5}{17} \times Ent(D_{敲声}^{清脆}) + \frac{2}{17} \times Ent(D_{敲声}^{浊响})) \\
+ ~&amp;=&amp; 0.9975 - (\frac{5}{17} \times  0.9710 + \frac{2}{17} \times 0 +\frac{10}{17} \times 0.9710 ) = 0.1407 \\
+Ent(D_{纹理}^{模糊}) &amp;=&amp;  - (\frac{3}{3} \times log_{2}\frac{3}{3} + \frac{0}{3} \times log_{2}\frac{0}{3}) = 0\\
+Ent(D_{纹理}^{清晰}) &amp;=&amp;  - (\frac{2}{9} \times log_{2}\frac{2}{9} + \frac{7}{9} \times log_{2}\frac{7}{9}) = 0.7642\\
+Ent(D_{纹理}^{稍糊}) &amp;=&amp;  - (\frac{1}{5} \times log_{2}\frac{1}{5} + \frac{4}{5} \times log_{2}\frac{4}{5}) = 0.7219\\
+Gain(D,{纹理}) &amp;=&amp; Ent(D) - (\frac{3}{17} \times Ent(D_{纹理}^{模糊}) + \frac{9}{17} \times Ent(D_{纹理}^{清晰}) + \frac{5}{17} \times Ent(D_{纹理}^{稍糊})) \\
+ ~&amp;=&amp; 0.9975 - (\frac{3}{17} \times  0 + \frac{9}{17} \times 0.7642 +\frac{5}{17} \times 0.7219 ) = 0.3806 \\
+Ent(D_{脐部}^{凹陷}) &amp;=&amp;  - (\frac{2}{7} \times log_{2}\frac{2}{7} + \frac{5}{7} \times log_{2}\frac{5}{7}) = 0.8631\\
+Ent(D_{脐部}^{平坦}) &amp;=&amp;  - (\frac{0}{4} \times log_{2}\frac{0}{4} + \frac{4}{4} \times log_{2}\frac{4}{4}) = 0\\
+Ent(D_{脐部}^{稍糊}) &amp;=&amp;  - (\frac{3}{6} \times log_{2}\frac{3}{6} + \frac{3}{6} \times log_{2}\frac{3}{6}) = 1\\
+Gain(D,{脐部}) &amp;=&amp; Ent(D) - (\frac{7}{17} \times Ent(D_{脐部}^{凹陷}) + \frac{4}{17} \times Ent(D_{脐部}^{平坦}) + \frac{6}{17} \times Ent(D_{脐部}^{稍糊})) \\
+ ~&amp;=&amp; 0.9975 - (\frac{7}{17} \times  0.8631 + \frac{4}{17} \times 0 +\frac{6}{17} \times 1 ) = 0.2892 \\
+Ent(D_{触感}^{软粘})  &amp;=&amp;  - (\frac{2}{5} \times log_{2}\frac{2}{5} + \frac{3}{5} \times log_{2}\frac{3}{5}) = 0.9710\\
+Ent(D_{触感}^{硬滑}) &amp;=&amp;  - (\frac{6}{12} \times log_{2}\frac{6}{12} + \frac{6}{12} \times log_{2}\frac{6}{12}) = 1\\
+Gain(D,触感)  &amp;=&amp; Ent(D) - (\frac{5}{17} \times Ent(D_{触感}^{软粘}) + \frac{12}{17} \times Ent(D_{触感}^{硬滑}) \\
+ ~&amp;=&amp; 0.9975 - (\frac{5}{17} \times  0.9710 + \frac{12}{17} \times 1 ) = 0.0060 \\
+feature&amp;=&amp;argmax(Gain(D,色泽),Gain(D,根蒂),Gain(D,敲声),Gain(D,{纹理}),Gain(D,{脐部}),Gain(D,触感) )\\
+~&amp;=&amp;argmax(0.1081,0.1427,0.1407, 0.3806,0.2892,0.0060 ) \\
+~&amp;=&amp;纹理
+
+\end{eqnarray}
+</p>
+<p>选择信息增益最大的特征:纹理</p>
+<p>因此划分为</p>
+ <img src="../../../../wangjy/Library/Application Support/typora-user-images/image-20210311165331682.png" alt="image-20210311165331682" style="zoom:50%;" />
+<p>3.继续各分支进行划分</p>
+<ul>
+<li>
+<p><strong>分支结点:纹理=清晰</strong></p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: No such environment: eqnarray at position 7: \begin{̲e̲q̲n̲a̲r̲r̲a̲y̲}̲ 
+Gain(D_{纹理=清晰…'>\begin{eqnarray} 
+Gain(D_{纹理=清晰},色泽)  &amp;=&amp;  0.0431 \\
+Gain(D_{纹理=清晰},根蒂)  &amp;=&amp;  0.4581 \\
+Gain(D_{纹理=清晰},脐部)  &amp;=&amp;  0.4581 \\
+Gain(D_{纹理=清晰},触感)  &amp;=&amp;  0.4581 \\
+Gain(D_{纹理=清晰},敲声)  &amp;=&amp;  0.3309 \\
+\end{eqnarray}
+</p>
+<p>“根蒂”、“脐部”、“触感”这3个属性均取得了最大的信息增益，</p>
+<p>可以随机选择其中之一作为划分属性 比如选择“根蒂”</p>
+<p>划分为</p>
+<img src="https://i.loli.net/2021/03/11/MC7QnJN8Zyk1FtT.png" alt="image-20210311180027262" style="zoom:50%;" />
+<ul>
+<li>
+<p>继续对 <strong>分支结点:纹理=清晰 &amp; 根蒂=蜷缩</strong> 进行划分</p>
+<p>观察样本集 编号为1,2,3,4,5的样本均为好瓜 当前节点标记为叶子节点 无需再划分</p>
+<img src="https://i.loli.net/2021/03/12/JuCUmXjFtqR2W4l.png" alt="img" style="zoom:50%;" />
+</li>
+<li>
+<p>继续对 <strong>分支结点:纹理=清晰 &amp; 根蒂=稍蜷</strong> 进行划分</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: No such environment: eqnarray at position 7: \begin{̲e̲q̲n̲a̲r̲r̲a̲y̲}̲ 
+Gain(D_{纹理=清晰…'>\begin{eqnarray} 
+Gain(D_{纹理=清晰 \&amp; 根蒂=稍蜷 },色泽)  &amp;=&amp;  0.2516 \\
+Gain(D_{纹理=清晰 \&amp; 根蒂=稍蜷 },触感)  &amp;=&amp;  0.2516 \\
+Gain(D_{纹理=清晰 \&amp; 根蒂=稍蜷 },敲声)  &amp;=&amp;  0 \\
+Gain(D_{纹理=清晰 \&amp; 根蒂=稍蜷 },脐部)  &amp;=&amp;  0 \\
+\end{eqnarray}
+</p>
+<p>“色泽”、“触感”这2个属性均取得了最大的信息增益，</p>
+<p>可以随机选择其中之一作为划分属性 比如选择“色泽”</p>
+<img src="https://i.loli.net/2021/03/12/fxde6FPIvNmEXw8.png" alt="img" style="zoom:50%;" />
+<ul>
+<li>
+<p><strong>”纹理=清晰 &amp; 根蒂=稍蜷 &amp; 色泽=青绿“</strong></p>
+<p>只包含一个样本: 6号 类别标签为好瓜  当前节点标记为叶子节点无需再划分</p>
+</li>
+<li>
+<p><strong>”纹理=清晰 &amp; 根蒂=稍蜷 &amp; 色泽=浅白“ 为空集 不能划分</strong> 对应的措施为:</p>
+<p>将其设置为叶子节点 类别设置为其父节点中所含样本最多的类别 即</p>
+<p>6号为好瓜、8号为好瓜、15号为坏瓜 2个好瓜 1个坏瓜</p>
+<p>故对应类别是 好瓜</p>
+</li>
+<li>
+<p>**”纹理=清晰 &amp; 根蒂=稍蜷 &amp; 色泽=乌黑“ **</p>
+<p>继续进行划分</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: No such environment: eqnarray at position 7: \begin{̲e̲q̲n̲a̲r̲r̲a̲y̲}̲ 
+Gain(D_{纹理=清晰…'>\begin{eqnarray} 
+Gain(D_{纹理=清晰 \&amp; 根蒂=稍蜷 \&amp; 色泽=乌黑},触感)  &amp;=&amp;  1 \\
+Gain(D_{纹理=清晰 \&amp; 根蒂=稍蜷 \&amp; 色泽=乌黑},脐部)  &amp;=&amp;  0 \\
+Gain(D_{纹理=清晰 \&amp; 根蒂=稍蜷 \&amp; 色泽=乌黑},敲声)  &amp;=&amp;  0 \\
+\end{eqnarray}
+</p>
+<p>“触感” 取得了最大的信息增益，按”触感“进行划分</p>
+</li>
+</ul>
+<p>得到如下</p>
+<img src="https://i.loli.net/2021/03/12/KEGVuSaWAI1Qptb.png" alt="img" style="zoom:50%;" />
+</li>
+<li>
+<p>继续对 <strong>分支结点:纹理=清晰 &amp; 根蒂=硬挺</strong> 进行划分</p>
+<p>只包含一个样本: 10号 类别标签为坏瓜  当前节点标记为叶子节点无需再划分</p>
+</li>
+</ul>
+<p>得到如下</p>
+<img src="https://i.loli.net/2021/03/12/6Az7MdpcIOqNfPy.png" alt="img" style="zoom:50%;" />
+</li>
+<li>
+<p>对<strong>分支结点:纹理=稍糊</strong> 进行划分</p>
+<p class='katex-block katex-error' title='ParseError: KaTeX parse error: No such environment: eqnarray at position 7: \begin{̲e̲q̲n̲a̲r̲r̲a̲y̲}̲ 
+Gain(D_{纹理=稍糊…'>\begin{eqnarray} 
+Gain(D_{纹理=稍糊 },色泽)  &amp;=&amp;  0.3219 \\
+Gain(D_{纹理=稍糊 },根蒂)  &amp;=&amp;  0.07291 \\
+Gain(D_{纹理=稍糊 },敲声)  &amp;=&amp;  0.3219 \\
+Gain(D_{纹理=稍糊 },脐部)  &amp;=&amp;  0.171 \\
+Gain(D_{纹理=稍糊 },触感)  &amp;=&amp;  0.7219 \\
+\end{eqnarray}
+</p>
+<p>选择最大信息增益: 触感 进行划分 如下:</p>
+ <img src="https://i.loli.net/2021/03/12/EReLF95Qzu34yUw.png" alt="img" style="zoom:50%;" />
+<ul>
+<li>
+<p><strong>”纹理=稍糊 &amp; 根触感=软粘“</strong></p>
+<p>只包含一个样本: 7号 类别标签为好瓜  当前节点标记为叶子节点无需再划分</p>
+</li>
+<li>
+<p><strong>”纹理=稍糊 &amp; 根触感=硬滑“</strong></p>
+<p>该分支结点下4个样本的标签均为坏瓜 故当前节点标记为叶子节点无需再划分</p>
+</li>
+</ul>
+<p>得到如下</p>
+<img src="https://i.loli.net/2021/03/12/G9bdgp6DBJUqVKX.png" alt="img" style="zoom:50%;" />
+</li>
+<li>
+<p>对<strong>分支结点:纹理=模糊</strong> 进行划分</p>
+<p>该分支结点下3个样本的标签均为坏瓜 故当前节点标记为叶子节点无需再划分</p>
+</li>
+</ul>
+<p>最后得到如下</p>
+<img src="https://i.loli.net/2021/03/12/voF4PZINkfWbiO9.png" alt="img" style="zoom:50%;" />
+<h4 id="总结">总结</h4>
+<p>ID3算法提出的时间较早 当时仅仅是为了解决特定问题</p>
+<p>因此缺点也很明显</p>
+<ol>
+<li>
+<p>只能预测分类问题 ，无法预测回归问题</p>
+</li>
+<li>
+<p>特征只能离散值 不能是连续值 也不能有缺失值</p>
+<p><em>这个在举例数据时可以发现 所有的特征都是离散值 没有连续值</em></p>
+<p><em>在当初设计的时候就没有将连续值考虑进去</em></p>
+</li>
+<li>
+<p>没有剪枝 很容易过拟合</p>
+</li>
+<li>
+<p><strong>使用信息增益来衡量纯度时 有一个很严重的缺点</strong></p>
+<p>当特征的值(不重复数)越多 ，信息增益越大</p>
+<p>即这个决策树一定是选择特征值多的特征进行分支</p>
+<p>举一个极端的例子 依然以西瓜数据集为例</p>
+<p>当把西瓜编号加入特征池时</p>
+<p>那么编号的信息增益一定是最大的 (因为每个编号对应一个西瓜类别 每个编号的熵均为0)</p>
+<p>于是产生17个分支，每个分支对应一个样本 如下</p>
+<img src="https://img-blog.csdn.net/20170508144129153" alt="img" style="zoom: 75%;" />
+<p>这样的决策树不具有任何泛化能力</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[决策树系统-综述]]></title>
+        <id>https://blog.wjinyu.top/post/20210418-DecisionTree-0/</id>
+        <link href="https://blog.wjinyu.top/post/20210418-DecisionTree-0/">
+        </link>
+        <updated>2021-04-18T07:48:26.000Z</updated>
+        <content type="html"><![CDATA[<h4 id="前言">前言</h4>
+<p>目前，最流行的两类算法莫过于<strong>神经网络算法（卷积神经网络、循环神经网络、生成式对抗网络和图神经网络）<strong>与</strong>树形算法（随机森林、GBDT、XGBoost和LightGBM）</strong>。</p>
+<p>树形算法的基础就是<strong>决策树</strong>，由于其易理解、易构建、速度快等特点，被广泛的应用在数据挖掘、机器学习等领域。</p>
+<p>因此，决策树是经典的机器学习算法，很多复杂的机器学习算法都是由决策树演变而来。</p>
+<p>总体分为三个阶段</p>
+<ul>
+<li>基础决策树（ID3、C4.5、CART）</li>
+<li>集成决策树 (Random Forest、Adaboost、GBDT)</li>
+<li>再优化决策树 (Xgboost、LightGBM)</li>
+</ul>
+<h4 id="基础决策树">基础决策树</h4>
+<p>真正让决策树成为机器学习主流算法的罗斯.昆兰</p>
+<p>昆兰在1979年提出了ID3算法，掀起了决策树研究的高潮</p>
+<p>1993年提出C4.5 即ID3的进化版 ——”具有里程碑意义的决策树“</p>
+<p>1984年Brieman等人提出了CART算法，该算法拥有一个非常完整的体系</p>
+<p>细节对比</p>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>支持模型</th>
+<th>树结构</th>
+<th>特征选择</th>
+<th>连续值处理</th>
+<th>缺失值处理</th>
+<th>剪枝</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID3</td>
+<td>分类</td>
+<td>多叉数</td>
+<td>信息增益</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>C4.5</td>
+<td>分类</td>
+<td>多叉数</td>
+<td>信息增益比</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>CART</td>
+<td>分类、回归</td>
+<td>二叉树</td>
+<td>分类:基尼指数<br />回归:均方差</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+</tbody>
+</table>
+<h4 id="集成决策树">集成决策树</h4>
+<p>基于集成学习的决策树，其主要通过不同学习框架生产基学习器</p>
+<p>并综合所有基学习器的预测结果来改善单个基学习器的识别率和泛化性</p>
+<h4 id="再优化决策树">再优化决策树</h4>
+<p>Xgboost、LightGBM基本是现最流行的算法</p>
+<p>它们训练速度快、内存小等特性</p>
+<p>使大规模应用于生产成为了可能</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[四大抽样方法:随机/系统/分层/整群]]></title>
         <id>https://blog.wjinyu.top/post/20210418-sampledata/</id>
@@ -1929,155 +2418,6 @@ def get_entropy_weight(data):
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.207em;vertical-align:-0.35350000000000004em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size1">(</span></span><span class="mord"><span class="mtable"><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8535em;"><span style="top:-3.0135em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight" style="margin-right:0.02778em;">_</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.367em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35350000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8535em;"><span style="top:-3.0135em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight" style="margin-right:0.02778em;">_</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.367em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35350000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8535em;"><span style="top:-3.0135em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="minner">…</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35350000000000004em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:0.5em;"></span><span class="arraycolsep" style="width:0.5em;"></span><span class="col-align-c"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8535em;"><span style="top:-3.0135em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139199999999997em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mord mtight" style="margin-right:0.02778em;">_</span><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.367em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.35350000000000004em;"><span></span></span></span></span></span></span></span><span class="mclose delimcenter" style="top:0em;"><span class="delimsizing size1">)</span></span></span></span></span></span></span></p>
 <h4 id="代码实践">代码实践</h4>
 <p><a href="https://github.com/sadjjk/OverviewAlgo">Github</a>   <img src="https://img.shields.io/github/stars/sadjjk/OverviewAlgo.svg" alt="Github stars" loading="lazy"></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[数据量纲化与同向化]]></title>
-        <id>https://blog.wjinyu.top/post/20210305-DataDimension/</id>
-        <link href="https://blog.wjinyu.top/post/20210305-DataDimension/">
-        </link>
-        <updated>2021-03-05T06:37:09.000Z</updated>
-        <summary type="html"><![CDATA[<p>我还是充钱的那个少年</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>我还是充钱的那个少年</p>
-<!--more-->
-<h4 id="量纲化">量纲化</h4>
-<p>因为各指标的数值有大有小</p>
-<p>当各指标放在一起比较时</p>
-<p>时常由于指标的单位 导致无法相互对比</p>
-<p>如指标:年龄和年收入</p>
-<p>年龄最小值30岁 最大年龄60岁</p>
-<p>年收入最小值1K 最大值1000万</p>
-<p>其中A用户年龄30岁  B用户60岁 相差30</p>
-<p>​        A用户年收入30万  B用户收收入40万  相差10万</p>
-<p>​        如数据越大代表距离越远   那么10万显然30</p>
-<p>​        但实则A与B用户的年龄相差的非常远 因为最小值和最大值就是30和60</p>
-<p>​               而A与B用户的年收入反而相差的不大</p>
-<p>上述现象往往是由于指标自身的单位导致的</p>
-<p>因此需要量纲化</p>
-<p><strong>量纲化后的指标自身不失去数字的相对意义</strong></p>
-<p><strong>同时各指标间的数字大小也可以进行比较</strong></p>
-<h5 id="常用的量纲化方法">常用的量纲化方法</h5>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>公式</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>标准化(Z-Score)</td>
-<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>e</mi><mi>a</mi><mi>n</mi></mrow></msub></mrow><msub><mi>x</mi><mrow><mi>s</mi><mi>t</mi><mi>d</mi></mrow></msub></mfrac></mrow><annotation encoding="application/x-tex">\frac{x_{i}-x_{mean}}{x_{std}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.269291em;vertical-align:-0.4508599999999999em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8184309999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">d</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15122857142857138em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4101em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4508599999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
-<td>原数据 ==&gt; 均值为0,标注差1的新数据</td>
-</tr>
-<tr>
-<td>归一化</td>
-<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>−</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{x_{i}-x_{min}}{x_{max}-x_{min}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.263531em;vertical-align:-0.44509999999999994em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8184309999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4101em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.44509999999999994em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
-<td>原数据 ==&gt; 压缩在[0,1]范围内的新数据</td>
-</tr>
-<tr>
-<td>区间化</td>
-<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>+</mo><mo>(</mo><mi>b</mi><mo>−</mo><mi>a</mi><mo>)</mo><mo>×</mo><mfrac><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>−</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">a+(b-a)\times \frac{x_{i}-x_{min}}{x_{max}-x_{min}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.263531em;vertical-align:-0.44509999999999994em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8184309999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4101em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">−</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.44509999999999994em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
-<td>原数据 ==&gt; 压缩在[a,b]范围内的新数据</td>
-</tr>
-<tr>
-<td>正则化 1-范数</td>
-<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><msub><mi>x</mi><mi>i</mi></msub><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>+</mo><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mo>⋯</mo><mo>+</mo><msub><mi>x</mi><mi>n</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{x_{i}}{x_{1}+x_{2}+\dots  +  x_{n} }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1565919999999998em;vertical-align:-0.44509999999999994em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7114919999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mbin mtight">+</span><span class="minner mtight">⋯</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4101em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.44509999999999994em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
-<td>原数据 ==&gt; 压缩在[-1,1]范围内的新数据</td>
-</tr>
-<tr>
-<td>正则化 2-范数</td>
-<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><msub><mi>x</mi><mi>i</mi></msub><msqrt><mrow><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup><mo>+</mo><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mo>⋯</mo><mo>+</mo><msubsup><mi>x</mi><mi>i</mi><mn>2</mn></msubsup></mrow></msqrt></mfrac></mrow><annotation encoding="application/x-tex">\frac{x_{i}} {\sqrt{x_{1}^{2}+x_{2}^{2}+\dots +x_{i}^{2} }}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.541092em;vertical-align:-0.8295999999999999em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7114919999999999em;"><span style="top:-2.4701725em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.028325em;"><span class="svg-align" style="top:-3.428571428571429em;"><span class="pstrut" style="height:3.428571428571429em;"></span><span class="mord mtight" style="padding-left:1.19em;"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8051142857142857em;"><span style="top:-2.188485714285714em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-2.8448em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.31151428571428574em;"><span></span></span></span></span></span></span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8051142857142857em;"><span style="top:-2.188485714285714em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span><span style="top:-2.8448em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.31151428571428574em;"><span></span></span></span></span></span></span><span class="mbin mtight">+</span><span class="minner mtight">⋯</span><span class="mbin mtight">+</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8051142857142857em;"><span style="top:-2.177714285714286em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span style="top:-2.8448em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.3222857142857143em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.000325em;"><span class="pstrut" style="height:3.428571428571429em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.5428571428571431em;"><svg width='400em' height='1.5428571428571431em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
--10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
--50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
-35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
--221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
-s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
-s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.4282464285714287em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4101em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8295999999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
-<td>原数据 ==&gt; 压缩在[-1,1]范围内的新数据</td>
-</tr>
-<tr>
-<td>正则化 ∞-范数</td>
-<td><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><msub><mi>x</mi><mi>i</mi></msub><mrow><mi>m</mi><mi>a</mi><mi>x</mi><mo>(</mo><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>x</mi><mi>n</mi></msub><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{x_{i}}{max(x_{1},x_{2},\dots , x_{n}) }</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2314919999999998em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.7114919999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span><span class="mopen mtight">(</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31731428571428577em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mpunct mtight">,</span><span class="minner mtight">…</span><span class="mpunct mtight">,</span><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span><span class="mclose mtight">)</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.4101em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3280857142857143em;"><span style="top:-2.357em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></td>
-<td>原数据 ==&gt; 压缩在[-1,1]范围内的新数据</td>
-</tr>
-</tbody>
-</table>
-<h4 id="同向化">同向化</h4>
-<p>即 有的数是越大越好 有的数是越小越好</p>
-<p>如 指标-GDP 越高越好 而指标-失业率 越低越好</p>
-<p>故这些指标放在一起比较时  需要保证比较的方向一致</p>
-<p><strong>正向化</strong> 所用指标的值越大越好 即</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mo mathvariant="normal">′</mo></msup><mo>=</mo><mfrac><mrow><mi>x</mi><mo>−</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>−</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">{x}&#x27; = \frac{x-x_{min} }{x_{max}-x_{min} }
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.801892em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.801892em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.09633em;vertical-align:-0.8360000000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2603300000000002em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-<p><strong>负向化</strong> 所用指标的值越小越好 即</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>x</mi><mo mathvariant="normal">′</mo></msup><mo>=</mo><mfrac><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>−</mo><mi>x</mi></mrow><mrow><msub><mi>x</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>−</mo><msub><mi>x</mi><mrow><mi>m</mi><mi>i</mi><mi>n</mi></mrow></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">{x}&#x27; = \frac{x_{max}-x }{x_{max}-x_{min} }
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.801892em;vertical-align:0em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.801892em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">′</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.09633em;vertical-align:-0.8360000000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.2603300000000002em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></span></p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[今语云音乐]]></title>
-        <id>https://blog.wjinyu.top/post/jinyumusic/</id>
-        <link href="https://blog.wjinyu.top/post/jinyumusic/">
-        </link>
-        <updated>2021-01-23T07:51:14.000Z</updated>
-        <summary type="html"><![CDATA[<p>网抑云音乐<br>
-生不出人<br>
-我很抱歉</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>网抑云音乐<br>
-生不出人<br>
-我很抱歉</p>
-<!--more-->
-<figure data-type="image" tabindex="1"><img src="https://img.shields.io/github/stars/sadjjk/JinyuMusic.svg" alt="Github stars" loading="lazy"></figure>
-<p><a href="http://www.wjinyu.top:666/">在线聚合音乐平台</a></p>
-<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/03/05/9xRcbzLodOfrpYD.jpg" alt="" loading="lazy"></figure>
-<h3 id="缘起">缘起</h3>
-<p>有些人看到这个页面</p>
-<p>可能会非常眼熟</p>
-<p>没错 整体前端的设计借鉴自<a href="https://listen1.github.io/listen1/">Listen1</a> Chrome插件版</p>
-<p>第一次使用Listen1时</p>
-<p>感觉非常的Nice 👍</p>
-<p>但感觉又缺个排行榜</p>
-<p>出于对技术的偏执和学习的目的</p>
-<p>于是乎 自己动手做了一个</p>
-<p>增加了排行榜等功能</p>
-<p>项目使用前后端分离的设计</p>
-<p>后端使用Python  Flask框架</p>
-<p>前端使用了最简单的HTML、JS</p>
-<h3 id="设计">设计</h3>
-<p>目前已接入7大音乐平台</p>
-<ol>
-<li>网易云音乐</li>
-<li>QQ音乐</li>
-<li>咪咕音乐</li>
-<li>虾米音乐 (2021年2月将下线)</li>
-<li>酷狗音乐</li>
-<li>酷我音乐</li>
-<li>千千音乐</li>
-</ol>
-<p>支持全网的音乐搜索、歌单推荐、排行榜、歌手详情、专辑详情</p>
-<p><strong>当然该花钱的还是要花钱去听</strong></p>
-<p>在探索过程中</p>
-<p>个别接口都是连蒙带猜的</p>
-<p>花费了不少时间和精力</p>
-<p>如果你觉得很赞</p>
-<p>不妨Star一下</p>
-<h3 id="感谢">感谢</h3>
-<p>非常感谢以下使用到的开源项目以及帮助过我的朋友们</p>
-<p><a href="http://listen1.github.io/listen1/">Listen 1 </a>: <a href="http://listen1.github.io/listen1/">http://listen1.github.io/listen1</a></p>
-<p><a href="https://aplayer.js.org/">APlayer </a>: <a href="https://aplayer.js.org/">https://aplayer.js.org</a></p>
-<p><a href="https://github.com/cschensai">cschensai</a>:https://github.com/cschensai</p>
-<h3 id="吐槽">吐槽</h3>
-<p>既想让人知道 又不想让太多人知道的矛盾心情</p>
-<p>就像喜欢的小众歌手 一下子人尽皆知</p>
-<p>反而自己有点高兴不起来了</p>
-<p>像这样的聚合服务始终是上不了台面</p>
-<p>如果用的人过多</p>
-<p>随之到来的就是版权律师函问题</p>
-<p>所以 <strong>仅供学习 请勿商用</strong></p>
 ]]></content>
     </entry>
 </feed>
