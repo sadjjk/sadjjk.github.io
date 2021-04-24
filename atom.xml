@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-04-24T14:37:19.462Z</updated>
+    <updated>2021-04-24T14:38:06.689Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -222,55 +222,6 @@ if __name__ == '__main__':
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[随机数系列-论如何产生(伪)随机数]]></title>
-        <id>https://blog.wjinyu.top/post/20210421-RandomSample-0/</id>
-        <link href="https://blog.wjinyu.top/post/20210421-RandomSample-0/">
-        </link>
-        <updated>2021-04-21T06:14:53.000Z</updated>
-        <content type="html"><![CDATA[<p>生活中普遍使用到随机数，如:中奖彩票，随机密钥、车牌摇号等</p>
-<p>那究竟什么是随机数？</p>
-<p>随机数的真伪又是什么？</p>
-<p>又如何生成随机数?</p>
-<h4 id="定义">定义</h4>
-<p>随机数大致有以下几个标准</p>
-<ol>
-<li>
-<p>随机生成的若干数 这些随机数要符合均匀分布</p>
-<p>即各个随机数的数量看上去大致都差不多</p>
-</li>
-<li>
-<p>给定一部分随机样本和随机算法，要无法演算出剩余的随机样本</p>
-<p>从密码学角度出发 考虑了随机数的安全性</p>
-</li>
-<li>
-<p>随机样本不可复现</p>
-</li>
-</ol>
-<h4 id="真伪随机数">真伪随机数</h4>
-<p>符合上述三个标准的就是<strong>真随机数</strong></p>
-<p>因此真随机数一般使用纯物理现象产生 比如骰子、转轮、电子元件的噪音、核裂变等等</p>
-<p>计算机在产生真随机数的就要使用独立于电脑的特殊设备来实现</p>
-<p>如: 英特尔曾经通过热燥声放大后，影响电压控制的振荡器并用另一个高频振荡器来接受数据来获取真正的随机数</p>
-<p>缺点就是技术成本过高</p>
-<p>其中<a href="https://www.random.org/">Random.org</a>网站专门用来生成真随机数</p>
-<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/04/21/Z2u8AcKNrBgxeLh.png" alt="" loading="lazy"></figure>
-<p>在实际应用中往往使用<strong>伪随机数</strong>就足够了</p>
-<p>这些数列是「似乎」随机数</p>
-<p>实际上它们是通过特定算法产生的</p>
-<p>产生的随机数有很长的周期性</p>
-<p>同时均匀分布 因此看起来就是「随机数」</p>
-<p>这类数称为<strong>伪随机数</strong></p>
-<h4 id="产生算法">产生算法</h4>
-<p>产生伪随机数有很多方法</p>
-<ul>
-<li>平方取中法</li>
-<li>线性同余法</li>
-<li>Wichmann-Hill</li>
-<li>Mersenne Twister</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[随机数系列-平方取中法]]></title>
         <id>https://blog.wjinyu.top/post/20210421-RandomSample-1/</id>
         <link href="https://blog.wjinyu.top/post/20210421-RandomSample-1/">
@@ -324,7 +275,7 @@ if __name__ == '__main__':
         <id>https://blog.wjinyu.top/post/20210421-RandomSample-2/</id>
         <link href="https://blog.wjinyu.top/post/20210421-RandomSample-2/">
         </link>
-        <updated>2021-04-21T05:16:56.000Z</updated>
+        <updated>2021-04-21T03:16:56.000Z</updated>
         <content type="html"><![CDATA[<p>线性同余随机数生成器LCG(linear congruential generator)</p>
 <p>是一种使用很广泛的伪随机数生成器算法</p>
 <p>目前</p>
@@ -379,6 +330,55 @@ if __name__ == '__main__':
     list(LCG_random(15))
     &gt;&gt; [0.5355, 0.473, 0.4324, 0.9468, 0.295, 0.5293, 0.5715, 0.8312, 0.9774, 0.0621, 0.7993, 0.5844, 0.7531, 0.9736, 0.9565]
 </code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[随机数系列-论如何产生(伪)随机数]]></title>
+        <id>https://blog.wjinyu.top/post/20210421-RandomSample-0/</id>
+        <link href="https://blog.wjinyu.top/post/20210421-RandomSample-0/">
+        </link>
+        <updated>2021-04-20T06:14:53.000Z</updated>
+        <content type="html"><![CDATA[<p>生活中普遍使用到随机数，如:中奖彩票，随机密钥、车牌摇号等</p>
+<p>那究竟什么是随机数？</p>
+<p>随机数的真伪又是什么？</p>
+<p>又如何生成随机数?</p>
+<h4 id="定义">定义</h4>
+<p>随机数大致有以下几个标准</p>
+<ol>
+<li>
+<p>随机生成的若干数 这些随机数要符合均匀分布</p>
+<p>即各个随机数的数量看上去大致都差不多</p>
+</li>
+<li>
+<p>给定一部分随机样本和随机算法，要无法演算出剩余的随机样本</p>
+<p>从密码学角度出发 考虑了随机数的安全性</p>
+</li>
+<li>
+<p>随机样本不可复现</p>
+</li>
+</ol>
+<h4 id="真伪随机数">真伪随机数</h4>
+<p>符合上述三个标准的就是<strong>真随机数</strong></p>
+<p>因此真随机数一般使用纯物理现象产生 比如骰子、转轮、电子元件的噪音、核裂变等等</p>
+<p>计算机在产生真随机数的就要使用独立于电脑的特殊设备来实现</p>
+<p>如: 英特尔曾经通过热燥声放大后，影响电压控制的振荡器并用另一个高频振荡器来接受数据来获取真正的随机数</p>
+<p>缺点就是技术成本过高</p>
+<p>其中<a href="https://www.random.org/">Random.org</a>网站专门用来生成真随机数</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/04/21/Z2u8AcKNrBgxeLh.png" alt="" loading="lazy"></figure>
+<p>在实际应用中往往使用<strong>伪随机数</strong>就足够了</p>
+<p>这些数列是「似乎」随机数</p>
+<p>实际上它们是通过特定算法产生的</p>
+<p>产生的随机数有很长的周期性</p>
+<p>同时均匀分布 因此看起来就是「随机数」</p>
+<p>这类数称为<strong>伪随机数</strong></p>
+<h4 id="产生算法">产生算法</h4>
+<p>产生伪随机数有很多方法</p>
+<ul>
+<li>平方取中法</li>
+<li>线性同余法</li>
+<li>Wichmann-Hill</li>
+<li>Mersenne Twister</li>
+</ul>
 ]]></content>
     </entry>
     <entry>
