@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-04-25T15:36:11.588Z</updated>
+    <updated>2021-04-25T15:37:27.126Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -289,65 +289,11 @@ if __name__ == '__main__':
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[随机数系列-平方取中法]]></title>
-        <id>https://blog.wjinyu.top/post/20210421-RandomSample-1/</id>
-        <link href="https://blog.wjinyu.top/post/20210421-RandomSample-1/">
-        </link>
-        <updated>2021-04-21T05:16:56.000Z</updated>
-        <summary type="html"><![CDATA[<p>上帝不会掷骰子</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>上帝不会掷骰子</p>
-<!--more-->
-<p>最早由冯·诺伊曼提出的一种产生均匀伪随机数的方法。</p>
-<h5 id="生成方法">生成方法</h5>
-<ol>
-<li>随机选择一个4位数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">p_{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,称为种子</li>
-<li>将它平方得到一个8位数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">p_{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (不足8为进行补零)</li>
-<li>从这个8位数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">p_{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>取中间的4位数作为下一个随机数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">p_{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (如有必要进行归一化 即/1000)</li>
-<li>依次重复上述过程 直到满足所需个数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>{</mo><msub><mi>p</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>p</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>p</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>p</mi><mi>n</mi></msub><mo>}</mo></mrow><annotation encoding="application/x-tex">\{p_{0},p_{1},p_{2},...,p_{n}\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span></li>
-</ol>
-<h5 id="优缺点">优缺点</h5>
-<p>优点</p>
-<ul>
-<li>计算速度快</li>
-</ul>
-<p>缺点</p>
-<ul>
-<li>很难说明取什么样的种子值可保证有足够长的周期</li>
-<li>容易退化为0或常数</li>
-<li>进而导致数据分布不均匀</li>
-</ul>
-<h5 id="python-code">Python Code</h5>
-<pre><code class="language-python">import time
-
-def random_mid_square(n=1, seed=None, length=4):
-    '''
-    平方取中法 最早由冯·诺伊曼提出的一种产生均匀伪随机数的方法
-    默认生成0-1区间的数值
-    :param n: 随机数个数 默认一个
-    :param seed: 种子 默认使用当前时间
-    :param length: 取中间几位整数 默认4位
-    :return:若干个随机数
-    '''
-    if not seed:
-        seed = str(int(time.time()*1000))[-length:]
-    seed = int(seed)
-    for i in range(n):
-        seed = int(seed**2//pow(10,length/2) % pow(10,length))
-        yield  seed/pow(10,length)
-        
-if __name__ == '__main__':
-    list(random_mid_square(15, 2041))
-    &gt;&gt; [0.1656, 0.7423, 0.1009, 0.018, 0.0324, 0.1049, 0.1004, 0.008, 0.0064, 0.004, 0.0016, 0.0002, 0.0, 0.0, 0.0]
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[随机数系列-线性同余法]]></title>
         <id>https://blog.wjinyu.top/post/20210421-RandomSample-2/</id>
         <link href="https://blog.wjinyu.top/post/20210421-RandomSample-2/">
         </link>
-        <updated>2021-04-21T03:16:56.000Z</updated>
+        <updated>2021-04-21T06:16:56.000Z</updated>
         <summary type="html"><![CDATA[<p>上帝不但掷骰子</p>
 <p>还掷到你看不到的地方</p>
 ]]></summary>
@@ -408,6 +354,60 @@ if __name__ == '__main__':
 <p>使用线性同余法随机生成十万个数 分布如下:</p>
 <img src="https://i.loli.net/2021/04/21/1CF8LXtoIBEQjaJ.png" style="zoom:50%;max-height=40%" />
 <p>分布还是比较均匀</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[随机数系列-平方取中法]]></title>
+        <id>https://blog.wjinyu.top/post/20210421-RandomSample-1/</id>
+        <link href="https://blog.wjinyu.top/post/20210421-RandomSample-1/">
+        </link>
+        <updated>2021-04-21T05:16:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>上帝不会掷骰子</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>上帝不会掷骰子</p>
+<!--more-->
+<p>最早由冯·诺伊曼提出的一种产生均匀伪随机数的方法。</p>
+<h5 id="生成方法">生成方法</h5>
+<ol>
+<li>随机选择一个4位数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">p_{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,称为种子</li>
+<li>将它平方得到一个8位数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">p_{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (不足8为进行补零)</li>
+<li>从这个8位数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">p_{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>取中间的4位数作为下一个随机数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">p_{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> (如有必要进行归一化 即/1000)</li>
+<li>依次重复上述过程 直到满足所需个数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>{</mo><msub><mi>p</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>p</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>p</mi><mn>2</mn></msub><mo separator="true">,</mo><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mi mathvariant="normal">.</mi><mo separator="true">,</mo><msub><mi>p</mi><mi>n</mi></msub><mo>}</mo></mrow><annotation encoding="application/x-tex">\{p_{0},p_{1},p_{2},...,p_{n}\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">.</span><span class="mord">.</span><span class="mord">.</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">}</span></span></span></span></li>
+</ol>
+<h5 id="优缺点">优缺点</h5>
+<p>优点</p>
+<ul>
+<li>计算速度快</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>很难说明取什么样的种子值可保证有足够长的周期</li>
+<li>容易退化为0或常数</li>
+<li>进而导致数据分布不均匀</li>
+</ul>
+<h5 id="python-code">Python Code</h5>
+<pre><code class="language-python">import time
+
+def random_mid_square(n=1, seed=None, length=4):
+    '''
+    平方取中法 最早由冯·诺伊曼提出的一种产生均匀伪随机数的方法
+    默认生成0-1区间的数值
+    :param n: 随机数个数 默认一个
+    :param seed: 种子 默认使用当前时间
+    :param length: 取中间几位整数 默认4位
+    :return:若干个随机数
+    '''
+    if not seed:
+        seed = str(int(time.time()*1000))[-length:]
+    seed = int(seed)
+    for i in range(n):
+        seed = int(seed**2//pow(10,length/2) % pow(10,length))
+        yield  seed/pow(10,length)
+        
+if __name__ == '__main__':
+    list(random_mid_square(15, 2041))
+    &gt;&gt; [0.1656, 0.7423, 0.1009, 0.018, 0.0324, 0.1049, 0.1004, 0.008, 0.0064, 0.004, 0.0016, 0.0002, 0.0, 0.0, 0.0]
+</code></pre>
 ]]></content>
     </entry>
     <entry>
