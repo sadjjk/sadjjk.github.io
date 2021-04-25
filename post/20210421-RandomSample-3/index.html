@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>随机数系列-Wichmann-Hill | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1619275083596">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1619363891368">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
 
@@ -227,7 +227,10 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wjinyu.top//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>Wichman-Hill算法通过线性组合不同短周期随机数生成器的输出来产生长周期的随机数序列</p>
+    var article = `<p>理论证明</p>
+<p>女朋友生气应该是随机事情</p>
+<!--more-->
+<p>Wichman-Hill算法通过线性组合不同短周期随机数生成器的输出来产生长周期的随机数序列</p>
 <p>Python的标准库Random的random()函数早期就是使用Wichman-Hill算法</p>
 <h5 id="生成方法">生成方法</h5>
 <p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>X</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mo>[</mo><mn>171</mn><mo>×</mo><msub><mi>X</mi><mi>n</mi></msub><mo>]</mo><mspace width="1em"/><mi>m</mi><mi>o</mi><mi>d</mi><mspace width="1em"/><mn>30269</mn><mspace linebreak="newline"></mspace><msub><mi>Y</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mo>[</mo><mn>172</mn><mo>×</mo><msub><mi>Y</mi><mi>n</mi></msub><mo>]</mo><mspace width="1em"/><mi>m</mi><mi>o</mi><mi>d</mi><mspace width="1em"/><mn>30307</mn><mspace linebreak="newline"></mspace><msub><mi>Z</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mo>[</mo><mn>170</mn><mo>×</mo><msub><mi>Z</mi><mi>n</mi></msub><mo>]</mo><mspace width="1em"/><mi>m</mi><mi>o</mi><mi>d</mi><mspace width="1em"/><mn>30323</mn><mspace linebreak="newline"></mspace><msub><mi>S</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mo>[</mo><mfrac><msub><mi>X</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mn>30269</mn></mfrac><mo>+</mo><mfrac><msub><mi>Y</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mn>30307</mn></mfrac><mo>+</mo><mfrac><msub><mi>Z</mi><mrow><mi>n</mi><mo>+</mo><mn>1</mn></mrow></msub><mn>30323</mn></mfrac><mo>]</mo><mspace width="1em"/><mi>m</mi><mi>o</mi><mi>d</mi><mspace width="1em"/><mn>1</mn><mspace linebreak="newline"></mspace><msub><mi>S</mi><mn>0</mn></msub><mo>=</mo><msub><mi>X</mi><mn>0</mn></msub><mo>=</mo><msub><mi>Y</mi><mn>0</mn></msub><mo>=</mo><msub><mi>Z</mi><mn>0</mn></msub><mo>:</mo><mi mathvariant="normal">初</mi><mi mathvariant="normal">始</mi><mi mathvariant="normal">化</mi><mi mathvariant="normal">种</mi><mi mathvariant="normal">子</mi><mi>s</mi><mi>e</mi><mi>e</mi><mi>d</mi></mrow><annotation encoding="application/x-tex">X_{n+1}=[171\times X_{n}] \quad mod \quad 30269 \\
@@ -239,22 +242,18 @@ S_{0}=X_{0}=Y_{0}=Z_{0}: 初始化种子seed
 <p>从公式就可以看出</p>
 <p>本质还是线性同余</p>
 <p>在此基础上选择了3个比较短的生成器结合成一个新的生成器</p>
-<h5 id="验证">验证</h5>
-<p>使用Wichmann-Hill法随机生成十万个数 分布如下:</p>
-<img src="https://i.loli.net/2021/04/21/1XeP6mgpSKHJi4N.png" style="zoom:50%;max-height=40%" />
-<p>分布也是比较均匀的</p>
 <h5 id="python-code">Python Code</h5>
 <pre><code class="language-python">import time
 
-def WH_random(n=1, seed=None, digits=4):
+def random_WH(n=1, seed=None, digits=4):
     '''
-    Wichmann-Hill法
-    :param n: 个数 默认第一个
+    Wichmann-Hill法 默认生成0-1区间的数值
+    :param n: 随机数个数 默认一个
     :param seed: 种子 默认使用当前时间
     :param digits:小数点位数
     :return:若干个随机数
     '''
-    if not seed:
+    if not seed and seed != 0:
         seed = int(time.time() * 1000)
     x, y, z = seed, seed, seed
     for i in range(n):
@@ -265,9 +264,13 @@ def WH_random(n=1, seed=None, digits=4):
         yield round((x / 30269 + y / 30307 + z / 30323) % 1,digits)
         
 if __name__ == '__main__':
-    list(WH_random(15))
+    list(random_WH(15))
     &gt;&gt; [0.691, 0.1398, 0.2853, 0.2514, 0.893, 0.5215, 0.5284, 0.7588, 0.3039, 0.5012, 0.5713, 0.5492, 0.0483, 0.021, 0.6087]
 </code></pre>
+<h5 id="验证">验证</h5>
+<p>使用Wichmann-Hill法随机生成十万个数 分布如下:</p>
+<img src="https://i.loli.net/2021/04/21/1XeP6mgpSKHJi4N.png" style="zoom:50%;max-height=40%" />
+<p>分布也是比较均匀的</p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)

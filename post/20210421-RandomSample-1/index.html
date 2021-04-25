@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>随机数系列-平方取中法 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1619275083596">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1619363891368">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
 
@@ -227,7 +227,9 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wjinyu.top//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>最早由冯·诺伊曼提出的一种产生均匀伪随机数的方法。</p>
+    var article = `<p>上帝不会掷骰子</p>
+<!--more-->
+<p>最早由冯·诺伊曼提出的一种产生均匀伪随机数的方法。</p>
 <h5 id="生成方法">生成方法</h5>
 <ol>
 <li>随机选择一个4位数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">p_{0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>,称为种子</li>
@@ -249,10 +251,11 @@ hljs.initHighlightingOnLoad()
 <h5 id="python-code">Python Code</h5>
 <pre><code class="language-python">import time
 
-def mid_square_random(n=1, seed=None, length=4):
+def random_mid_square(n=1, seed=None, length=4):
     '''
     平方取中法 最早由冯·诺伊曼提出的一种产生均匀伪随机数的方法
-    :param n: 个数 默认第一个
+    默认生成0-1区间的数值
+    :param n: 随机数个数 默认一个
     :param seed: 种子 默认使用当前时间
     :param length: 取中间几位整数 默认4位
     :return:若干个随机数
@@ -265,7 +268,7 @@ def mid_square_random(n=1, seed=None, length=4):
         yield  seed/pow(10,length)
         
 if __name__ == '__main__':
-    list(mid_square_random(15, 2041))
+    list(random_mid_square(15, 2041))
     &gt;&gt; [0.1656, 0.7423, 0.1009, 0.018, 0.0324, 0.1049, 0.1004, 0.008, 0.0064, 0.004, 0.0016, 0.0002, 0.0, 0.0, 0.0]
 </code></pre>
 `

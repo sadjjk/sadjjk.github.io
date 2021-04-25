@@ -6,7 +6,7 @@
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
 <title>随机数系列-线性同余法 | 今语</title>
-<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1619275083596">
+<link rel="shortcut icon" href="https://blog.wjinyu.top//favicon.ico?v=1619363891368">
 <link rel="stylesheet" href="https://blog.wjinyu.top//styles/main.css" type='text/css' media='all'>
 <link href="https://blog.wjinyu.top//media/scripts/autoc.css" rel="stylesheet">
 
@@ -227,7 +227,10 @@ hljs.initHighlightingOnLoad()
 <script src="https://blog.wjinyu.top//media/scripts/lib/production.min.js"></script>
 
   <script>
-    var article = `<p>线性同余随机数生成器LCG(linear congruential generator)</p>
+    var article = `<p>上帝不但掷骰子</p>
+<p>还掷到你看不到的地方</p>
+<!--more-->
+<p>线性同余随机数生成器LCG(linear congruential generator)</p>
 <p>是一种使用很广泛的伪随机数生成器算法</p>
 <p>目前</p>
 <h5 id="生成方法">生成方法</h5>
@@ -253,22 +256,18 @@ M:模数
 A = 1103515245 \\
 C = 12345
 </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">1</span><span class="mord">0</span><span class="mord">3</span><span class="mord">5</span><span class="mord">1</span><span class="mord">5</span><span class="mord">2</span><span class="mord">4</span><span class="mord">5</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mord">3</span><span class="mord">4</span><span class="mord">5</span></span></span></span></span></p>
-<h5 id="验证">验证</h5>
-<p>使用线性同余法随机生成十万个数 分布如下:</p>
-<img src="https://i.loli.net/2021/04/21/1CF8LXtoIBEQjaJ.png" style="zoom:50%;max-height=40%" />
-<p>分布还是比较均匀</p>
 <h5 id="python-code">Python Code</h5>
 <pre><code class="language-python">import time
 
-def LCG_random(n=1, seed=None, digits=4):
+def random_LCG(n=1, seed=None, digits=4):
     '''
-    线性同余法
-    :param n: 个数 默认第一个
+    线性同余法 默认生成0-1区间的数值
+    :param n: 随机数个数 默认一个
     :param seed: 种子 默认使用当前时间
     :param digits:小数点位数
     :return:若干个随机数
     '''
-    if not seed:
+    if not seed and seed != 0:
         seed = int(time.time() * 1000)
     m = 2 ** 32
     a = 1103515245
@@ -278,9 +277,13 @@ def LCG_random(n=1, seed=None, digits=4):
         yield round(seed / (m - 1), digits)
         
 if __name__ == '__main__':
-    list(LCG_random(15))
+    list(random_LCG(15))
     &gt;&gt; [0.5355, 0.473, 0.4324, 0.9468, 0.295, 0.5293, 0.5715, 0.8312, 0.9774, 0.0621, 0.7993, 0.5844, 0.7531, 0.9736, 0.9565]
 </code></pre>
+<h5 id="验证">验证</h5>
+<p>使用线性同余法随机生成十万个数 分布如下:</p>
+<img src="https://i.loli.net/2021/04/21/1CF8LXtoIBEQjaJ.png" style="zoom:50%;max-height=40%" />
+<p>分布还是比较均匀</p>
 `
     var content = article.split("<!--more-->")[1]
     if (content != null)
