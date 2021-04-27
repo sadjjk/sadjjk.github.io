@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-04-27T13:38:48.653Z</updated>
+    <updated>2021-04-27T13:42:33.203Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -455,7 +455,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <ul>
 <li>Box–Muller算法</li>
 <li>中心极限定理</li>
-<li>Kinderman and Monahan method</li>
+<li>Ziggurat算法</li>
 </ul>
 ]]></content>
     </entry>
