@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.wjinyu.top/</id>
     <title>今语</title>
-    <updated>2021-04-27T13:45:02.177Z</updated>
+    <updated>2021-04-27T13:45:44.196Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.wjinyu.top/"/>
     <link rel="self" href="https://blog.wjinyu.top/atom.xml"/>
@@ -880,10 +880,10 @@ if __name__ == '__main__':
 <h4 id="产生算法">产生算法</h4>
 <p>产生伪随机数有很多方法</p>
 <ul>
-<li>平方取中法</li>
-<li>线性同余法</li>
-<li>Wichmann-Hill</li>
-<li>Mersenne Twister</li>
+<li><a href="https://sadjjk.github.io/post/20210421-RandomSample-1/">平方取中法</a></li>
+<li><a href="https://sadjjk.github.io/post/20210421-RandomSample-2/">线性同余法</a></li>
+<li><a href="https://sadjjk.github.io/post/20210421-RandomSample-3/">Wichmann-Hill</a></li>
+<li><a href="https://sadjjk.github.io/post/20210421-RandomSample-4/">Mersenne Twister</a></li>
 </ul>
 ]]></content>
     </entry>
