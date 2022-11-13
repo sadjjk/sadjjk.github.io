@@ -1,0 +1,273 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<title>随机数系列-Ziggurat算法 | 金鱼的今语</title>
+<link rel="shortcut icon" href="https://sadjjk.github.io/favicon.ico?v=1668343231821">
+<link rel="stylesheet" href="https://sadjjk.github.io/styles/main.css" type='text/css' media='all'>
+<link href="https://sadjjk.github.io/media/scripts/autoc.css" rel="stylesheet">
+
+<script src="https://sadjjk.github.io/media/scripts/lib/highlight.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/moment.min.js"></script>
+<link href="https://sadjjk.github.io/media/scripts/katex.min.css" rel="stylesheet">
+
+
+
+</head>
+<body class="home blog ct-body standard">
+<div id="overflow-container" class="overflow-container">
+  <header id="site-header" class="site-header" role="banner">
+
+
+    <div class="container">
+        <div id="title-info" class="title-info">
+            <div id='site-title' class='site-title'>
+                <a href="https://sadjjk.github.io">  金鱼的今语 </a>
+            </div>
+        </div>
+        <button id="toggle-navigation" class="toggle-navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+            <p class="site-description">真话、假话、胡话、全都说</p>
+            <div class="menu">
+                <ul id="menu-primary-items" class="menu-primary-items">
+                     
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/">首页</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/archives">归档</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/tags">标签</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="https://bili.wjinyu.top" target="_blank">B站视频解析</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="https://video.wjinyu.top" target="_blank">今日追剧</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="http://music.wjinyu.top" target="_blank">今语云音乐</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/post/about">关于</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+
+  <div id="main" class="main" role="main">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+        
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2021/04/27/DhBxe6aTZckHOMu.jpg">
+          </div>
+        
+
+        <div class="entry-meta">
+          <span class="date">· 2021-04-27 ·</span>
+
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://sadjjk.github.io/tag/sui-ji-shu/">随机数</a>
+                </span>
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://sadjjk.github.io/tag/life/">Life</a>
+                </span>
+          
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'>随机数系列-Ziggurat算法</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article id="article">
+
+            </article>
+          </div>
+        </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" style="font-size:20px" href="https://sadjjk.github.io/post/20210421-RandomSample-7/">下一篇->随机数系列-中心极限定理</a>
+              </div>
+            </nav>
+          
+      </div>
+      <section id="comments" class="comments">
+        
+      </section>
+    </div>
+  </div>
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+        <a href="https://sadjjk.github.io"> 金鱼的今语 </a>
+    </h1>
+    <p class="site-description" style="font-size:18px">真话、假话、胡话、全都说</p>
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+            
+                <li>
+                    <a href="https://github.com/sadjjk" data-animate-hover="pulse" class="github" target="_blank">
+                        <i class="fab fa-github" title="github"></i>
+                        <span class="screen-reader-text">github</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+                <li>
+                    <a href="https://weibo.com/ " data-animate-hover="pulse" class="weibo" target="_blank">
+                        <i class="fab fa-weibo" title="weibo"></i>
+                        <span class="screen-reader-text">weibo</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="https://www.zhihu.com/" data-animate-hover="pulse" class="zhihu" target="_blank">
+                        <i class="fab fa-zhihu" title="zhihu"></i>
+                        <span class="screen-reader-text">zhihu</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </ul>
+    <div class="design-credit">
+        <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="/atom.xml" target="_blank">RSS</a> | <a href="https://beian.miit.gov.cn" target="_blank">&nbsp;浙ICP备2021037254号-1</a> | <img src="/post-images/gongan.png">浙公网安备 33108202000706号</p>
+    </div>
+</footer>
+
+<script>
+hljs.initHighlightingOnLoad()
+</script>
+<script src="https://sadjjk.github.io/media/scripts/lib/autoc.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/jquery.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/production.min.js"></script>
+
+  <script>
+    var article = `<p>只要放的足够大</p>
+<p>曲线就是直线</p>
+<!--more-->
+<p>中心极限定理生成的随机数每次都要先生成12个随机数 比较耗时</p>
+<p>Box–Muller算法虽然非常快，但是用到了三角函数和对数函数，还是要算一会</p>
+<p>还有更快一点的办法嘛？</p>
+<p>即 Ziggurat 算法</p>
+<h5 id="算法原理">算法原理</h5>
+<p>原理就是拒绝采样</p>
+<p>首先生成在蓝色矩形框中均匀分布的随机点<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span></p>
+<p>然后拒绝所有未落在正态分布钟形曲线以下的点</p>
+<p>剩余点的横坐标<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span>就构成一个服从相应正态分布的随机数序列</p>
+<p>如下图</p>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/04/27/Q1yUb42ZhPTKeHM.jpg" alt="img" loading="lazy"></figure>
+<p>但由于很多生成的随机点因为落在钟形曲线以上被白白舍弃  从而导致效率低下</p>
+<p>因此Ziggurat算法的巧妙就在于构造出了类似金字塔的结构</p>
+<p>如下图</p>
+<img src="https://i.loli.net/2021/04/27/T95CvbGms2JUFyl.jpg" alt="img" style="zoom:50%;max-height:50%;margin: auto;" />
+<p>保证了大部分都落在了钟型曲线内 就不会被拒绝</p>
+<p>当然也存在被拒绝的时候 那就再来一次</p>
+<p>至于怎么构造的类似金字塔的结构</p>
+<p>这里不赘述 直接看源码吧</p>
+<h5 id="python-code">Python Code</h5>
+<p>Python中Random标准库里另一种生成正态分布随机数方法就是使用了Ziggurat算法</p>
+<p><a href="https://github.com/python/cpython/blob/3.7/Lib/random.py">Random源码第400行</a></p>
+<p>这里对源码稍作修改</p>
+<pre><code class="language-python">def gauss_random_ziggurat(n=1, mu=0, sigma=1, digits=4):
+    '''
+    Ziggurat算法
+    :param n: 个数 默认生成一个
+    :param mu: 均值 默认为0
+    :param sigma: 方差 默认为1
+    :param digits: 小数点位数
+    :return:
+    '''
+
+    for i in range(n):
+        u1 = random.random()
+        u2 = 1.0 - random.random()
+        z = 4 * math.exp(-0.5) / math.sqrt(2.0) * (u1 - 0.5) / u2
+        zz = z * z / 4.0
+
+        while zz &gt; -math.log(u2):
+            u1 = random.random()
+            u2 = 1.0 - random.random()
+            z = 4 * math.exp(-0.5) / math.sqrt(2.0) * (u1 - 0.5) / u2
+            zz = z * z / 4.0
+        z = round(mu + z * sigma, digits)
+        yield z
+
+if __name__ == '__main__':
+    list(gauss_random_ziggurat(15, 100, 5))
+    &gt;&gt; [97.817, 101.1128, 99.0479, 98.791, 107.9185, 100.5775, 101.4026, 105.5719, 100.7074, 99.0947, 97.8429, 95.0046, 89.9533, 92.3187, 96.6725]
+</code></pre>
+<h5 id="验证">验证</h5>
+<p>Ziggurat算法生成十万个数 分布如下:</p>
+<img src="https://i.loli.net/2021/04/27/LjVwgARCHtEJxo8.png" style="zoom:50%;max-height:50%;margin: auto;" />`
+    var content = article.split("<!--more-->")[1]
+    if (content != null)
+        document.getElementById('article').innerHTML = content;
+    else
+        document.getElementById('article').innerHTML = article
+
+    let navigation = new AutocJs({
+        title:'随机数系列-Ziggurat算法',
+        isGenerateOutlineChapterCode: false
+    })
+    </script>
+</div>
+</body>
+</html>
+

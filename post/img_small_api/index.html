@@ -1,0 +1,268 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<title>几行代码系列:图片压缩(批量) | 金鱼的今语</title>
+<link rel="shortcut icon" href="https://sadjjk.github.io/favicon.ico?v=1668343231821">
+<link rel="stylesheet" href="https://sadjjk.github.io/styles/main.css" type='text/css' media='all'>
+<link href="https://sadjjk.github.io/media/scripts/autoc.css" rel="stylesheet">
+
+<script src="https://sadjjk.github.io/media/scripts/lib/highlight.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/moment.min.js"></script>
+<link href="https://sadjjk.github.io/media/scripts/katex.min.css" rel="stylesheet">
+
+
+
+</head>
+<body class="home blog ct-body standard">
+<div id="overflow-container" class="overflow-container">
+  <header id="site-header" class="site-header" role="banner">
+
+
+    <div class="container">
+        <div id="title-info" class="title-info">
+            <div id='site-title' class='site-title'>
+                <a href="https://sadjjk.github.io">  金鱼的今语 </a>
+            </div>
+        </div>
+        <button id="toggle-navigation" class="toggle-navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+            <p class="site-description">真话、假话、胡话、全都说</p>
+            <div class="menu">
+                <ul id="menu-primary-items" class="menu-primary-items">
+                     
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/">首页</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/archives">归档</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/tags">标签</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="https://bili.wjinyu.top" target="_blank">B站视频解析</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="https://video.wjinyu.top" target="_blank">今日追剧</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="http://music.wjinyu.top" target="_blank">今语云音乐</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/post/about">关于</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+
+  <div id="main" class="main" role="main">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+        
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/07/28/5d3d598991c6850249.jpeg">
+          </div>
+        
+
+        <div class="entry-meta">
+          <span class="date">· 2019-07-28 ·</span>
+
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://sadjjk.github.io/tag/work/">Work</a>
+                </span>
+          
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'>几行代码系列:图片压缩(批量)</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article id="article">
+
+            </article>
+          </div>
+        </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" style="font-size:20px" href="https://sadjjk.github.io/post/eatleek/">下一篇->吃韭菜®</a>
+              </div>
+            </nav>
+          
+      </div>
+      <section id="comments" class="comments">
+        
+      </section>
+    </div>
+  </div>
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+        <a href="https://sadjjk.github.io"> 金鱼的今语 </a>
+    </h1>
+    <p class="site-description" style="font-size:18px">真话、假话、胡话、全都说</p>
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+            
+                <li>
+                    <a href="https://github.com/sadjjk" data-animate-hover="pulse" class="github" target="_blank">
+                        <i class="fab fa-github" title="github"></i>
+                        <span class="screen-reader-text">github</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+                <li>
+                    <a href="https://weibo.com/ " data-animate-hover="pulse" class="weibo" target="_blank">
+                        <i class="fab fa-weibo" title="weibo"></i>
+                        <span class="screen-reader-text">weibo</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="https://www.zhihu.com/" data-animate-hover="pulse" class="zhihu" target="_blank">
+                        <i class="fab fa-zhihu" title="zhihu"></i>
+                        <span class="screen-reader-text">zhihu</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </ul>
+    <div class="design-credit">
+        <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="/atom.xml" target="_blank">RSS</a> | <a href="https://beian.miit.gov.cn" target="_blank">&nbsp;浙ICP备2021037254号-1</a> | <img src="/post-images/gongan.png">浙公网安备 33108202000706号</p>
+    </div>
+</footer>
+
+<script>
+hljs.initHighlightingOnLoad()
+</script>
+<script src="https://sadjjk.github.io/media/scripts/lib/autoc.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/jquery.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/production.min.js"></script>
+
+  <script>
+    var article = `<p>图片压缩API  可敲代码 也可不敲代码</p>
+<!--more-->
+<h3 id="敲代码tinypng">敲代码:<a href="https://tinypng.com/">TinyPNG</a></h3>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/07/28/5d3d53ce0cbf616047.png" alt="5d3d49b6f244d80875.png" loading="lazy"></figure>
+<p>当初搜到过这网站 但因“Up to 20 images, max 5 MB each” 被我直接PASS  后来在一篇文章中再次看着这个网址 定眼仔细一看 简单的网页是阉割版 API才是它的强大的地方</p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/07/28/5d3d54297602e78475.png" alt="5d3d4aa51d0dc93847.png" loading="lazy"></figure>
+<p>邮箱就能注册<br><br>
+提供Ruby，PHP，Node.js，Python，Java和.NET等各个语言的API <br><br>
+以Python为例 <br></p>
+<pre><code class="language-python"># 安装
+pip install tinify
+</code></pre>
+<pre><code class="language-python">import tinify
+import os
+
+tinify.key = '注册后获得的key'
+imgs_path = &quot;imgs&quot; # 图片存放文件夹的路径
+
+for file in os.listdir(imgs_path):
+    imgpath = os.path.join(imgs_path,file)
+    print(&quot;图片压缩前大小: %.3f KB&quot; % (os.path.getsize(imgpath) / 1024))
+    print(&quot;开始压缩%s ...&quot; % imgpath)
+    tinify.from_file(imgpath).resize(method = 'scale',width=800).to_file(imgpath)
+    # tinify.from_file(imgpath).to_file(imgpath)
+    print(&quot;... 压缩完成&quot; )
+    print(&quot;图片压缩后大小: %.3f KB&quot; % (os.path.getsize(imgpath) / 1024))
+    compressions_this_month = tinify.compression_count
+    print(&quot;当月已压缩%d次,剩余%d次&quot; % (compressions_this_month,500-compressions_this_month))
+
+        
+</code></pre>
+<p>十余行代码完成整个文件夹压缩 没有图片数量限制 没有图片大小限制     压缩率也是非常的高  画质几乎无损<br>
+支持反复压缩 不过再次压缩 大小就减少没有那么多<br>
+可指定大小 可智能裁剪 更多功能见 <a href="https://tinypng.com/developers/reference/python">API文档</a><br>
+每个账号每月可调用<strong>500</strong>次 这对个人使用而言足够了 实在不够就多注册几个</p>
+<h3 id="不敲代码utools">不敲代码:<a href="https://u.tools/">uTools</a></h3>
+<p>uTools是一个极简、插件化、跨平台的现代桌面软件。通过自由选配丰富的插件，打造你得心应手的工具集合。当你熟悉它后，能够为你节约大量时间，让你可以更加专注地改变世界。(强！无敌！)</p>
+<p>里面有压缩图片功能，调用的就是<strong>TinyPNG</strong>的接口 本质是一样的<br>
+不足就是不能更改图片尺寸大小</p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/07/28/5d3d574840acc70457.jpg" alt="Xnip2019-07-28_16-05-03.jpg" loading="lazy"></figure>
+<p>uTools还有非常丰富的插件 无处不惊喜 小小的遗憾是Mac端没有像Win端本地文件快速搜索的插件</p>
+<h3 id="后记">后记</h3>
+<p>图片的无损压缩需求来自个人网站(也就是这个网站)访问速度的优化这个网站有几个页面访问速度巨慢 加载不完  F12后 基本是图片的加载耗时<br>
+搜了一下 压缩图片 目的基本也都是Web优化 提高页面加载速度<br>
+找到很多工具类网站提供压缩图片的功能 但都不尽人意</p>
+<ul>
+<li>图片过多 一张张上传下载很麻烦</li>
+<li>有上传图片大小限制  万一我就有高清大图 怎么办？</li>
+</ul>
+<p>也找到几款软件处理压缩图片 但感觉还是差点意思</p>
+<ul>
+<li>有的软件比较大</li>
+<li>有的只能压缩数张 再压缩 右拐请购买VIP</li>
+</ul>
+<p>PPDuck3这款软件还是不错的 几乎无损 文件夹自动处理 原地覆盖 有个小缺点 每次仅10张 用完关闭重开即可</p>
+<p>后来有了图片压缩API  软件基本就不使用了</p>
+`
+    var content = article.split("<!--more-->")[1]
+    if (content != null)
+        document.getElementById('article').innerHTML = content;
+    else
+        document.getElementById('article').innerHTML = article
+
+    let navigation = new AutocJs({
+        title:'几行代码系列:图片压缩(批量)',
+        isGenerateOutlineChapterCode: false
+    })
+    </script>
+</div>
+</body>
+</html>
+

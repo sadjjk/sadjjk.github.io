@@ -1,0 +1,296 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<title>Spark学习笔记-1.故事要从那三篇论文说起 | 金鱼的今语</title>
+<link rel="shortcut icon" href="https://sadjjk.github.io/favicon.ico?v=1668343231821">
+<link rel="stylesheet" href="https://sadjjk.github.io/styles/main.css" type='text/css' media='all'>
+<link href="https://sadjjk.github.io/media/scripts/autoc.css" rel="stylesheet">
+
+<script src="https://sadjjk.github.io/media/scripts/lib/highlight.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/moment.min.js"></script>
+<link href="https://sadjjk.github.io/media/scripts/katex.min.css" rel="stylesheet">
+
+
+
+</head>
+<body class="home blog ct-body standard">
+<div id="overflow-container" class="overflow-container">
+  <header id="site-header" class="site-header" role="banner">
+
+
+    <div class="container">
+        <div id="title-info" class="title-info">
+            <div id='site-title' class='site-title'>
+                <a href="https://sadjjk.github.io">  金鱼的今语 </a>
+            </div>
+        </div>
+        <button id="toggle-navigation" class="toggle-navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+            <p class="site-description">真话、假话、胡话、全都说</p>
+            <div class="menu">
+                <ul id="menu-primary-items" class="menu-primary-items">
+                     
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/">首页</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/archives">归档</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/tags">标签</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="https://bili.wjinyu.top" target="_blank">B站视频解析</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="https://video.wjinyu.top" target="_blank">今日追剧</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="http://music.wjinyu.top" target="_blank">今语云音乐</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/post/about">关于</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+
+  <div id="main" class="main" role="main">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+        
+          <div class='featured-image lazy lazy-bg-image' data-background="https://s3.ax1x.com/2021/01/17/ssWfW4.png">
+          </div>
+        
+
+        <div class="entry-meta">
+          <span class="date">· 2020-09-20 ·</span>
+
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://sadjjk.github.io/tag/work/">Work</a>
+                </span>
+          
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'>Spark学习笔记-1.故事要从那三篇论文说起</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article id="article">
+
+            </article>
+          </div>
+        </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" style="font-size:20px" href="https://sadjjk.github.io/post/condaUse/">下一篇->Miniconda/Anconda(填)使(坑)用手册</a>
+              </div>
+            </nav>
+          
+      </div>
+      <section id="comments" class="comments">
+        
+      </section>
+    </div>
+  </div>
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+        <a href="https://sadjjk.github.io"> 金鱼的今语 </a>
+    </h1>
+    <p class="site-description" style="font-size:18px">真话、假话、胡话、全都说</p>
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+            
+                <li>
+                    <a href="https://github.com/sadjjk" data-animate-hover="pulse" class="github" target="_blank">
+                        <i class="fab fa-github" title="github"></i>
+                        <span class="screen-reader-text">github</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+                <li>
+                    <a href="https://weibo.com/ " data-animate-hover="pulse" class="weibo" target="_blank">
+                        <i class="fab fa-weibo" title="weibo"></i>
+                        <span class="screen-reader-text">weibo</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="https://www.zhihu.com/" data-animate-hover="pulse" class="zhihu" target="_blank">
+                        <i class="fab fa-zhihu" title="zhihu"></i>
+                        <span class="screen-reader-text">zhihu</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </ul>
+    <div class="design-credit">
+        <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="/atom.xml" target="_blank">RSS</a> | <a href="https://beian.miit.gov.cn" target="_blank">&nbsp;浙ICP备2021037254号-1</a> | <img src="/post-images/gongan.png">浙公网安备 33108202000706号</p>
+    </div>
+</footer>
+
+<script>
+hljs.initHighlightingOnLoad()
+</script>
+<script src="https://sadjjk.github.io/media/scripts/lib/autoc.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/jquery.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/production.min.js"></script>
+
+  <script>
+    var article = `<p>这年头谁没个故事呢！<br>
+Spark 也有!</p>
+<!--more-->
+<p>这年头谁没个故事呢！<br>
+Spark 也有!</p>
+<h3 id="起源">起源</h3>
+<p>计算机科学大致分为4个领域:</p>
+<ul>
+<li>人工智能</li>
+<li>编程语言</li>
+<li>操作系统</li>
+<li>计算机理论</li>
+</ul>
+<p>其中<strong>操作系统</strong>领域有两个顶级会议</p>
+<ol>
+<li>ODSI （USENIX conference on Operating Systems Design and Implementation）</li>
+<li>SOSP （ACM Symposium on Operating Systems Principles）</li>
+</ol>
+<p>相当于操作系统的武林大会</p>
+<p>如果把近几十年关于这两个大会提到的武功收录到一本书</p>
+<p>就可以看做是操作系统的绝世秘籍</p>
+<p>毫不夸张的说 得此秘籍者 得天下</p>
+<h3 id="三篇论文">三篇论文</h3>
+<p>其中  一家成立不到三十年的小门派——Google</p>
+<p>四年间分别在 ODSI 与 SOSP 发表了 3 篇论文</p>
+<p>引起了整个武林对分布式系统的广泛关注与讨论</p>
+<p>这三篇论文分别是:</p>
+<p><strong>SOSP2003—The Google File System</strong></p>
+<p><strong>ODSI2004—MapReduce: Simplifed Data Processing on Large Clusters</strong></p>
+<p><strong>ODSI2006—Bigtable: A Distributed Storage System for Structured Data</strong></p>
+<p>The Google File System 主要讨论分布式文件系统</p>
+<p>MapReduce 主要讨论分布式计算框架</p>
+<p>Bigtable 主要讨论分布式数据存储</p>
+<p>有了这 三篇论文的理论基础与后续的一系列文章</p>
+<p>再加上开源社区强大的实战能力</p>
+<p>Hadoop、HDFS、MapReduce、HBase、Spark 等很快走上了台前</p>
+<p>大数据技术开始呈现出一个诸子百家的局面</p>
+<h3 id="hdfs">HDFS</h3>
+<p>开源社区根据Google的第一篇论文&quot;The Google File System&quot;</p>
+<p>实现了一个名为HDFS的<strong>分布式文件系统</strong></p>
+<p>任你武功招式再多 也逃不过最基础的练功心法</p>
+<p>HDFS就好比那最基础的练功心法</p>
+<p>而且是最上乘的 也是最容易掌握的</p>
+<p>因HDFS的高容错性、高吞吐量、适合部署在廉价的机器上</p>
+<p>这三招使其声名大噪  成为了各家门派的基础心法</p>
+<p>就算练不成绝世武功</p>
+<p>拿来修身养性也是可以的</p>
+<h3 id="mapreduce">MapReduce</h3>
+<p>我们常说的MapReduce指的就是</p>
+<p>开源社区根据Google的第二篇论文 实现的<strong>一个分布式计算框架</strong></p>
+<p>但随着练的人越来越来多 MapReduce的缺点也逐渐暴露出来</p>
+<p>不少江湖人士反映 练一段时间后</p>
+<p>怎么练都练不上去 非常容易产生瓶颈</p>
+<p>于是乎 就开始有许多人在此功法上进行修正及完善</p>
+<p>新一代计算框架如 Spark、Flink 也就开始崛起</p>
+<p>最初名为MapReduce的计算框架也逐渐退出历史舞台</p>
+<p>只留在了老一辈江湖人士的记忆里</p>
+<p>MapReduce还有另一层含义:<strong>一种编程模型</strong></p>
+<p>MapReduce 模型将数据处理方式抽象为 map 和 reduce</p>
+<ul>
+<li>map 也就是映射 可以理解为数据一对一的映射</li>
+<li>reduce 也就是归约 可以理解为数据一对多的映射</li>
+</ul>
+<p>如下图所示</p>
+<figure data-type="image" tabindex="1"><img src="https://s0.lgstatic.com/i/image3/M01/0C/A9/Ciqah16OuviABEodAADcW42Rou4249.png" alt="img" loading="lazy"></figure>
+<p>MapReduce认为再复杂的数据处理流程也无非是这两种映射方式的组合</p>
+<figure data-type="image" tabindex="2"><img src="https://s0.lgstatic.com/i/image3/M01/85/BF/Cgq2xl6Ouv6ATQMfAAC8oOgBQqk428.png" alt="img" loading="lazy"></figure>
+<p>这样的编程模型为分布式的实现提供了可能</p>
+<p>当整个数据集的计算量超过一台计算机处理的极限时</p>
+<p>我们就会想办法把不同的数据集交给不同的计算机完成</p>
+<p>map过程 非常容易就可以把各个数据交给不同的计算机完成<br>
+不影响最终的结果</p>
+<p>reduce过程 必然会涉及数据在不同计算机之间的传输<br>
+这也是MapReduce计算框架的分布式实现的一个关键点</p>
+<h3 id="hbase">HBase</h3>
+<p>开源社区根据Google的第三篇论文&quot;Bigtable&quot;</p>
+<p>实现了一个名为HBase的<strong>分布式非结构化数据库</strong></p>
+<p>它不是运行MapReduce任务来查询存放在HDFS上的数据</p>
+<p>而是使用自己的一套规则来存储数据</p>
+<p>所以运行速度非常快 适用于海量明细数据的实时查询</p>
+<p>由于HBase相较于HDFS、MapReduce诞生的比较晚</p>
+<p>而且当时又有诸多数据库可代替</p>
+<p>也就造成了HBase没有像HDFS、MapReduce那样流行</p>
+<h3 id="故事就先说到这">故事就先说到这！</h3>
+`
+    var content = article.split("<!--more-->")[1]
+    if (content != null)
+        document.getElementById('article').innerHTML = content;
+    else
+        document.getElementById('article').innerHTML = article
+
+    let navigation = new AutocJs({
+        title:'Spark学习笔记-1.故事要从那三篇论文说起',
+        isGenerateOutlineChapterCode: false
+    })
+    </script>
+</div>
+</body>
+</html>
+

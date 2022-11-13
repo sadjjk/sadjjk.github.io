@@ -1,0 +1,348 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="all,follow">
+<meta name="googlebot" content="index,follow,snippet,archive">
+<title>BilibiliVideo-实现篇-基础篇 | 金鱼的今语</title>
+<link rel="shortcut icon" href="https://sadjjk.github.io/favicon.ico?v=1668343231821">
+<link rel="stylesheet" href="https://sadjjk.github.io/styles/main.css" type='text/css' media='all'>
+<link href="https://sadjjk.github.io/media/scripts/autoc.css" rel="stylesheet">
+
+<script src="https://sadjjk.github.io/media/scripts/lib/highlight.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/moment.min.js"></script>
+<link href="https://sadjjk.github.io/media/scripts/katex.min.css" rel="stylesheet">
+
+
+
+</head>
+<body class="home blog ct-body standard">
+<div id="overflow-container" class="overflow-container">
+  <header id="site-header" class="site-header" role="banner">
+
+
+    <div class="container">
+        <div id="title-info" class="title-info">
+            <div id='site-title' class='site-title'>
+                <a href="https://sadjjk.github.io">  金鱼的今语 </a>
+            </div>
+        </div>
+        <button id="toggle-navigation" class="toggle-navigation">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div id="menu-primary-tracks" class="menu-primary-tracks"></div>
+        <div id="menu-primary" class="menu-container menu-primary" role="navigation">
+            <p class="site-description">真话、假话、胡话、全都说</p>
+            <div class="menu">
+                <ul id="menu-primary-items" class="menu-primary-items">
+                     
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/">首页</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/archives">归档</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/tags">标签</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="https://bili.wjinyu.top" target="_blank">B站视频解析</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="https://video.wjinyu.top" target="_blank">今日追剧</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="http://music.wjinyu.top" target="_blank">今语云音乐</a>
+                            </li>
+                        
+                    
+                        
+                            <li id="menu-item" class='menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item'>
+                                <a href="/post/about">关于</a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+
+
+  <div id="main" class="main" role="main">
+    <div id="loop-container" class="loop-container">
+      <div class="post type-post status-publish format-standard has-post-thumbnail hentry category-design tag-design tag-standard-2 tag-tagalicious tag-travel entry full-without-featured odd excerpt-1">
+        
+          <div class='featured-image lazy lazy-bg-image' data-background="https://i.loli.net/2019/11/10/qL5boIXTCAfvps7.png">
+          </div>
+        
+
+        <div class="entry-meta">
+          <span class="date">· 2019-11-10 ·</span>
+
+          
+            <span class="category">
+                    <span> / </span>
+                    <a href="https://sadjjk.github.io/tag/life/">Life</a>
+                </span>
+          
+        </div>
+        <div class='entry-header'>
+          <h1 class='entry-title'>BilibiliVideo-实现篇-基础篇</h1>
+        </div>
+        <div class="entry-container">
+          <div class="entry-content">
+            <article id="article">
+
+            </article>
+          </div>
+        </div>
+          
+            <nav class="navigation pagination" role="navigation">
+              <h2 class="screen-reader-text">Posts navigation</h2>
+              <div class="nav-links">
+                <a class="next page-numbers" style="font-size:20px" href="https://sadjjk.github.io/post/BilibiliVideo_begin/">下一篇->BilibiliVideo-缘起篇</a>
+              </div>
+            </nav>
+          
+      </div>
+      <section id="comments" class="comments">
+        
+      </section>
+    </div>
+  </div>
+  <footer id="site-footer" class="site-footer" role="contentinfo">
+    <h1>
+        <a href="https://sadjjk.github.io"> 金鱼的今语 </a>
+    </h1>
+    <p class="site-description" style="font-size:18px">真话、假话、胡话、全都说</p>
+    <div id="menu-footer" class="menu-container menu-footer" role="navigation">
+        <div class="menu">
+            <ul id="menu-footer-items" class="menu-footer-items">
+            </ul>
+        </div>
+    </div>
+    <ul class="social-media-icons">
+        
+            
+                <li>
+                    <a href="https://github.com/sadjjk" data-animate-hover="pulse" class="github" target="_blank">
+                        <i class="fab fa-github" title="github"></i>
+                        <span class="screen-reader-text">github</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+                <li>
+                    <a href="https://weibo.com/ " data-animate-hover="pulse" class="weibo" target="_blank">
+                        <i class="fab fa-weibo" title="weibo"></i>
+                        <span class="screen-reader-text">weibo</span>
+                    </a>
+                </li>
+            
+        
+            
+                <li>
+                    <a href="https://www.zhihu.com/" data-animate-hover="pulse" class="zhihu" target="_blank">
+                        <i class="fab fa-zhihu" title="zhihu"></i>
+                        <span class="screen-reader-text">zhihu</span>
+                    </a>
+                </li>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </ul>
+    <div class="design-credit">
+        <p>Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | <a class="rss" href="/atom.xml" target="_blank">RSS</a> | <a href="https://beian.miit.gov.cn" target="_blank">&nbsp;浙ICP备2021037254号-1</a> | <img src="/post-images/gongan.png">浙公网安备 33108202000706号</p>
+    </div>
+</footer>
+
+<script>
+hljs.initHighlightingOnLoad()
+</script>
+<script src="https://sadjjk.github.io/media/scripts/lib/autoc.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/jquery.min.js"></script>
+<script src="https://sadjjk.github.io/media/scripts/lib/production.min.js"></script>
+
+  <script>
+    var article = `<p>只有用水将心上的雾气淘洗干净<br>
+荣光才会照亮最初的梦想</p>
+<!--more-->
+<p>网站：<a href="http://www.wjinyu.top:233/">BilibiliVideo</a></p>
+<p><strong>不公开源码 仅提供技术思路 如有疑惑 可留言</strong></p>
+<ul>
+<li><a href="/post/BilibiliVideo_begin/">BilibiliVideo-缘起篇</a>      ——不讲技术只讲废话</li>
+<li><a href="/post/BilibiliVideo_realize/">BilibiliVideo-实现篇-基础篇</a>      ——只有干货没有废话</li>
+<li><a href="/post/BilibiliVideo_optimize/">BilibiliVideo-实现篇-优化篇</a>      ——只有干货没有废话</li>
+<li><a href="/post/BilibiliVideo_last/">BilibiliVideo-后话篇</a>      ——又说废话没有技术</li>
+</ul>
+<p>BilibiliVideo的核心就是如何获取视频的下载地址<br>
+主要的参考思路来自<a href="https://github.com/Henryhaohao/Bilibili_video_download">Github大佬的项目</a> https://github.com/Henryhaohao/Bilibili_video_download<br>
+在此基础上进行了梳理修改<br>
+下面是视频下载的大体思路</p>
+<h4 id="获取视频基本信息">获取视频基本信息</h4>
+<figure data-type="image" tabindex="1"><img src="https://i.loli.net/2019/11/10/wCUAR5TjWK9IGBk.png" alt="未命名文件.jpg" loading="lazy"></figure>
+<p>B站Up主视频地址基本都是/av+av号 如https://www.bilibili.com/video/av71658681<br>
+番剧、电影基本都是/ep+ep号 或者/ss+ss号 如https://www.bilibili.com/bangumi/play/ep276373</p>
+<p>requests.get(url).text  获取当前地址的源码<br>
+正则匹配<code>r'INITIAL_STATE__=(.*?});'</code><br>
+匹配里的内容就是视频的基本信息json 有</p>
+<ul>
+<li>aid</li>
+<li>cid</li>
+<li>视频标题 title</li>
+<li>视频封面 cover</li>
+</ul>
+<p>这里要注意Up主视频地址与番剧视频的json内容不同的<br>
+所以要分开处理</p>
+<h5 id="up主视频">Up主视频</h5>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2019/11/10/O6mfwrtpeZQJDlG.png" alt="UTOOLS_COMPRESS_1573368344571.png" loading="lazy"></figure>
+<p>json里面有pic(即封面)、title(即标题)<br>
+一个视频地址里面可能有多个子视频<br>
+pages里面就存着多个子视频的信息<br>
+需要用到的是cid和part(子视频的名字)</p>
+<h5 id="番剧视频">番剧视频</h5>
+<p>番剧的json内容与Up主json内容略有不同</p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2019/11/10/1vKXJPo3DlmgfbY.png" alt="UTOOLS_COMPRESS_1573368890717.png" loading="lazy"></figure>
+<p>mediainfo里放着这个番剧的标题和封面<br>
+epList里有每集视频的cid和aid</p>
+<h4 id="获取视频下载地址">获取视频下载地址</h4>
+<p>上一步已经拿到了每集视频的cid、aid、quality(默认720P)<br>
+使用非官方公开API</p>
+<pre><code>https://api.bilibili.com/x/player/playurl?cid={}&amp;avid={}&amp;qn={}
+</code></pre>
+<p>cid 即获取到的cid<br>
+avid 即获取到的aid<br>
+qn 即获取到的quality所对应的值<br>
+如下表</p>
+<pre><code>&quot;360P&quot;:16,
+&quot;480P&quot;:32,
+&quot;720P&quot;:64,
+&quot;1080P&quot;:80,
+&quot;1080P+&quot;:112
+</code></pre>
+<p>request.get(API_URL)<br>
+即可获取大部分视频<br>
+Up主视频基本都能解析了<br>
+还有部分视频需要会员<br>
+清晰度1080P+ 也是会员特有<br>
+那如何获取会员视频 ？<br>
+毫无疑问 首先要有一个<strong>大会员账号</strong><br>
+实名感谢Y朋友提供的大会员账号<br>
+没有大会员 肯定是无法下载会员视频的<br>
+毕竟天下没有免费的午餐<br>
+有了大会员账号  登陆B站<br>
+F12&gt; Application&gt;Cookies&gt;SESSDATA<br>
+记录SESSDATA的值  添加headers<br>
+补充:SESSDATA据说是有1个月的有效期<br>
+若失效 需重新登录获取</p>
+<pre><code>headers = {
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36',
+    'Cookie': 'SESSDATA=刚记录的SESSDATA值',
+    'Host': 'api.bilibili.com'
+}
+</code></pre>
+<p>request.get(API_URL,headers = headers) 即可<br>
+这是返回的结果 同样是json<br>
+<img src="https://i.loli.net/2019/11/10/CGPTJ9g2m1b3Q6O.png" alt="UTOOLS_COMPRESS_1573370101861.png" loading="lazy"></p>
+<p>下载地址是data['durl']['url']<br>
+到这里基本可以获取全站所有的视频下载地址</p>
+<h4 id="本地下载视频">本地下载视频</h4>
+<p>上一步已获取到视频的下载地址<br>
+开始Download<br>
+这里推荐使用urllib.request.urlretrieve<br>
+这个下载比较优雅 还有回调函数 可实时打印下载进度<br>
+不推荐使用requests.get<br>
+requests库虽然对urllib进一步封装更加常用 但在下载这些视频的时候<br>
+经常报403错误  可能是视频流的原因<br>
+当初就犯了这个错误 使用requests.get<br>
+结果好多视频地址失效了<br>
+其实地址都是有效的<br>
+如果要本地下载 就用  urllib.request.urlretrieve<br>
+如果要打开(使用服务时) 就用  urllib.request.urlopen<br>
+当然 直接开始下载 也还是不行的<br>
+资源一般都有防盗链   不会那么随便就能访问到服务器的资源<br>
+同样要添加headers  urllib添加headers 与requests略有不同</p>
+<pre><code>opener = urllib.request.build_opener()
+
+# 请求头
+opener.addheaders = [
+    ('Host', 'upos-hz-mirrorks3.acgvideo.com'),
+    ('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36 '),
+    ('Accept', '*/*'),
+    ('Accept-Language', 'en-US,en;q=0.5'),
+    ('Accept-Encoding', 'gzip, deflate, br'),
+    ('Range', 'bytes=0-'),  # Range 的值要为 bytes=0- 才能下载完整视频
+    ('Referer', 一开始输入的B站视频地址),
+    ('Origin', 'https://www.bilibili.com'),
+    ('Connection', 'keep-alive'),
+]
+urllib.request.install_opener(opener)
+urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名)
+
+</code></pre>
+<p>这样就可以下载视频了<br>
+如果要查看下载的进度 需要添加回调函数</p>
+<pre><code>def _progress(self,block_num, block_size, total_size):
+    '''回调函数
+       @block_num: 已经下载的数据块
+       @block_size: 数据块的大小
+       @total_size: 远程文件的大小
+    '''
+
+    # 设置下载进度条
+    pervent = block_num * block_size / total_size * 100
+    percent_str = &quot;%.2f%%&quot; % (pervent)
+    logger.info(percent_str)
+        
+urllib.request.urlretrieve(url=视频下载地址, filename=下载文件名,reporthook = _progress)        
+</code></pre>
+<h4 id="end">END</h4>
+<p>整体思路介绍完毕<br>
+基本上就可以下载任意视频到本地了</p>
+<figure data-type="image" tabindex="4"><img src="https://i.loli.net/2019/11/10/iO4UmQs6REHP5vl.png" alt="UTOOLS_COMPRESS_1573371620820.png" loading="lazy"></figure>
+`
+    var content = article.split("<!--more-->")[1]
+    if (content != null)
+        document.getElementById('article').innerHTML = content;
+    else
+        document.getElementById('article').innerHTML = article
+
+    let navigation = new AutocJs({
+        title:'BilibiliVideo-实现篇-基础篇',
+        isGenerateOutlineChapterCode: false
+    })
+    </script>
+</div>
+</body>
+</html>
+
